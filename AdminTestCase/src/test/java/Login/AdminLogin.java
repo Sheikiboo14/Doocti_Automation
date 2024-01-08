@@ -43,7 +43,7 @@ public class AdminLogin {
 		
 		driver.findElement(By.xpath("//div[contains(text(),'Login')]")).click();
 		
-		Thread.sleep(3000);
+		Thread.sleep(5000);
 
 		driver.navigate().refresh();
 		

@@ -9,7 +9,7 @@ import Login.AdminLogin;
 
 public class Create_User extends AdminLogin {
 	
-	String UserId = "smibrahim_agent02";
+	String UserId = "smibrahim_agent05";
 	
 	String Name ="Test";
 	
@@ -91,6 +91,8 @@ public class Create_User extends AdminLogin {
 		
 		GroupList.findElement(By.xpath("(//div[@class='v-list__tile__title'][normalize-space()='"+Group+"'])[2]")).click();
 		
+		UserPopup.click();
+
 		//Create New User
 		
 		driver.findElement(By.xpath("(//div[@class='v-btn__content'][normalize-space()='Create'])[2]")).click();
@@ -99,6 +101,6 @@ public class Create_User extends AdminLogin {
 		
 		Thread.sleep(1000);
 		
-		driver.findElement(By.xpath("(//div[@class='v-btn__content'][normalize-space()='Close'])[7]")).click();
+		driver.findElement(By.xpath("//button[@class='v-btn v-btn--flat theme--light pink--text']//div[@class='v-btn__content'][normalize-space()='Close']")).click();
 	}
 }
