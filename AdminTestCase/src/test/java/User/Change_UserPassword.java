@@ -14,7 +14,7 @@ public class Change_UserPassword extends AdminLogin {
 	String NewPassword = "Doocti@1234";
 	
 	String CPassword = NewPassword;
-	
+
 	@BeforeMethod
 	public void Setup() throws InterruptedException {
 		

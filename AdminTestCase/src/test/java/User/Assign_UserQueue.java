@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 import Login.AdminLogin;
 
 public class Assign_UserQueue extends AdminLogin {
-
+	
 	String UserId = "smibrahim_agent04";
 	
 	String Queue1 = "smibrahim_8071893401";
@@ -108,9 +108,6 @@ public class Assign_UserQueue extends AdminLogin {
 	
 		Thread.sleep(1000);
 		
-	//Adding another row
-		
-		driver.findElement(By.xpath("//i[@class='v-icon icon v-icon--link mdi mdi-plus theme--light primary--text']")).click();
 		
 	// Adding New Queue
 		
@@ -122,18 +119,57 @@ public class Assign_UserQueue extends AdminLogin {
 		
 		WebElement QueueList = driver.findElement(By.xpath("(//div[@role='list'])[2]"));
 		
+		QueueList.findElement(By.xpath("//div[contains(text(),'"+Queue1+"')]")).click();
+		
+		AssignQueuePopup.click();
+		
+	//User Rank
+		
+		driver.findElement(By.xpath("(//div[@class='v-select__selections'])[2]")).click();
+		
+		Thread.sleep(1000);
+		
+		WebElement UserRankList = driver.findElement(By.xpath("(//div[@role='list'])[1]"));
+		
+		UserRankList.findElement(By.xpath("(//div[@class='v-list__tile__title'][normalize-space()='"+User_rank1+"'])[1]")).click();
+		
+	//Adding another row
+		
+		driver.findElement(By.xpath("//i[@class='v-icon icon v-icon--link mdi mdi-plus theme--light primary--text']")).click();
+
+		
+	// Adding New Queue
+		
+		driver.findElement(By.xpath("(//i[@aria-hidden='true'][normalize-space()='arrow_drop_down'])[3]")).click();
+		
+		Thread.sleep(1000);
+		
+//		WebElement AssignQueuePopup =driver.findElement(By.xpath("(//div[@id='scroll-target'])[1]"));
+//		
+//		WebElement QueueList = driver.findElement(By.xpath("(//div[@role='list'])[2]"));
+		
 		QueueList.findElement(By.xpath("//div[contains(text(),'"+Queue2+"')]")).click();
 		
 		AssignQueuePopup.click();
 		
+	//User Rank
 		
-		//Saving the Queue
+		driver.findElement(By.xpath("(//i[@aria-hidden='true'][normalize-space()='arrow_drop_down'])[4]")).click();
+		
+		Thread.sleep(1000);
+		
+//		WebElement UserRankList = driver.findElement(By.xpath("(//div[@role='list'])[1]"));
+		
+		UserRankList.findElement(By.xpath("(//div[@class='v-list__tile__title'][normalize-space()='"+User_rank2+"'])[1]")).click();
+		
+		
+	//Saving the Queue
 		
 		driver.findElement(By.xpath("//div[normalize-space()='Save']")).click();
 		
 		Thread.sleep(1000);
 		
-		//Close Snakbar
+	//Close Snakbar
 		
 		driver.findElement(By.xpath("//button[@class='v-btn v-btn--flat theme--light pink--text']//div[@class='v-btn__content'][normalize-space()='Close']")).click();
 		

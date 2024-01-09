@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="User.Change_UserPassword">
+      <class name="User_Groups.User_Groups">
         <methods>
-          <include name="Setup"/>
           <include name="Login"/>
-          <include name="ChangePassword"/>
+          <include name="Setup"/>
+          <include name="Create_UserGroup"/>
         </methods>
-      </class> <!-- User.Change_UserPassword -->
+      </class> <!-- User_Groups.User_Groups -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
