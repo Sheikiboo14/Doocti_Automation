@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="CRM Module Creation Testing">
+	
+  <test name ="Campaign Creation">
+	<classes>      
+      <class name="Campaign.CreateCamapign"/>
+    </classes>
+  </test> <!-- Test -->
+
+  
+  <test name ="Contact Creation">
+	<classes>      
+      <class name="Contact.CreatingContact"/>
+    </classes>
+  </test> <!-- Test -->
+  
+  <test name ="Leads Creation">
+	<classes>      
+      <class name="Leads.CreatingLeads"/>
+    </classes>
+  </test> <!-- Test -->
+  
+  <test name ="List Creation">
+	<classes>      
+      <class name="List.CreatingList"/>
+    </classes>
+  </test> <!-- Test -->
+  
+  <test name ="Meeting Creation">
+	<classes>      
+      <class name="Meeting.CreatingMeeting"/>
+    </classes>
+  </test> <!-- Test -->
+  
+	<test name="User Group Creation">
+		<classes>
+			<class name="User_Groups.User_Groups"/>
+		</classes>
+	</test>
+	
+	<test name="Team Creation">
+		<classes>
+			<class name="Team.Create_Team"/>
+		</classes>
+	</test>
+	
+	<test name="Channel Creation">
+		<classes>
+			<class name="Channel.Create_Channel"/>
+		</classes>
+	</test>
+	
+	<test name="Source Creation">
+		<classes>
+			<class name="Source.Create_Source"/>
+		</classes>
+	</test>
+  
+</suite> <!-- Suite -->
+
+

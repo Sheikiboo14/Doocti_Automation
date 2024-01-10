@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="User_Groups.User_Groups">
+      <class name="Channel.Create_Channel">
         <methods>
+          <include name="Setip"/>
+          <include name="Create_Channel"/>
           <include name="Login"/>
-          <include name="Setup"/>
-          <include name="Create_UserGroup"/>
         </methods>
-      </class> <!-- User_Groups.User_Groups -->
+      </class> <!-- Channel.Create_Channel -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

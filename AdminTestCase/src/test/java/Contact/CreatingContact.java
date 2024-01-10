@@ -51,7 +51,6 @@ public class CreatingContact extends AdminLogin{
 		rb.keyPress(KeyEvent.VK_SHIFT);
 		rb.keyPress(KeyEvent.VK_J);
 
-
 		
 		Thread.sleep(1000);
 		

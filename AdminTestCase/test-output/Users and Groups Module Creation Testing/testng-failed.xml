@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Users and Groups Module Creation Testing]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="User Group Creation(failed)">
+    <classes>
+      <class name="User_Groups.User_Groups">
+        <methods>
+          <include name="Login"/>
+          <include name="Setup"/>
+          <include name="Create_UserGroup"/>
+        </methods>
+      </class> <!-- User_Groups.User_Groups -->
+    </classes>
+  </test> <!-- User Group Creation(failed) -->
+  <test thread-count="5" name="Team Creation(failed)">
+    <classes>
+      <class name="Team.Create_Team">
+        <methods>
+          <include name="Login"/>
+          <include name="Setip"/>
+          <include name="Create_Team"/>
+        </methods>
+      </class> <!-- Team.Create_Team -->
+    </classes>
+  </test> <!-- Team Creation(failed) -->
+  <test thread-count="5" name="Channel Creation(failed)">
+    <classes>
+      <class name="Channel.Create_Channel">
+        <methods>
+          <include name="Setip"/>
+          <include name="Create_Channel"/>
+          <include name="Login"/>
+        </methods>
+      </class> <!-- Channel.Create_Channel -->
+    </classes>
+  </test> <!-- Channel Creation(failed) -->
+</suite> <!-- Failed suite [Users and Groups Module Creation Testing] -->

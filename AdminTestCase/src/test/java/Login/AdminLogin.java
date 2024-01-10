@@ -4,9 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -19,7 +17,7 @@ public class AdminLogin {
 	
 	String AdminPassword = "Doocti@123";
 	
-	
+
 	public WebDriver driver;
 	
 	@BeforeTest
@@ -27,11 +25,15 @@ public class AdminLogin {
 		
 		WebDriverManager.chromedriver().setup();
 		
+//		WebDriverManager.edgedriver().setup();
+		
 		ChromeOptions Browser = new ChromeOptions();
 		
 		Browser.addArguments("--incognito");
 		
 		driver = new ChromeDriver(Browser);
+		
+//		driver = new EdgeDriver();
 		
 		driver.manage().window().maximize();
 		

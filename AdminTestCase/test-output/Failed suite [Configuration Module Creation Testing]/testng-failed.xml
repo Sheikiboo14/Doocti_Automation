@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Failed suite [Configuration Module Creation Testing]]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="Test(failed)(failed)">
+    <classes>
+      <class name="Configuration_CreationFlow.Queue_Creation">
+        <methods>
+          <include name="Create_Queue"/>
+          <include name="Login"/>
+          <include name="Setup"/>
+        </methods>
+      </class> <!-- Configuration_CreationFlow.Queue_Creation -->
+      <class name="Configuration_CreationFlow.Create_SubDisposition">
+        <methods>
+          <include name="Create_SubDisposition"/>
+          <include name="Login"/>
+          <include name="Setup"/>
+        </methods>
+      </class> <!-- Configuration_CreationFlow.Create_SubDisposition -->
+      <class name="Configuration_CreationFlow.Script_Creation">
+        <methods>
+          <include name="Create_Script"/>
+          <include name="Login"/>
+          <include name="Setup"/>
+        </methods>
+      </class> <!-- Configuration_CreationFlow.Script_Creation -->
+      <class name="Configuration_CreationFlow.BlockList">
+        <methods>
+          <include name="Login"/>
+          <include name="Uplode_BlockList"/>
+          <include name="Setup"/>
+        </methods>
+      </class> <!-- Configuration_CreationFlow.BlockList -->
+      <class name="Configuration_CreationFlow.Create_Tags">
+        <methods>
+          <include name="Tags_Creation"/>
+          <include name="Login"/>
+          <include name="Setup"/>
+        </methods>
+      </class> <!-- Configuration_CreationFlow.Create_Tags -->
+      <class name="Configuration_CreationFlow.Manual_DID_Creation">
+        <methods>
+          <include name="Login"/>
+          <include name="Manual_DID_Creation"/>
+          <include name="Setup"/>
+        </methods>
+      </class> <!-- Configuration_CreationFlow.Manual_DID_Creation -->
+      <class name="Configuration_CreationFlow.TicketStatus">
+        <methods>
+          <include name="Login"/>
+          <include name="Setup"/>
+          <include name="Create_TicketStatus"/>
+        </methods>
+      </class> <!-- Configuration_CreationFlow.TicketStatus -->
+      <class name="Configuration_CreationFlow.Dispo_Creation">
+        <methods>
+          <include name="Create_Disposition"/>
+          <include name="Setup"/>
+          <include name="Login"/>
+        </methods>
+      </class> <!-- Configuration_CreationFlow.Dispo_Creation -->
+      <class name="Configuration_CreationFlow.Create_Announcement">
+        <methods>
+          <include name="Setup"/>
+          <include name="Login"/>
+          <include name="Create_Announcement"/>
+        </methods>
+      </class> <!-- Configuration_CreationFlow.Create_Announcement -->
+      <class name="Configuration_CreationFlow.Create_TimeZone">
+        <methods>
+          <include name="TimeZone_Creation"/>
+          <include name="Login"/>
+          <include name="Setup"/>
+        </methods>
+      </class> <!-- Configuration_CreationFlow.Create_TimeZone -->
+      <class name="Configuration_CreationFlow.Uplode_AudioStore">
+        <methods>
+          <include name="Uplode_Audio"/>
+          <include name="Login"/>
+          <include name="Setup"/>
+        </methods>
+      </class> <!-- Configuration_CreationFlow.Uplode_AudioStore -->
+      <class name="Configuration_CreationFlow.Creat_PauseCode">
+        <methods>
+          <include name="Setup"/>
+          <include name="Login"/>
+          <include name="Create_PauseCode"/>
+        </methods>
+      </class> <!-- Configuration_CreationFlow.Creat_PauseCode -->
+      <class name="Configuration_CreationFlow.Uplode_DIDNumber">
+        <methods>
+          <include name="Setup"/>
+          <include name="Uplode_DID"/>
+          <include name="Login"/>
+        </methods>
+      </class> <!-- Configuration_CreationFlow.Uplode_DIDNumber -->
+    </classes>
+  </test> <!-- Test(failed)(failed) -->
+</suite> <!-- Failed suite [Failed suite [Configuration Module Creation Testing]] -->

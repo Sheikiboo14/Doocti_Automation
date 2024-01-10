@@ -9,7 +9,7 @@ import Login.AdminLogin;
 
 public class Create_Channel extends AdminLogin {
 	
-	String ChannelName ="Email";
+	String ChannelName ="Chat1";
 	
 	String Description ="Testing";
 	
