@@ -30,7 +30,7 @@ public class Update_MeetingTitle extends AdminLogin {
 	}
 	
 
-	@Test(priority = 2)
+	@Test(priority = 0)
 	public void Update_TitleStatus() throws InterruptedException {
 		
 		//Filter Tab
@@ -57,6 +57,8 @@ public class Update_MeetingTitle extends AdminLogin {
 		// Applying Filter
 		
 		driver.findElement(By.xpath("(//div[@class='v-btn__content'][normalize-space()='Filter'])[1]")).click();
+		
+		Thread.sleep(1000);
 		
 		// Update popup
 		

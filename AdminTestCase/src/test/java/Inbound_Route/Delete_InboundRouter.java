@@ -7,14 +7,9 @@ import org.testng.annotations.Test;
 
 import Login.AdminLogin;
 
-public class Inbound_Updation extends AdminLogin {
-
+public class Delete_InboundRouter extends AdminLogin{
 	
 	String IR_Application="queue";
-	
-	Long DID_Number = 9090909090L;
-	
-	boolean BlockList = false;
 	
 	@BeforeMethod
 	public void Setup() throws InterruptedException {
@@ -32,7 +27,7 @@ public class Inbound_Updation extends AdminLogin {
 	}
 	
 	@Test
-	public void Update_IR() throws InterruptedException {
+	public void Delete_InboundRouter() throws InterruptedException{
 		
 		//Filter Tab
 		
@@ -61,22 +56,13 @@ public class Inbound_Updation extends AdminLogin {
 		
 		Thread.sleep(1000);
 		
-		// Update Popup
+		// Delete Inbound Router
 		
-		driver.findElement(By.xpath("(//div[@class='v-btn__content'][normalize-space()='Filter'])[1]")).click();
+		driver.findElement(By.xpath("(//i[@class='v-icon mr-4 v-icon--link material-icons theme--light red--text'][normalize-space()='delete'])[1]")).click();
 		
 		Thread.sleep(1000);
 		
-		WebElement UpdatePopup= driver.findElement(By.xpath("(//div[@class='v-card__text'])[2]"));
-		
-		//DID Number
-		WebElement Did_Number = driver.findElement(By.xpath("(//input[@aria-label='DID Number'])[1]"));
-		
-		Did_Number.sendKeys(Long.toString(DID_Number));
-		
-		// Update DID Number
-		
-		driver.findElement(By.xpath("(//div[normalize-space()='Update'])[1]")).click();
+		driver.findElement(By.xpath("(//button[@type='button'])[12]")).click();
 		
 		Thread.sleep(1000);
 		
@@ -86,6 +72,7 @@ public class Inbound_Updation extends AdminLogin {
 		
 		driver.findElement(By.xpath("(//div[contains(text(),'Configurations')])[1]")).click();
 
+		
 		
 	}
 

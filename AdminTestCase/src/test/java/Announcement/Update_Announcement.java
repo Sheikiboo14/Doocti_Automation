@@ -62,7 +62,6 @@ public class Update_Announcement extends AdminLogin {
 		
 		driver.findElement(By.xpath("(//div[@class='v-btn__content'][normalize-space()='Filter'])[1]")).click();
 		
-		
 		//Update popup
 		
 		driver.findElement(By.xpath("(//i[@class='v-icon mr-4 v-icon--link material-icons theme--light blue--text'])[1]")).click();

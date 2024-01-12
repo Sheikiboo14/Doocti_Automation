@@ -1,4 +1,4 @@
-package Inbound_Route;
+package Configuration_DeletionFlow;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -7,14 +7,10 @@ import org.testng.annotations.Test;
 
 import Login.AdminLogin;
 
-public class Inbound_Updation extends AdminLogin {
+public class MeetingTitle_Deletion extends AdminLogin {
+	
 
-	
-	String IR_Application="queue";
-	
-	Long DID_Number = 9090909090L;
-	
-	boolean BlockList = false;
+	String Title_Name = "Testing Title";
 	
 	@BeforeMethod
 	public void Setup() throws InterruptedException {
@@ -25,14 +21,15 @@ public class Inbound_Updation extends AdminLogin {
 		
 		Thread.sleep(1000);
 		
-		// Inbound Route 
+		// Meeting Title Page
 		
-		driver.findElement(By.xpath("(//span[normalize-space()='Inbound Route'])[1]")).click();
+		driver.findElement(By.xpath("(//span[normalize-space()='Meeting Title'])[1]")).click();
 		
 	}
 	
 	@Test
-	public void Update_IR() throws InterruptedException {
+	public void Delete_MeetingTitle() throws InterruptedException {
+		
 		
 		//Filter Tab
 		
@@ -43,15 +40,15 @@ public class Inbound_Updation extends AdminLogin {
 		WebElement Popup= driver.findElement(By.xpath("(//div[@class='container sidenavContainer'])[1]"));
 		
 		
-		//Filter Application
+		//Filter Title
 		
-		driver.findElement(By.xpath("(//input[@aria-label='Application'])[1]")).click();
+		driver.findElement(By.xpath("(//div[@class='v-select__selections'])[2]")).click();
 		
 		Thread.sleep(1000);
 		
-		WebElement NameList = driver.findElement(By.xpath("(//div[@role='list'])[2]"));
+		WebElement TitleList = driver.findElement(By.xpath("(//div[@role='list'])[2]"));
 		
-		NameList.findElement(By.xpath("(//div[contains(text(),'"+IR_Application+"')])[1]")).click();
+		TitleList.findElement(By.xpath("(//div[contains(text(),'"+Title_Name+"')])[1]")).click();
 		
 		Popup.click();
 		
@@ -61,32 +58,23 @@ public class Inbound_Updation extends AdminLogin {
 		
 		Thread.sleep(1000);
 		
-		// Update Popup
+		// Delete Meeting
 		
-		driver.findElement(By.xpath("(//div[@class='v-btn__content'][normalize-space()='Filter'])[1]")).click();
+		driver.findElement(By.xpath("(//i[@class='v-icon mr-4 v-icon--link material-icons theme--light red--text'][normalize-space()='delete'])[1]")).click();
 		
 		Thread.sleep(1000);
 		
-		WebElement UpdatePopup= driver.findElement(By.xpath("(//div[@class='v-card__text'])[2]"));
-		
-		//DID Number
-		WebElement Did_Number = driver.findElement(By.xpath("(//input[@aria-label='DID Number'])[1]"));
-		
-		Did_Number.sendKeys(Long.toString(DID_Number));
-		
-		// Update DID Number
-		
-		driver.findElement(By.xpath("(//div[normalize-space()='Update'])[1]")).click();
+		driver.findElement(By.xpath("(//button[@type='button'])[12]")).click();
 		
 		Thread.sleep(1000);
 		
 		// Close Snakbar
-		
+			
 		driver.findElement(By.xpath("(//div[@class='v-btn__content'][normalize-space()='Close'])[3]")).click();
 		
 		driver.findElement(By.xpath("(//div[contains(text(),'Configurations')])[1]")).click();
-
 		
 	}
+
 
 }

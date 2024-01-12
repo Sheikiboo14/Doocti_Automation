@@ -1,4 +1,4 @@
-package Inbound_Route;
+package Audio_Store;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -7,14 +7,9 @@ import org.testng.annotations.Test;
 
 import Login.AdminLogin;
 
-public class Inbound_Updation extends AdminLogin {
-
+public class Delete_AudioStore extends AdminLogin{
 	
-	String IR_Application="queue";
-	
-	Long DID_Number = 9090909090L;
-	
-	boolean BlockList = false;
+	String Audio_Name ="7120-download-iphone-6-original-";
 	
 	@BeforeMethod
 	public void Setup() throws InterruptedException {
@@ -25,15 +20,16 @@ public class Inbound_Updation extends AdminLogin {
 		
 		Thread.sleep(1000);
 		
-		// Inbound Route 
+		// Audio Store
 		
-		driver.findElement(By.xpath("(//span[normalize-space()='Inbound Route'])[1]")).click();
+		driver.findElement(By.xpath("(//span[normalize-space()='Audio Store'])[1]")).click();
 		
 	}
 	
 	@Test
-	public void Update_IR() throws InterruptedException {
+	public void Delete_AudioStore() throws InterruptedException {
 		
+
 		//Filter Tab
 		
 		driver.findElement(By.xpath("(//i[@class='fas fa-filter'])[1]")).click();
@@ -43,15 +39,15 @@ public class Inbound_Updation extends AdminLogin {
 		WebElement Popup= driver.findElement(By.xpath("(//div[@class='container sidenavContainer'])[1]"));
 		
 		
-		//Filter Application
+		//Filter Name
 		
-		driver.findElement(By.xpath("(//input[@aria-label='Application'])[1]")).click();
+		driver.findElement(By.xpath("(//input[@aria-label='Name'])[1]")).click();
 		
 		Thread.sleep(1000);
 		
 		WebElement NameList = driver.findElement(By.xpath("(//div[@role='list'])[2]"));
 		
-		NameList.findElement(By.xpath("(//div[contains(text(),'"+IR_Application+"')])[1]")).click();
+		NameList.findElement(By.xpath("(//div[contains(text(),'"+Audio_Name+"')])[1]")).click();
 		
 		Popup.click();
 		
@@ -61,22 +57,13 @@ public class Inbound_Updation extends AdminLogin {
 		
 		Thread.sleep(1000);
 		
-		// Update Popup
+		// Delete AudioStore
 		
-		driver.findElement(By.xpath("(//div[@class='v-btn__content'][normalize-space()='Filter'])[1]")).click();
+		driver.findElement(By.xpath("(//i[@class='v-icon mr-4 v-icon--link material-icons theme--light red--text'])[1]")).click();
 		
 		Thread.sleep(1000);
 		
-		WebElement UpdatePopup= driver.findElement(By.xpath("(//div[@class='v-card__text'])[2]"));
-		
-		//DID Number
-		WebElement Did_Number = driver.findElement(By.xpath("(//input[@aria-label='DID Number'])[1]"));
-		
-		Did_Number.sendKeys(Long.toString(DID_Number));
-		
-		// Update DID Number
-		
-		driver.findElement(By.xpath("(//div[normalize-space()='Update'])[1]")).click();
+		driver.findElement(By.xpath("(//div[normalize-space()='Yes, Delete !'])[1]")).click();
 		
 		Thread.sleep(1000);
 		

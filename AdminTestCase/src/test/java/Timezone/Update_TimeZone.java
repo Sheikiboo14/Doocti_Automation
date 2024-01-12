@@ -9,7 +9,7 @@ import Login.AdminLogin;
 
 public class Update_TimeZone  extends AdminLogin{
 	
-	String TimeZone_Name =	"sksls";
+	String TimeZone_Name =	"Testing";
 	
 	String Updated_Timezone ="Test";
 	
@@ -66,6 +66,8 @@ public class Update_TimeZone  extends AdminLogin{
 		// Applying Filter
 		
 		driver.findElement(By.xpath("(//div[@class='v-btn__content'][normalize-space()='Filter'])[1]")).click();
+		
+		Thread.sleep(1000);
 		
 		// Update popup
 		

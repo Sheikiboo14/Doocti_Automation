@@ -58,6 +58,7 @@ public class Update_Script extends AdminLogin {
 		
 		driver.findElement(By.xpath("(//div[@class='v-btn__content'][normalize-space()='Filter'])[1]")).click();
 		
+		Thread.sleep(1000);
 		
 		//Update popup
 		

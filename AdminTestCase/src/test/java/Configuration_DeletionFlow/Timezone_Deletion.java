@@ -1,4 +1,4 @@
-package Inbound_Route;
+package Configuration_DeletionFlow;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -7,14 +7,10 @@ import org.testng.annotations.Test;
 
 import Login.AdminLogin;
 
-public class Inbound_Updation extends AdminLogin {
+public class Timezone_Deletion extends AdminLogin{
+	
 
-	
-	String IR_Application="queue";
-	
-	Long DID_Number = 9090909090L;
-	
-	boolean BlockList = false;
+	String TimeZone_Name =	"Testing";
 	
 	@BeforeMethod
 	public void Setup() throws InterruptedException {
@@ -25,15 +21,16 @@ public class Inbound_Updation extends AdminLogin {
 		
 		Thread.sleep(1000);
 		
-		// Inbound Route 
+		// Time Zone
 		
-		driver.findElement(By.xpath("(//span[normalize-space()='Inbound Route'])[1]")).click();
+		driver.findElement(By.xpath("(//span[normalize-space()='Timezone'])[1]")).click();
 		
 	}
 	
 	@Test
-	public void Update_IR() throws InterruptedException {
+	public void Delete_Timezone() throws InterruptedException {
 		
+
 		//Filter Tab
 		
 		driver.findElement(By.xpath("(//i[@class='fas fa-filter'])[1]")).click();
@@ -43,15 +40,15 @@ public class Inbound_Updation extends AdminLogin {
 		WebElement Popup= driver.findElement(By.xpath("(//div[@class='container sidenavContainer'])[1]"));
 		
 		
-		//Filter Application
+		//Filter Timexone
 		
-		driver.findElement(By.xpath("(//input[@aria-label='Application'])[1]")).click();
+		driver.findElement(By.xpath("(//input[@aria-label='Timezone'])[1]")).click();
 		
 		Thread.sleep(1000);
 		
-		WebElement NameList = driver.findElement(By.xpath("(//div[@role='list'])[2]"));
+		WebElement TimeZoneList = driver.findElement(By.xpath("(//div[@role='list'])[2]"));
 		
-		NameList.findElement(By.xpath("(//div[contains(text(),'"+IR_Application+"')])[1]")).click();
+		TimeZoneList.findElement(By.xpath("(//div[contains(text(),'"+TimeZone_Name+"')])[1]")).click();
 		
 		Popup.click();
 		
@@ -61,22 +58,13 @@ public class Inbound_Updation extends AdminLogin {
 		
 		Thread.sleep(1000);
 		
-		// Update Popup
+		//Delete Timezone
 		
-		driver.findElement(By.xpath("(//div[@class='v-btn__content'][normalize-space()='Filter'])[1]")).click();
+		driver.findElement(By.xpath("(//i[@class='v-icon mr-4 v-icon--link material-icons theme--light red--text'])[1]")).click();
 		
 		Thread.sleep(1000);
 		
-		WebElement UpdatePopup= driver.findElement(By.xpath("(//div[@class='v-card__text'])[2]"));
-		
-		//DID Number
-		WebElement Did_Number = driver.findElement(By.xpath("(//input[@aria-label='DID Number'])[1]"));
-		
-		Did_Number.sendKeys(Long.toString(DID_Number));
-		
-		// Update DID Number
-		
-		driver.findElement(By.xpath("(//div[normalize-space()='Update'])[1]")).click();
+		driver.findElement(By.xpath("(//button[@type='button'])[6]")).click();
 		
 		Thread.sleep(1000);
 		
@@ -88,5 +76,6 @@ public class Inbound_Updation extends AdminLogin {
 
 		
 	}
+
 
 }

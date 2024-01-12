@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="Inbound_Route.InboundRoute_Creation">
+      <class name="SubDisposition.Delete_SubDisposition">
         <methods>
-          <include name="InboundRoute_Create"/>
-          <include name="Login"/>
           <include name="Setup"/>
+          <include name="Delete_SubDisposition"/>
+          <include name="Login"/>
         </methods>
-      </class> <!-- Inbound_Route.InboundRoute_Creation -->
+      </class> <!-- SubDisposition.Delete_SubDisposition -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
