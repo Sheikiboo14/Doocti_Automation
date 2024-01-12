@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="Channel.Create_Channel">
+      <class name="Inbound_Route.InboundRoute_Creation">
         <methods>
-          <include name="Setip"/>
-          <include name="Create_Channel"/>
+          <include name="InboundRoute_Create"/>
           <include name="Login"/>
+          <include name="Setup"/>
         </methods>
-      </class> <!-- Channel.Create_Channel -->
+      </class> <!-- Inbound_Route.InboundRoute_Creation -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

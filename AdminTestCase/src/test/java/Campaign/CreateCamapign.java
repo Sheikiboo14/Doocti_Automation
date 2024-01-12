@@ -30,7 +30,7 @@ public class CreateCamapign extends AdminLogin{
 	
 	String Industry = "IT";
  	
-	String Template ="Testing";
+	String Template ="Dialer";
 	
 	String Queue = "smibrahim_8071893401";
 

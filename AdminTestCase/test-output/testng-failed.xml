@@ -1,147 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [Configuration Module Creation Testing]" guice-stage="DEVELOPMENT">
-  <test thread-count="5" name="Meeting Creation(failed)">
+<suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="Configuration_CreationFlow.Create_MeetingTitle">
+      <class name="Inbound_Route.InboundRoute_Creation">
         <methods>
-          <include name="Login"/>
-          <include name="MeetingTitle_Creation"/>
-          <include name="Setup"/>
-        </methods>
-      </class> <!-- Configuration_CreationFlow.Create_MeetingTitle -->
-    </classes>
-  </test> <!-- Meeting Creation(failed) -->
-  <test thread-count="5" name="Pause Code Creation(failed)">
-    <classes>
-      <class name="Configuration_CreationFlow.Creat_PauseCode">
-        <methods>
-          <include name="Setup"/>
-          <include name="Login"/>
-          <include name="Create_PauseCode"/>
-        </methods>
-      </class> <!-- Configuration_CreationFlow.Creat_PauseCode -->
-    </classes>
-  </test> <!-- Pause Code Creation(failed) -->
-  <test thread-count="5" name="Timezone Creation(failed)">
-    <classes>
-      <class name="Configuration_CreationFlow.Create_TimeZone">
-        <methods>
-          <include name="TimeZone_Creation"/>
+          <include name="InboundRoute_Create"/>
           <include name="Login"/>
           <include name="Setup"/>
         </methods>
-      </class> <!-- Configuration_CreationFlow.Create_TimeZone -->
+      </class> <!-- Inbound_Route.InboundRoute_Creation -->
     </classes>
-  </test> <!-- Timezone Creation(failed) -->
-  <test thread-count="5" name="Script Creation(failed)">
-    <classes>
-      <class name="Configuration_CreationFlow.Script_Creation">
-        <methods>
-          <include name="Create_Script"/>
-          <include name="Login"/>
-          <include name="Setup"/>
-        </methods>
-      </class> <!-- Configuration_CreationFlow.Script_Creation -->
-    </classes>
-  </test> <!-- Script Creation(failed) -->
-  <test thread-count="5" name="Tags Creation(failed)">
-    <classes>
-      <class name="Configuration_CreationFlow.Create_Tags">
-        <methods>
-          <include name="Tags_Creation"/>
-          <include name="Login"/>
-          <include name="Setup"/>
-        </methods>
-      </class> <!-- Configuration_CreationFlow.Create_Tags -->
-    </classes>
-  </test> <!-- Tags Creation(failed) -->
-  <test thread-count="5" name="Ticket Status Creation(failed)">
-    <classes>
-      <class name="Configuration_CreationFlow.TicketStatus">
-        <methods>
-          <include name="Login"/>
-          <include name="Setup"/>
-          <include name="Create_TicketStatus"/>
-        </methods>
-      </class> <!-- Configuration_CreationFlow.TicketStatus -->
-    </classes>
-  </test> <!-- Ticket Status Creation(failed) -->
-  <test thread-count="5" name="Dispo Creation(failed)">
-    <classes>
-      <class name="Configuration_CreationFlow.Dispo_Creation">
-        <methods>
-          <include name="Create_Disposition"/>
-          <include name="Setup"/>
-          <include name="Login"/>
-        </methods>
-      </class> <!-- Configuration_CreationFlow.Dispo_Creation -->
-    </classes>
-  </test> <!-- Dispo Creation(failed) -->
-  <test thread-count="5" name="Audio Upload(failed)">
-    <classes>
-      <class name="Configuration_CreationFlow.Uplode_AudioStore">
-        <methods>
-          <include name="Uplode_Audio"/>
-          <include name="Login"/>
-          <include name="Setup"/>
-        </methods>
-      </class> <!-- Configuration_CreationFlow.Uplode_AudioStore -->
-    </classes>
-  </test> <!-- Audio Upload(failed) -->
-  <test thread-count="5" name="BlockList Upload(failed)">
-    <classes>
-      <class name="Configuration_CreationFlow.BlockList">
-        <methods>
-          <include name="Login"/>
-          <include name="Uplode_BlockList"/>
-          <include name="Setup"/>
-        </methods>
-      </class> <!-- Configuration_CreationFlow.BlockList -->
-    </classes>
-  </test> <!-- BlockList Upload(failed) -->
-  <test thread-count="5" name="Queue Creation(failed)">
-    <classes>
-      <class name="Configuration_CreationFlow.Queue_Creation">
-        <methods>
-          <include name="Create_Queue"/>
-          <include name="Login"/>
-          <include name="Setup"/>
-        </methods>
-      </class> <!-- Configuration_CreationFlow.Queue_Creation -->
-    </classes>
-  </test> <!-- Queue Creation(failed) -->
-  <test thread-count="5" name="DID Number Upload(failed)">
-    <classes>
-      <class name="Configuration_CreationFlow.Uplode_DIDNumber">
-        <methods>
-          <include name="Setup"/>
-          <include name="Uplode_DID"/>
-          <include name="Login"/>
-        </methods>
-      </class> <!-- Configuration_CreationFlow.Uplode_DIDNumber -->
-    </classes>
-  </test> <!-- DID Number Upload(failed) -->
-  <test thread-count="5" name="Announcement Creation(failed)">
-    <classes>
-      <class name="Configuration_CreationFlow.Create_Announcement">
-        <methods>
-          <include name="Setup"/>
-          <include name="Login"/>
-          <include name="Create_Announcement"/>
-        </methods>
-      </class> <!-- Configuration_CreationFlow.Create_Announcement -->
-    </classes>
-  </test> <!-- Announcement Creation(failed) -->
-  <test thread-count="5" name="Manual DID Creation(failed)">
-    <classes>
-      <class name="Configuration_CreationFlow.Manual_DID_Creation">
-        <methods>
-          <include name="Login"/>
-          <include name="Manual_DID_Creation"/>
-          <include name="Setup"/>
-        </methods>
-      </class> <!-- Configuration_CreationFlow.Manual_DID_Creation -->
-    </classes>
-  </test> <!-- Manual DID Creation(failed) -->
-</suite> <!-- Failed suite [Configuration Module Creation Testing] -->
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->

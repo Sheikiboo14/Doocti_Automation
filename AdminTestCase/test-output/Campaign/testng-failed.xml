@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Campaign]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="Test(failed)">
+    <classes>
+      <class name="Campaign.CreatingPowerCampaign">
+        <methods>
+          <include name="quit"/>
+          <include name="Login"/>
+          <include name="CreateCampaign"/>
+        </methods>
+      </class> <!-- Campaign.CreatingPowerCampaign -->
+      <class name="Campaign.EditCampaign">
+        <methods>
+          <include name="Outbound"/>
+          <include name="CheckProcess"/>
+          <include name="Dialocheck"/>
+          <include name="OnDemandRecording"/>
+          <include name="CallMaskingUpdate"/>
+          <include name="Setup"/>
+          <include name="TimeZoneUpdate"/>
+          <include name="QueueCheck"/>
+          <include name="ScriptUpdate"/>
+          <include name="DNC"/>
+          <include name="DispoUncheck"/>
+          <include name="UncheckPauseCode"/>
+          <include name="Login"/>
+          <include name="TemplateUpdate"/>
+          <include name="UncheckProcess"/>
+          <include name="DispoCheck"/>
+          <include name="DialoUncheck"/>
+          <include name="Status"/>
+          <include name="CheckPauseCode"/>
+          <include name="QueueUncheck"/>
+        </methods>
+      </class> <!-- Campaign.EditCampaign -->
+      <class name="Campaign.CreatingWhatsappBlastCampaign">
+        <methods>
+          <include name="quit"/>
+          <include name="CreateCampaign"/>
+          <include name="Login"/>
+        </methods>
+      </class> <!-- Campaign.CreatingWhatsappBlastCampaign -->
+      <class name="Campaign.CreatingVoiceBlastCampaign">
+        <methods>
+          <include name="CreateCampaign"/>
+          <include name="Login"/>
+          <include name="quit"/>
+        </methods>
+      </class> <!-- Campaign.CreatingVoiceBlastCampaign -->
+      <class name="Campaign.CreatingPredictiveCampaign">
+        <methods>
+          <include name="Login"/>
+          <include name="CreateCampaign"/>
+        </methods>
+      </class> <!-- Campaign.CreatingPredictiveCampaign -->
+      <class name="Campaign.CreatingPreviewCampaign">
+        <methods>
+          <include name="quit"/>
+          <include name="Login"/>
+          <include name="CreateCampaign"/>
+        </methods>
+      </class> <!-- Campaign.CreatingPreviewCampaign -->
+      <class name="Campaign.CreatingInboundCampaign">
+        <methods>
+          <include name="CreateCampaign"/>
+          <include name="Login"/>
+        </methods>
+      </class> <!-- Campaign.CreatingInboundCampaign -->
+    </classes>
+  </test> <!-- Test(failed) -->
+</suite> <!-- Failed suite [Campaign] -->

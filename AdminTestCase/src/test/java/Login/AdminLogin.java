@@ -23,9 +23,10 @@ public class AdminLogin {
 	@BeforeTest
 	public void Login() throws InterruptedException {
 		
+	
 		WebDriverManager.chromedriver().setup();
 		
-//		WebDriverManager.edgedriver().setup();
+
 		
 		ChromeOptions Browser = new ChromeOptions();
 		
@@ -33,7 +34,12 @@ public class AdminLogin {
 		
 		driver = new ChromeDriver(Browser);
 		
-//		driver = new EdgeDriver();
+		/*
+		WebDriverManager.edgedriver().setup();
+		
+		driver = new EdgeDriver();
+		*/
+		
 		
 		driver.manage().window().maximize();
 		
