@@ -10,11 +10,11 @@ import Login.AdminLogin;
 public class Dispo_Creation extends AdminLogin{
 	
 	
-	String Disposition ="Testing Dispo";
+	String Dispo_Name ="Testing Dispo";
 	
-	String Description = "Testing Purpose";
+	String Dispo_Description = "Testing Purpose";
 	
-	String Action = "No Action";
+	String Dispo_Action = "No Action";
 	
 	@BeforeMethod
 	public void Setup() throws InterruptedException {
@@ -39,11 +39,11 @@ public class Dispo_Creation extends AdminLogin{
 		
 		// Disposition Name
 		
-		driver.findElement(By.xpath("(//input[@aria-label='Disposition'])[2]")).sendKeys(Disposition);
+		driver.findElement(By.xpath("(//input[@aria-label='Disposition'])[2]")).sendKeys(Dispo_Name);
 		
 		// Description
 		
-		driver.findElement(By.xpath("(//input[@aria-label='Description'])[2]")).sendKeys(Description);
+		driver.findElement(By.xpath("(//input[@aria-label='Description'])[2]")).sendKeys(Dispo_Description);
 		
 		// Action
 		
@@ -53,7 +53,7 @@ public class Dispo_Creation extends AdminLogin{
 		
 		WebElement ActionList = driver.findElement(By.xpath("(//div[@role='list'])[5]"));
 		
-		ActionList.findElement(By.xpath("(//div[@class='v-list__tile__title'][normalize-space()='No Action'])[2]")).click();
+		ActionList.findElement(By.xpath("(//div[@class='v-list__tile__title'][normalize-space()='"+Dispo_Action+"'])[2]")).click();
 				
 		// Create Disposition
 		

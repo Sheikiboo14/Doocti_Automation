@@ -9,7 +9,7 @@ import Login.AdminLogin;
 
 public class Dispo_Delete extends AdminLogin {
 	
-	String DispoName = "No Answer";
+	String DispoName = "Dummy";
 	
 	@BeforeMethod
 	public void Setup() throws InterruptedException {
@@ -64,7 +64,7 @@ public class Dispo_Delete extends AdminLogin {
 		
 		//Delte Popup
 		
-		driver.findElement(By.xpath("(//div[normalize-space()='Yes, Delete !'])[1]")).click();
+		driver.findElement(By.xpath("(//button[@type='button'])[6]")).click();
 		
 		Thread.sleep(1000);
 		

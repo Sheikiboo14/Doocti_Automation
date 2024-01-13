@@ -63,7 +63,7 @@ public class Delete_MeetingTitle extends AdminLogin {
 		
 		Thread.sleep(1000);
 		
-		driver.findElement(By.xpath("(//button[@type='button'])[12]")).click();
+		driver.findElement(By.xpath("(//div[normalize-space()='Yes, Delete !'])[1]")).click();
 		
 		Thread.sleep(1000);
 		

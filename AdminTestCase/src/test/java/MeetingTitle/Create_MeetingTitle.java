@@ -8,11 +8,11 @@ import Login.AdminLogin;
 
 public class Create_MeetingTitle extends AdminLogin{
 	
-	String MeetingTitle = "Test";
+	String Meeting_Title = "Test";
 	
-	String MeetingSubTitle = "Testing";
+	String Meeting_SubTitle = "Testing";
 	
-	String Description = "Testing Purpose";
+	String Meeting_Description = "Testing Purpose";
 	
 	@BeforeMethod
 	public void Setup() throws InterruptedException {
@@ -37,15 +37,15 @@ public class Create_MeetingTitle extends AdminLogin{
 		
 		// Meeting Title 
 		
-		driver.findElement(By.xpath("(//input[@aria-label='Meeting Title'])[2]")).sendKeys(MeetingTitle);
+		driver.findElement(By.xpath("(//input[@aria-label='Meeting Title'])[2]")).sendKeys(Meeting_Title);
 		
 		//Meeting Sub Title
 		
-		driver.findElement(By.xpath("(//input[@aria-label='Meeting Sub Title'])[1]")).sendKeys(MeetingSubTitle);
+		driver.findElement(By.xpath("(//input[@aria-label='Meeting Sub Title'])[1]")).sendKeys(Meeting_SubTitle);
 		
 		// MeetingDescription
 		
-		driver.findElement(By.xpath("(//input[@aria-label='Description'])[3]")).sendKeys(Description);
+		driver.findElement(By.xpath("(//input[@aria-label='Description'])[3]")).sendKeys(Meeting_Description);
 		
 		// Creating Meeting
 		

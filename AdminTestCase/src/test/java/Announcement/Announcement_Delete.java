@@ -61,7 +61,7 @@ public class Announcement_Delete extends AdminLogin{
 		
 		Thread.sleep(1000);
 		
-		driver.findElement(By.xpath("(//div[normalize-space()='Yes, Delete !'])[1]")).click();
+		driver.findElement(By.xpath("(//button[@type='button'])[13]")).click();
 		
 		Thread.sleep(1000);
 		

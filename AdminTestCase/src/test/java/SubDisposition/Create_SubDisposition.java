@@ -11,9 +11,9 @@ public class Create_SubDisposition extends AdminLogin {
 	
 	String Disposition = "New";
 	
-	String SubDisposition = "Test Working";
+	String Sub_Disposition = "Test Working";
 	
-	String Description = "Testing Purpose";
+	String SubDispo_Description = "Testing Purpose";
 	
 	@BeforeMethod
 	public void Setup() throws InterruptedException {
@@ -53,11 +53,11 @@ public class Create_SubDisposition extends AdminLogin {
 		
 		// Sub - disposition
 		
-		driver.findElement(By.xpath("(//input[@aria-label='Sub-Disposition'])[1]")).sendKeys(SubDisposition);
+		driver.findElement(By.xpath("(//input[@aria-label='Sub-Disposition'])[1]")).sendKeys(Sub_Disposition);
 		
 		//Description
 		
-		driver.findElement(By.xpath("(//input[@aria-label='Description'])[2]")).sendKeys(Description);
+		driver.findElement(By.xpath("(//input[@aria-label='Description'])[2]")).sendKeys(SubDispo_Description);
 		
 		// Create Sub Disposition
 		

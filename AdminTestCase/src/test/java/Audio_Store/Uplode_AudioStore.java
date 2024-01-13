@@ -13,8 +13,9 @@ import Login.AdminLogin;
 
 public class Uplode_AudioStore extends AdminLogin {
 	
-	String Description = "Testing";
+	String Audio_Description = "Testing";
 	
+	String Audio_Path ="D:\\Audio Store\\Leo Ratata BGM.mp3";
 	@BeforeMethod
 	public void Setup() throws InterruptedException {
 		
@@ -39,7 +40,7 @@ public class Uplode_AudioStore extends AdminLogin {
 		
 		// Description
 		
-		driver.findElement(By.xpath("(//input[@aria-label='Description'])[1]")).sendKeys(Description);
+		driver.findElement(By.xpath("(//input[@aria-label='Description'])[1]")).sendKeys(Audio_Description);
 		
 		//Uplode Audio
 		
@@ -49,7 +50,7 @@ public class Uplode_AudioStore extends AdminLogin {
 		
 		Robot rb = new Robot();
 		
-		StringSelection FilePath = new StringSelection("D:\\Audio Store\\Leo Ratata BGM.mp3");
+		StringSelection FilePath = new StringSelection(Audio_Path);
 
 		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(FilePath, null);
 		

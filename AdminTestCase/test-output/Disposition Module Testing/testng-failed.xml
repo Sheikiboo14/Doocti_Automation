@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Disposition Module Testing]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="Creation(failed)">
+    <classes>
+      <class name="Disposition.Dispo_Creation">
+        <methods>
+          <include name="Login"/>
+          <include name="Create_Disposition"/>
+          <include name="Setup"/>
+        </methods>
+      </class> <!-- Disposition.Dispo_Creation -->
+    </classes>
+  </test> <!-- Creation(failed) -->
+  <test thread-count="5" name="Updation(failed)">
+    <classes>
+      <class name="Disposition.Dispo_Update">
+        <methods>
+          <include name="Update_Status"/>
+          <include name="Login"/>
+          <include name="Setup"/>
+        </methods>
+      </class> <!-- Disposition.Dispo_Update -->
+    </classes>
+  </test> <!-- Updation(failed) -->
+  <test thread-count="5" name="Deletion(failed)">
+    <classes>
+      <class name="Disposition.Dispo_Delete">
+        <methods>
+          <include name="Setup"/>
+          <include name="Login"/>
+          <include name="Delete_Dispo"/>
+        </methods>
+      </class> <!-- Disposition.Dispo_Delete -->
+    </classes>
+  </test> <!-- Deletion(failed) -->
+</suite> <!-- Failed suite [Disposition Module Testing] -->

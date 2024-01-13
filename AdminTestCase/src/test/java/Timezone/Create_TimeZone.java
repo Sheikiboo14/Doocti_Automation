@@ -10,19 +10,19 @@ import Login.AdminLogin;
 public class Create_TimeZone extends AdminLogin{
 	
 	
-	String ZoneName = "Test" ;
+	String TimeZone_Name = "Test" ;
 	
-	String Description ="Testing Purpose";
+	String TimeZone_Description ="Testing Purpose";
 	
-	int StartHour = 1;
+	int TimeZone_StartHour = 1;
 	
-	int StartMinute = 00;
+	int TimeZone_StartMinute = 00;
 	
-	int EndHour = 10;
+	int TimeZone_EndHour = 10;
 	
-	int EndMinute = 00;
+	int TimeZone_EndMinute = 00;
 	
-	String Status = "Active";
+	String TimeZone_Status = "Active";
 	
 	
 	
@@ -51,11 +51,11 @@ public class Create_TimeZone extends AdminLogin{
 		
 		// Zone Name
 		
-		driver.findElement(By.xpath("(//input[@aria-label='Zone Name'])[2]")).sendKeys(ZoneName);
+		driver.findElement(By.xpath("(//input[@aria-label='Zone Name'])[2]")).sendKeys(TimeZone_Name);
 		
 		//Description
 		
-		driver.findElement(By.xpath("(//input[@aria-label='Description'])[2]")).sendKeys(Description);
+		driver.findElement(By.xpath("(//input[@aria-label='Description'])[2]")).sendKeys(TimeZone_Description);
 		
 		// Start Time
 		
@@ -65,13 +65,13 @@ public class Create_TimeZone extends AdminLogin{
 		
 		WebElement HourClock= driver.findElement(By.xpath("(//div[@class='v-time-picker-clock__container'])[1]"));
 		
-		HourClock.findElement(By.xpath("(//span[contains(text(),'"+StartHour+"')])[1]")).click();
+		HourClock.findElement(By.xpath("(//span[contains(text(),'"+TimeZone_StartHour+"')])[1]")).click();
 		
 		Thread.sleep(1000);
 		
 		WebElement MinuteClock= driver.findElement(By.xpath("(//div[@class='v-time-picker-clock__container'])[1]"));
 
-		MinuteClock.findElement(By.xpath("(//span[contains(text(),'"+StartMinute+"')])[1]")).click();
+		MinuteClock.findElement(By.xpath("(//span[contains(text(),'"+TimeZone_StartMinute+"')])[1]")).click();
 		
 //		TimeZonePopup.click();
 		
@@ -83,14 +83,14 @@ public class Create_TimeZone extends AdminLogin{
 		
 		WebElement EndHClock = driver.findElement(By.xpath("(//div[@class='v-time-picker-clock v-time-picker-clock--indeterminate theme--light'])[1]"));
 		
-		EndHClock.findElement(By.xpath("(//span[contains(text(),'"+EndHour+"')])[1]")).click();
+		EndHClock.findElement(By.xpath("(//span[contains(text(),'"+TimeZone_EndHour+"')])[1]")).click();
 		
 		Thread.sleep(1000);
 		
 		WebElement EndMClock = driver.findElement(By.xpath("(//div[@class='v-time-picker-clock__container'])[1]"));
 
 		
-		EndMClock.findElement(By.xpath("(//span[contains(text(),'"+EndMinute+"')])[1]")).click();
+		EndMClock.findElement(By.xpath("(//span[contains(text(),'"+TimeZone_EndMinute+"')])[1]")).click();
 		
 //		TimeZonePopup.click();
 	
@@ -102,7 +102,7 @@ public class Create_TimeZone extends AdminLogin{
 		
 		WebElement StatusList = driver.findElement(By.xpath("(//div[@role='list'])[4]"));
 		
-		StatusList.findElement(By.xpath("(//div[@class='v-list__tile__title'][normalize-space()='"+Status+"'])[3]")).click();
+		StatusList.findElement(By.xpath("(//div[@class='v-list__tile__title'][normalize-space()='"+TimeZone_Status+"'])[3]")).click();
 		
 		// Create TimeZone
 		

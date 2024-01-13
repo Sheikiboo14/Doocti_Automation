@@ -10,7 +10,7 @@ import Login.AdminLogin;
 public class Queue_Deletion extends AdminLogin{
 	
 
-	String QueueName = "Test";
+	String QueueName = "Test1";
 	
 	@BeforeMethod
 	public void Setup() throws InterruptedException {

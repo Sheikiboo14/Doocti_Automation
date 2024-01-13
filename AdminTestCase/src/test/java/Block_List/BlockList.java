@@ -16,7 +16,7 @@ import Login.AdminLogin;
 public class BlockList extends AdminLogin{
 
 	
-	String Path = "C:\\Users\\User\\Downloads\\sample_blocklist.csv";
+	String BlockList_Path = "C:\\Users\\User\\Downloads\\sample_blocklist.csv";
 	
 	@BeforeMethod
 	public void Setup() throws InterruptedException {
@@ -48,7 +48,7 @@ public class BlockList extends AdminLogin{
 		
 		Robot rb = new Robot();
 		
-		StringSelection FilePath = new StringSelection(Path);
+		StringSelection FilePath = new StringSelection(BlockList_Path);
 		
 		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(FilePath, null);
 		

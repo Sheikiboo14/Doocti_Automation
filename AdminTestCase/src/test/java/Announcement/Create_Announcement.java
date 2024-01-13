@@ -6,14 +6,18 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import Login.AdminLogin;
-
-public class Create_Announcement extends AdminLogin{
+import Login.Creation_Inputs;
 	
-	String Name ="Testing";
+
+public class Create_Announcement extends AdminLogin {
+	
+	/*
+	String Announcement_Name ="Testing";
 	
 	String Announcement = "Good Morning";
 	
-	String Campaign ="Preview 2";
+	String Announcement_Campaign ="Preview 2";
+	*/
 	
 	@BeforeMethod
 	public void Setup() throws InterruptedException {
@@ -41,7 +45,7 @@ public class Create_Announcement extends AdminLogin{
 		
 		// Name
 		
-		driver.findElement(By.xpath("(//input[@aria-label='Name'])[2]")).sendKeys(Name);
+		driver.findElement(By.xpath("(//input[@aria-label='Name'])[2]")).sendKeys(Announcement_Name);
 		
 		// Announcement
 		
@@ -55,7 +59,7 @@ public class Create_Announcement extends AdminLogin{
 		
 		WebElement CampaignList = driver.findElement(By.xpath("(//div[@role='list'])[5]"));
 		
-		CampaignList.findElement(By.xpath("(//div[@class='v-list__tile__title'][normalize-space()='"+Campaign+"'])[2]")).click();
+		CampaignList.findElement(By.xpath("(//div[@class='v-list__tile__title'][normalize-space()='"+Announcement_Campaign+"'])[2]")).click();
 		
 		Popup.click();
 		
@@ -73,5 +77,6 @@ public class Create_Announcement extends AdminLogin{
 
 	}
 	
+
 
 }

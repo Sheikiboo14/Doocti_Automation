@@ -10,7 +10,7 @@ import Login.AdminLogin;
 public class Dispo_Creation extends AdminLogin{
 	
 	
-	String Disposition ="Testing Dispo";
+	String Disposition ="Dummy";
 	
 	String Description = "Testing Purpose";
 	

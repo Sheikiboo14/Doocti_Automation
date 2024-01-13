@@ -10,9 +10,9 @@ import Login.AdminLogin;
 public class Create_Tags extends AdminLogin {
 
 	
-	String TagName = "Test";
+	String Tag_Name = "Test";
 	
-	String TagDescription = "Testing";
+	String Tag_Description = "Testing";
 	
 	@BeforeMethod
 	public void Setup() throws InterruptedException {
@@ -38,11 +38,11 @@ public class Create_Tags extends AdminLogin {
 		
 		// Tag Name
 		
-		driver.findElement(By.xpath("(//input[@aria-label='Name'])[2]")).sendKeys(TagName);
+		driver.findElement(By.xpath("(//input[@aria-label='Name'])[2]")).sendKeys(Tag_Name);
 		
 		// Tag Description
 		
-		driver.findElement(By.xpath("(//input[@aria-label='Description'])[2]")).sendKeys(TagDescription);
+		driver.findElement(By.xpath("(//input[@aria-label='Description'])[2]")).sendKeys(Tag_Description);
 		
 		// Tag Creating 
 		

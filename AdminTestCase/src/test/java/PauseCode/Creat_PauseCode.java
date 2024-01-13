@@ -9,13 +9,13 @@ import Login.AdminLogin;
 
 public class Creat_PauseCode extends AdminLogin {
 	
-	String PauseCodeName = "Testing";
+	String PauseCode_Name = "Testing";
 	
-	String PauseCodeDescription = "Testing Purpose";
+	String PauseCode_Description = "Testing Purpose";
 	
-	int hour = 1;
+	int PauseCode_hour = 1;
 	
-	int minutes =30;
+	int PauseCode_minutes =30;
 	
 	@BeforeMethod
 	public void Setup() throws InterruptedException {
@@ -43,11 +43,11 @@ public class Creat_PauseCode extends AdminLogin {
 		
 		// Pause Code Name
 		
-		driver.findElement(By.xpath("(//input[@aria-label='Pause Code'])[2]")).sendKeys(PauseCodeName);
+		driver.findElement(By.xpath("(//input[@aria-label='Pause Code'])[2]")).sendKeys(PauseCode_Name);
 		
 		// Pause Code Description
 		
-		driver.findElement(By.xpath("(//input[@aria-label='Description'])[2]")).sendKeys(PauseCodeDescription);
+		driver.findElement(By.xpath("(//input[@aria-label='Description'])[2]")).sendKeys(PauseCode_Description);
 		
 		//Time
 		
@@ -57,9 +57,9 @@ public class Creat_PauseCode extends AdminLogin {
 		
 		WebElement Clock = driver.findElement(By.xpath("(//div[@class='v-time-picker-clock v-time-picker-clock--indeterminate theme--light'])[1]"));
 		
-		Clock.findElement(By.xpath("(//span[contains(text(),'"+hour+"')])[1]")).click();
+		Clock.findElement(By.xpath("(//span[contains(text(),'"+PauseCode_hour+"')])[1]")).click();
 		
-		Clock.findElement(By.xpath("(//span[contains(text(),'"+minutes+"')])[1]")).click();
+		Clock.findElement(By.xpath("(//span[contains(text(),'"+PauseCode_minutes+"')])[1]")).click();
 		
 		//Set Time
 		

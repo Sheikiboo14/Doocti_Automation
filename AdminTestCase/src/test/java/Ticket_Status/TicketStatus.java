@@ -8,9 +8,9 @@ import Login.AdminLogin;
 
 public class TicketStatus extends AdminLogin{
 	
-	String StatusName = "Testing";
+	String TicketStatus_Name = "Testing";
 	
-	String StatusDescription = "Testing Purpose";
+	String TicketStatus_Description = "Testing Purpose";
 	
 	@BeforeMethod
 	public void Setup() throws InterruptedException {
@@ -36,11 +36,11 @@ public class TicketStatus extends AdminLogin{
 		
 		// Status Name
 		
-		driver.findElement(By.xpath("(//input[@aria-label='Name'])[2]")).sendKeys(StatusName);
+		driver.findElement(By.xpath("(//input[@aria-label='Name'])[2]")).sendKeys(TicketStatus_Name);
 		
 		//Status Description
 		
-		driver.findElement(By.xpath("(//input[@aria-label='Description'])[2]")).sendKeys(StatusDescription);
+		driver.findElement(By.xpath("(//input[@aria-label='Description'])[2]")).sendKeys(TicketStatus_Description);
 		
 		// Create Status
 		

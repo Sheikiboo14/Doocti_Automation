@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="SubDisposition.Delete_SubDisposition">
+      <class name="Announcement.Create_Announcement">
         <methods>
-          <include name="Setup"/>
-          <include name="Delete_SubDisposition"/>
           <include name="Login"/>
+          <include name="Setup"/>
+          <include name="Create_Announcement"/>
         </methods>
-      </class> <!-- SubDisposition.Delete_SubDisposition -->
+      </class> <!-- Announcement.Create_Announcement -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -10,13 +10,13 @@ public class Script_Creation extends AdminLogin {
 	
 	String Script_Name = "Test2";
 	
-	String Description ="Testing Purpose";
+	String Script_Description ="Testing Purpose";
 	
-	String Type ="URL";
+	String Script_Type ="URL";
 	
-	String ScriptText="Hello Tevatel";
+	String Script_Text="Hello Tevatel";
 	
-	String ScriptURL = "https://tevatel.com/";
+	String Script_URL = "https://tevatel.com/";
 
 	
 	@BeforeMethod
@@ -46,20 +46,20 @@ public class Script_Creation extends AdminLogin {
 		
 		//Script Description
 		
-		driver.findElement(By.xpath("(//input[@aria-label='Description'])[2]")).sendKeys(Description);
+		driver.findElement(By.xpath("(//input[@aria-label='Description'])[2]")).sendKeys(Script_Description);
 		
 		//Script Type
 		
-		driver.findElement(By.xpath("(//label[normalize-space()='"+Type+"'])[1]")).click();
+		driver.findElement(By.xpath("(//label[normalize-space()='"+Script_Type+"'])[1]")).click();
 		
-		if(Type.equalsIgnoreCase("Text")) {
+		if(Script_Type.equalsIgnoreCase("Text")) {
 			
-			driver.findElement(By.xpath("(//textarea[@placeholder='Text here...'])[1]")).sendKeys(ScriptText);
+			driver.findElement(By.xpath("(//textarea[@placeholder='Text here...'])[1]")).sendKeys(Script_Text);
 		}
 		
-		else if (Type.equalsIgnoreCase("URL")) {
+		else if (Script_Type.equalsIgnoreCase("URL")) {
 			
-			driver.findElement(By.xpath("(//input[@type='url'])[1]")).sendKeys(ScriptURL);
+			driver.findElement(By.xpath("(//input[@type='url'])[1]")).sendKeys(Script_URL);
 		}
 		
 		// Create Script

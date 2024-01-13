@@ -11,7 +11,7 @@ public class Manual_DID_Creation extends AdminLogin {
 
 	Long DID_Number = 9876543210L;
 	
-	String Trunk ="Testing";
+	String DID_Trunk ="Testing";
 	
 	@BeforeMethod
 	public void Setup() throws InterruptedException {
@@ -43,7 +43,7 @@ public class Manual_DID_Creation extends AdminLogin {
 		
 		// Trunk
 		
-		driver.findElement(By.xpath("(//input[@aria-label='Trunk'])[1]")).sendKeys(Trunk);
+		driver.findElement(By.xpath("(//input[@aria-label='Trunk'])[1]")).sendKeys(DID_Trunk);
 		
 		// Create DID Number
 		

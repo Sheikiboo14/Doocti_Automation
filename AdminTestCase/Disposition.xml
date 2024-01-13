@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Disposition Module Testing">
+	
+  <test name="Creation">
+    <classes>
+      <class name="Disposition.Dispo_Creation"/>
+    </classes>
+  </test> 
+  
+    <test name="Updation">
+    <classes>
+      <class name="Disposition.Dispo_Update"/>
+    </classes>
+  </test> 
+  
+    <test name="Deletion">
+    <classes>
+      <class name="Disposition.Dispo_Delete"/>
+    </classes>
+  </test> 
+  
+</suite> <!-- Disposition Module Testing -->

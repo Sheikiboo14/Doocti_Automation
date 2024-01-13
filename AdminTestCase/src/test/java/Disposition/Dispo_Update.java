@@ -9,7 +9,7 @@ import Login.AdminLogin;
 
 public class Dispo_Update extends AdminLogin{
 	
-	String Dispo_Name = "Switched Off";
+	String Dispo_Name = "Dummy";
 	
 	String Dispo_Action = "Callback";
 	

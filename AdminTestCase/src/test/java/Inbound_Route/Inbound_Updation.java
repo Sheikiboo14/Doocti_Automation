@@ -12,9 +12,9 @@ public class Inbound_Updation extends AdminLogin {
 	
 	String IR_Application="queue";
 	
-	Long DID_Number = 9090909090L;
+	Long IR_DID_Number = 9090909090L;
 	
-	boolean BlockList = false;
+	boolean IR_BlockList = false;
 	
 	@BeforeMethod
 	public void Setup() throws InterruptedException {
@@ -72,7 +72,7 @@ public class Inbound_Updation extends AdminLogin {
 		//DID Number
 		WebElement Did_Number = driver.findElement(By.xpath("(//input[@aria-label='DID Number'])[1]"));
 		
-		Did_Number.sendKeys(Long.toString(DID_Number));
+		Did_Number.sendKeys(Long.toString(IR_DID_Number));
 		
 		// Update DID Number
 		
