@@ -1,6 +1,8 @@
 package MeetingTitle;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -8,7 +10,7 @@ import Login.AdminLogin;
 
 public class Create_MeetingTitle extends AdminLogin{
 	
-	String Meeting_Title = "Test";
+	String Meeting_Title = "Test3";
 	
 	String Meeting_SubTitle = "Testing";
 	
@@ -56,6 +58,54 @@ public class Create_MeetingTitle extends AdminLogin{
 		// Close Snakbar
 		
 		driver.findElement(By.xpath("(//div[@class='v-btn__content'][normalize-space()='Close'])[3]")).click();
+	}
+	
+	@Test(priority=1)
+	public void MeetingTitle_Verfication() throws InterruptedException {
+		
+
+
+		//Filter Tab
+		
+		driver.findElement(By.xpath("(//i[@class='fas fa-filter'])[1]")).click();
+		
+//		Thread.sleep(1000);
+		
+		WebElement Popup= driver.findElement(By.xpath("(//div[@class='container sidenavContainer'])[1]"));
+		
+		
+		//Filter Title
+		
+		driver.findElement(By.xpath("(//div[@class='v-select__selections'])[2]")).click();
+		
+		Thread.sleep(1000);
+		
+		WebElement TitleList = driver.findElement(By.xpath("(//div[@role='list'])[2]"));
+		
+		TitleList.findElement(By.xpath("(//div[contains(text(),'"+Meeting_Title+"')])[1]")).click();
+		
+		Popup.click();
+		
+		// Applying Filter
+		
+		driver.findElement(By.xpath("(//div[@class='v-btn__content'][normalize-space()='Filter'])[1]")).click();
+		
+		Thread.sleep(1000);
+		
+		//Edit Popup
+		
+		driver.findElement(By.xpath("(//i[@class='v-icon mr-4 v-icon--link material-icons theme--light blue--text'])[1]")).click();
+		
+		Thread.sleep(1000);
+		
+		String actualvalue = driver.findElement(By.xpath("(//input[@aria-label='Meeting Title'])[1]")).getAttribute("value");
+		
+		Assert.assertEquals(actualvalue, Meeting_Title , "Meeting Title is Not Created");
+		
+		Thread.sleep(1000);
+		
+		driver.findElement(By.xpath("(//div[@class='v-btn__content'][normalize-space()='Close'])[1]")).click();
+
 	}
 	
 

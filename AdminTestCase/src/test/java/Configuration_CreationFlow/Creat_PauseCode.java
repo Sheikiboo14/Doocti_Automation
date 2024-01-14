@@ -2,6 +2,7 @@ package Configuration_CreationFlow;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -43,11 +44,11 @@ public class Creat_PauseCode extends AdminLogin {
 		
 		// Pause Code Name
 		
-		driver.findElement(By.xpath("(//input[@aria-label='Pause Code'])[2]")).sendKeys(PauseCodeName);
+		driver.findElement(By.xpath("(//input[@aria-label='Pause Code'])[2]")).sendKeys(PauseCode_Name);
 		
 		// Pause Code Description
 		
-		driver.findElement(By.xpath("(//input[@aria-label='Description'])[2]")).sendKeys(PauseCodeDescription);
+		driver.findElement(By.xpath("(//input[@aria-label='Description'])[2]")).sendKeys(PauseCode_Description);
 		
 		//Time
 		
@@ -57,9 +58,9 @@ public class Creat_PauseCode extends AdminLogin {
 		
 		WebElement Clock = driver.findElement(By.xpath("(//div[@class='v-time-picker-clock v-time-picker-clock--indeterminate theme--light'])[1]"));
 		
-		Clock.findElement(By.xpath("(//span[contains(text(),'"+hour+"')])[1]")).click();
+		Clock.findElement(By.xpath("(//span[contains(text(),'"+PauseCode_hour+"')])[1]")).click();
 		
-		Clock.findElement(By.xpath("(//span[contains(text(),'"+minutes+"')])[1]")).click();
+		Clock.findElement(By.xpath("(//span[contains(text(),'"+PauseCode_minutes+"')])[1]")).click();
 		
 		//Set Time
 		
@@ -77,8 +78,55 @@ public class Creat_PauseCode extends AdminLogin {
 		
 		driver.findElement(By.xpath("(//div[contains(text(),'Configurations')])[1]")).click();
 
+	}
+
+	
+	@Test(priority=1)
+	public void PauseCode_Verfication() throws InterruptedException {
+		
+
+
+		//Filter Tab
+		
+		driver.findElement(By.xpath("(//i[@class='fas fa-filter'])[1]")).click();
+		
+//		Thread.sleep(1000);
+		
+		WebElement Popup= driver.findElement(By.xpath("(//div[@class='container sidenavContainer'])[1]"));
 		
 		
+		//Filter Title
+		
+		driver.findElement(By.xpath("(//input[@aria-label='Name'])[1]")).sendKeys(PauseCode_Name);
+		
+		Thread.sleep(1000);
+		
+		WebElement TitleList = driver.findElement(By.xpath("(//div[@role='list'])[1]"));
+		
+		TitleList.findElement(By.xpath("(//div[@class='v-list__tile__title'])[1]")).click();
+		
+		Popup.click();
+		
+		// Applying Filter
+		
+		driver.findElement(By.xpath("(//div[@class='v-btn__content'][normalize-space()='Filter'])[1]")).click();
+		
+		Thread.sleep(1000);
+		
+		//Edit Popup
+		
+		driver.findElement(By.xpath("(//i[@class='v-icon mr-4 v-icon--link material-icons theme--light blue--text'])[1]")).click();
+		
+		Thread.sleep(1000);
+		
+		String actualvalue = driver.findElement(By.xpath("(//input[@aria-label='Pause Code'])[1]")).getAttribute("value");
+		
+		Assert.assertEquals(actualvalue, PauseCode_Name , "PauseCode is Not Created");
+		
+		Thread.sleep(1000);
+		
+		driver.findElement(By.xpath("(//div[@class='v-btn__content'][normalize-space()='Close'])[1]")).click();
+
 	}
 	
 }

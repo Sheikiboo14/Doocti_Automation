@@ -1,6 +1,8 @@
 package Script;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -31,7 +33,7 @@ public class Script_Creation extends AdminLogin {
 		driver.findElement(By.xpath("(//span[normalize-space()='Scripts'])[1]")).click();
 	}
 	
-	@Test
+	@Test()
 	public void Create_Script() throws InterruptedException {
 		
 		// Add Script Popup
@@ -76,4 +78,50 @@ public class Script_Creation extends AdminLogin {
 
 	
 	}	
+	
+	@Test()
+	public void Script_Verification() throws InterruptedException {
+		
+		
+		// filter
+		
+		driver.findElement(By.xpath("(//i[@class='fas fa-filter'])[1]")).click();
+		
+		
+//		Thread.sleep(1000);
+		
+		WebElement Popup= driver.findElement(By.xpath("(//div[@class='container sidenavContainer'])[1]"));
+		
+		
+		//Filter Name
+		
+		driver.findElement(By.xpath("(//input[@aria-label='Name'])[1]")).sendKeys(Script_Name);
+		
+		Thread.sleep(1000);
+		
+		WebElement NameList = driver.findElement(By.xpath("(//div[@role='list'])[1]"));
+		
+		NameList.findElement(By.xpath("(//div[@class='v-list__tile__title'])[1]")).click();
+		
+		Popup.click();
+		
+		// Applying Filter
+		
+		driver.findElement(By.xpath("(//div[@class='v-btn__content'][normalize-space()='Filter'])[1]")).click();
+		
+		Thread.sleep(1000);
+		
+		driver.findElement(By.xpath("(//i[@class='v-icon mr-4 v-icon--link material-icons theme--light blue--text'])[1]")).click();
+		
+		Thread.sleep(1000);
+		
+		String actualvalue = driver.findElement(By.xpath("(//input[@aria-label='Description'])[1]")).getAttribute("value");
+		
+//		System.out.println(driver.findElement(By.xpath("(//input[@aria-label='Name'])[1]")).getText());
+		
+		Assert.assertEquals(actualvalue ,Script_Description, "Script is Not Created");
+		
+		driver.findElement(By.xpath("(//div[@class='v-btn__content'][normalize-space()='Close'])[1]")).click();
+		
+	}
 }

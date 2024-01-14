@@ -2,6 +2,7 @@ package Configuration_CreationFlow;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -41,6 +42,7 @@ public class Create_TimeZone extends AdminLogin{
 	@Test
 	public void TimeZone_Creation() throws InterruptedException {
 
+
 		// Add TimeZone
 		
 		driver.findElement(By.xpath("(//div[normalize-space()='Add Timezone'])[1]")).click();
@@ -51,11 +53,11 @@ public class Create_TimeZone extends AdminLogin{
 		
 		// Zone Name
 		
-		driver.findElement(By.xpath("(//input[@aria-label='Zone Name'])[2]")).sendKeys(ZoneName);
+		driver.findElement(By.xpath("(//input[@aria-label='Zone Name'])[2]")).sendKeys(TimeZone_Name);
 		
 		//Description
 		
-		driver.findElement(By.xpath("(//input[@aria-label='Description'])[2]")).sendKeys(Description);
+		driver.findElement(By.xpath("(//input[@aria-label='Description'])[2]")).sendKeys(TimeZone_Description);
 		
 		// Start Time
 		
@@ -65,13 +67,13 @@ public class Create_TimeZone extends AdminLogin{
 		
 		WebElement HourClock= driver.findElement(By.xpath("(//div[@class='v-time-picker-clock__container'])[1]"));
 		
-		HourClock.findElement(By.xpath("(//span[contains(text(),'"+StartHour+"')])[1]")).click();
+		HourClock.findElement(By.xpath("(//span[contains(text(),'"+TimeZone_StartHour+"')])[1]")).click();
 		
 		Thread.sleep(1000);
 		
 		WebElement MinuteClock= driver.findElement(By.xpath("(//div[@class='v-time-picker-clock__container'])[1]"));
 
-		MinuteClock.findElement(By.xpath("(//span[contains(text(),'"+StartMinute+"')])[1]")).click();
+		MinuteClock.findElement(By.xpath("(//span[contains(text(),'"+TimeZone_StartMinute+"')])[1]")).click();
 		
 //		TimeZonePopup.click();
 		
@@ -83,14 +85,14 @@ public class Create_TimeZone extends AdminLogin{
 		
 		WebElement EndHClock = driver.findElement(By.xpath("(//div[@class='v-time-picker-clock v-time-picker-clock--indeterminate theme--light'])[1]"));
 		
-		EndHClock.findElement(By.xpath("(//span[contains(text(),'"+EndHour+"')])[1]")).click();
+		EndHClock.findElement(By.xpath("(//span[contains(text(),'"+TimeZone_EndHour+"')])[1]")).click();
 		
 		Thread.sleep(1000);
 		
 		WebElement EndMClock = driver.findElement(By.xpath("(//div[@class='v-time-picker-clock__container'])[1]"));
 
 		
-		EndMClock.findElement(By.xpath("(//span[contains(text(),'"+EndMinute+"')])[1]")).click();
+		EndMClock.findElement(By.xpath("(//span[contains(text(),'"+TimeZone_EndMinute+"')])[1]")).click();
 		
 //		TimeZonePopup.click();
 	
@@ -102,7 +104,7 @@ public class Create_TimeZone extends AdminLogin{
 		
 		WebElement StatusList = driver.findElement(By.xpath("(//div[@role='list'])[4]"));
 		
-		StatusList.findElement(By.xpath("(//div[@class='v-list__tile__title'][normalize-space()='"+Status+"'])[3]")).click();
+		StatusList.findElement(By.xpath("(//div[@class='v-list__tile__title'][normalize-space()='"+TimeZone_Status+"'])[3]")).click();
 		
 		// Create TimeZone
 		
@@ -115,6 +117,55 @@ public class Create_TimeZone extends AdminLogin{
 		driver.findElement(By.xpath("(//div[@class='v-btn__content'][normalize-space()='Close'])[3]")).click();
 		
 		driver.findElement(By.xpath("(//div[contains(text(),'Configurations')])[1]")).click();
+
+	}
+	
+	
+	@Test(priority=1)
+	public void TimeZone_Verfication() throws InterruptedException {
+		
+
+
+		//Filter Tab
+		
+		driver.findElement(By.xpath("(//i[@class='fas fa-filter'])[1]")).click();
+		
+//		Thread.sleep(1000);
+		
+		WebElement Popup= driver.findElement(By.xpath("(//div[@class='container sidenavContainer'])[1]"));
+		
+		
+		//Filter Title
+		
+		driver.findElement(By.xpath("(//input[@aria-label='Timezone'])[1]")).sendKeys(TimeZone_Name);
+		
+		Thread.sleep(1000);
+		
+		WebElement TitleList = driver.findElement(By.xpath("(//div[@role='list'])[2]"));
+		
+		TitleList.findElement(By.xpath("(//span[@class='v-list__tile__mask'])[1]")).click();
+		
+		Popup.click();
+		
+		// Applying Filter
+		
+		driver.findElement(By.xpath("(//div[@class='v-btn__content'][normalize-space()='Filter'])[1]")).click();
+		
+		Thread.sleep(1000);
+		
+		//Edit Popup
+		
+		driver.findElement(By.xpath("(//i[@class='v-icon mr-4 v-icon--link material-icons theme--light blue--text'])[1]")).click();
+		
+		Thread.sleep(1000);
+		
+		String actualvalue = driver.findElement(By.xpath("(//input[@aria-label='Zone Name'])[1]")).getAttribute("value");
+		
+		Assert.assertEquals(actualvalue, TimeZone_Name , "TimeZone is Not Created");
+		
+		Thread.sleep(1000);
+		
+		driver.findElement(By.xpath("(//div[@class='v-btn__content'][normalize-space()='Close'])[1]")).click();
 
 	}
 

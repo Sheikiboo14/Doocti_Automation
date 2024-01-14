@@ -2,6 +2,7 @@ package PauseCode;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -30,7 +31,7 @@ public class Creat_PauseCode extends AdminLogin {
 		
 	}
 	
-	@Test
+	@Test(enabled = false)
 	public void Create_PauseCode() throws InterruptedException {
 		
 		// Add PauseCode Popup
@@ -77,8 +78,54 @@ public class Creat_PauseCode extends AdminLogin {
 		
 		driver.findElement(By.xpath("(//div[contains(text(),'Configurations')])[1]")).click();
 
-		
-		
 	}
+
 	
+	@Test(priority=1)
+	public void PauseCode_Verfication() throws InterruptedException {
+		
+
+
+		//Filter Tab
+		
+		driver.findElement(By.xpath("(//i[@class='fas fa-filter'])[1]")).click();
+		
+//		Thread.sleep(1000);
+		
+		WebElement Popup= driver.findElement(By.xpath("(//div[@class='container sidenavContainer'])[1]"));
+		
+		
+		//Filter Title
+		
+		driver.findElement(By.xpath("(//input[@aria-label='Name'])[1]")).sendKeys(PauseCode_Name);
+		
+		Thread.sleep(1000);
+		
+		WebElement TitleList = driver.findElement(By.xpath("(//div[@role='list'])[1]"));
+		
+		TitleList.findElement(By.xpath("(//div[@class='v-list__tile__title'])[1]")).click();
+		
+		Popup.click();
+		
+		// Applying Filter
+		
+		driver.findElement(By.xpath("(//div[@class='v-btn__content'][normalize-space()='Filter'])[1]")).click();
+		
+		Thread.sleep(1000);
+		
+		//Edit Popup
+		
+		driver.findElement(By.xpath("(//i[@class='v-icon mr-4 v-icon--link material-icons theme--light blue--text'])[1]")).click();
+		
+		Thread.sleep(1000);
+		
+		String actualvalue = driver.findElement(By.xpath("(//input[@aria-label='Pause Code'])[1]")).getAttribute("value");
+		
+		Assert.assertEquals(actualvalue, PauseCode_Name , "PauseCode is Not Created");
+		
+		Thread.sleep(1000);
+		
+		driver.findElement(By.xpath("(//div[@class='v-btn__content'][normalize-space()='Close'])[1]")).click();
+
+	}
 }

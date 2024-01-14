@@ -4,7 +4,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -20,7 +21,7 @@ public class AdminLogin {
 	
 // Create Announcement
 	
-		protected String Announcement_Name ="Testing Demo";
+		protected String Announcement_Name ="Testing Demo3";
 		
 		protected String Announcement = "Good Morning";
 		
@@ -80,7 +81,7 @@ public class AdminLogin {
 		
 //Create Queue
 		
-		protected String Queue_Name ="Test1";
+		protected String Queue_Name ="Test Queue";
 		
 		protected int Queue_WaitTime = 20;	
 		
@@ -137,19 +138,59 @@ public class AdminLogin {
 
 	public WebDriver driver;
 	
-	@BeforeSuite
-	public void Login() throws InterruptedException {
-		
 	
-		WebDriverManager.chromedriver().setup();
+//	@Parameters("browserName")
+	@BeforeTest
+	public void Login() throws InterruptedException {
+		/*
+		switch(browserName) {
 		
+		case "chrome":
+			
+			WebDriverManager.chromedriver().setup();
+			
+			ChromeOptions Browser = new ChromeOptions();
+			
+			Browser.addArguments("--incognito");
+			
+			driver = new ChromeDriver(Browser);
+			
+			break ;
+		
+		case "edge":
 
+			WebDriverManager.edgedriver().setup();
+			
+			driver = new EdgeDriver();
+			
+			break ;
+			
+
+		case "firefox":
+
+			WebDriverManager.firefoxdriver().setup();
+			
+			driver = new FirefoxDriver();
+			
+			break ;
+			
+		default :
+			
+			System.err.println("Browser Name Invalid");
+			
+		}
+		*/
+		
+		WebDriverManager.chromedriver().setup();
 		
 		ChromeOptions Browser = new ChromeOptions();
 		
 		Browser.addArguments("--incognito");
 		
 		driver = new ChromeDriver(Browser);
+			
+	
+
 		
 		/*
 		WebDriverManager.edgedriver().setup();
@@ -168,22 +209,22 @@ public class AdminLogin {
 		
 		driver.findElement(By.xpath("//div[contains(text(),'Login')]")).click();
 		
-		Thread.sleep(10000);
+		Thread.sleep(5000);
 
 		driver.navigate().refresh();
 		
 	}
 	
-//	@AfterTest
-//	public void Quit() throws InterruptedException {
-//		
-//		Thread.sleep(1000);
-//		
+	@AfterTest
+	public void Quit() throws InterruptedException {
+		
+		Thread.sleep(1000);
+		
 //		driver.findElement(By.xpath("//i[@title='Sign Out']")).click();
-//		
-//		driver.quit();
-//		
-//	}
+		
+		driver.quit();
+		
+	}
 	
 }
 

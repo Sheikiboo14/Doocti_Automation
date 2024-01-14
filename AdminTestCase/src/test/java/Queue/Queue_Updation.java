@@ -53,7 +53,7 @@ public class Queue_Updation extends AdminLogin {
 		
 		WebElement TitleList = driver.findElement(By.xpath("(//div[@role='list'])[1]"));
 		
-		TitleList.findElement(By.xpath("(//div[contains(text(),'Testing')])[1]")).click();
+		TitleList.findElement(By.xpath("(//div[contains(text(),'"+Queue_Name+"')])[1]")).click();
 		
 		Popup.click();
 		

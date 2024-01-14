@@ -2,6 +2,7 @@ package SubDisposition;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -28,7 +29,7 @@ public class Create_SubDisposition extends AdminLogin {
 		
 	}
 	
-	@Test
+	@Test(priority=0)
 	public void Create_SubDisposition() throws InterruptedException {
 		
 		// Sub disposition Popup
@@ -72,5 +73,54 @@ public class Create_SubDisposition extends AdminLogin {
 		driver.findElement(By.xpath("(//div[contains(text(),'Configurations')])[1]")).click();
 
 	}
+	
+	@Test(priority=1)
+	public void SubDispo_Verfication() throws InterruptedException {
+		
+
+
+		//Filter Tab
+		
+		driver.findElement(By.xpath("(//i[@class='fas fa-filter'])[1]")).click();
+		
+//		Thread.sleep(1000);
+		
+		WebElement Popup= driver.findElement(By.xpath("(//div[@class='container sidenavContainer'])[1]"));
+		
+		
+		//Filter Title
+		
+		driver.findElement(By.xpath("(//input[@aria-label='Sub Disposition'])[1]")).sendKeys(Sub_Disposition);
+		
+		Thread.sleep(1000);
+		
+		WebElement TitleList = driver.findElement(By.xpath("(//div[@role='list'])[2]"));
+		
+		TitleList.findElement(By.xpath("(//span[@class='v-list__tile__mask'])[1]")).click();
+		
+		Popup.click();
+		
+		// Applying Filter
+		
+		driver.findElement(By.xpath("(//div[@class='v-btn__content'][normalize-space()='Filter'])[1]")).click();
+		
+		Thread.sleep(1000);
+		
+		//Edit Popup
+		
+		driver.findElement(By.xpath("(//i[@class='v-icon mr-4 v-icon--link material-icons theme--light blue--text'])[1]")).click();
+		
+		Thread.sleep(1000);
+		
+		String actualvalue = driver.findElement(By.xpath("(//input[@aria-label='SubDisposition'])[1]")).getAttribute("value");
+		
+		Assert.assertEquals(actualvalue, Sub_Disposition , "Sub-Dispo is Not Created");
+		
+		Thread.sleep(1000);
+		
+		driver.findElement(By.xpath("(//div[@class='v-btn__content'][normalize-space()='Close'])[1]")).click();
+
+	}
+
 
 }

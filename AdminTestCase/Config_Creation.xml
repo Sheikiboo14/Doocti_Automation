@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="Configuration Creation Testing">
+	
+  <test name ="Announcement Creation">
+	<classes>      
+      <class name="Announcement.Create_Announcement"/>
+    </classes>
+  </test> <!-- Test -->
+
+  
+  <test name ="Audio Creation">
+	<classes>      
+      <class name="Audio_Store.Uplode_AudioStore"/>
+    </classes>
+  </test> <!-- Test -->
+  
+  <test name ="Block Creation">
+	<classes>      
+      <class name="Block_List.BlockList"/>
+    </classes>
+  </test> <!-- Test -->
+  
+  <test name ="DID Number Creation">
+	<classes>      
+      <class name="DID_Number.Manual_DID_Creation"/>
+    </classes>
+  </test> <!-- Test -->
+  
+  <test name ="Disposition Creation">
+	<classes>      
+      <class name="Disposition.Dispo_Creation"/>
+    </classes>
+  </test> <!-- Test -->
+  
+	<test name="Inbound Route Creation">
+		<classes>
+			<class name="Inbound_Route.InboundRoute_Creation"/>
+		</classes>
+	</test>
+	
+	<test name="Meeting Title Creation">
+		<classes>
+			<class name="MeetingTitle.Create_MeetingTitle"/>
+		</classes>
+	</test>
+	
+	<test name="PauseCode Creation">
+		<classes>
+			<class name="PauseCode.Creat_PauseCode"/>
+		</classes>
+	</test>
+	
+	<test name="Queue Creation">
+		<classes>
+			<class name="Queue.Queue_Creation"/>
+		</classes>
+	</test>
+	
+		<test name="Script Creation">
+		<classes>
+			<class name="Script.Script_Creation"/>
+		</classes>
+	</test>
+	
+		<test name="Sub Disposition Creation">
+		<classes>
+			<class name="SubDisposition.Create_SubDisposition"/>
+		</classes>
+	</test>
+	
+			<test name="Tag Creation">
+		<classes>
+			<class name="Tags.Create_Tags"/>
+		</classes>
+	</test>
+	
+			<test name="Ticket Status Creation">
+		<classes>
+			<class name="Ticket_Status.TicketStatus"/>
+		</classes>
+	</test>
+	
+	<test name=" TimeZone Creation">
+		<classes>
+			<class name="Timezone.Create_TimeZone"/>
+		</classes>
+	</test>
+  
+</suite> <!-- Suite -->
+
+
