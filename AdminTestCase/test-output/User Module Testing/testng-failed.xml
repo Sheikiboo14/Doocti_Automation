@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [User Module Testing]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="User Updation (failed)">
+    <classes>
+      <class name="User.Updat_User">
+        <methods>
+          <include name="Setup"/>
+          <include name="Quit"/>
+          <include name="Login"/>
+          <include name="Update_Status"/>
+        </methods>
+      </class> <!-- User.Updat_User -->
+    </classes>
+  </test> <!-- User Updation (failed) -->
+</suite> <!-- Failed suite [User Module Testing] -->

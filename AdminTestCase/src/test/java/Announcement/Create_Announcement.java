@@ -12,13 +12,13 @@ import Login.Creation_Inputs;
 
 public class Create_Announcement extends AdminLogin {
 	
-	/*
-	String Announcement_Name ="Testing";
+	
+	String Announcement_Name ="Testing3";
 	
 	String Announcement = "Good Morning";
 	
 	String Announcement_Campaign ="Preview 2";
-	*/
+	
 	
 	@BeforeMethod
 	public void Setup() throws InterruptedException {

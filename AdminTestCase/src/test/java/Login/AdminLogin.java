@@ -215,16 +215,16 @@ public class AdminLogin {
 		
 	}
 	
-	@AfterTest
-	public void Quit() throws InterruptedException {
-		
-		Thread.sleep(1000);
-		
+//	@AfterTest
+//	public void Quit() throws InterruptedException {
+//		
+//		Thread.sleep(1000);
+//		
 //		driver.findElement(By.xpath("//i[@title='Sign Out']")).click();
-		
-		driver.quit();
-		
-	}
-	
+//		
+//		driver.quit();
+//		
+//	}
+//	
 }
 
