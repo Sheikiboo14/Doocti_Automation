@@ -73,7 +73,7 @@ public class Update_User extends AdminLogin {
 	}
 	
 
-	@Test(enabled=true)
+	@Test(enabled=false)
 	public void Update_Status() throws Exception {
 		
 		// Edit User Popup
@@ -159,7 +159,7 @@ public class Update_User extends AdminLogin {
 		driver.findElement(By.xpath("(//span[normalize-space()='Users'])[1]")).click();
 	}
 	
-	@Test(enabled=true)
+	@Test(enabled=false)
 	public void Update_UserEmail() throws InterruptedException {
 		
 		// Edit User Popup

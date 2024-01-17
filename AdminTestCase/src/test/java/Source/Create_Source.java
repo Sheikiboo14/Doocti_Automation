@@ -47,7 +47,7 @@ public class Create_Source extends AdminLogin {
 		
 		driver.findElement(By.xpath("(//div[normalize-space()='Create'])[1]")).click();
 		
-		Thread.sleep(1000);
+		Thread.sleep(3000);
 		
 	// Close Snakbar
 		

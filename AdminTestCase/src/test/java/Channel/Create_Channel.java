@@ -9,7 +9,7 @@ import Login.AdminLogin;
 
 public class Create_Channel extends AdminLogin {
 	
-	String ChannelName ="Chat1";
+	String ChannelName ="Facebook Chat";
 	
 	String Description ="Testing";
 	

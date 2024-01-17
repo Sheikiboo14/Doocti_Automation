@@ -9,13 +9,13 @@ import Login.AdminLogin;
 
 public class Create_Team extends AdminLogin {
 	
-	String Name = "All";
+	String Name = "QA";
 	
 	String Description = "Testing";
 	
-	String Type = "All";
+	String Type = "Channel";
 	
-	String Campaign ="Inbound Test";
+	String Campaign ="Dialer";
 	
 	String LeadSource = "Test";
 	
@@ -103,6 +103,8 @@ public class Create_Team extends AdminLogin {
 			ChannelList.findElement(By.xpath("(//div[contains(text(),'"+Channel+"')])[1]")).click();
 			
 			TeamPopup.click();
+			
+			
 		}
 		
 		else if(TeamType.equalsIgnoreCase("All")) {
@@ -135,9 +137,6 @@ public class Create_Team extends AdminLogin {
 			
 			TeamPopup.click();
 
-		
-		
-		
 		}
 		
 	// Campaign 
@@ -150,7 +149,7 @@ public class Create_Team extends AdminLogin {
 		
 		CampaignList.findElement(By.xpath("(//div[@class='v-list__tile__title'][normalize-space()='"+Campaign+"'])[2]")).click();
 		
-		Popup.click();
+		TeamPopup.click();
 		
 	// User Assign
 		
@@ -166,7 +165,7 @@ public class Create_Team extends AdminLogin {
 		
 		driver.findElement(By.xpath("//div[normalize-space()='Create']")).click();
 		
-		Thread.sleep(1000);
+		Thread.sleep(5000);
 		
 	// Close the Snakbar
 		
