@@ -10,6 +10,9 @@ import Login.AdminLogin;
 
 public class Update_Source extends AdminLogin {
 	
+	
+	String Source_Name= "Test";
+	
 	String Source_Status = "Inactive";
 	
 	
@@ -29,10 +32,11 @@ public class Update_Source extends AdminLogin {
 	@Test
 	public void Update_Source() throws InterruptedException{
 		
+		Thread.sleep(1000);
 		
 		// Edit Popup
 		
-		driver.findElement(By.xpath("(//i[@class='v-icon mr-4 v-icon--link material-icons theme--light blue--text'])[1]")).click();
+		driver.findElement(By.xpath("//td[text()='"+Source_Name+"']//following-sibling::td[3]//i[@class='v-icon mr-4 v-icon--link material-icons theme--light blue--text']")).click();
 		
 		Thread.sleep(1000);
 		
@@ -58,12 +62,10 @@ public class Update_Source extends AdminLogin {
 		
 		// Verification
 		
-		driver.findElement(By.xpath("(//i[@class='v-icon mr-4 v-icon--link material-icons theme--light blue--text'])[1]")).click();
-		
 		Thread.sleep(1000);
 		
-		String actualvalue = driver.findElement(By.xpath("(//div[@class='v-select__selections'])[1]")).getAttribute("Value");
-		
+		String actualvalue = driver.findElement(By.xpath("//td[text()='"+Source_Name+"']//following-sibling::td[2]")).getText();
+			
 		Assert.assertEquals(actualvalue, Source_Status);
 	
 		

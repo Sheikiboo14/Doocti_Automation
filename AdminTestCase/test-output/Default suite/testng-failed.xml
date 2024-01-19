@@ -3,13 +3,14 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="Channel.Demo">
+      <class name="Source.Create_Source">
         <methods>
-          <include name="Demo"/>
+          <include name="Setup"/>
+          <include name="Create_Source"/>
           <include name="Quit"/>
           <include name="Login"/>
         </methods>
-      </class> <!-- Channel.Demo -->
+      </class> <!-- Source.Create_Source -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

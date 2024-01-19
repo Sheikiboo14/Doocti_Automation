@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Team Module Testing">
+	
+	
+		
+	<test name="Channel Creation">
+		<classes>
+			<class name="Channel.Create_Channel">
+				<methods>
+					<include name="Create_Channel"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+		
+	<test name="Source Creation">
+		<classes>
+			<class name="Source.Create_Source">
+				<methods>
+					<include name="Create_Source"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	
+	<test name="Team Creation">
+		<classes>
+			<class name="Team.Create_Team">
+				<methods>
+					<include name="Create_Team"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+</suite>

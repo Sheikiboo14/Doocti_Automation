@@ -37,16 +37,4 @@
       </class> <!-- Team.Create_Team -->
     </classes>
   </test> <!-- Team Creation(failed) -->
-  <test thread-count="5" name="Team Updation(failed)">
-    <classes>
-      <class name="Team.Update_Team">
-        <methods>
-          <include name="Update_Team"/>
-          <include name="Quit"/>
-          <include name="Setup"/>
-          <include name="Login"/>
-        </methods>
-      </class> <!-- Team.Update_Team -->
-    </classes>
-  </test> <!-- Team Updation(failed) -->
 </suite> <!-- Failed suite [Team Module Testing] -->

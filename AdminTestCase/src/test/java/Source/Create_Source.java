@@ -1,6 +1,10 @@
 package Source;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -9,7 +13,7 @@ import Login.AdminLogin;
 public class Create_Source extends AdminLogin {
 	
 	
-	String SourceName ="Facebook";
+	String SourceName ="FaceBook";
 	
 	String Description ="Testing";
 
@@ -53,6 +57,26 @@ public class Create_Source extends AdminLogin {
 		
 		driver.findElement(By.xpath("(//div[@class='v-btn__content'][normalize-space()='Close'])[3]")).click();
 		
+		Thread.sleep(1000);
+	
+	// Verification
 		
+		List<WebElement> Alldatas = driver.findElements(By.xpath("//table[contains(@class,'v-datatable')]//tr//td[1]"));
+		
+		boolean flag = false;
+		
+		for(WebElement Data : Alldatas) {
+			
+			String value = Data.getText();
+			
+			if(value.contains(SourceName)) {
+				
+				flag = true;
+				
+				break;
+			}
+		}
+		
+		Assert.assertTrue(flag,"Source is Not Created..!");
 	}
 }

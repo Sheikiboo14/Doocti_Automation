@@ -9,7 +9,7 @@ import Login.AdminLogin;
 
 public class User_Groups extends AdminLogin {
 	
-	String GroupName = "Testing";
+	String GroupName = "Testing1";
 	
 	
 	@BeforeMethod
@@ -106,7 +106,7 @@ public class User_Groups extends AdminLogin {
 		Thread.sleep(1000);
 		
 		driver.findElement(By.xpath("(//input[@type='checkbox'])[5]")).click();
-		
+	
 		// Agent Performance
 		
 		driver.findElement(By.xpath("(//div[contains(text(),'Agent Performance')])[1]")).click();
@@ -459,7 +459,7 @@ public class User_Groups extends AdminLogin {
 		
 		driver.findElement(By.xpath("(//div[normalize-space()='Yes, Save !'])[1]")).click();
 		
-		Thread.sleep(1000);
+		Thread.sleep(3000);
 		
 	//Close Snakbar
 		

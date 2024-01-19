@@ -10,7 +10,9 @@ import Login.AdminLogin;
 
 public class Update_Channel extends AdminLogin{
 	
-	String Channel_Status = "Active";
+	String Channel_Status = "Inactive";
+	
+	String Channel_Name = "Mail";
 	
 	
 	@BeforeMethod
@@ -30,7 +32,10 @@ public class Update_Channel extends AdminLogin{
 	@Test
 	public void Update_Status() throws InterruptedException{
 		
-		driver.findElement(By.xpath("(//i[@aria-hidden='true'][normalize-space()='edit'])[1]")).click();
+		Thread.sleep(1000);
+		
+		
+	      driver.findElement(By.xpath("//td[text()='"+Channel_Name+"']//following-sibling::td[3]//i[@class='v-icon mr-4 v-icon--link material-icons theme--light blue--text']")).click();
 		
 		Thread.sleep(1000);
 		
@@ -50,7 +55,7 @@ public class Update_Channel extends AdminLogin{
 		
 		driver.findElement(By.xpath("(//div[normalize-space()='Update'])[1]")).click();
 		
-		Thread.sleep(1000);
+		Thread.sleep(3000);
 		
 		// Close Snakbar
 		
@@ -59,13 +64,13 @@ public class Update_Channel extends AdminLogin{
 		
 		// Verification
 		
-		driver.findElement(By.xpath("(//i[@aria-hidden='true'][normalize-space()='edit'])[1]")).click();
-		
 		Thread.sleep(1000);
 		
-		String actualvalue = driver.findElement(By.xpath("(//div[@class='v-select__selections'])[1]")).getAttribute("Value");
-		
-		Assert.assertEquals(actualvalue, Channel_Status);
+		String actualvalue = driver.findElement(By.xpath("//td[text()='"+Channel_Name+"']//following-sibling::td[2]")).getText();
+
+		System.out.println(actualvalue);
+		   
+		Assert.assertEquals(actualvalue, Channel_Status, "Channel Status is not Updated");
 		
 	
 	}

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [User Groups Module Testing]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="User Groups Deletion(failed)">
+    <classes>
+      <class name="User_Groups.Delete_UserGroups">
+        <methods>
+          <include name="Quit"/>
+          <include name="Login"/>
+          <include name="Delete_UserGroups"/>
+          <include name="Setup"/>
+        </methods>
+      </class> <!-- User_Groups.Delete_UserGroups -->
+    </classes>
+  </test> <!-- User Groups Deletion(failed) -->
+</suite> <!-- Failed suite [User Groups Module Testing] -->
