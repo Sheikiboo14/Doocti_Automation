@@ -1,4 +1,4 @@
-package Channel;
+package Admin_UsersGroups_DeleteFlow;
 
 import java.util.List;
 
@@ -6,13 +6,14 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import Login.AdminLogin;
 
 public class Delete_Channel extends AdminLogin{
 	
-	String Channel_Name ="Mail";	
+//	String Channel_Name ="Mail";	
 	
 	@BeforeMethod
 	public void Setip() throws InterruptedException {
@@ -28,8 +29,9 @@ public class Delete_Channel extends AdminLogin{
 
 	}
 	
+	@Parameters({"Channel_Name"})
 	@Test
-	public void Delete_Channel() throws InterruptedException{
+	public void Delete_Channel(String Channel_Name) throws InterruptedException{
 		
 		Thread.sleep(1000);
 		

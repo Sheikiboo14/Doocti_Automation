@@ -1,7 +1,10 @@
 package Admin_Configuration_CreateFlow;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -10,7 +13,7 @@ import Login.AdminLogin;
 public class Create_DIDNumber extends AdminLogin{
 	
 
-	Long DID_Number = 9876543210L;
+	Long DID_Number = 9876543215L;
 	
 	String Trunk ="Testing";
 	
@@ -54,8 +57,29 @@ public class Create_DIDNumber extends AdminLogin{
 		
 //		driver.findElement(By.xpath("(//div[@class='v-btn__content'][normalize-space()='Close'])[4]")).click();
 		
-		driver.findElement(By.xpath("(//div[contains(text(),'Configurations')])[1]")).click();
-
+		Thread.sleep(1000);
+		
+		// Verification
+		
+		
+	      List<WebElement> Alldatas = driver.findElements(By.xpath("//table[@class='v-datatable v-table theme--light']//tr//td[1]"));
+	
+	      System.out.println(Alldatas.size());
+	      
+	      boolean flag = false;
+	      
+	      for(WebElement Data : Alldatas) {
+	    	  
+	    	  String value=Data.getText();
+	    	  
+	    	  if(value.contains(Long.toString(DID_Number))) {
+	    		  
+	    		  flag = true;
+	    		  
+	    		  break;
+	    	  }
+	      }
+	  Assert.assertTrue(flag,"DID_Number is Not Created...!");	
 		
 	}
 

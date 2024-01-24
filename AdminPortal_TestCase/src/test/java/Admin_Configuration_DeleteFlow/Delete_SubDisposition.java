@@ -1,6 +1,10 @@
 package Admin_Configuration_DeleteFlow;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -28,24 +32,11 @@ public class Delete_SubDisposition extends AdminLogin{
 	
 	@Test
 	public void Delete_SubDisposition() throws InterruptedException {
-		
-		// Filter 
-		
-		driver.findElement(By.xpath("(//i[@class='fas fa-filter'])[1]")).click();
-		
-		Thread.sleep(1000);
-		
-		driver.findElement(By.xpath("(//input[@aria-label='Sub Disposition'])[1]")).sendKeys(Sub_DispoName);
-		
-		// Apply Filter
-		
-		driver.findElement(By.xpath("(//div[@class='v-btn__content'][normalize-space()='Filter'])[1]")).click();
-		
-		Thread.sleep(1000);
+	
 
 		// Delete Sub Disposition
 		
-		driver.findElement(By.xpath("(//i[@class='v-icon mr-4 v-icon--link material-icons theme--light red--text'])[1]")).click();
+		driver.findElement(By.xpath("//td[text()='"+Sub_DispoName+"']//following-sibling::td[3]//i[@class='v-icon mr-4 v-icon--link material-icons theme--light red--text']")).click();
 		
 		Thread.sleep(1000);
 		
@@ -57,8 +48,23 @@ public class Delete_SubDisposition extends AdminLogin{
 		
 		driver.findElement(By.xpath("(//div[@class='v-btn__content'][normalize-space()='Close'])[3]")).click();
 		
-		driver.findElement(By.xpath("(//div[contains(text(),'Configurations')])[1]")).click();
-
+		Thread.sleep(1000);
+		
+		List<WebElement> Alldatas = driver.findElements(By.xpath("//table[contains(@class,'v-datatable')]//td[1]"));
+		
+		boolean flag = true;
+		
+		for (WebElement Data : Alldatas) {
+			
+			String value = Data.getText();
+			
+			if(value.contains(Sub_DispoName)) {
+				
+				flag = false;
+			}
+		}
+		
+		Assert.assertFalse(flag,"Sub_Dispo is Not Deleted..!");
 		
 		
 	}

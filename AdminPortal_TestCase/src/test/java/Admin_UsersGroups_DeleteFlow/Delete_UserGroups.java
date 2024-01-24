@@ -2,14 +2,16 @@ package Admin_UsersGroups_DeleteFlow;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import Login.AdminLogin;
 
 public class Delete_UserGroups extends AdminLogin{
 
-	String UserGroups_Name = "Testing";
+//	String UserGroups_Name = "Testing";
 
 	
 	@BeforeMethod
@@ -23,11 +25,12 @@ public class Delete_UserGroups extends AdminLogin{
 		
 	}
 	
+	@Parameters({"UserGroups_Name"})
 	@Test
-	public void Delete_UserGroups() throws InterruptedException{
+	public void Delete_UserGroups(String UserGroups_Name) throws InterruptedException{
 		
 		
-		WebElement UserGroups_Window = driver.findElement(By.xpath("(//div[@class='v-content__wrap'])[1]"));
+//		WebElement UserGroups_Window = driver.findElement(By.xpath("(//div[@class='v-content__wrap'])[1]"));
 		
 		// UserGroup list
 		
@@ -39,7 +42,10 @@ public class Delete_UserGroups extends AdminLogin{
 		
 		UserGroups_List.findElement(By.xpath("(//div[@class='v-list__tile__title'][normalize-space()='"+UserGroups_Name+"'])[1]")).click();
 	
-		UserGroups_Window.click();
+		Actions action = new Actions(driver);
+		
+		action.click().build().perform();
+//		UserGroups_Window.click();
 		
 		// delete UserGroups
 		

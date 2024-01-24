@@ -1,16 +1,20 @@
 package Admin_UsersGroups_CreateFlow;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import Login.AdminLogin;
 
 public class Create_UserGroup extends AdminLogin {
 	
-	String GroupName = "Testing1";
-	
+//	String usergroup_name ="test123";
 	
 	@BeforeMethod
 	public void Setup() throws InterruptedException {
@@ -20,6 +24,15 @@ public class Create_UserGroup extends AdminLogin {
 		Thread.sleep(1000);
 		
 		driver.findElement(By.xpath("(//span[normalize-space()='User Group'])[1]")).click();
+	
+	}
+	
+	
+	@Parameters({"usergroup_name"})
+	@Test
+	public void Create_UserGroup(String usergroup_name) throws InterruptedException {
+	
+		Actions action = new Actions(driver);
 		
 		// Add Group Name
 		
@@ -29,7 +42,7 @@ public class Create_UserGroup extends AdminLogin {
 		
 		// Group Name
 		
-		driver.findElement(By.xpath("(//input[@aria-label='New Group'])[1]")).sendKeys(GroupName);
+		driver.findElement(By.xpath("(//input[@aria-label='New Group'])[1]")).sendKeys(usergroup_name);
 		
 		// Save the group name
 		
@@ -42,11 +55,17 @@ public class Create_UserGroup extends AdminLogin {
 		driver.findElement(By.xpath("(//div[normalize-space()='Close'])[1]")).click();
 		
 		Thread.sleep(1000);
-	}
-	
-	@Test
-	public void Create_UserGroup() throws InterruptedException {
-	
+		
+		driver.findElement(By.xpath("(//div[@class='v-select__selections'])[1]")).click();
+		
+		Thread.sleep(2000);
+		
+		WebElement GroupList = driver.findElement(By.xpath("(//div[@class='v-list theme--light'])[1]"));
+		
+		GroupList.findElement(By.xpath("(//div[@class='v-list__tile__title'][normalize-space()='"+usergroup_name+"'])[1]")).click();
+		
+		action.click().build().perform();	
+		
 	//Real Time
 		
 		driver.findElement(By.xpath("(//div[@class='v-btn__content'][normalize-space()='Real Time'])[1]")).click();
@@ -464,6 +483,31 @@ public class Create_UserGroup extends AdminLogin {
 	//Close Snakbar
 		
 		driver.findElement(By.xpath("(//div[normalize-space()='Close'])[1]")).click();
-	}
+	
+		
+	//Verifiaction
+		
+		driver.navigate().refresh();
+		
+		driver.findElement(By.xpath("//i[normalize-space()='arrow_drop_down']")).click();
+		
+		Thread.sleep(1000);
+		
+		List<WebElement> Alldatas = driver.findElements(By.xpath("//div[@class='v-select-list v-card theme--light']//div[@role='listitem']"));
+		
+		boolean flag = false;
+		
+		for(WebElement Data : Alldatas) {
+			
+			String value = Data.getText();
+			
+			if(value.contains(usergroup_name)) {
+				
+				flag = true;
+			}
+		}
+		
+		Assert.assertTrue(flag,"Group is Not Created..!");
+ 	}
 
 }

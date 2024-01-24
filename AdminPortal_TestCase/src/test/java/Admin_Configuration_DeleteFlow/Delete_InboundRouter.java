@@ -1,7 +1,10 @@
 package Admin_Configuration_DeleteFlow;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -10,7 +13,7 @@ import Login.AdminLogin;
 public class Delete_InboundRouter extends AdminLogin {
 	
 
-	String IR_Application="queue";
+	Long Did_Num=12345L;
 	
 	@BeforeMethod
 	public void Setup() throws InterruptedException {
@@ -29,41 +32,14 @@ public class Delete_InboundRouter extends AdminLogin {
 	
 	@Test
 	public void Delete_InboundRouter() throws InterruptedException{
-		
-		//Filter Tab
-		
-		driver.findElement(By.xpath("(//i[@class='fas fa-filter'])[1]")).click();
-		
-//		Thread.sleep(1000);
-		
-		WebElement Popup= driver.findElement(By.xpath("(//div[@class='container sidenavContainer'])[1]"));
-		
-		
-		//Filter Application
-		
-		driver.findElement(By.xpath("(//input[@aria-label='Application'])[1]")).click();
-		
-		Thread.sleep(1000);
-		
-		WebElement NameList = driver.findElement(By.xpath("(//div[@role='list'])[2]"));
-		
-		NameList.findElement(By.xpath("(//div[contains(text(),'"+IR_Application+"')])[1]")).click();
-		
-		Popup.click();
-		
-		// Applying Filter
-		
-		driver.findElement(By.xpath("(//div[@class='v-btn__content'][normalize-space()='Filter'])[1]")).click();
-		
-		Thread.sleep(1000);
-		
+
 		// Delete Inbound Router
 		
-		driver.findElement(By.xpath("(//i[@class='v-icon mr-4 v-icon--link material-icons theme--light red--text'][normalize-space()='delete'])[1]")).click();
+		driver.findElement(By.xpath("//td[text()='"+Did_Num+"']//following-sibling::td[3]//i[@class='v-icon mr-4 v-icon--link material-icons theme--light red--text']")).click();
 		
 		Thread.sleep(1000);
 		
-		driver.findElement(By.xpath("(//button[@type='button'])[12]")).click();
+		driver.findElement(By.xpath("//div[text()='Yes, Delete !']")).click();
 		
 		Thread.sleep(1000);
 		
@@ -71,8 +47,25 @@ public class Delete_InboundRouter extends AdminLogin {
 		
 		driver.findElement(By.xpath("(//div[@class='v-btn__content'][normalize-space()='Close'])[3]")).click();
 		
-		driver.findElement(By.xpath("(//div[contains(text(),'Configurations')])[1]")).click();
-
+		Thread.sleep(1000);
+		
+		//Verification
+		
+		List<WebElement> Alldatas = driver.findElements(By.xpath("//table[contains(@class,'v-datatable')]//td[1]"));
+		
+		boolean flag = true;
+		
+		for (WebElement Data : Alldatas) {
+			
+			String value = Data.getText();
+			
+			if(value.contains(Long.toString(Did_Num))) {
+				
+				flag = false;
+			}
+		}
+		
+		Assert.assertFalse(flag,"Inbound Route is Not Deleted..!");
 		
 		
 	}

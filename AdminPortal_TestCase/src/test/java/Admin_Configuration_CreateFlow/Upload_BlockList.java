@@ -5,8 +5,10 @@ import java.awt.Robot;
 import java.awt.Toolkit;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
+import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -17,6 +19,8 @@ public class Upload_BlockList extends AdminLogin{
 	
 
 	String BlockList_Path = "C:\\Users\\User\\Downloads\\sample_blocklist.csv";
+	
+	String Phno ="9090909092";
 	
 	@BeforeMethod
 	public void Setup() throws InterruptedException {
@@ -78,8 +82,30 @@ public class Upload_BlockList extends AdminLogin{
 		
 		Assert.assertEquals(Info, "Uploaded Successfully");
 		
-		driver.findElement(By.xpath("(//div[contains(text(),'Configurations')])[1]")).click();
-
+		Thread.sleep(1000);
+		
+		// Verification
+		
+		
+	      List<WebElement> Alldatas = driver.findElements(By.xpath("//table[@class='v-datatable v-table theme--light']//tr//td[2]"));
+	
+	      System.out.println(Alldatas.size());
+	      
+	      boolean flag = false;
+	      
+	      for(WebElement Data : Alldatas) {
+	    	  
+	    	  String value=Data.getText();
+	    	  
+	    	  if(value.contains(Phno))
+	    			  {
+	    		  
+	    		  flag = true;
+	    		  
+	    		  break;
+	    	  }
+	      }
+	  Assert.assertTrue(flag," BlockList is Not Created...!");
 
 
 		

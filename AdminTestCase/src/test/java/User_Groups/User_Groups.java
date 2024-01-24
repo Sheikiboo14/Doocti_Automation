@@ -1,15 +1,16 @@
 package User_Groups;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import Login.AdminLogin;
 
 public class User_Groups extends AdminLogin {
 	
-	String GroupName = "Testing1";
+	String GroupName = "Quality";
 	
 	
 	@BeforeMethod
@@ -20,6 +21,13 @@ public class User_Groups extends AdminLogin {
 		Thread.sleep(1000);
 		
 		driver.findElement(By.xpath("(//span[normalize-space()='User Group'])[1]")).click();
+	
+	}
+	
+	@Test
+	public void Create_UserGroup() throws InterruptedException {
+	
+		Actions action = new Actions(driver);
 		
 		// Add Group Name
 		
@@ -42,11 +50,17 @@ public class User_Groups extends AdminLogin {
 		driver.findElement(By.xpath("(//div[normalize-space()='Close'])[1]")).click();
 		
 		Thread.sleep(1000);
-	}
-	
-	@Test
-	public void Create_UserGroup() throws InterruptedException {
-	
+		
+		driver.findElement(By.xpath("(//div[@class='v-select__selections'])[1]")).click();
+		
+		Thread.sleep(2000);
+		
+		WebElement GroupList = driver.findElement(By.xpath("(//div[@class='v-list theme--light'])[1]"));
+		
+		GroupList.findElement(By.xpath("(//div[@class='v-list__tile__title'][normalize-space()='"+GroupName+"'])[1]")).click();
+		
+		action.click().build().perform();	
+		
 	//Real Time
 		
 		driver.findElement(By.xpath("(//div[@class='v-btn__content'][normalize-space()='Real Time'])[1]")).click();

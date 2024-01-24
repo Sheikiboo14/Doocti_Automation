@@ -1,7 +1,11 @@
 package Users_and_Groups;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -9,17 +13,17 @@ import Login.AdminLogin;
 
 public class Create_Team extends AdminLogin {
 	
-	String Name = "All";
+	String Name = "Testings";
 	
 	String Description = "Testing";
 	
 	String Type = "All";
 	
-	String Campaign ="Inbound Test";
+	String Campaign ="Dialer";
 	
-	String LeadSource = "Test";
+	String LeadSource = "QA";
 	
-	String Channel = "Mail";
+	String Channel = "Outlook";
 	
 	String UserAssign ="smibrahim_agent06@doocti.com";
 	
@@ -40,15 +44,13 @@ public class Create_Team extends AdminLogin {
 	@Test(priority = 0)
 	public void Create_Team() throws InterruptedException {
 		
+		Actions action = new Actions(driver);
+		
 		// Opening Create Team Popup
 		
 		driver.findElement(By.xpath("(//div[normalize-space()='Add Team'])[1]")).click();
 		
-		Thread.sleep(1000);
-		
-		WebElement TeamPopup = driver.findElement(By.xpath("(//div[@class='container grid-list-md'])[2]"));
-		
-		WebElement Popup = driver.findElement(By.xpath("(//div[@class='v-overlay v-overlay--active'])[1]"));
+		Thread.sleep(1000);		
 
 		//Team Name
 		
@@ -63,12 +65,12 @@ public class Create_Team extends AdminLogin {
 		driver.findElement(By.xpath("(//div[@class='v-select__selections'])[5]")).click();
 		
 		Thread.sleep(1000);
-		
+	
 		driver.findElement(By.xpath("(//div[@role='list'])[8]"));
 		
 		driver.findElement(By.xpath("(//div[@class='v-list__tile__title'][normalize-space()='"+Type+"'])[2]")).click();
 		
-		TeamPopup.click();
+		action.click().build().perform();		
 		
 		String TeamType = driver.findElement(By.xpath("(//div[@class='v-select__selections'])[5]")).getText();
 		
@@ -87,7 +89,44 @@ public class Create_Team extends AdminLogin {
 			
 			Lead_Source.findElement(By.xpath("(//div[@class='v-list__tile__title'][normalize-space()='"+LeadSource+"'])[1]")).click();
 			
-			TeamPopup.click();
+			action.click().build().perform();
+			// Campaign 
+			
+			driver.findElement(By.xpath("(//i[@aria-hidden='true'][normalize-space()='arrow_drop_down'])[7]")).click();
+			
+			Thread.sleep(1000);
+			
+			WebElement CampaignList = driver.findElement(By.xpath("(//div[@role='list'])[8]"));
+			
+			CampaignList.findElement(By.xpath("(//div[@class='v-list__tile__title'][normalize-space()='"+Campaign+"'])[2]")).click();
+			
+			action.click().build().perform();			
+			
+			
+		// User Assign
+			
+			driver.findElement(By.xpath("(//i[@class='v-icon material-icons theme--light'][normalize-space()='arrow_drop_down'])[8]")).click();
+			
+			Thread.sleep(1000);
+			
+			WebElement UserList = driver.findElement(By.xpath("(//div[@role='list'])[7]"));
+			
+			UserList.findElement(By.xpath("(//div[@class='v-list__tile__title'][normalize-space()='"+UserAssign+"'])[2]")).click();
+			
+			
+			action.doubleClick().build().perform();
+			
+		// Team Creation
+			
+			driver.findElement(By.xpath("//div[normalize-space()='Create']")).click();
+			
+			Thread.sleep(5000);
+			
+		// Close the Snakbar
+			
+			driver.findElement(By.xpath("//button[@class='v-btn v-btn--flat theme--light pink--text']//div[@class='v-btn__content'][normalize-space()='Close']")).click();
+
+		
 		}
 		
 		//Channel 
@@ -102,14 +141,53 @@ public class Create_Team extends AdminLogin {
 			
 			ChannelList.findElement(By.xpath("(//div[contains(text(),'"+Channel+"')])[1]")).click();
 			
-			TeamPopup.click();
+			action.click().build().perform();			
+			// Campaign 
+			
+			driver.findElement(By.xpath("(//i[@aria-hidden='true'][normalize-space()='arrow_drop_down'])[7]")).click();
+			
+			Thread.sleep(1000);
+			
+			WebElement CampaignList = driver.findElement(By.xpath("(//div[@role='list'])[8]"));
+			
+			CampaignList.findElement(By.xpath("(//div[@class='v-list__tile__title'][normalize-space()='"+Campaign+"'])[2]")).click();
+			
+			action.click().build().perform();			
+			
+			
+		// User Assign
+			
+			driver.findElement(By.xpath("(//i[@class='v-icon material-icons theme--light'][normalize-space()='arrow_drop_down'])[8]")).click();
+			
+			Thread.sleep(1000);
+			
+			WebElement UserList = driver.findElement(By.xpath("(//div[@role='list'])[7]"));
+			
+			UserList.findElement(By.xpath("(//div[@class='v-list__tile__title'][normalize-space()='"+UserAssign+"'])[2]")).click();
+			
+			
+			action.doubleClick().build().perform();
+			
+		// Team Creation
+			
+			driver.findElement(By.xpath("//div[normalize-space()='Create']")).click();
+			
+			Thread.sleep(5000);
+			
+		// Close the Snakbar
+			
+			driver.findElement(By.xpath("//button[@class='v-btn v-btn--flat theme--light pink--text']//div[@class='v-btn__content'][normalize-space()='Close']")).click();
+
+		
+			
+			
 		}
 		
 		else if(TeamType.equalsIgnoreCase("All")) {
 			
 		//Lead Source
 			
-			driver.findElement(By.xpath("(//div[@class='v-select__selections'])[7]")).click();
+			driver.findElement(By.xpath("(//i[@aria-hidden='true'][normalize-space()='arrow_drop_down'])[6]")).click();
 		
 			Thread.sleep(1000);
 			
@@ -117,32 +195,27 @@ public class Create_Team extends AdminLogin {
 			
 			Lead.findElement(By.xpath("(//div[@class='v-list__tile__title'][normalize-space()='"+LeadSource+"'])[1]")).click();
 			
-//			Thread.sleep(1000);
+			Thread.sleep(1000);
 			
-			TeamPopup.click();
+			action.click().build().perform();
 			
 		// Channel
 			
-			driver.findElement(By.xpath("(//div[@class='v-select__selections'])[8]")).click();
+			driver.findElement(By.xpath("(//i[@aria-hidden='true'][normalize-space()='arrow_drop_down'])[7]")).click();
 			
 			Thread.sleep(1000);
 			
-			WebElement Channel = driver.findElement(By.xpath("(//div[@role='list'])[1]"));
+			WebElement ChannelList = driver.findElement(By.xpath("(//div[@role='list'])[1]"));
 			
-			Channel.findElement(By.xpath("(//div[contains(text(),'"+Channel+"')])[1]")).click();
+			ChannelList.findElement(By.xpath("(//div[contains(text(),'"+Channel+"')])[1]")).click();
 			
-//			Thread.sleep(1000);
+			Thread.sleep(1000);
 			
-			TeamPopup.click();
-
-		
-		
-		
-		}
+			action.click().build().perform();
 		
 	// Campaign 
 		
-		driver.findElement(By.xpath("(//div[@class='v-select__selections'])[7]")).click();
+		driver.findElement(By.xpath("(//i[@class='v-icon material-icons theme--light'][normalize-space()='arrow_drop_down'])[8]")).click();
 		
 		Thread.sleep(1000);
 		
@@ -150,29 +223,51 @@ public class Create_Team extends AdminLogin {
 		
 		CampaignList.findElement(By.xpath("(//div[@class='v-list__tile__title'][normalize-space()='"+Campaign+"'])[2]")).click();
 		
-		Popup.click();
+		action.click().build().perform();		
+		
 		
 	// User Assign
 		
-		driver.findElement(By.xpath("(//input[@aria-label='User Assign'])[2]")).click();
+		driver.findElement(By.xpath("(//i[@class='v-icon material-icons theme--light'][normalize-space()='arrow_drop_down'])[9]")).click();
 		
 		Thread.sleep(1000);
 		
 		WebElement UserList = driver.findElement(By.xpath("(//div[@role='list'])[7]"));
 		
 		UserList.findElement(By.xpath("(//div[@class='v-list__tile__title'][normalize-space()='"+UserAssign+"'])[2]")).click();
-	
+		
+		
+		action.doubleClick().build().perform();
+		
 	// Team Creation
 		
 		driver.findElement(By.xpath("//div[normalize-space()='Create']")).click();
 		
-		Thread.sleep(1000);
+		Thread.sleep(5000);
 		
 	// Close the Snakbar
 		
 		driver.findElement(By.xpath("//button[@class='v-btn v-btn--flat theme--light pink--text']//div[@class='v-btn__content'][normalize-space()='Close']")).click();
 
-	
+	// Verification
+		
+		List<WebElement> Alldatas = driver.findElements(By.xpath("//table[contains(@class,'v-datatable')]//tr//td[1]"));
+		
+		boolean flag = false;
+		
+		for(WebElement Data : Alldatas) {
+			
+			String value = Data.getText();
+			
+			if(value.contains(Name)) {
+				
+				flag = true;
+			}
+		}
+		
+		Assert.assertTrue(flag,"Team is Not Created...!");
+				
+				
+		}
 	}
-
 }

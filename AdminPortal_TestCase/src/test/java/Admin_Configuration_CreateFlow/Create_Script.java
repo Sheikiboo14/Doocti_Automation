@@ -1,5 +1,7 @@
 package Admin_Configuration_CreateFlow;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
@@ -11,15 +13,15 @@ import Login.AdminLogin;
 public class Create_Script extends AdminLogin{
 	
 
-	String Script_Name = "Test2";
+	 String Script_Name = "Test2";
 	
-	String Description ="Testing Purpose";
+	 String Script_Description ="Testing Purpose";
 	
-	String Type ="URL";
+	 String Script_Type ="URL";
 	
-	String ScriptText="Hello Tevatel";
+	 String Script_Text="Hello Tevatel";
 	
-	String ScriptURL = "https://tevatel.com/";
+	 String Script_URL = "https://tevatel.com/";
 
 	
 	@BeforeMethod
@@ -75,56 +77,35 @@ public class Create_Script extends AdminLogin{
 		
 		driver.findElement(By.xpath("(//div[@class='v-btn__content'][normalize-space()='Close'])[3]")).click();
 	
-		driver.findElement(By.xpath("(//div[contains(text(),'Configurations')])[1]")).click();
+		Thread.sleep(1000);
+		
+		// Verification
+		
+		
+	      List<WebElement> Alldatas = driver.findElements(By.xpath("//table[@class='v-datatable v-table theme--light']//tr//td[1]"));
+	
+	      System.out.println(Alldatas.size());
+	      
+	      boolean flag = false;
+	      
+	      for(WebElement Data : Alldatas) {
+	    	  
+	    	  String value=Data.getText();
+	    	  
+	    	  if(value.contains(Script_Name))
+	    			  {
+	    		  
+	    		  flag = true;
+	    		  
+	    		  break;
+	    	  }
+	      }
+	  Assert.assertTrue(flag,"Script is Not Created...!");	
 
 	
 	}	
 	
-	@Test()
-	public void Script_Verification() throws InterruptedException {
-		
-		
-		// filter
-		
-		driver.findElement(By.xpath("(//i[@class='fas fa-filter'])[1]")).click();
-		
-		
-//		Thread.sleep(1000);
-		
-		WebElement Popup= driver.findElement(By.xpath("(//div[@class='container sidenavContainer'])[1]"));
-		
-		
-		//Filter Name
-		
-		driver.findElement(By.xpath("(//input[@aria-label='Name'])[1]")).sendKeys(Script_Name);
-		
-		Thread.sleep(1000);
-		
-		WebElement NameList = driver.findElement(By.xpath("(//div[@role='list'])[1]"));
-		
-		NameList.findElement(By.xpath("(//div[@class='v-list__tile__title'])[1]")).click();
-		
-		Popup.click();
-		
-		// Applying Filter
-		
-		driver.findElement(By.xpath("(//div[@class='v-btn__content'][normalize-space()='Filter'])[1]")).click();
-		
-		Thread.sleep(1000);
-		
-		driver.findElement(By.xpath("(//i[@class='v-icon mr-4 v-icon--link material-icons theme--light blue--text'])[1]")).click();
-		
-		Thread.sleep(1000);
-		
-		String actualvalue = driver.findElement(By.xpath("(//input[@aria-label='Description'])[1]")).getAttribute("value");
-		
-//		System.out.println(driver.findElement(By.xpath("(//input[@aria-label='Name'])[1]")).getText());
-		
-		Assert.assertEquals(actualvalue ,Script_Description, "Script is Not Created");
-		
-		driver.findElement(By.xpath("(//div[@class='v-btn__content'][normalize-space()='Close'])[1]")).click();
-		
-	}
+	
 
 
 }

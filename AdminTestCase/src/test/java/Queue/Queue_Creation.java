@@ -9,14 +9,14 @@ import org.testng.annotations.Test;
 import Login.AdminLogin;
 
 public class Queue_Creation extends AdminLogin{
-/*	
+
 	String Queue_Name ="Test1";
 	
 	int Queue_WaitTime = 20;	
 	
 	String Queue_Strategy ="Leastrecent";
 	
-	*/
+	
 	@BeforeMethod
 	public void Setup() throws InterruptedException {
 		

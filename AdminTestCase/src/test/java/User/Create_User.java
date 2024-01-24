@@ -9,13 +9,13 @@ import Login.AdminLogin;
 
 public class Create_User extends AdminLogin {
 	
-	String UserId ="smibrahim_agent06";
+	String UserId ="smibrahim_agent08";
 	
 	String Name ="Test";
 	
 	int MobileNo =1234567;
 	
-	String EmailId = "smibrahim_agent06@doocti.com";
+	String EmailId = "smibrahim_agent08@doocti.com";
 	
 	String  Password= "Doocti@123";
 	

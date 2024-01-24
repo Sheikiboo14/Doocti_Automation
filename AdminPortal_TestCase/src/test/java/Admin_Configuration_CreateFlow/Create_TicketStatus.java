@@ -1,5 +1,7 @@
 package Admin_Configuration_CreateFlow;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
@@ -10,10 +12,9 @@ import Login.AdminLogin;
 
 public class Create_TicketStatus extends AdminLogin {
 	
-
-	String StatusName = "Testing";
+	 String TicketStatus_Name = "Testing";
 	
-	String StatusDescription = "Testing Purpose";
+	 String TicketStatus_Description = "Testing Purpose";
 	
 	@BeforeMethod
 	public void Setup() throws InterruptedException {
@@ -55,58 +56,35 @@ public class Create_TicketStatus extends AdminLogin {
 				
 				driver.findElement(By.xpath("(//div[@class='v-btn__content'][normalize-space()='Close'])[3]")).click();
 				
-				driver.findElement(By.xpath("(//div[contains(text(),'Configurations')])[1]")).click();
-
+				Thread.sleep(1000);
+				
+				
+				// Verification
+				
+				
+			      List<WebElement> Alldatas = driver.findElements(By.xpath("//table[@class='v-datatable v-table theme--light']//tr//td[1]"));
+			
+			      System.out.println(Alldatas.size());
+			      
+			      boolean flag = false;
+			      
+			      for(WebElement Data : Alldatas) {
+			    	  
+			    	  String value=Data.getText();
+			    	  
+			    	  if(value.contains(TicketStatus_Name))
+			    			  {
+			    		  
+			    		  flag = true;
+			    		  
+			    		  break;
+			    	  }
+			      }
+			  Assert.assertTrue(flag,"Ticket Status is Not Created...!");	
 				
 			}
 			
-			@Test(priority=1)
-			public void TicketStatus_Verfication() throws InterruptedException {
-				
-
-
-				//Filter Tab
-				
-				driver.findElement(By.xpath("(//i[@class='fas fa-filter'])[1]")).click();
-				
-//				Thread.sleep(1000);
-				
-				WebElement Popup= driver.findElement(By.xpath("(//div[@class='container sidenavContainer'])[1]"));
-				
-				
-				//Filter Title
-				
-				driver.findElement(By.xpath("(//input[@role='combobox'])[1]")).sendKeys(TicketStatus_Name);
-				
-				Thread.sleep(1000);
-				
-//				WebElement TitleList = driver.findElement(By.xpath("(//div[@role='list'])[2]"));
-//				
-//				TitleList.findElement(By.xpath("(//span[@class='v-list__tile__mask'])[1]")).click();
-				
-				Popup.click();
-				
-				// Applying Filter
-				
-				driver.findElement(By.xpath("(//div[@class='v-btn__content'][normalize-space()='Filter'])[1]")).click();
-				
-				Thread.sleep(1000);
-				
-				//Edit Popup
-				
-				driver.findElement(By.xpath("(//i[@class='v-icon mr-4 v-icon--link material-icons theme--light blue--text'])[1]")).click();
-				
-				Thread.sleep(1000);
-				
-				String actualvalue = driver.findElement(By.xpath("(//input[@aria-label='Name'])[1]")).getAttribute("value");
-				
-				Assert.assertEquals(actualvalue, TicketStatus_Name , "Ticket Status is Not Created");
-				
-				Thread.sleep(1000);
-				
-				driver.findElement(By.xpath("(//div[@class='v-btn__content'][normalize-space()='Close'])[1]")).click();
-
-			}
+		
 
 
 }

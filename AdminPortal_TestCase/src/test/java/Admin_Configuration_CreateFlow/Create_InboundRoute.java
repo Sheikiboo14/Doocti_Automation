@@ -1,7 +1,10 @@
 package Admin_Configuration_CreateFlow;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -88,6 +91,32 @@ public class Create_InboundRoute extends AdminLogin {
 		// Create Inbound Route
 		
 		driver.findElement(By.xpath("(//div[normalize-space()='Create'])[1]")).click();
+		
+		Thread.sleep(1000);
+		
+		// Verification
+		
+		
+	      List<WebElement> Alldatas = driver.findElements(By.xpath("//table[@class='v-datatable v-table theme--light']//tr//td[1]"));
+	
+	      System.out.println(Alldatas.size());
+	      
+	      boolean flag = false;
+	      
+	      for(WebElement Data : Alldatas) {
+	    	  
+	    	  String value=Data.getText();
+	    	  
+	    	  if(value.contains(Long.toString(DID_Number)))
+	    			  {
+	    		  
+	    		  flag = true;
+	    		  
+	    		  break;
+	    	  }
+	      }
+	  Assert.assertTrue(flag,"DID_Number is Not Created...!");	
+
 		
 	}	
 	

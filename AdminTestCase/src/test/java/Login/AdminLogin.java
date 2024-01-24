@@ -2,8 +2,8 @@ package Login;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 
@@ -180,7 +180,7 @@ public class AdminLogin {
 			
 		}
 		*/
-		
+		/*
 		WebDriverManager.chromedriver().setup();
 		
 		ChromeOptions Browser = new ChromeOptions();
@@ -188,15 +188,15 @@ public class AdminLogin {
 		Browser.addArguments("--incognito");
 		
 		driver = new ChromeDriver(Browser);
-			
+					*/
+
 	
 
 		
-		/*
+		
 		WebDriverManager.edgedriver().setup();
 		
 		driver = new EdgeDriver();
-		*/
 		
 		
 		driver.manage().window().maximize();
@@ -222,7 +222,7 @@ public class AdminLogin {
 		
 //		driver.findElement(By.xpath("//i[@title='Sign Out']")).click();
 		
-		driver.quit();
+//		driver.quit();
 		
 	}
 	

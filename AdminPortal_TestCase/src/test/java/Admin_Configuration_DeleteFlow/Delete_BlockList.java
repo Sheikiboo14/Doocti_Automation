@@ -1,7 +1,10 @@
 package Admin_Configuration_DeleteFlow;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -27,16 +30,11 @@ public class Delete_BlockList extends AdminLogin{
 	
 	@Test
 	public void BlockList_Delete()throws InterruptedException {
-		
-		// Search Number
-		
-		WebElement PhoneNumber = driver.findElement(By.xpath("(//input[@aria-label='Phone Number'])[2]"));
-		
-		PhoneNumber.sendKeys(Long.toString(Phno));
+
 		
 		// Delete BlockList
 		
-		driver.findElement(By.xpath("(//i[@class='v-icon mr-4 v-icon--link material-icons theme--light red--text'])[1]")).click();
+		driver.findElement(By.xpath("//td[text()='"+Phno+"']//following-sibling::td[1]//i[@class='v-icon mr-4 v-icon--link material-icons theme--light red--text']")).click();
 		
 		Thread.sleep(1000);
 		
@@ -48,8 +46,27 @@ public class Delete_BlockList extends AdminLogin{
 		
 		driver.findElement(By.xpath("(//div[@class='v-btn__content'][normalize-space()='Close'])[2]")).click();
 		
-		driver.findElement(By.xpath("(//div[contains(text(),'Configurations')])[1]")).click();
+		Thread.sleep(1000);
+		
+//		driver.findElement(By.xpath("(//div[contains(text(),'Configurations')])[1]")).click();
 
+		//Verification
+		
+		List<WebElement> Alldatas = driver.findElements(By.xpath("//table[contains(@class,'v-datatable')]//td[2]"));
+		
+		boolean flag = true;
+		
+		for (WebElement Data : Alldatas) {
+			
+			String value = Data.getText();
+			
+			if(value.contains(Long.toString(Phno))) {
+				
+				flag = false;
+			}
+		}
+		
+		Assert.assertFalse(flag,"BlockList is Not Deleted..!");
 	}
 
 

@@ -1,7 +1,10 @@
 package Admin_Configuration_DeleteFlow;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -31,40 +34,13 @@ public class Delete_MeetingTitle extends AdminLogin {
 	public void Delete_MeetingTitle() throws InterruptedException {
 		
 		
-		//Filter Tab
-		
-		driver.findElement(By.xpath("(//i[@class='fas fa-filter'])[1]")).click();
-		
-//		Thread.sleep(1000);
-		
-		WebElement Popup= driver.findElement(By.xpath("(//div[@class='container sidenavContainer'])[1]"));
-		
-		
-		//Filter Title
-		
-		driver.findElement(By.xpath("(//div[@class='v-select__selections'])[2]")).click();
-		
-		Thread.sleep(1000);
-		
-		WebElement TitleList = driver.findElement(By.xpath("(//div[@role='list'])[2]"));
-		
-		TitleList.findElement(By.xpath("(//div[contains(text(),'"+Title_Name+"')])[1]")).click();
-		
-		Popup.click();
-		
-		// Applying Filter
-		
-		driver.findElement(By.xpath("(//div[@class='v-btn__content'][normalize-space()='Filter'])[1]")).click();
-		
-		Thread.sleep(1000);
-		
 		// Delete Meeting
 		
-		driver.findElement(By.xpath("(//i[@class='v-icon mr-4 v-icon--link material-icons theme--light red--text'][normalize-space()='delete'])[1]")).click();
+		driver.findElement(By.xpath("//td[text()='Test2']//following-sibling::td[4]//i[@class='v-icon mr-4 v-icon--link material-icons theme--light red--text']")).click();
 		
 		Thread.sleep(1000);
 		
-		driver.findElement(By.xpath("(//button[@type='button'])[12]")).click();
+		driver.findElement(By.xpath("//div[text()='Yes, Delete !']")).click();
 		
 		Thread.sleep(1000);
 		
@@ -72,9 +48,26 @@ public class Delete_MeetingTitle extends AdminLogin {
 			
 		driver.findElement(By.xpath("(//div[@class='v-btn__content'][normalize-space()='Close'])[3]")).click();
 		
-		driver.findElement(By.xpath("(//div[contains(text(),'Configurations')])[1]")).click();
+		Thread.sleep(1000);
 		
-	}
+		//Verification
+		
+		List<WebElement> Alldatas = driver.findElements(By.xpath("//table[contains(@class,'v-datatable')]//td[1]"));
+		
+		boolean flag = true;
+		
+		for (WebElement Data : Alldatas) {
+			
+			String value = Data.getText();
+			
+			if(value.contains(Title_Name)) {
+				
+				flag = false;
+			}
+		}
+		
+		Assert.assertFalse(flag,"Meeting Title is Not Deleted..!");
+		}
 
 
 }

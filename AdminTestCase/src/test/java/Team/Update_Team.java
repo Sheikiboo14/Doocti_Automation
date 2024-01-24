@@ -2,6 +2,7 @@ package Team;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -10,6 +11,8 @@ import Login.AdminLogin;
 public class Update_Team extends AdminLogin{
 	
 	String Team_Status = "Inactive";
+	
+	String Team_Name ="QA";
 	
 	@BeforeMethod
 	public void Setup() throws InterruptedException {
@@ -27,7 +30,7 @@ public class Update_Team extends AdminLogin{
 		
 		// Update Teams
 		
-		driver.findElement(By.xpath("(//i[@class='v-icon mr-4 v-icon--link material-icons theme--light blue--text'])[1]")).click();
+		driver.findElement(By.xpath("//td[text()='Team_Name']//following-sibling::td[4]//i[@class='v-icon mr-4 v-icon--link material-icons theme--light blue--text']")).click();
 		
 		Thread .sleep(1000);
 		
@@ -55,7 +58,17 @@ public class Update_Team extends AdminLogin{
 		
 		driver.findElement(By.xpath("(//div[@class='v-btn__content'][normalize-space()='Close'])[3]")).click();
 		
+		Thread.sleep(1000);
 		
+		// Verification
+		
+		Thread.sleep(1000);
+		
+		String actualvalue = driver.findElement(By.xpath("//td[text()='"+Team_Name+"']//following-sibling::td[3]")).getText();
+
+		System.out.println(actualvalue);
+		   
+		Assert.assertEquals(actualvalue, Team_Status, "Team Status is not Updated");
 	
 	}
 

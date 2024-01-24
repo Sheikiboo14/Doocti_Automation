@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Config Creation Flow Testing]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="DID Number Creation(failed)">
+    <classes>
+      <class name="Admin_Configuration_CreateFlow.Create_DIDNumber">
+        <methods>
+          <include name="Manual_DID_Creation"/>
+          <include name="Setup"/>
+          <include name="Quit"/>
+          <include name="Login"/>
+        </methods>
+      </class> <!-- Admin_Configuration_CreateFlow.Create_DIDNumber -->
+    </classes>
+  </test> <!-- DID Number Creation(failed) -->
+  <test thread-count="5" name="Disposition Creation(failed)">
+    <classes>
+      <class name="Admin_Configuration_CreateFlow.Create_Dispo">
+        <methods>
+          <include name="Create_Disposition"/>
+          <include name="Quit"/>
+          <include name="Login"/>
+          <include name="Setup"/>
+        </methods>
+      </class> <!-- Admin_Configuration_CreateFlow.Create_Dispo -->
+    </classes>
+  </test> <!-- Disposition Creation(failed) -->
+  <test thread-count="5" name="Script Creation(failed)">
+    <classes>
+      <class name="Admin_Configuration_CreateFlow.Create_Script">
+        <methods>
+          <include name="Create_Script"/>
+          <include name="Quit"/>
+          <include name="Login"/>
+          <include name="Setup"/>
+        </methods>
+      </class> <!-- Admin_Configuration_CreateFlow.Create_Script -->
+    </classes>
+  </test> <!-- Script Creation(failed) -->
+</suite> <!-- Failed suite [Config Creation Flow Testing] -->

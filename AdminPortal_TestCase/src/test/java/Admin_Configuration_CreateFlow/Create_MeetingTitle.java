@@ -1,5 +1,7 @@
 package Admin_Configuration_CreateFlow;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
@@ -10,11 +12,11 @@ import Login.AdminLogin;
 
 public class Create_MeetingTitle extends AdminLogin{
 	
-	String MeetingTitle = "Test";
+	String Meeting_Title = "Test";
 	
-	String MeetingSubTitle = "Testing";
+	String Meeting_SubTitle = "Testing";
 	
-	String Description = "Testing Purpose";
+	String Meeting_Description = "Testing Purpose";
 	
 	@BeforeMethod
 	public void Setup() throws InterruptedException {
@@ -58,55 +60,35 @@ public class Create_MeetingTitle extends AdminLogin{
 		// Close Snakbar
 		
 		driver.findElement(By.xpath("(//div[@class='v-btn__content'][normalize-space()='Close'])[3]")).click();
+		
+		Thread.sleep(1000);
+		
+		// Verification
+		
+		
+	      List<WebElement> Alldatas = driver.findElements(By.xpath("//table[@class='v-datatable v-table theme--light']//tr//td[1]"));
+	
+	      System.out.println(Alldatas.size());
+	      
+	      boolean flag = false;
+	      
+	      for(WebElement Data : Alldatas) {
+	    	  
+	    	  String value=Data.getText();
+	    	  
+	    	  if(value.contains(Meeting_Title))
+	    			  {
+	    		  
+	    		  flag = true;
+	    		  
+	    		  break;
+	    	  }
+	      }
+	  Assert.assertTrue(flag,"MeetingTitle is Not Created...!");	
+
+		
 	}
 	
-	@Test(priority=1)
-	public void MeetingTitle_Verfication() throws InterruptedException {
-		
-
-
-		//Filter Tab
-		
-		driver.findElement(By.xpath("(//i[@class='fas fa-filter'])[1]")).click();
-		
-//		Thread.sleep(1000);
-		
-		WebElement Popup= driver.findElement(By.xpath("(//div[@class='container sidenavContainer'])[1]"));
-		
-		
-		//Filter Title
-		
-		driver.findElement(By.xpath("(//div[@class='v-select__selections'])[2]")).click();
-		
-		Thread.sleep(1000);
-		
-		WebElement TitleList = driver.findElement(By.xpath("(//div[@role='list'])[2]"));
-		
-		TitleList.findElement(By.xpath("(//div[contains(text(),'"+Meeting_Title+"')])[1]")).click();
-		
-		Popup.click();
-		
-		// Applying Filter
-		
-		driver.findElement(By.xpath("(//div[@class='v-btn__content'][normalize-space()='Filter'])[1]")).click();
-		
-		Thread.sleep(1000);
-		
-		//Edit Popup
-		
-		driver.findElement(By.xpath("(//i[@class='v-icon mr-4 v-icon--link material-icons theme--light blue--text'])[1]")).click();
-		
-		Thread.sleep(1000);
-		
-		String actualvalue = driver.findElement(By.xpath("(//input[@aria-label='Meeting Title'])[1]")).getAttribute("value");
-		
-		Assert.assertEquals(actualvalue, Meeting_Title , "Meeting Title is Not Created");
-		
-		Thread.sleep(1000);
-		
-		driver.findElement(By.xpath("(//div[@class='v-btn__content'][normalize-space()='Close'])[1]")).click();
-
-	}
 	
 
 }

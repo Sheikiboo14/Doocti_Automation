@@ -1,5 +1,7 @@
 package Admin_Configuration_CreateFlow;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
@@ -11,11 +13,11 @@ import Login.AdminLogin;
 public class Create_Dispo extends AdminLogin{
 	
 
-	String Disposition ="Dummy";
+	String Dispo_Name ="Testing";
 	
-	String Description = "Testing Purpose";
+	String Dispo_Description = "Testing Purpose";
 	
-	String Action = "No Action";
+	String Dispo_Action = "No Action";
 	
 	@BeforeMethod
 	public void Setup() throws InterruptedException {
@@ -66,58 +68,33 @@ public class Create_Dispo extends AdminLogin{
 		
 		driver.findElement(By.xpath("(//div[@class='v-btn__content'][normalize-space()='Close'])[3]")).click();		
 	
-		driver.findElement(By.xpath("(//div[contains(text(),'Configurations')])[1]")).click();
-
-	}
+		Thread.sleep(1000);
+		
+		
+		// Verification
+		
+		
+	      List<WebElement> Alldatas = driver.findElements(By.xpath("//table[@class='v-datatable v-table theme--light']//tr//td[1]"));
 	
-	@Test(priority=1)
-	public void Dispo_Verfication() throws InterruptedException {
-		
-
-
-		//Filter Tab
-		
-		driver.findElement(By.xpath("(//i[@class='fas fa-filter'])[1]")).click();
-		
-//		Thread.sleep(1000);
-		
-		WebElement Popup= driver.findElement(By.xpath("(//div[@class='container sidenavContainer'])[1]"));
-		
-		
-		//Filter Title
-		
-		driver.findElement(By.xpath("(//input[@role='combobox'])[1]")).sendKeys(Dispo_Name);
-		
-		Thread.sleep(1000);
-		
-		WebElement TitleList = driver.findElement(By.xpath("(//div[@role='list'])[2]"));
-		
-		TitleList.findElement(By.xpath("(//span[@class='v-list__tile__mask'])[1]")).click();
-		
-		Popup.click();
-		
-		// Applying Filter
-		
-		driver.findElement(By.xpath("(//div[@class='v-btn__content'][normalize-space()='Filter'])[1]")).click();
-		
-		Thread.sleep(1000);
-		
-		//Edit Popup
-		
-		driver.findElement(By.xpath("(//i[@class='v-icon mr-4 v-icon--link material-icons theme--light blue--text'])[1]")).click();
-		
-		Thread.sleep(1000);
-		
-		String actualvalue = driver.findElement(By.xpath("(//input[@aria-label='Disposition'])[1]")).getAttribute("value");
-		
-		Assert.assertEquals(actualvalue, Dispo_Name , "Dispo is Not Created");
-		
-		Thread.sleep(1000);
-		
-		driver.findElement(By.xpath("(//div[@class='v-btn__content'][normalize-space()='Close'])[1]")).click();
-
-	}
+	      System.out.println(Alldatas.size());
+	      
+	      boolean flag = false;
+	      
+	      for(WebElement Data : Alldatas) {
+	    	  
+	    	  String value=Data.getText();
+	    	  
+	    	  if(value.contains(Dispo_Name))
+	    			  {
+	    		  
+	    		  flag = true;
+	    		  
+	    		  break;
+	    	  }
+	      }
+	  Assert.assertTrue(flag,"Disposition is Not Created...!");	
 
 	
-
+	}
+	
 }

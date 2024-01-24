@@ -1,7 +1,10 @@
 package Admin_Configuration_DeleteFlow;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -23,29 +26,6 @@ public class Delete_Disposition extends AdminLogin {
 		
 		driver.findElement(By.xpath("(//span[normalize-space()='Dispositions'])[1]")).click();
 		
-
-		// Open Filter
-		
-		driver.findElement(By.xpath("(//i[@class='fas fa-filter'])[1]")).click();
-		
-		Thread.sleep(1000);
-		
-		WebElement FilterTab = driver.findElement(By.xpath("(//div[@class='container sidenavContainer'])[1]"));
-		
-		driver.findElement(By.xpath("(//input[@role='combobox'])[1]")).click();
-		
-		Thread.sleep(1000);
-		
-		WebElement DispoList = driver.findElement(By.xpath("(//div[@role='list'])[2]"));
-		
-		DispoList.findElement(By.xpath("(//div[contains(text(),'"+DispoName+"')])[1]")).click();
-		
-		FilterTab.click();
-		
-		// Applying Filter
-		
-		driver.findElement(By.xpath("(//div[@class='v-btn__content'][normalize-space()='Filter'])[1]")).click();
-		
 		Thread.sleep(1000);
 		
 	}
@@ -57,7 +37,7 @@ public class Delete_Disposition extends AdminLogin {
 		
 		//Delete Dispo
 		
-		driver.findElement(By.xpath("(//i[@class='v-icon mr-4 v-icon--link material-icons theme--light red--text'])[1]")).click();
+		driver.findElement(By.xpath("//td[text()='"+DispoName+"']//following-sibling::td[3]//i[@class='v-icon mr-4 v-icon--link material-icons theme--light red--text']")).click();
 		
 		Thread.sleep(1000);
 		
@@ -71,6 +51,25 @@ public class Delete_Disposition extends AdminLogin {
 		
 		driver.findElement(By.xpath("(//div[@class='v-btn__content'][normalize-space()='Close'])[3]")).click();
 		
+		Thread.sleep(1000);
+		
+		//Verification
+		
+		List<WebElement> Alldatas = driver.findElements(By.xpath("//table[contains(@class,'v-datatable')]//td[1]"));
+		
+		boolean flag = true;
+		
+		for (WebElement Data : Alldatas) {
+			
+			String value = Data.getText();
+			
+			if(value.contains(DispoName)) {
+				
+				flag = false;
+			}
+		}
+		
+		Assert.assertFalse(flag,"Disposition is Not Deleted..!");
 		
 
 	}

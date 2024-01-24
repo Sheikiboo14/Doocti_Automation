@@ -1,7 +1,10 @@
 package Admin_Configuration_DeleteFlow;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -10,7 +13,7 @@ import Login.AdminLogin;
 public class Delete_TicketStatus extends AdminLogin{
 	
 
-	String Name = "Testing";
+	String Status_Name = "Testing";
 
 
 	@BeforeMethod
@@ -30,27 +33,9 @@ public class Delete_TicketStatus extends AdminLogin{
 	public void TicketStatus_Deletion() throws InterruptedException {
 		
 
-		// Open Filter
-		
-		driver.findElement(By.xpath("(//i[@class='fas fa-filter'])[1]")).click();
-		
-		Thread.sleep(1000);
-		
-		WebElement FilterTab = driver.findElement(By.xpath("(//div[@class='container sidenavContainer'])[1]"));
-		
-		// Filter With Name
-		
-		driver.findElement(By.xpath("(//input[@role='combobox'])[1]")).sendKeys(Name);
-		
-		// Apply filter
-		
-		driver.findElement(By.xpath("(//div[@class='v-btn__content'][normalize-space()='Filter'])[1]")).click();
-		
-		Thread.sleep(1000);
-		
 		// Delete Ticket Status
 		
-		driver.findElement(By.xpath("(//i[@class='v-icon mr-4 v-icon--link material-icons theme--light red--text'])[1]")).click();
+		driver.findElement(By.xpath("//td[text()='"+Status_Name+"']//following-sibling::td[3]//i[@class='v-icon mr-4 v-icon--link material-icons theme--light red--text']")).click();
 		
 		Thread.sleep(1000);
 		
@@ -62,8 +47,25 @@ public class Delete_TicketStatus extends AdminLogin{
 		
 		driver.findElement(By.xpath("(//div[@class='v-btn__content'][normalize-space()='Close'])[3]")).click();
 		
-		driver.findElement(By.xpath("(//div[contains(text(),'Configurations')])[1]")).click();
-
+		Thread.sleep(1000);
+		
+		List<WebElement> Alldatas = driver.findElements(By.xpath("//table[contains(@class,'v-datatable')]//td[1]"));
+		
+		boolean flag = true;
+		
+		for (WebElement Data : Alldatas) {
+			
+			String value = Data.getText();
+			
+			if(value.contains(Status_Name)) {
+				
+				flag = false;
+			}
+		}
+		
+		Assert.assertFalse(flag,"Ticket Status is Not Deleted..!");
+		
+		
 	}
 
 	

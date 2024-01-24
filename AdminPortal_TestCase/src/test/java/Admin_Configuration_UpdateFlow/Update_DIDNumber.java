@@ -31,15 +31,11 @@ public class Update_DIDNumber extends AdminLogin {
 	@Test
 	public void Update_DIDStatus() throws InterruptedException {
 		
-		// DID NUMBER
-		
-		WebElement Did_Number = driver.findElement(By.xpath("(//input[@aria-label='DID Number'])[3]"));
-		
-		Did_Number.sendKeys(Long.toString(did_number));
+
 		
 		// Update DID Number
 		
-		driver.findElement(By.xpath("(//i[@class='v-icon mr-4 v-icon--link material-icons theme--light blue--text'])[1]")).click();
+		driver.findElement(By.xpath("//td[text()='"+did_number+"']//following-sibling::td[1]//i[@class='v-icon mr-4 v-icon--link material-icons theme--light red--text']")).click();
 		
 		Thread.sleep(1000);
 		
