@@ -2,7 +2,9 @@ package Admin_Configuration_UpdateFlow;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import Login.AdminLogin;
@@ -10,9 +12,7 @@ import Login.AdminLogin;
 public class Update_DIDNumber extends AdminLogin {
 
 	
-	Long did_number = 8071893401L;
 	
-	String did_status = "Inactive";
 	@BeforeMethod
 	public void Setup() throws InterruptedException {
 		
@@ -28,8 +28,9 @@ public class Update_DIDNumber extends AdminLogin {
 		
 	}
 	
+	@Parameters({"did_number","did_status"})
 	@Test
-	public void Update_DIDStatus() throws InterruptedException {
+	public void Update_DIDStatus(Long did_number,String did_status) throws InterruptedException {
 		
 
 		
@@ -84,7 +85,13 @@ public class Update_DIDNumber extends AdminLogin {
 		
 		driver.findElement(By.xpath("(//div[@class='v-btn__content'][normalize-space()='Close'])[4]")).click();
 		
-		driver.findElement(By.xpath("(//div[contains(text(),'Configurations')])[1]")).click();
+		//Verification
+		
+		String actualvalue = driver.findElement(By.xpath("//td[text()='did_number']//following-sibling::td[2]")).getText();
+		
+		Assert.assertEquals(actualvalue, did_status, "DID Number Status is Not Updated...!");
+		
+//		driver.findElement(By.xpath("(//div[contains(text(),'Configurations')])[1]")).click();
 
 		
 	}

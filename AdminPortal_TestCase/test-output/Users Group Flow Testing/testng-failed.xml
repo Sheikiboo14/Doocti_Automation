@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Users Group Flow Testing]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="UserGroup Creation(failed)">
+    <classes>
+      <class name="Admin_UsersGroups_CreateFlow.Create_UserGroup">
+        <parameter name="usergroup_name" value="QA"/>
+        <methods>
+          <include name="Quit"/>
+          <include name="Login"/>
+          <include name="Create_UserGroup" invocation-numbers="0"/>
+          <include name="Setup"/>
+        </methods>
+      </class> <!-- Admin_UsersGroups_CreateFlow.Create_UserGroup -->
+    </classes>
+  </test> <!-- UserGroup Creation(failed) -->
+</suite> <!-- Failed suite [Users Group Flow Testing] -->

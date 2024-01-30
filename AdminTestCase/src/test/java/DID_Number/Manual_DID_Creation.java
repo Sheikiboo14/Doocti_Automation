@@ -1,7 +1,10 @@
 package DID_Number;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -9,9 +12,9 @@ import Login.AdminLogin;
 
 public class Manual_DID_Creation extends AdminLogin {
 
-	Long DID_Number = 9876543210L;
+	String dID_number = "1234567890";
 	
-	String DID_Trunk ="Testing";
+	String dID_Trunk ="QA";
 	
 	@BeforeMethod
 	public void Setup() throws InterruptedException {
@@ -39,21 +42,45 @@ public class Manual_DID_Creation extends AdminLogin {
 		
 		WebElement DIDNumber = driver.findElement(By.xpath("(//input[@aria-label='DID Number'])[2]"));
 		
-		DIDNumber.sendKeys(Long.toString(DID_Number));
+		DIDNumber.sendKeys(dID_number);
 		
 		// Trunk
 		
-		driver.findElement(By.xpath("(//input[@aria-label='Trunk'])[1]")).sendKeys(DID_Trunk);
+		driver.findElement(By.xpath("(//input[@aria-label='Trunk'])[1]")).sendKeys(dID_Trunk);
 		
 		// Create DID Number
 		
 		driver.findElement(By.xpath("(//div[normalize-space()='Create'])[1]")).click();
 		
+		Thread.sleep(1000);
+		
 		// Close Snakbar
 		
-//		driver.findElement(By.xpath("(//div[@class='v-btn__content'][normalize-space()='Close'])[4]")).click();
+		driver.findElement(By.xpath("(//div[@class='v-btn__content'][normalize-space()='Close'])[4]")).click();
 		
-		driver.findElement(By.xpath("(//div[contains(text(),'Configurations')])[1]")).click();
+		driver.navigate().refresh();
+		
+		// Verification
+		
+		List<WebElement> Alldatas = driver.findElements(By.xpath("//table[contains(@class,'v-datatable')]//tr//td[2]"));
+		
+		boolean flag = false;
+		
+		for(WebElement Data : Alldatas) {
+			
+			String value = Data.getText();
+			
+			
+			if(value.contains(dID_number)) {
+				
+				flag = true;
+			}
+		}
+		
+		Assert.assertTrue(flag, " DID Number is Not Created...!");
+		
+		
+//		driver.findElement(By.xpath("(//div[contains(text(),'Configurations')])[1]")).click();
 
 		
 	}

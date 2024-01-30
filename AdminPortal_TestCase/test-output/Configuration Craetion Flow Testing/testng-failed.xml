@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Configuration Craetion Flow Testing]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="DID Number Upload(failed)">
+    <parameter name="dID_Path" value="D:\Testing File\sample_did.csv"/>
+    <parameter name="dID_Number" value="9876543210"/>
+    <classes>
+      <class name="Admin_Configuration_CreateFlow.Uplode_DIDNumber">
+        <methods>
+          <include name="Quit"/>
+          <include name="Login"/>
+          <include name="Uplode_DID" invocation-numbers="0"/>
+          <include name="Setup"/>
+        </methods>
+      </class> <!-- Admin_Configuration_CreateFlow.Uplode_DIDNumber -->
+    </classes>
+  </test> <!-- DID Number Upload(failed) -->
+  <test thread-count="5" name="Announcemet Creation(failed)">
+    <parameter name="announcement_Name" value="QA"/>
+    <parameter name="announcement_Campaign" value="Dialer"/>
+    <parameter name="announcement" value="Good Morning"/>
+    <classes>
+      <class name="Admin_Configuration_CreateFlow.Create_Announcement">
+        <methods>
+          <include name="Create_Announcement" invocation-numbers="0"/>
+          <include name="Setup"/>
+          <include name="Quit"/>
+          <include name="Login"/>
+        </methods>
+      </class> <!-- Admin_Configuration_CreateFlow.Create_Announcement -->
+    </classes>
+  </test> <!-- Announcemet Creation(failed) -->
+  <test thread-count="5" name="InboundRoute Creation(failed)">
+    <parameter name="destination_Value" value="Testing"/>
+    <parameter name="blockList" value="true"/>
+    <parameter name="dID_Number" value="9090909090"/>
+    <parameter name="destination_Name" value="QA"/>
+    <parameter name="dID_Name" value="Test"/>
+    <classes>
+      <class name="Admin_Configuration_CreateFlow.Create_InboundRoute">
+        <methods>
+          <include name="Quit"/>
+          <include name="Login"/>
+          <include name="InboundRoute_Create" invocation-numbers="0"/>
+          <include name="Setup"/>
+        </methods>
+      </class> <!-- Admin_Configuration_CreateFlow.Create_InboundRoute -->
+    </classes>
+  </test> <!-- InboundRoute Creation(failed) -->
+  <test thread-count="5" name="TimeZone Creation(failed)">
+    <parameter name="timeZone_EndHour" value="10"/>
+    <parameter name="timeZone_StartMinute" value="00"/>
+    <parameter name="timeZone_EndMinute" value="00"/>
+    <parameter name="timeZone_Description" value="Testing Purpose"/>
+    <parameter name="timeZone_Status" value="Active"/>
+    <parameter name="timeZone_Name" value="QA"/>
+    <parameter name="timeZone_StartHour" value="1"/>
+    <classes>
+      <class name="Admin_Configuration_CreateFlow.Create_TimeZone">
+        <methods>
+          <include name="TimeZone_Creation"/>
+          <include name="Quit"/>
+          <include name="Login"/>
+          <include name="Setup"/>
+        </methods>
+      </class> <!-- Admin_Configuration_CreateFlow.Create_TimeZone -->
+    </classes>
+  </test> <!-- TimeZone Creation(failed) -->
+  <test thread-count="5" name="MeetingTitle Creation(failed)">
+    <parameter name="meeting_Title" value="QA"/>
+    <parameter name="meeting_SubTitle" value="Testing"/>
+    <parameter name="meeting_Description" value="Testing Purpose"/>
+    <classes>
+      <class name="Admin_Configuration_CreateFlow.Create_MeetingTitle">
+        <methods>
+          <include name="Setup"/>
+          <include name="Quit"/>
+          <include name="Login"/>
+          <include name="MeetingTitle_Creation"/>
+        </methods>
+      </class> <!-- Admin_Configuration_CreateFlow.Create_MeetingTitle -->
+    </classes>
+  </test> <!-- MeetingTitle Creation(failed) -->
+</suite> <!-- Failed suite [Configuration Craetion Flow Testing] -->

@@ -6,13 +6,13 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import Login.AdminLogin;
 
 public class Delete_AudioStore extends AdminLogin {
 	
-	String Audio_Name ="7120-download-iphone-6-original-";
 	
 	@BeforeMethod
 	public void Setup() throws InterruptedException {
@@ -31,13 +31,14 @@ public class Delete_AudioStore extends AdminLogin {
 		
 	}
 	
+	@Parameters({"audio_Name"})
 	@Test
-	public void Delete_AudioStore() throws InterruptedException {
+	public void Delete_AudioStore(String audio_Name) throws InterruptedException {
 		
 		
 		// Delete AudioStore
 		
-		driver.findElement(By.xpath("//td[text()='"+Audio_Name+"']//following-sibling::td[3]//i[@class='v-icon mr-4 v-icon--link material-icons theme--light red--text']")).click();
+		driver.findElement(By.xpath("//td[text()='"+audio_Name+"']//following-sibling::td[3]//i[@class='v-icon mr-4 v-icon--link material-icons theme--light red--text']")).click();
 				
 		Thread.sleep(1000);
 		
@@ -55,15 +56,15 @@ public class Delete_AudioStore extends AdminLogin {
 		
 		List<WebElement> Alldatas = driver.findElements(By.xpath("//table[contains(@class,'v-datatable')]//td[1]"));
 		
-		boolean flag = true;
+		boolean flag = false;
 		
 		for (WebElement Data : Alldatas) {
 			
 			String value = Data.getText();
 			
-			if(value.contains(Audio_Name)) {
+			if(value.contains(audio_Name)) {
 				
-				flag = false;
+				flag = true;
 			}
 		}
 		

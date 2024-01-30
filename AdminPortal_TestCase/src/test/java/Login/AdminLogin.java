@@ -2,7 +2,8 @@ package Login;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 
@@ -62,7 +63,6 @@ public class AdminLogin {
 		}
 		*/
 		
-		/*
 		
 		WebDriverManager.chromedriver().setup();
 		
@@ -72,7 +72,8 @@ public class AdminLogin {
 		
 		driver = new ChromeDriver(Browser);
 			
-	*/
+		/*
+
 
 		
 		
@@ -80,7 +81,7 @@ public class AdminLogin {
 		
 		driver = new EdgeDriver();
 		
-		
+		*/
 		
 		driver.manage().window().maximize();
 		
@@ -92,7 +93,7 @@ public class AdminLogin {
 		
 		driver.findElement(By.xpath("//div[contains(text(),'Login')]")).click();
 		
-		Thread.sleep(3000);
+		Thread.sleep(5000);
 
 		driver.navigate().refresh();
 		

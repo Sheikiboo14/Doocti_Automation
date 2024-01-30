@@ -6,15 +6,14 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import Login.AdminLogin;
 
 public class Create_TicketStatus extends AdminLogin {
 	
-	 String TicketStatus_Name = "Testing";
-	
-	 String TicketStatus_Description = "Testing Purpose";
+	 
 	
 	@BeforeMethod
 	public void Setup() throws InterruptedException {
@@ -29,8 +28,9 @@ public class Create_TicketStatus extends AdminLogin {
 		
 	}
 	
+	@Parameters({"ticketStatus_Name","ticketStatus_Description"})
 	@Test
-	public void Create_TicketStatus() throws InterruptedException {
+	public void Create_TicketStatus(String ticketStatus_Name , String ticketStatus_Description) throws InterruptedException {
 		
 		// Add Popup
 		
@@ -40,11 +40,11 @@ public class Create_TicketStatus extends AdminLogin {
 				
 				// Status Name
 				
-				driver.findElement(By.xpath("(//input[@aria-label='Name'])[2]")).sendKeys(TicketStatus_Name);
+				driver.findElement(By.xpath("(//input[@aria-label='Name'])[2]")).sendKeys(ticketStatus_Name);
 				
 				//Status Description
 				
-				driver.findElement(By.xpath("(//input[@aria-label='Description'])[2]")).sendKeys(TicketStatus_Description);
+				driver.findElement(By.xpath("(//input[@aria-label='Description'])[2]")).sendKeys(ticketStatus_Description);
 				
 				// Create Status
 				
@@ -64,7 +64,6 @@ public class Create_TicketStatus extends AdminLogin {
 				
 			      List<WebElement> Alldatas = driver.findElements(By.xpath("//table[@class='v-datatable v-table theme--light']//tr//td[1]"));
 			
-			      System.out.println(Alldatas.size());
 			      
 			      boolean flag = false;
 			      
@@ -72,7 +71,7 @@ public class Create_TicketStatus extends AdminLogin {
 			    	  
 			    	  String value=Data.getText();
 			    	  
-			    	  if(value.contains(TicketStatus_Name))
+			    	  if(value.contains(ticketStatus_Name))
 			    			  {
 			    		  
 			    		  flag = true;

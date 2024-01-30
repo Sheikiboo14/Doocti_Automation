@@ -6,14 +6,16 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
+
+import com.beust.jcommander.Parameter;
 
 import Login.AdminLogin;
 
 public class Delete_SubDisposition extends AdminLogin{
 
 
-	String Sub_DispoName="Test Working";
 	
 	@BeforeMethod
 	public void Setup() throws InterruptedException {
@@ -27,16 +29,18 @@ public class Delete_SubDisposition extends AdminLogin{
 		// Sub Disposition Page
 		
 		driver.findElement(By.xpath("(//span[normalize-space()='Sub-Dispositions'])[1]")).click();
-		
+		Thread.sleep(1000);		
+
 	}
 	
+	@Parameters({"sub_DispoName"})
 	@Test
-	public void Delete_SubDisposition() throws InterruptedException {
+	public void Delete_SubDisposition(String sub_DispoName) throws InterruptedException {
 	
 
 		// Delete Sub Disposition
 		
-		driver.findElement(By.xpath("//td[text()='"+Sub_DispoName+"']//following-sibling::td[3]//i[@class='v-icon mr-4 v-icon--link material-icons theme--light red--text']")).click();
+		driver.findElement(By.xpath("//td[text()='"+sub_DispoName+"']//following-sibling::td[3]//i[@class='v-icon mr-4 v-icon--link material-icons theme--light red--text']")).click();
 		
 		Thread.sleep(1000);
 		
@@ -52,15 +56,15 @@ public class Delete_SubDisposition extends AdminLogin{
 		
 		List<WebElement> Alldatas = driver.findElements(By.xpath("//table[contains(@class,'v-datatable')]//td[1]"));
 		
-		boolean flag = true;
+		boolean flag = false;
 		
 		for (WebElement Data : Alldatas) {
 			
 			String value = Data.getText();
 			
-			if(value.contains(Sub_DispoName)) {
+			if(value.contains(sub_DispoName)) {
 				
-				flag = false;
+				flag = true;
 			}
 		}
 		

@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import Login.AdminLogin;
@@ -14,9 +15,7 @@ import Login.AdminLogin;
 public class Create_Tags extends AdminLogin {
 
 	
-	 String Tag_Name = "Test";
-	
-	 String Tag_Description = "Testing";
+	 
 	
 	@BeforeMethod
 	public void Setup() throws InterruptedException {
@@ -31,8 +30,9 @@ public class Create_Tags extends AdminLogin {
 		
 	}
 	
+	@Parameters({"tag_Name","tag_Description"})
 	@Test
-	public void Tags_Creation() throws InterruptedException {
+	public void Tags_Creation(String tag_Name ,String tag_Description) throws InterruptedException {
 
 		// Add Tag Popup
 		
@@ -42,11 +42,11 @@ public class Create_Tags extends AdminLogin {
 		
 		// Tag Name
 		
-		driver.findElement(By.xpath("(//input[@aria-label='Name'])[2]")).sendKeys(Tag_Name);
+		driver.findElement(By.xpath("(//input[@aria-label='Name'])[2]")).sendKeys(tag_Name);
 		
 		// Tag Description
 		
-		driver.findElement(By.xpath("(//input[@aria-label='Description'])[2]")).sendKeys(Tag_Description);
+		driver.findElement(By.xpath("(//input[@aria-label='Description'])[2]")).sendKeys(tag_Description);
 		
 		// Tag Creating 
 		
@@ -65,7 +65,6 @@ public class Create_Tags extends AdminLogin {
 		
 	      List<WebElement> Alldatas = driver.findElements(By.xpath("//table[@class='v-datatable v-table theme--light']//tr//td[1]"));
 	
-	      System.out.println(Alldatas.size());
 	      
 	      boolean flag = false;
 	      
@@ -73,7 +72,7 @@ public class Create_Tags extends AdminLogin {
 	    	  
 	    	  String value=Data.getText();
 	    	  
-	    	  if(value.contains(Tag_Name))
+	    	  if(value.contains(tag_Name))
 	    			  {
 	    		  
 	    		  flag = true;

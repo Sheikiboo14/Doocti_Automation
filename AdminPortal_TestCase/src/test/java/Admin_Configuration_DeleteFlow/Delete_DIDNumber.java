@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import Login.AdminLogin;
@@ -13,7 +14,6 @@ import Login.AdminLogin;
 public class Delete_DIDNumber extends AdminLogin{
 	
 
-	Long did_number = 8071893401L;
 	
 
 	@BeforeMethod
@@ -33,8 +33,9 @@ public class Delete_DIDNumber extends AdminLogin{
 		
 	}
 	
+	@Parameters({"did_number"})
 	@Test
-	public void Delete_DIDNumber() throws InterruptedException {
+	public void Delete_DIDNumber(String did_number) throws InterruptedException {
 		
 
 		
@@ -60,15 +61,15 @@ public class Delete_DIDNumber extends AdminLogin{
 		
 		List<WebElement> Alldatas = driver.findElements(By.xpath("//table[contains(@class,'v-datatable')]//td[2]"));
 		
-		boolean flag = true;
+		boolean flag = false;
 		
 		for (WebElement Data : Alldatas) {
 			
 			String value = Data.getText();
 			
-			if(value.contains(Long.toString(did_number))) {
+			if(value.contains(did_number)) {
 				
-				flag = false;
+				flag = true;
 			}
 		}
 		

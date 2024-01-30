@@ -1,30 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Failed suite [UserGroups Deletion Flow Testing]" guice-stage="DEVELOPMENT">
-  <test thread-count="5" name="User Deletion(failed)">
+  <test thread-count="5" name="UserGroup Deletion(failed)">
     <classes>
-      <class name="Admin_UsersGroups_DeleteFlow.Delete_User">
-        <parameter name="MobNo" value=""/>
-        <parameter name="Email" value="smibrahim_agent01@doocti.com"/>
-        <parameter name="UserId" value=""/>
+      <class name="Admin_UsersGroups_DeleteFlow.Delete_UserGroups">
+        <parameter name="UserGroups_Name" value="Quality"/>
         <methods>
-          <include name="Delete_User" invocation-numbers="0"/>
           <include name="Setup"/>
           <include name="Quit"/>
           <include name="Login"/>
+          <include name="Delete_UserGroups" invocation-numbers="0"/>
         </methods>
-      </class> <!-- Admin_UsersGroups_DeleteFlow.Delete_User -->
+      </class> <!-- Admin_UsersGroups_DeleteFlow.Delete_UserGroups -->
     </classes>
-  </test> <!-- User Deletion(failed) -->
+  </test> <!-- UserGroup Deletion(failed) -->
+  <test thread-count="5" name="Team Deletion(failed)">
+    <classes>
+      <class name="Admin_UsersGroups_DeleteFlow.Delete_Team">
+        <parameter name="Team_Name" value="Quality"/>
+        <methods>
+          <include name="Quit"/>
+          <include name="Login"/>
+          <include name="Setip"/>
+          <include name="Delete_Team"/>
+        </methods>
+      </class> <!-- Admin_UsersGroups_DeleteFlow.Delete_Team -->
+    </classes>
+  </test> <!-- Team Deletion(failed) -->
   <test thread-count="5" name="Channel Deletion(failed)">
     <classes>
       <class name="Admin_UsersGroups_DeleteFlow.Delete_Channel">
-        <parameter name="Channel_Name" value="QA"/>
+        <parameter name="Channel_Name" value="Channel"/>
         <methods>
           <include name="Setip"/>
           <include name="Quit"/>
           <include name="Login"/>
-          <include name="Delete_Channel" invocation-numbers="0"/>
+          <include name="Delete_Channel"/>
         </methods>
       </class> <!-- Admin_UsersGroups_DeleteFlow.Delete_Channel -->
     </classes>
@@ -32,12 +43,12 @@
   <test thread-count="5" name="Source Deletion(failed)">
     <classes>
       <class name="Admin_UsersGroups_DeleteFlow.Delete_Source">
-        <parameter name="Source_Name" value="QA"/>
+        <parameter name="Source_Name" value="Source"/>
         <methods>
           <include name="Setup"/>
           <include name="Quit"/>
           <include name="Login"/>
-          <include name="Delete_Source" invocation-numbers="0"/>
+          <include name="Delete_Source"/>
         </methods>
       </class> <!-- Admin_UsersGroups_DeleteFlow.Delete_Source -->
     </classes>

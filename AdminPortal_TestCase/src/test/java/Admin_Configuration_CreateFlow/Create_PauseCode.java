@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import Login.AdminLogin;
@@ -13,14 +14,6 @@ import Login.AdminLogin;
 
 public class Create_PauseCode extends AdminLogin {
 
-		
-		String PauseCode_Name = "Demo";
-		
-		String PauseCode_Description = "Testing Purpose";
-		
-		int PauseCode_hour = 1;
-
-		int PauseCode_minutes =30;
 		
 		@BeforeMethod
 		public void Setup() throws InterruptedException {
@@ -35,8 +28,10 @@ public class Create_PauseCode extends AdminLogin {
 			
 		}
 		
+		@Parameters({"pauseCode_Name","pauseCode_Description","pauseCode_hour","pauseCode_minutes"})
 		@Test
-		public void Create_PauseCode() throws InterruptedException {
+		public void Create_PauseCode(String pauseCode_Name ,String pauseCode_Description ,int pauseCode_hour ,int pauseCode_minutes ) throws InterruptedException {
+			
 			
 			// Add PauseCode Popup
 			
@@ -48,11 +43,11 @@ public class Create_PauseCode extends AdminLogin {
 			
 			// Pause Code Name
 			
-			driver.findElement(By.xpath("(//input[@aria-label='Pause Code'])[2]")).sendKeys(PauseCode_Name);
+			driver.findElement(By.xpath("(//input[@aria-label='Pause Code'])[2]")).sendKeys(pauseCode_Name);
 			
 			// Pause Code Description
 			
-			driver.findElement(By.xpath("(//input[@aria-label='Description'])[2]")).sendKeys(PauseCode_Description);
+			driver.findElement(By.xpath("(//input[@aria-label='Description'])[2]")).sendKeys(pauseCode_Description);
 			
 			//Time
 			
@@ -62,9 +57,9 @@ public class Create_PauseCode extends AdminLogin {
 			
 			WebElement Clock = driver.findElement(By.xpath("(//div[@class='v-time-picker-clock v-time-picker-clock--indeterminate theme--light'])[1]"));
 			
-			Clock.findElement(By.xpath("(//span[contains(text(),'"+PauseCode_hour+"')])[1]")).click();
+			Clock.findElement(By.xpath("(//span[contains(text(),'"+pauseCode_hour+"')])[1]")).click();
 			
-			Clock.findElement(By.xpath("(//span[contains(text(),'"+PauseCode_minutes+"')])[1]")).click();
+			Clock.findElement(By.xpath("(//span[contains(text(),'"+pauseCode_minutes+"')])[1]")).click();
 			
 			//Set Time
 			
@@ -80,35 +75,28 @@ public class Create_PauseCode extends AdminLogin {
 			
 			driver.findElement(By.xpath("(//div[@class='v-btn__content'][normalize-space()='Close'])[3]")).click();
 			
-			Thread.sleep(1000);
-			
 			// Verification
 			
-			
-			// Verification
-
-				Thread.sleep(1000);
+		      List<WebElement> Alldatas = driver.findElements(By.xpath("//table[@class='v-datatable v-table theme--light']//tr//td[1]"));
 				
-				// Verification
-				
-			      List<WebElement> Alldatas = driver.findElements(By.xpath("//table[@class='v-datatable v-table theme--light']//tr//td[1]"));
+		      
+		      boolean flag = false;
+		      
+		      for(WebElement Data : Alldatas) {
+		    	  
+		    	  String value=Data.getText();
+		    	  
+		    	  if(value.contains(pauseCode_Name)) {
+		    		  
+		    		  flag = true;
+		    		  
+		    		  break;
+		    	  }
+		      }
+		      
+		    Assert.assertTrue(flag,"PauseCode is Not Created...!");	
 			
-//			      System.out.println(Alldatas.size());
-			      
-			      boolean flag = false;
-			      
-			      for(WebElement Data : Alldatas) {
-			    	  
-			    	  String value=Data.getText();
-			    	  
-			    	  if(value.contains(PauseCode_Name)) {
-			    		  
-			    		  flag = true;
-			    		  
-			    		  break;
-			    	  }
-			      }
-		    	  Assert.assertTrue(flag,"PauseCode is Not Created...!");	
+			driver.findElement(By.xpath("(//div[contains(text(),'Configurations')])[1]")).click();
 
 		}
 

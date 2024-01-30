@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import Login.AdminLogin;
@@ -13,7 +14,6 @@ import Login.AdminLogin;
 public class Delete_InboundRouter extends AdminLogin {
 	
 
-	Long Did_Num=12345L;
 	
 	@BeforeMethod
 	public void Setup() throws InterruptedException {
@@ -28,14 +28,16 @@ public class Delete_InboundRouter extends AdminLogin {
 		
 		driver.findElement(By.xpath("(//span[normalize-space()='Inbound Route'])[1]")).click();
 		
+		Thread.sleep(1000);		
 	}
 	
+	@Parameters({"did_Num"})
 	@Test
-	public void Delete_InboundRouter() throws InterruptedException{
+	public void Delete_InboundRouter(String did_Num) throws InterruptedException{
 
 		// Delete Inbound Router
 		
-		driver.findElement(By.xpath("//td[text()='"+Did_Num+"']//following-sibling::td[3]//i[@class='v-icon mr-4 v-icon--link material-icons theme--light red--text']")).click();
+		driver.findElement(By.xpath("//td[text()='"+did_Num+"']//following-sibling::td[3]//i[@class='v-icon mr-4 v-icon--link material-icons theme--light red--text']")).click();
 		
 		Thread.sleep(1000);
 		
@@ -53,15 +55,15 @@ public class Delete_InboundRouter extends AdminLogin {
 		
 		List<WebElement> Alldatas = driver.findElements(By.xpath("//table[contains(@class,'v-datatable')]//td[1]"));
 		
-		boolean flag = true;
+		boolean flag = false;
 		
 		for (WebElement Data : Alldatas) {
 			
 			String value = Data.getText();
 			
-			if(value.contains(Long.toString(Did_Num))) {
+			if(value.contains(did_Num)) {
 				
-				flag = false;
+				flag = true;
 			}
 		}
 		

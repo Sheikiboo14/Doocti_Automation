@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import Login.AdminLogin;
@@ -13,7 +14,6 @@ import Login.AdminLogin;
 public class Delete_BlockList extends AdminLogin{
 	
 
-	Long Phno =9090909091L;
 	
 	@BeforeMethod
 	public void Setup() throws InterruptedException {
@@ -25,16 +25,18 @@ public class Delete_BlockList extends AdminLogin{
 		// Opening Block List Page
 		
 		driver.findElement(By.xpath("(//span[normalize-space()='Block List'])[1]")).click();
-		
+		Thread.sleep(1000);		
+
 	}
 	
+	@Parameters({"phno"})
 	@Test
-	public void BlockList_Delete()throws InterruptedException {
+	public void BlockList_Delete(String phno)throws InterruptedException {
 
 		
 		// Delete BlockList
 		
-		driver.findElement(By.xpath("//td[text()='"+Phno+"']//following-sibling::td[1]//i[@class='v-icon mr-4 v-icon--link material-icons theme--light red--text']")).click();
+		driver.findElement(By.xpath("//td[text()='"+phno+"']//following-sibling::td[1]//i[@class='v-icon mr-4 v-icon--link material-icons theme--light red--text']")).click();
 		
 		Thread.sleep(1000);
 		
@@ -54,15 +56,15 @@ public class Delete_BlockList extends AdminLogin{
 		
 		List<WebElement> Alldatas = driver.findElements(By.xpath("//table[contains(@class,'v-datatable')]//td[2]"));
 		
-		boolean flag = true;
+		boolean flag = false;
 		
 		for (WebElement Data : Alldatas) {
 			
 			String value = Data.getText();
 			
-			if(value.contains(Long.toString(Phno))) {
+			if(value.contains(phno)) {
 				
-				flag = false;
+				flag = true;
 			}
 		}
 		

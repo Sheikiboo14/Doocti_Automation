@@ -3,14 +3,15 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="Admin_UsersGroups_CreateFlow.Create_UserGroup">
+      <class name="Admin_Configuration_UpdateFlow.Update_PauseCode">
         <methods>
-          <include name="Quit"/>
-          <include name="Login"/>
-          <include name="Create_UserGroup"/>
           <include name="Setup"/>
+          <include name="Quit"/>
+          <include name="Update_PausecodeTime"/>
+          <include name="Login"/>
+          <include name="Update_PausecodeStatus"/>
         </methods>
-      </class> <!-- Admin_UsersGroups_CreateFlow.Create_UserGroup -->
+      </class> <!-- Admin_Configuration_UpdateFlow.Update_PauseCode -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

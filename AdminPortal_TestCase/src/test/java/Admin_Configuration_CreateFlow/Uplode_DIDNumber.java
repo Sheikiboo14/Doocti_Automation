@@ -11,15 +11,14 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import Login.AdminLogin;
 
 public class Uplode_DIDNumber extends AdminLogin {
 	
-	String DID_Path = "C:\\Users\\User\\Downloads\\sample_did (1).csv";
 	
-	String DID_Number="9876543217";
 
 	@BeforeMethod
 	public void Setup() throws InterruptedException {
@@ -35,8 +34,9 @@ public class Uplode_DIDNumber extends AdminLogin {
 		
 	}
 	
+	@Parameters({"dID_Path","dID_Number"})
 	@Test(priority =0)
-	public void Uplode_DID() throws InterruptedException, AWTException {
+	public void Uplode_DID(String dID_Path,String dID_Number) throws InterruptedException, AWTException {
 		
 		// Uplode Popup
 		
@@ -52,7 +52,7 @@ public class Uplode_DIDNumber extends AdminLogin {
 		
 		Robot rb = new Robot();
 		
-		StringSelection Filepath = new StringSelection(DID_Path);
+		StringSelection Filepath = new StringSelection(dID_Path);
 		
 		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(Filepath, null);
 		
@@ -77,27 +77,29 @@ public class Uplode_DIDNumber extends AdminLogin {
 		
 		if(Info.equalsIgnoreCase("Uploaded Successfully")) {
 			
-			// Close Popup
+		// Close Popup
 			
-			driver.findElement(By.xpath("(//div[@class='v-btn__content'][normalize-space()='Close'])[1]")).click();
+		driver.findElement(By.xpath("(//div[@class='v-btn__content'][normalize-space()='Close'])[1]")).click();
 			
-			driver.navigate().refresh();
-			
-			// Verification
-			
-			
-		      List<WebElement> Alldatas = driver.findElements(By.xpath("//table[@class='v-datatable v-table theme--light']//tr//td[2]"));
+
+		}
 		
-		      System.out.println(Alldatas.size());
+		driver.navigate().refresh();
+		
+		// Verification
+			
+			
+	     List<WebElement> Alldatas = driver.findElements(By.xpath("//table[@class='v-datatable v-table theme--light']//tr//td[2]"));
+				      
+	     boolean flag = false;
 		      
-		      boolean flag = false;
-		      
-		      for(WebElement Data : Alldatas) {
+	     for(WebElement Data : Alldatas) {
 		    	  
-		    	  String value=Data.getText();
+		     String value=Data.getText();
 		    	  
-		    	  if(value.contains(DID_Number))
-		    			  {
+		     if(value.contains(dID_Number))
+		    
+		     	{
 		    		  
 		    		  flag = true;
 		    		  
@@ -105,7 +107,6 @@ public class Uplode_DIDNumber extends AdminLogin {
 		    	  }
 		      }
 		  Assert.assertTrue(flag," DID_Number is Not Created...!");
-		}
 		
 
 		

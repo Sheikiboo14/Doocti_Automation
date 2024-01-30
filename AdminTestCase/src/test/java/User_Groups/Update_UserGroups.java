@@ -11,21 +11,21 @@ import Login.AdminLogin;
 
 public class Update_UserGroups extends AdminLogin {
 	
-	String UserGroups_Name = "Testing1";
+	String userGroups_Name = "Test";
+
+	String updated_UsergroupName = "QA";
 	
-	String Updated_UsergroupName = "Testing";
+	boolean realTime = true;
 	
-	boolean RealTime = true;
+	boolean report= true;
 	
-	boolean Report= true;
+	boolean management=false;
 	
-	boolean Management=false;
+	boolean configuration = false;
 	
-	boolean Configuration = false;
+	boolean leads=false;
 	
-	boolean Leads=false;
-	
-	boolean FormBuilder = false;
+	boolean formBuilder = false;
 	
 	
 	
@@ -47,7 +47,7 @@ public class Update_UserGroups extends AdminLogin {
 	public void Update_UserGroupName() throws InterruptedException {
 		
 		
-		WebElement UserGroups_Window = driver.findElement(By.xpath("(//div[@class='v-content__wrap'])[1]"));
+		Actions action =new Actions(driver);
 		
 		// UserGroup list
 		
@@ -57,19 +57,17 @@ public class Update_UserGroups extends AdminLogin {
 		
 		WebElement UserGroups_List = driver.findElement(By.xpath("(//div[@class='v-list theme--light'])[1]"));
 		
-		UserGroups_List.findElement(By.xpath("(//div[@class='v-list__tile__title'][normalize-space()='"+UserGroups_Name+"'])[1]")).click();
+		UserGroups_List.findElement(By.xpath("(//div[@class='v-list__tile__title'][normalize-space()='"+userGroups_Name+"'])[1]")).click();
 	
-		UserGroups_Window.click();
+		action.click().build().perform();
 		
 		Thread.sleep(1000);
 		
 		// Update Name
-		
-		Actions action = new Actions(driver);
-		
+				
 		action.doubleClick(driver.findElement(By.xpath("(//input[@aria-label='Group'])[1]"))).sendKeys(Keys.BACK_SPACE).build().perform();
 		
-		driver.findElement(By.xpath("(//input[@aria-label='Group'])[1]")).sendKeys(Updated_UsergroupName);
+		driver.findElement(By.xpath("(//input[@aria-label='Group'])[1]")).sendKeys(updated_UsergroupName);
 		
 		//save name
 		
@@ -105,7 +103,7 @@ public class Update_UserGroups extends AdminLogin {
 		
 		WebElement UserGroups_List = driver.findElement(By.xpath("(//div[@class='v-list theme--light'])[1]"));
 		
-		UserGroups_List.findElement(By.xpath("(//div[@class='v-list__tile__title'][normalize-space()='"+Updated_UsergroupName+"'])[1]")).click();
+		UserGroups_List.findElement(By.xpath("(//div[@class='v-list__tile__title'][normalize-space()='"+updated_UsergroupName+"'])[1]")).click();
 	
 		UserGroups_Window.click();
 		
@@ -113,7 +111,7 @@ public class Update_UserGroups extends AdminLogin {
 
 		//Real Time
 		
-		if(RealTime==true) {
+		if(realTime==true) {
 			
 			driver.findElement(By.xpath("(//div[@class='v-btn__content'][normalize-space()='Real Time'])[1]")).click();
 			
@@ -157,7 +155,7 @@ public class Update_UserGroups extends AdminLogin {
 		
 		//Report
 
-		if(Report==true) {
+		if(report==true) {
 						
 			driver.findElement(By.xpath("(//div[contains(text(),'reports')])[1]")).click();
 			
@@ -293,7 +291,7 @@ public class Update_UserGroups extends AdminLogin {
 		
 		//Management
 
-		if(Management==true) {
+		if(management==true) {
 			
 			driver.findElement(By.xpath("(//div[contains(text(),'management')])[1]")).click();
 			
@@ -349,7 +347,7 @@ public class Update_UserGroups extends AdminLogin {
 			
 		// Configuration
 		
-		if(Configuration==true) {
+		if(configuration==true) {
 			
 			driver.findElement(By.xpath("(//div[contains(text(),'configurations')])[1]")).click();
 			
@@ -453,7 +451,7 @@ public class Update_UserGroups extends AdminLogin {
 			
 		//Leads
 		
-		if(Leads==true) {
+		if(leads==true) {
 		
 			driver.findElement(By.xpath("(//div[@class='v-btn__content'][normalize-space()='Leads'])[1]")).click();
 			
@@ -525,7 +523,7 @@ public class Update_UserGroups extends AdminLogin {
 			
 		//Form Builder
 		
-		if(FormBuilder==true) {
+		if(formBuilder==true) {
 			
 			driver.findElement(By.xpath("(//div[@class='v-btn__content'][normalize-space()='Form Builder'])[1]")).click();
 			

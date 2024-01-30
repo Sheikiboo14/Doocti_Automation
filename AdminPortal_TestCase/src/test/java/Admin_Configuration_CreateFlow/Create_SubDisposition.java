@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import Login.AdminLogin;
@@ -13,11 +14,7 @@ import Login.AdminLogin;
 public class Create_SubDisposition extends AdminLogin {
 	
 	
-	 String Disposition = "New";
-	
-	 String Sub_Disposition = "Test Working";
-	
-	 String SubDispo_Description = "Testing Purpose";
+	 
 	
 	@BeforeMethod
 	public void Setup() throws InterruptedException {
@@ -32,8 +29,9 @@ public class Create_SubDisposition extends AdminLogin {
 		
 	}
 	
+	@Parameters({"disposition","sub_Disposition","subDispo_Description"})
 	@Test
-	public void Create_SubDisposition() throws InterruptedException {
+	public void Create_SubDisposition(String disposition,String sub_Disposition, String subDispo_Description) throws InterruptedException {
 
 		// Sub disposition Popup
 		
@@ -51,17 +49,17 @@ public class Create_SubDisposition extends AdminLogin {
 		
 		WebElement DispoList = driver.findElement(By.xpath("(//div[@role='list'])[5]"));
 		
-		DispoList.findElement(By.xpath("(//div[@class='v-list__tile__title'][normalize-space()='"+Disposition+"'])[2]")).click();
+		DispoList.findElement(By.xpath("(//div[@class='v-list__tile__title'][normalize-space()='"+disposition+"'])[2]")).click();
 	
 		Popup.click();
 		
 		// Sub - disposition
 		
-		driver.findElement(By.xpath("(//input[@aria-label='Sub-Disposition'])[1]")).sendKeys(Sub_Disposition);
+		driver.findElement(By.xpath("(//input[@aria-label='Sub-Disposition'])[1]")).sendKeys(sub_Disposition);
 		
 		//Description
 		
-		driver.findElement(By.xpath("(//input[@aria-label='Description'])[2]")).sendKeys(SubDispo_Description);
+		driver.findElement(By.xpath("(//input[@aria-label='Description'])[2]")).sendKeys(subDispo_Description);
 		
 		// Create Sub Disposition
 		
@@ -80,7 +78,6 @@ public class Create_SubDisposition extends AdminLogin {
 		
 	      List<WebElement> Alldatas = driver.findElements(By.xpath("//table[@class='v-datatable v-table theme--light']//tr//td[2]"));
 	
-	      System.out.println(Alldatas.size());
 	      
 	      boolean flag = false;
 	      
@@ -88,7 +85,7 @@ public class Create_SubDisposition extends AdminLogin {
 	    	  
 	    	  String value=Data.getText();
 	    	  
-	    	  if(value.contains(Sub_Disposition))
+	    	  if(value.contains(sub_Disposition))
 	    			  {
 	    		  
 	    		  flag = true;

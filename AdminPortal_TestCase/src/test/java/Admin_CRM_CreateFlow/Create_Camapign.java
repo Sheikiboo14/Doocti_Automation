@@ -8,59 +8,12 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import Login.AdminLogin;
 public class Create_Camapign extends AdminLogin{
-
-	String Campaign1="Preview 3";
-	
-	String Campaign2="Inbound 1";
-
-	String Campaign3="Predictive 1";
-
-	String Campaign4="Power 1";
-
-	String Campaign5="Voice Blast 1";
-
-	String Campaign6="Whatsapp Blast 1";
-
-	
-	int dialprefix = 3;
-	
-	String Industry = "IT";
- 	
-	String Template ="Dialer";
-	
-	String Queue = "smibrahim_8071893401";
-
-	String PauseCode ="Meeting";
-	
-	String PauseCode1 ="Lunch";
-	
-	String PauseCode2 ="Tea Break";
-	
-	String Dispo ="ANSWER";
-	
-	String Dispo1 ="CALLBACK";
-	
-	String Dispo2 ="Reassign";
-	
-	String script ="Testing";
-	
-	
-	int BfLevel = 100;
-	
-	float dialratio = 1.4f;
-	
-	String WpType = "Text";
-	
-	String WpTemplate = "hello_world";
-	
-	String WpLanguage = "en_US";
-
-	
-	
+		
 	@BeforeMethod
 	public void Setup() throws InterruptedException {
 			
@@ -70,8 +23,9 @@ public class Create_Camapign extends AdminLogin{
 	
 	}
 	
-	@Test(priority = 0 , enabled = true)
-	public void PreviewCampaign() throws InterruptedException {
+	@Parameters({"campaign1","dialprefix","industry","template","queue","pauseCode","pauseCode1","pauseCode2","dispo","dispo1","dispo2","script"})
+	@Test(priority = 0 )
+	public void PreviewCampaign(String campaign1,String dialprefix,String industry,String template,String queue,String pauseCode,String pauseCode1,String pauseCode2,String dispo,String dispo1,String dispo2,String script ) throws InterruptedException {
 		
 		driver.findElement(By.xpath("//div[normalize-space()='Add Campaign']")).click();
 		
@@ -79,7 +33,7 @@ public class Create_Camapign extends AdminLogin{
 		
 		//Adding Preview Campaign 
 		
-				driver.findElement(By.xpath("//div[@class='v-dialog v-dialog--active v-dialog--persistent v-dialog--scrollable']//input[@aria-label='Name']")).sendKeys(Campaign1);
+				driver.findElement(By.xpath("//div[@class='v-dialog v-dialog--active v-dialog--persistent v-dialog--scrollable']//input[@aria-label='Name']")).sendKeys(campaign1);
 				
 				System.out.println(driver.findElement(By.xpath("//div[@class='v-dialog v-dialog--active v-dialog--persistent v-dialog--scrollable']//input[@aria-label='Name']")).getAttribute("value"));
 				
@@ -152,7 +106,7 @@ public class Create_Camapign extends AdminLogin{
 				
 				WebElement IndustryOption = driver.findElement(By.xpath("//div[@class='v-menu__content theme--light v-menu__content--fixed menuable__content__active']//div[@role='list']"));
 				
-				IndustryOption.findElement(By.xpath("//div[@class='v-menu__content theme--light v-menu__content--fixed menuable__content__active']//div[@class='v-list__tile__title'][normalize-space()='"+Industry+"']")).click();
+				IndustryOption.findElement(By.xpath("//div[@class='v-menu__content theme--light v-menu__content--fixed menuable__content__active']//div[@class='v-list__tile__title'][normalize-space()='"+industry+"']")).click();
 				
 				CampaignPopup.click();
 
@@ -164,7 +118,7 @@ public class Create_Camapign extends AdminLogin{
 				
 				WebElement TemplateName =driver.findElement(By.xpath("(//div[@role='list'])[28]"));
 				
-				TemplateName.findElement(By.xpath("(//div[@class='v-list__tile__title'][normalize-space()='"+Template+"'])[3]")).click();
+				TemplateName.findElement(By.xpath("(//div[@class='v-list__tile__title'][normalize-space()='"+template+"'])[3]")).click();
 				
 				CampaignPopup.click();
 				
@@ -175,7 +129,7 @@ public class Create_Camapign extends AdminLogin{
 				
 				Thread.sleep(1000);
 				
-				driver.findElement(By.xpath("//div[contains(@class,'v-menu__content theme--light v-menu__content--fixed menuable__content__active v-autocomplete__content')]//div[contains(@class,'v-list__tile__title')][normalize-space()='"+Queue+"']")).click();
+				driver.findElement(By.xpath("//div[contains(@class,'v-menu__content theme--light v-menu__content--fixed menuable__content__active v-autocomplete__content')]//div[contains(@class,'v-list__tile__title')][normalize-space()='"+queue+"']")).click();
 				
 				CampaignPopup.click();
 				
@@ -187,7 +141,7 @@ public class Create_Camapign extends AdminLogin{
 				
 				Thread.sleep(1000);
 					
-				driver.findElement(By.xpath("//div[contains(@class,'v-menu__content theme--light v-menu__content--fixed menuable__content__active v-autocomplete__content')]//div[contains(@class,'v-list__tile__title')][normalize-space()='"+PauseCode+"']")).click();
+				driver.findElement(By.xpath("//div[contains(@class,'v-menu__content theme--light v-menu__content--fixed menuable__content__active v-autocomplete__content')]//div[contains(@class,'v-list__tile__title')][normalize-space()='"+pauseCode+"']")).click();
 			
 				CampaignPopup.click();
 
@@ -195,7 +149,7 @@ public class Create_Camapign extends AdminLogin{
 				
 				Thread.sleep(1000);
 				
-				driver.findElement(By.xpath("//div[contains(@class,'v-menu__content theme--light v-menu__content--fixed menuable__content__active v-autocomplete__content')]//div[contains(@class,'v-list__tile__title')][normalize-space()='"+PauseCode1+"']")).click();
+				driver.findElement(By.xpath("//div[contains(@class,'v-menu__content theme--light v-menu__content--fixed menuable__content__active v-autocomplete__content')]//div[contains(@class,'v-list__tile__title')][normalize-space()='"+pauseCode1+"']")).click();
 			
 				CampaignPopup.click();
 				
@@ -203,7 +157,7 @@ public class Create_Camapign extends AdminLogin{
 				
 				Thread.sleep(1000);
 				
-				driver.findElement(By.xpath("//div[contains(@class,'v-menu__content theme--light v-menu__content--fixed menuable__content__active v-autocomplete__content')]//div[contains(@class,'v-list__tile__title')][normalize-space()='"+PauseCode2+"']")).click();
+				driver.findElement(By.xpath("//div[contains(@class,'v-menu__content theme--light v-menu__content--fixed menuable__content__active v-autocomplete__content')]//div[contains(@class,'v-list__tile__title')][normalize-space()='"+pauseCode2+"']")).click();
 			
 				CampaignPopup.click();
 			
@@ -244,7 +198,7 @@ public class Create_Camapign extends AdminLogin{
 				Thread.sleep(1000);
 				
 				
-				driver.findElement(By.xpath("//div[contains(@class,'v-menu__content theme--light v-menu__content--fixed menuable__content__active v-autocomplete__content')]//div[contains(@class,'v-list__tile__title')][normalize-space()='"+Dispo+"']")).click();
+				driver.findElement(By.xpath("//div[contains(@class,'v-menu__content theme--light v-menu__content--fixed menuable__content__active v-autocomplete__content')]//div[contains(@class,'v-list__tile__title')][normalize-space()='"+dispo+"']")).click();
 				
 				CampaignPopup.click();
 				
@@ -252,7 +206,7 @@ public class Create_Camapign extends AdminLogin{
 				
 				Thread.sleep(1000);
 				
-				driver.findElement(By.xpath("//div[contains(@class,'v-menu__content theme--light v-menu__content--fixed menuable__content__active v-autocomplete__content')]//div[contains(@class,'v-list__tile__title')][normalize-space()='"+Dispo1+"']")).click();
+				driver.findElement(By.xpath("//div[contains(@class,'v-menu__content theme--light v-menu__content--fixed menuable__content__active v-autocomplete__content')]//div[contains(@class,'v-list__tile__title')][normalize-space()='"+dispo1+"']")).click();
 				
 				CampaignPopup.click();
 				
@@ -260,7 +214,7 @@ public class Create_Camapign extends AdminLogin{
 				
 				Thread.sleep(1000);
 				
-				driver.findElement(By.xpath("//div[contains(@class,'v-menu__content theme--light v-menu__content--fixed menuable__content__active v-autocomplete__content')]//div[contains(@class,'v-list__tile__title')][normalize-space()='"+Dispo2+"']")).click();
+				driver.findElement(By.xpath("//div[contains(@class,'v-menu__content theme--light v-menu__content--fixed menuable__content__active v-autocomplete__content')]//div[contains(@class,'v-list__tile__title')][normalize-space()='"+dispo2+"']")).click();
 				
 				CampaignPopup.click();
 					
@@ -308,8 +262,9 @@ public class Create_Camapign extends AdminLogin{
 				
 	}
 	
-	@Test(priority = 1, enabled = true)
-	public void InboundCampaign() throws InterruptedException {
+	@Parameters({"campaign1","dialprefix","industry","template","queue","pauseCode","pauseCode1","pauseCode2","dispo","dispo1","dispo2","script"})
+	@Test(priority = 1)
+	public void InboundCampaign(String campaign2,String dialprefix,String industry,String template,String queue,String pauseCode,String pauseCode1,String pauseCode2,String dispo,String dispo1,String dispo2,String script) throws InterruptedException {
 		
 		driver.findElement(By.xpath("//div[normalize-space()='Add Campaign']")).click();
 		
@@ -318,7 +273,7 @@ public class Create_Camapign extends AdminLogin{
 		
 		//Adding Inbound Campaign 
 		
-				driver.findElement(By.xpath("//div[@class='v-dialog v-dialog--active v-dialog--persistent v-dialog--scrollable']//input[@aria-label='Name']")).sendKeys(Campaign2);
+				driver.findElement(By.xpath("//div[@class='v-dialog v-dialog--active v-dialog--persistent v-dialog--scrollable']//input[@aria-label='Name']")).sendKeys(campaign2);
 				
 				System.out.println(driver.findElement(By.xpath("//div[@class='v-dialog v-dialog--active v-dialog--persistent v-dialog--scrollable']//input[@aria-label='Name']")).getAttribute("value"));
 				
@@ -391,7 +346,7 @@ public class Create_Camapign extends AdminLogin{
 				
 				WebElement IndustryOption = driver.findElement(By.xpath("//div[@class='v-menu__content theme--light v-menu__content--fixed menuable__content__active']//div[@role='list']"));
 				
-				IndustryOption.findElement(By.xpath("//div[@class='v-menu__content theme--light v-menu__content--fixed menuable__content__active']//div[@class='v-list__tile__title'][normalize-space()='"+Industry+"']")).click();
+				IndustryOption.findElement(By.xpath("//div[@class='v-menu__content theme--light v-menu__content--fixed menuable__content__active']//div[@class='v-list__tile__title'][normalize-space()='"+industry+"']")).click();
 				
 				CampaignPopup.click();
 
@@ -403,7 +358,7 @@ public class Create_Camapign extends AdminLogin{
 				
 				WebElement TemplateName = driver.findElement(By.xpath("//div[@class='v-menu__content theme--light v-menu__content--fixed menuable__content__active']//div[@role='list']"));
 				
-				TemplateName.findElement(By.xpath("(//div[@class='v-list__tile__title'][normalize-space()='"+Template+"'])[3]")).click();
+				TemplateName.findElement(By.xpath("(//div[@class='v-list__tile__title'][normalize-space()='"+template+"'])[3]")).click();
 				
 				CampaignPopup.click();
 				
@@ -413,7 +368,7 @@ public class Create_Camapign extends AdminLogin{
 				
 				Thread.sleep(1000);
 				
-				driver.findElement(By.xpath("//div[contains(@class,'v-menu__content theme--light v-menu__content--fixed menuable__content__active v-autocomplete__content')]//div[contains(@class,'v-list__tile__title')][normalize-space()='"+Queue+"']")).click();
+				driver.findElement(By.xpath("//div[contains(@class,'v-menu__content theme--light v-menu__content--fixed menuable__content__active v-autocomplete__content')]//div[contains(@class,'v-list__tile__title')][normalize-space()='"+queue+"']")).click();
 				
 				CampaignPopup.click();
 				
@@ -423,7 +378,7 @@ public class Create_Camapign extends AdminLogin{
 				
 				Thread.sleep(1000);
 				
-				driver.findElement(By.xpath("//div[contains(@class,'v-menu__content theme--light v-menu__content--fixed menuable__content__active v-autocomplete__content')]//div[contains(@class,'v-list__tile__title')][normalize-space()='"+PauseCode+"']")).click();
+				driver.findElement(By.xpath("//div[contains(@class,'v-menu__content theme--light v-menu__content--fixed menuable__content__active v-autocomplete__content')]//div[contains(@class,'v-list__tile__title')][normalize-space()='"+pauseCode+"']")).click();
 			
 				CampaignPopup.click();
 				
@@ -431,7 +386,7 @@ public class Create_Camapign extends AdminLogin{
 				
 				Thread.sleep(1000);
 				
-				driver.findElement(By.xpath("//div[contains(@class,'v-menu__content theme--light v-menu__content--fixed menuable__content__active v-autocomplete__content')]//div[contains(@class,'v-list__tile__title')][normalize-space()='"+PauseCode1+"']")).click();
+				driver.findElement(By.xpath("//div[contains(@class,'v-menu__content theme--light v-menu__content--fixed menuable__content__active v-autocomplete__content')]//div[contains(@class,'v-list__tile__title')][normalize-space()='"+pauseCode1+"']")).click();
 			
 				CampaignPopup.click();
 				
@@ -439,7 +394,7 @@ public class Create_Camapign extends AdminLogin{
 				
 				Thread.sleep(1000);
 				
-				driver.findElement(By.xpath("//div[contains(@class,'v-menu__content theme--light v-menu__content--fixed menuable__content__active v-autocomplete__content')]//div[contains(@class,'v-list__tile__title')][normalize-space()='"+PauseCode2+"']")).click();
+				driver.findElement(By.xpath("//div[contains(@class,'v-menu__content theme--light v-menu__content--fixed menuable__content__active v-autocomplete__content')]//div[contains(@class,'v-list__tile__title')][normalize-space()='"+pauseCode2+"']")).click();
 			
 				CampaignPopup.click();
 			
@@ -449,7 +404,7 @@ public class Create_Camapign extends AdminLogin{
 				
 				Thread.sleep(1000);
 				
-				driver.findElement(By.xpath("//div[contains(@class,'v-menu__content theme--light v-menu__content--fixed menuable__content__active v-autocomplete__content')]//div[contains(@class,'v-list__tile__title')][normalize-space()='"+Dispo+"']")).click();
+				driver.findElement(By.xpath("//div[contains(@class,'v-menu__content theme--light v-menu__content--fixed menuable__content__active v-autocomplete__content')]//div[contains(@class,'v-list__tile__title')][normalize-space()='"+dispo+"']")).click();
 				
 				CampaignPopup.click();
 				
@@ -457,7 +412,7 @@ public class Create_Camapign extends AdminLogin{
 				
 				Thread.sleep(1000);
 				
-				driver.findElement(By.xpath("//div[contains(@class,'v-menu__content theme--light v-menu__content--fixed menuable__content__active v-autocomplete__content')]//div[contains(@class,'v-list__tile__title')][normalize-space()='"+Dispo1+"']")).click();
+				driver.findElement(By.xpath("//div[contains(@class,'v-menu__content theme--light v-menu__content--fixed menuable__content__active v-autocomplete__content')]//div[contains(@class,'v-list__tile__title')][normalize-space()='"+dispo1+"']")).click();
 				
 				CampaignPopup.click();
 				
@@ -465,7 +420,7 @@ public class Create_Camapign extends AdminLogin{
 				
 				Thread.sleep(1000);
 				
-				driver.findElement(By.xpath("//div[contains(@class,'v-menu__content theme--light v-menu__content--fixed menuable__content__active v-autocomplete__content')]//div[contains(@class,'v-list__tile__title')][normalize-space()='"+Dispo2+"']")).click();
+				driver.findElement(By.xpath("//div[contains(@class,'v-menu__content theme--light v-menu__content--fixed menuable__content__active v-autocomplete__content')]//div[contains(@class,'v-list__tile__title')][normalize-space()='"+dispo2+"']")).click();
 				
 				CampaignPopup.click();
 				
@@ -475,7 +430,7 @@ public class Create_Camapign extends AdminLogin{
 				
 				Thread.sleep(1000);
 				
-				driver.findElement(By.xpath("//div[contains(@class,'v-menu__content theme--light v-menu__content--fixed menuable__content__active v-autocomplete__content')]//div[contains(@class,'v-list__tile__title')][normalize-space()='"+Dispo+"']")).click();
+				driver.findElement(By.xpath("//div[contains(@class,'v-menu__content theme--light v-menu__content--fixed menuable__content__active v-autocomplete__content')]//div[contains(@class,'v-list__tile__title')][normalize-space()='"+dispo+"']")).click();
 				
 				CampaignPopup.click();
 				
@@ -483,7 +438,7 @@ public class Create_Camapign extends AdminLogin{
 				
 				Thread.sleep(1000);
 				
-				driver.findElement(By.xpath("//div[contains(@class,'v-menu__content theme--light v-menu__content--fixed menuable__content__active v-autocomplete__content')]//div[contains(@class,'v-list__tile__title')][normalize-space()='"+Dispo1+"']")).click();
+				driver.findElement(By.xpath("//div[contains(@class,'v-menu__content theme--light v-menu__content--fixed menuable__content__active v-autocomplete__content')]//div[contains(@class,'v-list__tile__title')][normalize-space()='"+dispo1+"']")).click();
 				
 				CampaignPopup.click();
 				
@@ -491,7 +446,7 @@ public class Create_Camapign extends AdminLogin{
 				
 				Thread.sleep(1000);
 				
-				driver.findElement(By.xpath("//div[contains(@class,'v-menu__content theme--light v-menu__content--fixed menuable__content__active v-autocomplete__content')]//div[contains(@class,'v-list__tile__title')][normalize-space()='"+Dispo2+"']")).click();
+				driver.findElement(By.xpath("//div[contains(@class,'v-menu__content theme--light v-menu__content--fixed menuable__content__active v-autocomplete__content')]//div[contains(@class,'v-list__tile__title')][normalize-space()='"+dispo2+"']")).click();
 				
 				CampaignPopup.click();
 				
@@ -538,8 +493,9 @@ public class Create_Camapign extends AdminLogin{
 
 	}
 	
+	@Parameters({"campaign1","dialprefix","industry","template","queue","pauseCode","pauseCode1","pauseCode2","dispo","dispo1","dispo2","script","bfLevel","dialratio"})
 	@Test(priority = 2 , enabled = true)
-	public void PredictiveCampaign() throws InterruptedException {
+	public void PredictiveCampaign(String campaign3,String dialprefix,String industry,String template,String queue,String pauseCode,String pauseCode1,String pauseCode2,String dispo,String dispo1,String dispo2,String script,int bfLevel,float dialratio) throws InterruptedException {
 		
 		
 		driver.findElement(By.xpath("//div[normalize-space()='Add Campaign']")).click();
@@ -548,7 +504,7 @@ public class Create_Camapign extends AdminLogin{
 		
 //Adding Predictive Campaign 
 		
-		driver.findElement(By.xpath("//div[@class='v-dialog v-dialog--active v-dialog--persistent v-dialog--scrollable']//input[@aria-label='Name']")).sendKeys(Campaign3);
+		driver.findElement(By.xpath("//div[@class='v-dialog v-dialog--active v-dialog--persistent v-dialog--scrollable']//input[@aria-label='Name']")).sendKeys(campaign3);
 		
 		System.out.println(driver.findElement(By.xpath("//div[@class='v-dialog v-dialog--active v-dialog--persistent v-dialog--scrollable']//input[@aria-label='Name']")).getAttribute("value"));
 		
@@ -620,7 +576,7 @@ public class Create_Camapign extends AdminLogin{
 		
 		WebElement IndustryOption = driver.findElement(By.xpath("//div[@class='v-menu__content theme--light v-menu__content--fixed menuable__content__active']//div[@role='list']"));
 		
-		IndustryOption.findElement(By.xpath("//div[@class='v-menu__content theme--light v-menu__content--fixed menuable__content__active']//div[@class='v-list__tile__title'][normalize-space()='"+Industry+"']")).click();
+		IndustryOption.findElement(By.xpath("//div[@class='v-menu__content theme--light v-menu__content--fixed menuable__content__active']//div[@class='v-list__tile__title'][normalize-space()='"+industry+"']")).click();
 		
 		CampaignPopup.click();
 
@@ -632,7 +588,7 @@ public class Create_Camapign extends AdminLogin{
 		
 		WebElement TemplateName = driver.findElement(By.xpath("//div[@class='v-menu__content theme--light v-menu__content--fixed menuable__content__active']//div[@role='list']"));
 		
-		TemplateName.findElement(By.xpath("(//div[@class='v-list__tile__title'][normalize-space()='"+Template+"'])[3]")).click();
+		TemplateName.findElement(By.xpath("(//div[@class='v-list__tile__title'][normalize-space()='"+template+"'])[3]")).click();
 		
 		CampaignPopup.click();
 		
@@ -642,7 +598,7 @@ public class Create_Camapign extends AdminLogin{
 		
 		Thread.sleep(1000);
 		
-		driver.findElement(By.xpath("//div[contains(@class,'v-menu__content theme--light v-menu__content--fixed menuable__content__active v-autocomplete__content')]//div[contains(@class,'v-list__tile__title')][normalize-space()='"+Queue+"']")).click();
+		driver.findElement(By.xpath("//div[contains(@class,'v-menu__content theme--light v-menu__content--fixed menuable__content__active v-autocomplete__content')]//div[contains(@class,'v-list__tile__title')][normalize-space()='"+queue+"']")).click();
 		
 		CampaignPopup.click();
 		
@@ -652,7 +608,7 @@ public class Create_Camapign extends AdminLogin{
 		
 		Thread.sleep(1000);
 		
-		driver.findElement(By.xpath("//div[contains(@class,'v-menu__content theme--light v-menu__content--fixed menuable__content__active v-autocomplete__content')]//div[contains(@class,'v-list__tile__title')][normalize-space()='"+PauseCode+"']")).click();
+		driver.findElement(By.xpath("//div[contains(@class,'v-menu__content theme--light v-menu__content--fixed menuable__content__active v-autocomplete__content')]//div[contains(@class,'v-list__tile__title')][normalize-space()='"+pauseCode+"']")).click();
 	
 		CampaignPopup.click();
 		
@@ -660,7 +616,7 @@ public class Create_Camapign extends AdminLogin{
 		
 		Thread.sleep(1000);
 		
-		driver.findElement(By.xpath("//div[contains(@class,'v-menu__content theme--light v-menu__content--fixed menuable__content__active v-autocomplete__content')]//div[contains(@class,'v-list__tile__title')][normalize-space()='"+PauseCode1+"']")).click();
+		driver.findElement(By.xpath("//div[contains(@class,'v-menu__content theme--light v-menu__content--fixed menuable__content__active v-autocomplete__content')]//div[contains(@class,'v-list__tile__title')][normalize-space()='"+pauseCode1+"']")).click();
 	
 		CampaignPopup.click();
 		
@@ -668,7 +624,7 @@ public class Create_Camapign extends AdminLogin{
 		
 		Thread.sleep(1000);
 		
-		driver.findElement(By.xpath("//div[contains(@class,'v-menu__content theme--light v-menu__content--fixed menuable__content__active v-autocomplete__content')]//div[contains(@class,'v-list__tile__title')][normalize-space()='"+PauseCode2+"']")).click();
+		driver.findElement(By.xpath("//div[contains(@class,'v-menu__content theme--light v-menu__content--fixed menuable__content__active v-autocomplete__content')]//div[contains(@class,'v-list__tile__title')][normalize-space()='"+pauseCode2+"']")).click();
 	
 		CampaignPopup.click();
 	
@@ -678,7 +634,7 @@ public class Create_Camapign extends AdminLogin{
 		
 		Thread.sleep(1000);
 		
-		driver.findElement(By.xpath("//div[contains(@class,'v-menu__content theme--light v-menu__content--fixed menuable__content__active v-autocomplete__content')]//div[contains(@class,'v-list__tile__title')][normalize-space()='"+Dispo+"']")).click();
+		driver.findElement(By.xpath("//div[contains(@class,'v-menu__content theme--light v-menu__content--fixed menuable__content__active v-autocomplete__content')]//div[contains(@class,'v-list__tile__title')][normalize-space()='"+dispo+"']")).click();
 		
 		CampaignPopup.click();
 		
@@ -686,7 +642,7 @@ public class Create_Camapign extends AdminLogin{
 		
 		Thread.sleep(1000);
 		
-		driver.findElement(By.xpath("//div[contains(@class,'v-menu__content theme--light v-menu__content--fixed menuable__content__active v-autocomplete__content')]//div[contains(@class,'v-list__tile__title')][normalize-space()='"+Dispo1+"']")).click();
+		driver.findElement(By.xpath("//div[contains(@class,'v-menu__content theme--light v-menu__content--fixed menuable__content__active v-autocomplete__content')]//div[contains(@class,'v-list__tile__title')][normalize-space()='"+dispo1+"']")).click();
 		
 		CampaignPopup.click();
 		
@@ -694,7 +650,7 @@ public class Create_Camapign extends AdminLogin{
 		
 		Thread.sleep(1000);
 		
-		driver.findElement(By.xpath("//div[contains(@class,'v-menu__content theme--light v-menu__content--fixed menuable__content__active v-autocomplete__content')]//div[contains(@class,'v-list__tile__title')][normalize-space()='"+Dispo2+"']")).click();
+		driver.findElement(By.xpath("//div[contains(@class,'v-menu__content theme--light v-menu__content--fixed menuable__content__active v-autocomplete__content')]//div[contains(@class,'v-list__tile__title')][normalize-space()='"+dispo2+"']")).click();
 		
 		CampaignPopup.click();
 		
@@ -704,7 +660,7 @@ public class Create_Camapign extends AdminLogin{
 		
 		Thread.sleep(1000);
 		
-		driver.findElement(By.xpath("//div[contains(@class,'v-menu__content theme--light v-menu__content--fixed menuable__content__active v-autocomplete__content')]//div[contains(@class,'v-list__tile__title')][normalize-space()='"+Dispo+"']")).click();
+		driver.findElement(By.xpath("//div[contains(@class,'v-menu__content theme--light v-menu__content--fixed menuable__content__active v-autocomplete__content')]//div[contains(@class,'v-list__tile__title')][normalize-space()='"+dispo+"']")).click();
 		
 		CampaignPopup.click();
 		
@@ -712,7 +668,7 @@ public class Create_Camapign extends AdminLogin{
 		
 		Thread.sleep(1000);
 		
-		driver.findElement(By.xpath("//div[contains(@class,'v-menu__content theme--light v-menu__content--fixed menuable__content__active v-autocomplete__content')]//div[contains(@class,'v-list__tile__title')][normalize-space()='"+Dispo1+"']")).click();
+		driver.findElement(By.xpath("//div[contains(@class,'v-menu__content theme--light v-menu__content--fixed menuable__content__active v-autocomplete__content')]//div[contains(@class,'v-list__tile__title')][normalize-space()='"+dispo1+"']")).click();
 		
 		CampaignPopup.click();
 		
@@ -720,7 +676,7 @@ public class Create_Camapign extends AdminLogin{
 		
 		Thread.sleep(1000);
 		
-		driver.findElement(By.xpath("//div[contains(@class,'v-menu__content theme--light v-menu__content--fixed menuable__content__active v-autocomplete__content')]//div[contains(@class,'v-list__tile__title')][normalize-space()='"+Dispo2+"']")).click();
+		driver.findElement(By.xpath("//div[contains(@class,'v-menu__content theme--light v-menu__content--fixed menuable__content__active v-autocomplete__content')]//div[contains(@class,'v-list__tile__title')][normalize-space()='"+dispo2+"']")).click();
 		
 		CampaignPopup.click();
 		
@@ -732,7 +688,7 @@ public class Create_Camapign extends AdminLogin{
 		
 		WebElement BufferLevel = driver.findElement(By.xpath("//div[@class='v-menu__content theme--light v-menu__content--fixed menuable__content__active']//div[@role='list']"));
 		
-		BufferLevel.findElement(By.xpath("(//div[@class='v-list__tile__title'][normalize-space()='"+BfLevel+"'])[1]")).click();
+		BufferLevel.findElement(By.xpath("(//div[@class='v-list__tile__title'][normalize-space()='"+bfLevel+"'])[1]")).click();
 		
 
 //On Demand Enabling
@@ -781,8 +737,9 @@ public class Create_Camapign extends AdminLogin{
 
 	}
 	
-	@Test(priority = 3, enabled = true)
-	public void PowerCampaign() throws InterruptedException {
+	@Parameters({"campaign4","dialprefix","industry","template","queue","pauseCode","pauseCode1","pauseCode2","dispo","dispo1","dispo2","script","bfLevel","dialratio"})
+	@Test(priority = 3)
+	public void PowerCampaign(String campaign4,String dialprefix,String industry,String template,String queue,String pauseCode,String pauseCode1,String pauseCode2,String dispo,String dispo1,String dispo2,String script,int bfLevel,float dialratio) throws InterruptedException {
 		
 		
 		driver.findElement(By.xpath("//div[normalize-space()='Add Campaign']")).click();
@@ -791,7 +748,7 @@ public class Create_Camapign extends AdminLogin{
 		
 //Adding Power Campaign 
 		
-		driver.findElement(By.xpath("//div[@class='v-dialog v-dialog--active v-dialog--persistent v-dialog--scrollable']//input[@aria-label='Name']")).sendKeys(Campaign4);
+		driver.findElement(By.xpath("//div[@class='v-dialog v-dialog--active v-dialog--persistent v-dialog--scrollable']//input[@aria-label='Name']")).sendKeys(campaign4);
 		
 		System.out.println(driver.findElement(By.xpath("//div[@class='v-dialog v-dialog--active v-dialog--persistent v-dialog--scrollable']//input[@aria-label='Name']")).getAttribute("value"));
 		
@@ -863,7 +820,7 @@ public class Create_Camapign extends AdminLogin{
 		
 		WebElement IndustryOption = driver.findElement(By.xpath("//div[@class='v-menu__content theme--light v-menu__content--fixed menuable__content__active']//div[@role='list']"));
 		
-		IndustryOption.findElement(By.xpath("//div[@class='v-menu__content theme--light v-menu__content--fixed menuable__content__active']//div[@class='v-list__tile__title'][normalize-space()='"+Industry+"']")).click();
+		IndustryOption.findElement(By.xpath("//div[@class='v-menu__content theme--light v-menu__content--fixed menuable__content__active']//div[@class='v-list__tile__title'][normalize-space()='"+industry+"']")).click();
 		
 		CampaignPopup.click();
 
@@ -875,7 +832,7 @@ public class Create_Camapign extends AdminLogin{
 		
 		WebElement TemplateName = driver.findElement(By.xpath("//div[@class='v-menu__content theme--light v-menu__content--fixed menuable__content__active']//div[@role='list']"));
 		
-		TemplateName.findElement(By.xpath("(//div[@class='v-list__tile__title'][normalize-space()='"+Template+"'])[3]")).click();
+		TemplateName.findElement(By.xpath("(//div[@class='v-list__tile__title'][normalize-space()='"+template+"'])[3]")).click();
 		
 		CampaignPopup.click();
 		
@@ -885,7 +842,7 @@ public class Create_Camapign extends AdminLogin{
 		
 		Thread.sleep(1000);
 		
-		driver.findElement(By.xpath("//div[contains(@class,'v-menu__content theme--light v-menu__content--fixed menuable__content__active v-autocomplete__content')]//div[contains(@class,'v-list__tile__title')][normalize-space()='"+Queue+"']")).click();
+		driver.findElement(By.xpath("//div[contains(@class,'v-menu__content theme--light v-menu__content--fixed menuable__content__active v-autocomplete__content')]//div[contains(@class,'v-list__tile__title')][normalize-space()='"+queue+"']")).click();
 		
 		CampaignPopup.click();
 		
@@ -895,7 +852,7 @@ public class Create_Camapign extends AdminLogin{
 		
 		Thread.sleep(1000);
 		
-		driver.findElement(By.xpath("//div[contains(@class,'v-menu__content theme--light v-menu__content--fixed menuable__content__active v-autocomplete__content')]//div[contains(@class,'v-list__tile__title')][normalize-space()='"+PauseCode+"']")).click();
+		driver.findElement(By.xpath("//div[contains(@class,'v-menu__content theme--light v-menu__content--fixed menuable__content__active v-autocomplete__content')]//div[contains(@class,'v-list__tile__title')][normalize-space()='"+pauseCode+"']")).click();
 	
 		CampaignPopup.click();
 		
@@ -903,7 +860,7 @@ public class Create_Camapign extends AdminLogin{
 		
 		Thread.sleep(1000);
 		
-		driver.findElement(By.xpath("//div[contains(@class,'v-menu__content theme--light v-menu__content--fixed menuable__content__active v-autocomplete__content')]//div[contains(@class,'v-list__tile__title')][normalize-space()='"+PauseCode1+"']")).click();
+		driver.findElement(By.xpath("//div[contains(@class,'v-menu__content theme--light v-menu__content--fixed menuable__content__active v-autocomplete__content')]//div[contains(@class,'v-list__tile__title')][normalize-space()='"+pauseCode1+"']")).click();
 	
 		CampaignPopup.click();
 		
@@ -911,7 +868,7 @@ public class Create_Camapign extends AdminLogin{
 		
 		Thread.sleep(1000);
 		
-		driver.findElement(By.xpath("//div[contains(@class,'v-menu__content theme--light v-menu__content--fixed menuable__content__active v-autocomplete__content')]//div[contains(@class,'v-list__tile__title')][normalize-space()='"+PauseCode2+"']")).click();
+		driver.findElement(By.xpath("//div[contains(@class,'v-menu__content theme--light v-menu__content--fixed menuable__content__active v-autocomplete__content')]//div[contains(@class,'v-list__tile__title')][normalize-space()='"+pauseCode2+"']")).click();
 	
 		CampaignPopup.click();
 	
@@ -921,7 +878,7 @@ public class Create_Camapign extends AdminLogin{
 		
 		Thread.sleep(1000);
 		
-		driver.findElement(By.xpath("//div[contains(@class,'v-menu__content theme--light v-menu__content--fixed menuable__content__active v-autocomplete__content')]//div[contains(@class,'v-list__tile__title')][normalize-space()='"+Dispo+"']")).click();
+		driver.findElement(By.xpath("//div[contains(@class,'v-menu__content theme--light v-menu__content--fixed menuable__content__active v-autocomplete__content')]//div[contains(@class,'v-list__tile__title')][normalize-space()='"+dispo+"']")).click();
 		
 		CampaignPopup.click();
 		
@@ -929,7 +886,7 @@ public class Create_Camapign extends AdminLogin{
 		
 		Thread.sleep(1000);
 		
-		driver.findElement(By.xpath("//div[contains(@class,'v-menu__content theme--light v-menu__content--fixed menuable__content__active v-autocomplete__content')]//div[contains(@class,'v-list__tile__title')][normalize-space()='"+Dispo1+"']")).click();
+		driver.findElement(By.xpath("//div[contains(@class,'v-menu__content theme--light v-menu__content--fixed menuable__content__active v-autocomplete__content')]//div[contains(@class,'v-list__tile__title')][normalize-space()='"+dispo1+"']")).click();
 		
 		CampaignPopup.click();
 		
@@ -937,7 +894,7 @@ public class Create_Camapign extends AdminLogin{
 		
 		Thread.sleep(1000);
 		
-		driver.findElement(By.xpath("//div[contains(@class,'v-menu__content theme--light v-menu__content--fixed menuable__content__active v-autocomplete__content')]//div[contains(@class,'v-list__tile__title')][normalize-space()='"+Dispo2+"']")).click();
+		driver.findElement(By.xpath("//div[contains(@class,'v-menu__content theme--light v-menu__content--fixed menuable__content__active v-autocomplete__content')]//div[contains(@class,'v-list__tile__title')][normalize-space()='"+dispo2+"']")).click();
 		
 		CampaignPopup.click();
 		
@@ -947,7 +904,7 @@ public class Create_Camapign extends AdminLogin{
 		
 		Thread.sleep(1000);
 		
-		driver.findElement(By.xpath("//div[contains(@class,'v-menu__content theme--light v-menu__content--fixed menuable__content__active v-autocomplete__content')]//div[contains(@class,'v-list__tile__title')][normalize-space()='"+Dispo+"']")).click();
+		driver.findElement(By.xpath("//div[contains(@class,'v-menu__content theme--light v-menu__content--fixed menuable__content__active v-autocomplete__content')]//div[contains(@class,'v-list__tile__title')][normalize-space()='"+dispo+"']")).click();
 		
 		CampaignPopup.click();
 		
@@ -955,7 +912,7 @@ public class Create_Camapign extends AdminLogin{
 		
 		Thread.sleep(1000);
 		
-		driver.findElement(By.xpath("//div[contains(@class,'v-menu__content theme--light v-menu__content--fixed menuable__content__active v-autocomplete__content')]//div[contains(@class,'v-list__tile__title')][normalize-space()='"+Dispo1+"']")).click();
+		driver.findElement(By.xpath("//div[contains(@class,'v-menu__content theme--light v-menu__content--fixed menuable__content__active v-autocomplete__content')]//div[contains(@class,'v-list__tile__title')][normalize-space()='"+dispo1+"']")).click();
 		
 		CampaignPopup.click();
 		
@@ -963,7 +920,7 @@ public class Create_Camapign extends AdminLogin{
 		
 		Thread.sleep(1000);
 		
-		driver.findElement(By.xpath("//div[contains(@class,'v-menu__content theme--light v-menu__content--fixed menuable__content__active v-autocomplete__content')]//div[contains(@class,'v-list__tile__title')][normalize-space()='"+Dispo2+"']")).click();
+		driver.findElement(By.xpath("//div[contains(@class,'v-menu__content theme--light v-menu__content--fixed menuable__content__active v-autocomplete__content')]//div[contains(@class,'v-list__tile__title')][normalize-space()='"+dispo2+"']")).click();
 		
 		CampaignPopup.click();
 		
@@ -975,7 +932,7 @@ public class Create_Camapign extends AdminLogin{
 		
 		WebElement BufferLevel = driver.findElement(By.xpath("//div[@class='v-menu__content theme--light v-menu__content--fixed menuable__content__active']//div[@role='list']"));
 		
-		BufferLevel.findElement(By.xpath("(//div[@class='v-list__tile__title'][normalize-space()='"+BfLevel+"'])[1]")).click();
+		BufferLevel.findElement(By.xpath("(//div[@class='v-list__tile__title'][normalize-space()='"+bfLevel+"'])[1]")).click();
 		
 
 //On Demand Enabling
@@ -1025,8 +982,9 @@ public class Create_Camapign extends AdminLogin{
 
 	}
 	
-	@Test(priority = 4 , enabled = true)
-	public void VoiceBlastCampaign() throws InterruptedException {
+	@Parameters({"campaign5","dialprefix","industry","template","queue","pauseCode","pauseCode1","pauseCode2","dispo","dispo1","dispo2","script","bfLevel","dialratio","wpType","wpTemplate","wpLanguage"})
+	@Test(priority = 4 )
+	public void VoiceBlastCampaign(String campaign5,String dialprefix,String industry,String template,String queue,String pauseCode,String pauseCode1,String pauseCode2,String dispo,String dispo1,String dispo2,String script,int bfLevel,String dialratio,String wpType,String wpTemplate,String wpLanguage ) throws InterruptedException {
 		
 		driver.findElement(By.xpath("//div[normalize-space()='Add Campaign']")).click();
 		
@@ -1034,7 +992,7 @@ public class Create_Camapign extends AdminLogin{
 		
 //Adding Voice Blast Campaign 
 		
-		driver.findElement(By.xpath("//div[@class='v-dialog v-dialog--active v-dialog--persistent v-dialog--scrollable']//input[@aria-label='Name']")).sendKeys(Campaign5);
+		driver.findElement(By.xpath("//div[@class='v-dialog v-dialog--active v-dialog--persistent v-dialog--scrollable']//input[@aria-label='Name']")).sendKeys(campaign5);
 		
 		System.out.println(driver.findElement(By.xpath("//div[@class='v-dialog v-dialog--active v-dialog--persistent v-dialog--scrollable']//input[@aria-label='Name']")).getAttribute("value"));
 		
@@ -1106,7 +1064,7 @@ public class Create_Camapign extends AdminLogin{
 		
 		WebElement IndustryOption = driver.findElement(By.xpath("//div[@class='v-menu__content theme--light v-menu__content--fixed menuable__content__active']//div[@role='list']"));
 		
-		IndustryOption.findElement(By.xpath("//div[@class='v-menu__content theme--light v-menu__content--fixed menuable__content__active']//div[@class='v-list__tile__title'][normalize-space()='"+Industry+"']")).click();
+		IndustryOption.findElement(By.xpath("//div[@class='v-menu__content theme--light v-menu__content--fixed menuable__content__active']//div[@class='v-list__tile__title'][normalize-space()='"+industry+"']")).click();
 		
 		CampaignPopup.click();
 
@@ -1118,7 +1076,7 @@ public class Create_Camapign extends AdminLogin{
 		
 		WebElement TemplateName = driver.findElement(By.xpath("//div[@class='v-menu__content theme--light v-menu__content--fixed menuable__content__active']//div[@role='list']"));
 		
-		TemplateName.findElement(By.xpath("(//div[@class='v-list__tile__title'][normalize-space()='"+Template+"'])[3]")).click();
+		TemplateName.findElement(By.xpath("(//div[@class='v-list__tile__title'][normalize-space()='"+template+"'])[3]")).click();
 		
 		CampaignPopup.click();
 		
@@ -1128,7 +1086,7 @@ public class Create_Camapign extends AdminLogin{
 		
 		Thread.sleep(1000);
 		
-		driver.findElement(By.xpath("//div[contains(@class,'v-menu__content theme--light v-menu__content--fixed menuable__content__active v-autocomplete__content')]//div[contains(@class,'v-list__tile__title')][normalize-space()='"+Queue+"']")).click();
+		driver.findElement(By.xpath("//div[contains(@class,'v-menu__content theme--light v-menu__content--fixed menuable__content__active v-autocomplete__content')]//div[contains(@class,'v-list__tile__title')][normalize-space()='"+queue+"']")).click();
 		
 		CampaignPopup.click();
 		
@@ -1138,7 +1096,7 @@ public class Create_Camapign extends AdminLogin{
 		
 		Thread.sleep(1000);
 		
-		driver.findElement(By.xpath("//div[contains(@class,'v-menu__content theme--light v-menu__content--fixed menuable__content__active v-autocomplete__content')]//div[contains(@class,'v-list__tile__title')][normalize-space()='"+PauseCode+"']")).click();
+		driver.findElement(By.xpath("//div[contains(@class,'v-menu__content theme--light v-menu__content--fixed menuable__content__active v-autocomplete__content')]//div[contains(@class,'v-list__tile__title')][normalize-space()='"+pauseCode+"']")).click();
 	
 		CampaignPopup.click();
 		
@@ -1146,7 +1104,7 @@ public class Create_Camapign extends AdminLogin{
 		
 		Thread.sleep(1000);
 		
-		driver.findElement(By.xpath("//div[contains(@class,'v-menu__content theme--light v-menu__content--fixed menuable__content__active v-autocomplete__content')]//div[contains(@class,'v-list__tile__title')][normalize-space()='"+PauseCode1+"']")).click();
+		driver.findElement(By.xpath("//div[contains(@class,'v-menu__content theme--light v-menu__content--fixed menuable__content__active v-autocomplete__content')]//div[contains(@class,'v-list__tile__title')][normalize-space()='"+pauseCode1+"']")).click();
 	
 		CampaignPopup.click();
 		
@@ -1154,7 +1112,7 @@ public class Create_Camapign extends AdminLogin{
 		
 		Thread.sleep(1000);
 		
-		driver.findElement(By.xpath("//div[contains(@class,'v-menu__content theme--light v-menu__content--fixed menuable__content__active v-autocomplete__content')]//div[contains(@class,'v-list__tile__title')][normalize-space()='"+PauseCode2+"']")).click();
+		driver.findElement(By.xpath("//div[contains(@class,'v-menu__content theme--light v-menu__content--fixed menuable__content__active v-autocomplete__content')]//div[contains(@class,'v-list__tile__title')][normalize-space()='"+pauseCode2+"']")).click();
 	
 		CampaignPopup.click();
 	
@@ -1164,7 +1122,7 @@ public class Create_Camapign extends AdminLogin{
 		
 		Thread.sleep(1000);
 		
-		driver.findElement(By.xpath("//div[contains(@class,'v-menu__content theme--light v-menu__content--fixed menuable__content__active v-autocomplete__content')]//div[contains(@class,'v-list__tile__title')][normalize-space()='"+Dispo+"']")).click();
+		driver.findElement(By.xpath("//div[contains(@class,'v-menu__content theme--light v-menu__content--fixed menuable__content__active v-autocomplete__content')]//div[contains(@class,'v-list__tile__title')][normalize-space()='"+dispo+"']")).click();
 		
 		CampaignPopup.click();
 		
@@ -1172,7 +1130,7 @@ public class Create_Camapign extends AdminLogin{
 		
 		Thread.sleep(1000);
 		
-		driver.findElement(By.xpath("//div[contains(@class,'v-menu__content theme--light v-menu__content--fixed menuable__content__active v-autocomplete__content')]//div[contains(@class,'v-list__tile__title')][normalize-space()='"+Dispo1+"']")).click();
+		driver.findElement(By.xpath("//div[contains(@class,'v-menu__content theme--light v-menu__content--fixed menuable__content__active v-autocomplete__content')]//div[contains(@class,'v-list__tile__title')][normalize-space()='"+dispo1+"']")).click();
 		
 		CampaignPopup.click();
 		
@@ -1180,7 +1138,7 @@ public class Create_Camapign extends AdminLogin{
 		
 		Thread.sleep(1000);
 		
-		driver.findElement(By.xpath("//div[contains(@class,'v-menu__content theme--light v-menu__content--fixed menuable__content__active v-autocomplete__content')]//div[contains(@class,'v-list__tile__title')][normalize-space()='"+Dispo2+"']")).click();
+		driver.findElement(By.xpath("//div[contains(@class,'v-menu__content theme--light v-menu__content--fixed menuable__content__active v-autocomplete__content')]//div[contains(@class,'v-list__tile__title')][normalize-space()='"+dispo2+"']")).click();
 		
 		CampaignPopup.click();
 		
@@ -1190,7 +1148,7 @@ public class Create_Camapign extends AdminLogin{
 		
 		Thread.sleep(1000);
 		
-		driver.findElement(By.xpath("//div[contains(@class,'v-menu__content theme--light v-menu__content--fixed menuable__content__active v-autocomplete__content')]//div[contains(@class,'v-list__tile__title')][normalize-space()='"+Dispo+"']")).click();
+		driver.findElement(By.xpath("//div[contains(@class,'v-menu__content theme--light v-menu__content--fixed menuable__content__active v-autocomplete__content')]//div[contains(@class,'v-list__tile__title')][normalize-space()='"+dispo+"']")).click();
 		
 		CampaignPopup.click();
 		
@@ -1198,7 +1156,7 @@ public class Create_Camapign extends AdminLogin{
 		
 		Thread.sleep(1000);
 		
-		driver.findElement(By.xpath("//div[contains(@class,'v-menu__content theme--light v-menu__content--fixed menuable__content__active v-autocomplete__content')]//div[contains(@class,'v-list__tile__title')][normalize-space()='"+Dispo1+"']")).click();
+		driver.findElement(By.xpath("//div[contains(@class,'v-menu__content theme--light v-menu__content--fixed menuable__content__active v-autocomplete__content')]//div[contains(@class,'v-list__tile__title')][normalize-space()='"+dispo1+"']")).click();
 		
 		CampaignPopup.click();
 		
@@ -1206,7 +1164,7 @@ public class Create_Camapign extends AdminLogin{
 		
 		Thread.sleep(1000);
 		
-		driver.findElement(By.xpath("//div[contains(@class,'v-menu__content theme--light v-menu__content--fixed menuable__content__active v-autocomplete__content')]//div[contains(@class,'v-list__tile__title')][normalize-space()='"+Dispo2+"']")).click();
+		driver.findElement(By.xpath("//div[contains(@class,'v-menu__content theme--light v-menu__content--fixed menuable__content__active v-autocomplete__content')]//div[contains(@class,'v-list__tile__title')][normalize-space()='"+dispo2+"']")).click();
 		
 		CampaignPopup.click();
 		
@@ -1218,7 +1176,7 @@ public class Create_Camapign extends AdminLogin{
 		
 		WebElement BufferLevel = driver.findElement(By.xpath("//div[@class='v-menu__content theme--light v-menu__content--fixed menuable__content__active']//div[@role='list']"));
 		
-		BufferLevel.findElement(By.xpath("//div[@class='v-menu__content theme--light v-menu__content--fixed menuable__content__active']//div[@class='v-list__tile__title'][normalize-space()='"+BfLevel+"']")).click();
+		BufferLevel.findElement(By.xpath("//div[@class='v-menu__content theme--light v-menu__content--fixed menuable__content__active']//div[@class='v-list__tile__title'][normalize-space()='"+bfLevel+"']")).click();
 		
 
 //On Demand Enabling
@@ -1239,7 +1197,7 @@ public class Create_Camapign extends AdminLogin{
 		
 		WebElement DialPrefix =driver.findElement(By.xpath("//div[@class='v-dialog v-dialog--active v-dialog--persistent v-dialog--scrollable']//input[@aria-label='Dial Prefix']"));
 		
-		DialPrefix.sendKeys(Integer.toString(dialprefix));
+		DialPrefix.sendKeys(dialprefix);
 		
 //Script Selection
 		
@@ -1276,8 +1234,9 @@ public class Create_Camapign extends AdminLogin{
 
 	}
 	
-@Test(priority = 5 , enabled = false)
-	public void WhatsappBlastCampaign() throws InterruptedException {
+	@Parameters({"campaign6","dialprefix","industry","template","queue","pauseCode","pauseCode1","pauseCode2","dispo","dispo1","dispo2","script","bfLevel","dialratio"})
+	@Test(priority = 5)
+	public void WhatsappBlastCampaign(String campaign6,float dialprefix,String industry,String template,String queue,String pauseCode,String pauseCode1,String pauseCode2,String dispo,String dispo1,String dispo2,String script,int bfLevel,float dialratio,String wpType,String wpTemplate,String wpLanguage) throws InterruptedException {
 	
 	
 	driver.findElement(By.xpath("//div[normalize-space()='Add Campaign']")).click();
@@ -1286,7 +1245,7 @@ public class Create_Camapign extends AdminLogin{
 	
 //Adding Whatsapp Blast Campaign Name
 	
-	driver.findElement(By.xpath("//div[@class='v-dialog v-dialog--active v-dialog--persistent v-dialog--scrollable']//input[@aria-label='Name']")).sendKeys(Campaign6);
+	driver.findElement(By.xpath("//div[@class='v-dialog v-dialog--active v-dialog--persistent v-dialog--scrollable']//input[@aria-label='Name']")).sendKeys(campaign6);
 	
 	System.out.println(driver.findElement(By.xpath("//div[@class='v-dialog v-dialog--active v-dialog--persistent v-dialog--scrollable']//input[@aria-label='Name']")).getAttribute("value"));
 	
@@ -1360,7 +1319,7 @@ public class Create_Camapign extends AdminLogin{
 	
 	WebElement IndustryOption = driver.findElement(By.xpath("//div[@class='v-menu__content theme--light v-menu__content--fixed menuable__content__active']//div[@role='list']"));
 	
-	IndustryOption.findElement(By.xpath("//div[@class='v-menu__content theme--light v-menu__content--fixed menuable__content__active']//div[@class='v-list__tile__title'][normalize-space()='"+Industry+"']")).click();
+	IndustryOption.findElement(By.xpath("//div[@class='v-menu__content theme--light v-menu__content--fixed menuable__content__active']//div[@class='v-list__tile__title'][normalize-space()='"+industry+"']")).click();
 	
 	CampaignPopup.click();
 
@@ -1372,7 +1331,7 @@ public class Create_Camapign extends AdminLogin{
 	
 	WebElement TemplateName = driver.findElement(By.xpath("//div[@class='v-menu__content theme--light v-menu__content--fixed menuable__content__active']//div[@role='list']"));
 	
-	TemplateName.findElement(By.xpath("(//div[@class='v-list__tile__title'][normalize-space()='"+Template+"'])[3]")).click();
+	TemplateName.findElement(By.xpath("(//div[@class='v-list__tile__title'][normalize-space()='"+template+"'])[3]")).click();
 	
 	CampaignPopup.click();
 	
@@ -1431,7 +1390,7 @@ public class Create_Camapign extends AdminLogin{
 	
 	WebElement DialPrefix = driver.findElement(By.xpath("//div[contains(@class,'v-dialog v-dialog--active v-dialog--persistent v-dialog--scrollable')]//input[contains(@aria-label,'Dial Prefix')]"));
 	
-	DialPrefix.sendKeys(Integer.toString(dialprefix));
+	DialPrefix.sendKeys(Float.toString(dialprefix));
 	
 
 //Whatsapp Type
@@ -1442,7 +1401,7 @@ public class Create_Camapign extends AdminLogin{
 	
 	WebElement WhatsappType = driver.findElement(By.xpath("//div[@class='v-menu__content theme--light v-menu__content--fixed menuable__content__active']//div[@role='list']"));
 	
-	WhatsappType.findElement(By.xpath("//div[contains(text(),'"+WpType+"')]")).click();
+	WhatsappType.findElement(By.xpath("//div[contains(text(),'"+wpType+"')]")).click();
 	
 	CampaignPopup.click();
 	
@@ -1454,7 +1413,7 @@ public class Create_Camapign extends AdminLogin{
 	
 	WebElement WpTemp = driver.findElement(By.xpath("//div[@class='v-menu__content theme--light v-menu__content--fixed menuable__content__active']//div[@role='list']"));
 	
-	WpTemp.findElement(By.xpath("//div[contains(text(),'"+WpTemplate+"')]")).click();
+	WpTemp.findElement(By.xpath("//div[contains(text(),'"+wpTemplate+"')]")).click();
 	
 	CampaignPopup.click();
 	
@@ -1466,7 +1425,7 @@ public class Create_Camapign extends AdminLogin{
 	
 	WebElement WpLang = driver.findElement(By.xpath("//div[@class='v-menu__content theme--light v-menu__content--fixed menuable__content__active']//div[@role='list']"));
 	
-	WpLang.findElement(By.xpath("//div[contains(text(),'"+WpLanguage+"')]")).click();
+	WpLang.findElement(By.xpath("//div[contains(text(),'"+wpLanguage+"')]")).click();
 	
 
 //Creating Campaign

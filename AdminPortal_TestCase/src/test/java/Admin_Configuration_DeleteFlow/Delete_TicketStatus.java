@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import Login.AdminLogin;
@@ -13,7 +14,6 @@ import Login.AdminLogin;
 public class Delete_TicketStatus extends AdminLogin{
 	
 
-	String Status_Name = "Testing";
 
 
 	@BeforeMethod
@@ -26,16 +26,18 @@ public class Delete_TicketStatus extends AdminLogin{
 		// Opening Ticket Status Page
 		
 		driver.findElement(By.xpath("(//span[normalize-space()='Ticket Status'])[1]")).click();
-		
+		Thread.sleep(1000);		
+
 	}
 	
+	@Parameters({"status_Name"})
 	@Test
-	public void TicketStatus_Deletion() throws InterruptedException {
+	public void TicketStatus_Deletion(String status_Name) throws InterruptedException {
 		
 
 		// Delete Ticket Status
 		
-		driver.findElement(By.xpath("//td[text()='"+Status_Name+"']//following-sibling::td[3]//i[@class='v-icon mr-4 v-icon--link material-icons theme--light red--text']")).click();
+		driver.findElement(By.xpath("//td[text()='"+status_Name+"']//following-sibling::td[3]//i[@class='v-icon mr-4 v-icon--link material-icons theme--light red--text']")).click();
 		
 		Thread.sleep(1000);
 		
@@ -51,15 +53,15 @@ public class Delete_TicketStatus extends AdminLogin{
 		
 		List<WebElement> Alldatas = driver.findElements(By.xpath("//table[contains(@class,'v-datatable')]//td[1]"));
 		
-		boolean flag = true;
+		boolean flag = false;
 		
 		for (WebElement Data : Alldatas) {
 			
 			String value = Data.getText();
 			
-			if(value.contains(Status_Name)) {
+			if(value.contains(status_Name)) {
 				
-				flag = false;
+				flag = true;
 			}
 		}
 		

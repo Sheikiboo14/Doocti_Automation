@@ -3,14 +3,14 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="User.Create_User">
+      <class name="Configuration_UpdationFlow.Announcement_UpdationFlow">
         <methods>
-          <include name="Create_User"/>
-          <include name="Setup"/>
           <include name="Quit"/>
+          <include name="Update_Status"/>
           <include name="Login"/>
+          <include name="Setup"/>
         </methods>
-      </class> <!-- User.Create_User -->
+      </class> <!-- Configuration_UpdationFlow.Announcement_UpdationFlow -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

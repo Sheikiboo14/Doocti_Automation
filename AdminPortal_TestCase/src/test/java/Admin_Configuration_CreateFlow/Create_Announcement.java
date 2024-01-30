@@ -4,22 +4,23 @@ import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import Login.AdminLogin;
-import Login.Creation_Inputs;
 	
 
 public class Create_Announcement extends AdminLogin {
 	
 	
-	String Announcement_Name ="Testing3";
-	
-	String Announcement = "Good Morning";
-	
-	String Announcement_Campaign ="Preview 2";
+//	String announcement_Name ="Testing3";
+//	
+//	String announcement = "Good Morning";
+//	
+//	String announcement_Campaign ="Preview 2";
 	
 	
 	@BeforeMethod
@@ -35,8 +36,10 @@ public class Create_Announcement extends AdminLogin {
 		
 	}
 	
+	@Parameters({"announcement_Name","announcement","announcement_Campaign"})
 	@Test
-	public void Create_Announcement() throws InterruptedException {
+	public void Create_Announcement(String announcement_Name, String announcement, String announcement_Campaign  ) throws InterruptedException {
+		Actions action = new Actions(driver);
 		
 		// Add Announcement Popup
 		
@@ -48,11 +51,11 @@ public class Create_Announcement extends AdminLogin {
 		
 		// Name
 		
-		driver.findElement(By.xpath("(//input[@aria-label='Name'])[2]")).sendKeys(Announcement_Name);
+		driver.findElement(By.xpath("(//input[@aria-label='Name'])[2]")).sendKeys(announcement_Name);
 		
 		// Announcement
 		
-		driver.findElement(By.xpath("(//textarea[@aria-label='Announcement'])[2]")).sendKeys(Announcement);
+		driver.findElement(By.xpath("(//textarea[@aria-label='Announcement'])[2]")).sendKeys(announcement);
 		
 		// Campaign
 		
@@ -62,9 +65,9 @@ public class Create_Announcement extends AdminLogin {
 		
 		WebElement CampaignList = driver.findElement(By.xpath("(//div[@role='list'])[5]"));
 		
-		CampaignList.findElement(By.xpath("(//div[@class='v-list__tile__title'][normalize-space()='"+Announcement_Campaign+"'])[2]")).click();
+		CampaignList.findElement(By.xpath("(//div[@class='v-list__tile__title'][normalize-space()='"+announcement_Campaign+"'])[2]")).click();
 		
-		Popup.click();
+		action.click().build().perform();
 		
 		// Create Announcement
 		
@@ -77,32 +80,27 @@ public class Create_Announcement extends AdminLogin {
 		driver.findElement(By.xpath("(//div[@class='v-btn__content'][normalize-space()='Close'])[4]")).click();
 		
 		driver.navigate().refresh();
-
 		
-		driver.findElement(By.xpath("(//div[contains(text(),'Configurations')])[1]")).click();
-
-		// Verification
+		//Verification
 		
 		
-	      List<WebElement> Alldatas = driver.findElements(By.xpath("//table[@class='v-datatable v-table theme--light']//tr//td[1]"));
-	
-	      System.out.println(Alldatas.size());
-	      
-	      boolean flag = false;
-	      
-	      for(WebElement Data : Alldatas) {
-	    	  
-	    	  String value=Data.getText();
-	    	  
-	    	  if(value.contains(Announcement_Name)) {
-	    		  
-	    		  flag = true;
-	    		  
-	    		  break;
-	    	  }
-	      }
-  	  Assert.assertTrue(flag,"Announcement is Not Created...!");	
+		List<WebElement> Alldatas = driver.findElements(By.xpath("//table[contains(@class,'v-datatable')]//tr//td[1]"));
 		
+		boolean flag = false;
+		
+		for(WebElement Data : Alldatas) {
+			
+			String value = Data.getText();
+			
+			
+			if(value.contains(announcement_Name)) {
+				
+				flag = true;
+				
+			}
+		}
+		
+		Assert.assertTrue(flag, "Announcement is Not Created...!");
 	}
 	
 

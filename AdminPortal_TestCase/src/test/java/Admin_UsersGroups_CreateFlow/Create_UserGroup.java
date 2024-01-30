@@ -94,18 +94,6 @@ public class Create_UserGroup extends AdminLogin {
 		
 		driver.findElement(By.xpath("(//input[@id='event.name'])[3]")).click();
 		
-		//Save 
-		
-//		driver.findElement(By.xpath("(//i[@class='v-icon saveIcon v-icon--link material-icons theme--light'])[1]")).click();
-//		
-//		Thread.sleep(1000);
-//		
-//		driver.findElement(By.xpath("(//div[normalize-space()='Yes, Save !'])[1]")).click();
-		
-		//Close Snakbar
-		
-//		driver.findElement(By.xpath("(//div[normalize-space()='Close'])[1]")).click();
-		
 	//Report
 		
 		driver.findElement(By.xpath("(//div[contains(text(),'reports')])[1]")).click();
@@ -483,31 +471,16 @@ public class Create_UserGroup extends AdminLogin {
 	//Close Snakbar
 		
 		driver.findElement(By.xpath("(//div[normalize-space()='Close'])[1]")).click();
-	
+		
+		Thread.sleep(1000);	
 		
 	//Verifiaction
 		
-		driver.navigate().refresh();
+		//Verification
 		
-		driver.findElement(By.xpath("//i[normalize-space()='arrow_drop_down']")).click();
+		String actualvalue = driver.findElement(By.xpath("//input[@aria-label='Group']")).getAttribute("value");
 		
-		Thread.sleep(1000);
-		
-		List<WebElement> Alldatas = driver.findElements(By.xpath("//div[@class='v-select-list v-card theme--light']//div[@role='listitem']"));
-		
-		boolean flag = false;
-		
-		for(WebElement Data : Alldatas) {
-			
-			String value = Data.getText();
-			
-			if(value.contains(usergroup_name)) {
-				
-				flag = true;
-			}
-		}
-		
-		Assert.assertTrue(flag,"Group is Not Created..!");
+		Assert.assertEquals(actualvalue, usergroup_name, "Usergroup Name is Not Created...!");
  	}
 
 }

@@ -5,7 +5,7 @@
 	<test name="UserGroup Deletion">
 		<classes>
 			<class name="Admin_UsersGroups_DeleteFlow.Delete_UserGroups">
-				<parameter name="UserGroups_Name" value="Quality Assurance"/>
+				<parameter name="UserGroups_Name" value="Quality"/>
 				<methods>
 					<include name="Delete_UserGroups"></include>
 				</methods>
@@ -17,7 +17,7 @@
 	<test name="User Deletion">
 		<classes>
 			<class name="Admin_UsersGroups_DeleteFlow.Delete_User">
-			<parameter name="Email" value="smibrahim_agent01@doocti.com"/>
+			<parameter name="user_emailid" value="smibrahim_agent08@doocti.com"/>
 			<parameter name="UserId" value=""/>
 			<parameter name="MobNo" value=""/>
 				<methods>
@@ -31,7 +31,7 @@
 	<test name="Team Deletion">
 		<classes>
 			<class name="Admin_UsersGroups_DeleteFlow.Delete_Team">
-				<parameter name="Team_Name" value="QA"/>
+				<parameter name="Team_Name" value="Quality"/>
 				<methods>
 					<include name="Delete_Team"></include>
 				</methods>
@@ -43,7 +43,7 @@
 	<test name="Channel Deletion">
 		<classes>
 			<class name="Admin_UsersGroups_DeleteFlow.Delete_Channel">
-				<parameter name="Channel_Name" value="QA"/>
+				<parameter name="Channel_Name" value="Channel"/>
 				<methods>
 					<include name="Delete_Channel"></include>
 				</methods>
@@ -55,7 +55,7 @@
 	<test name="Source Deletion">
 		<classes>
 			<class name="Admin_UsersGroups_DeleteFlow.Delete_Source">
-				<parameter name="Source_Name" value="QA"/>
+				<parameter name="Source_Name" value="Source"/>
 				<methods>
 					<include name="Delete_Source"></include>
 				</methods>

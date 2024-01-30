@@ -9,7 +9,7 @@ import Login.AdminLogin;
 
 public class Delete_PauseCode extends AdminLogin {
 	
-	String PauseCode_Name="Testing";
+	String pauseCode_Name="Test";
 	
 
 	@BeforeMethod
@@ -21,36 +21,19 @@ public class Delete_PauseCode extends AdminLogin {
 		
 		// Opening Pause Code Page
 		
-		driver.findElement(By.xpath("(//span[normalize-space()='Dispositions'])[1]")).click();
+		driver.findElement(By.xpath("(//span[normalize-space()='Pause Codes'])[1]")).click();
+		
+		Thread.sleep(1000);
 		
 	}
 	
 	@Test
 	public void Delete_PauseCode() throws InterruptedException {
-		
 
-		// Open Filter
-		
-		driver.findElement(By.xpath("(//i[@class='fas fa-filter'])[1]")).click();
-		
-		Thread.sleep(1000);
-		
-		WebElement FilterTab = driver.findElement(By.xpath("(//div[@class='container sidenavContainer'])[1]"));
-		
-		// Filter With Name
-		
-		driver.findElement(By.xpath("(//input[@role='combobox'])[1]")).sendKeys(PauseCode_Name);
-		
-		// Apply filter
-		
-		driver.findElement(By.xpath("(//div[@class='v-btn__content'][normalize-space()='Filter'])[1]")).click();
-		
-		Thread.sleep(1000);
-		
 		// Delete PauseCode
-		
-		driver.findElement(By.xpath("(//i[@class='v-icon mr-4 v-icon--link material-icons theme--light red--text'])[1]")).click();
-		
+
+		driver.findElement(By.xpath("//td[text()='QA']//following-sibling::td[4]//i[@class='v-icon mr-4 v-icon--link material-icons theme--light red--text']")).click();
+
 		Thread.sleep(1000);
 		
 		driver.findElement(By.xpath("(//div[normalize-space()='Yes, Delete !'])[1]")).click();

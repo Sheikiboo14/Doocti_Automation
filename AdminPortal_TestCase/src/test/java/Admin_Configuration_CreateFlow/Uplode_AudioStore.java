@@ -8,14 +8,14 @@ import java.awt.event.KeyEvent;
 
 import org.openqa.selenium.By;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
+
 import Login.AdminLogin;
 
 public class Uplode_AudioStore extends AdminLogin {
 	
-	String Audio_Description = "Testing";
 	
-	String Audio_Path ="D:\\Audio Store\\Leo Ratata BGM.mp3";
 	@BeforeMethod
 	public void Setup() throws InterruptedException {
 		
@@ -29,8 +29,9 @@ public class Uplode_AudioStore extends AdminLogin {
 		
 	}
 	
+	@Parameters({"audio_Description","audio_Path"})
 	@Test
-	public void Uplode_Audio() throws InterruptedException, AWTException {
+	public void Uplode_Audio(String audio_Description,String audio_Path) throws InterruptedException, AWTException {
 		
 		// Uplode Popup
 		
@@ -40,7 +41,7 @@ public class Uplode_AudioStore extends AdminLogin {
 		
 		// Description
 		
-		driver.findElement(By.xpath("(//input[@aria-label='Description'])[1]")).sendKeys(Audio_Description);
+		driver.findElement(By.xpath("(//input[@aria-label='Description'])[1]")).sendKeys(audio_Description);
 		
 		//Uplode Audio
 		
@@ -50,7 +51,7 @@ public class Uplode_AudioStore extends AdminLogin {
 		
 		Robot rb = new Robot();
 		
-		StringSelection FilePath = new StringSelection(Audio_Path);
+		StringSelection FilePath = new StringSelection(audio_Path);
 
 		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(FilePath, null);
 		
@@ -70,6 +71,8 @@ public class Uplode_AudioStore extends AdminLogin {
 		driver.findElement(By.xpath("(//div[@class='v-btn__content'][normalize-space()='Close'])[1]")).click();
 		
 		driver.navigate().refresh();
+		
+		
 		
 		driver.findElement(By.xpath("(//div[contains(text(),'Configurations')])[1]")).click();
 

@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="Configuration Creation Flow Testing">
+	
+						
+	<test name="Queue Creation">
+		<parameter name="queue_Name" value="QA"/>
+		<parameter name="queue_WaitTime" value="20"/>
+		<parameter name="queue_Strategy" value="Leastrecent"/>
+		<classes>
+			<class name="Admin_Configuration_CreateFlow.Create_Queue">
+				<methods>
+					<include name="Create_Queue"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+			
+	<test name="Disposition Creation">
+		<parameter name="dispo_Name" value="QA"/>
+		<parameter name="dispo_Description" value="Testing Purpose"/>
+		<parameter name="dispo_Action" value="No Action"/>
+		<classes>
+			<class name="Admin_Configuration_CreateFlow.Create_Dispo">
+				<methods>
+					<include name="Create_Disposition"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+								
+	<test name="SubDisposition Creation">
+		<parameter name="disposition" value="QA"/>
+		<parameter name="sub_Disposition" value="Demo"/>
+		<parameter name="subDispo_Description" value="Testing Purpose"/>
+		<classes>
+			<class name="Admin_Configuration_CreateFlow.Create_SubDisposition">
+				<methods>
+					<include name="Create_SubDisposition"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+										
+	<test name="TicketStatus Creation">
+		<parameter name="ticketStatus_Name" value="QA"/>
+		<parameter name="ticketStatus_Description" value="Testing Purpose"/>
+		<classes>
+			<class name="Admin_Configuration_CreateFlow.Create_TicketStatus">
+				<methods>
+					<include name="Create_TicketStatus"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	<test name="PauseCode Creation">
+		<parameter name="pauseCode_Name" value="QA"/>
+		<parameter name="pauseCode_Description" value="Testing Purpose"/>
+		<parameter name="pauseCode_hour" value="1"/>
+		<parameter name="pauseCode_minutes" value="30"/>
+		<classes>
+			<class name="Admin_Configuration_CreateFlow.Create_PauseCode">
+				<methods>
+					<include name="Create_PauseCode"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+		<!-- 						
+	<test name="AudioStore Upload">
+		<parameter name="audio_Description" value="QA"/>
+		<parameter name="audio_Path" value="D:\Testing File\demo.mp3"/>
+		<classes>
+			<class name="Admin_Configuration_CreateFlow.Uplode_AudioStore">
+				<methods>
+					<include name="Uplode_Audio"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+			-->		
+												
+	<test name="BlockList Upload">
+		<parameter name="blockList_Path" value="D:\Testing File\sample_blocklist.csv"/>
+		<parameter name="phno" value="9090909092"/>
+		<classes>
+			<class name="Admin_Configuration_CreateFlow.Upload_BlockList">
+				<methods>
+					<include name="Uplode_BlockList"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	<test name="DID Number Creation">
+		<parameter name="dID_Number" value="9876543209"/>
+		<parameter name="trunk" value="QA"/>
+		<classes>
+			<class name="Admin_Configuration_CreateFlow.Create_DIDNumber">
+				<methods>
+					<include name="Manual_DID_Creation"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	<test name="DID Number Upload">
+		<parameter name="dID_Path" value="D:\Testing File\sample_did.csv"/>
+		<parameter name="dID_Number" value="9876543210"/>
+		<classes>
+			<class name="Admin_Configuration_CreateFlow.Uplode_DIDNumber">
+				<methods>
+					<include name="Uplode_DIDNumber"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test name="Tags Creation">
+		<parameter name="tag_Name" value="QA"/>
+		<parameter name="tag_Description" value="Testing"/>
+		<classes>
+			<class name="Admin_Configuration_CreateFlow.Create_Tags">
+				<methods>
+					<include name="Tags_Creation"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+		
+	<test name="Announcemet Creation">
+		<parameter name="announcement_Name" value="QA"/>
+		<parameter name="announcement" value="Good Morning"/>
+		<parameter name="announcement_Campaign" value="Dialer"/>
+		<classes>
+			<class name="Admin_Configuration_CreateFlow.Create_Announcement">
+				<methods>
+					<include name="Create_Announcement"></include>		
+				</methods>
+			</class>
+		</classes>
+	</test>
+							
+	<test name="Script Creation">
+		<parameter name="script_Name" value="QA"/>
+		<parameter name="script_Description" value="Testing Purpose"/>
+		<parameter name="script_Type" value="URL"/>
+		<parameter name="script_Text" value="Hello Tevatel"/>
+		<parameter name="script_URL" value="https://tevatel.com/"/>
+		<classes>
+			<class name="Admin_Configuration_CreateFlow.Create_Script">
+				<methods>
+					<include name="Create_Script"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test name="InboundRoute Creation">
+		<parameter name="dID_Number" value="9090909090"/>
+		<parameter name="dID_Name" value="Test"/>
+		<parameter name="destination_Name" value="queue"/>
+		<parameter name="destination_Value" value="QA"/>
+		<parameter name="blockList" value="true"/>
+		<classes>
+			<class name="Admin_Configuration_CreateFlow.Create_InboundRoute">
+				<methods>
+					<include name="InboundRoute_Create"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+									
+	<test name="TimeZone Creation">
+		<parameter name="timeZone_Name" value="QA"/>
+		<parameter name="timeZone_Description" value="Testing Purpose"/>
+		<parameter name="timeZone_StartHour" value="1"/>
+		<parameter name="timeZone_StartMinute" value="00"/>
+		<parameter name="timeZone_EndHour" value="10"/>
+		<parameter name="timeZone_EndMinute" value="00"/>
+		<parameter name="timeZone_Status" value="Active"/>
+		<classes>
+			<class name="Admin_Configuration_CreateFlow.Create_TimeZone">
+				<methods>
+					<include name="TimeZone_Creation"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+						
+	<test name="MeetingTitle Creation">
+		<parameter name="meeting_Title" value="QA"/>
+		<parameter name="meeting_SubTitle" value="Testing"/>
+		<parameter name="meeting_Description" value="Testing Purpose"/>
+		<classes>
+			<class name="Admin_Configuration_CreateFlow.Create_MeetingTitle">
+				<methods>
+					<include name="MeetingTitle_Creation"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+		
+	
+</suite>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Configuration Deletion Flow Testing">
+	
+	<test name="Campaign Creation">
+		<parameter name="campaign1" value="Preview"/>
+		<parameter name="campaign2" value="Inbound"/>
+		<parameter name="campaign3" value="Predictive"/>
+		<parameter name="campaign4" value="Power"/>
+		<parameter name="campaign5" value="Voice Blast"/>
+		<parameter name="campaign6" value="Whatsapp Blast"/>
+		<parameter name="dialprefix" value="3"/>
+		<parameter name="industry" value="IT"/>
+		<parameter name="template" value="Dialer"/>
+		<parameter name="queue" value="smibrahim_8071893401"/>
+		<parameter name="pauseCode" value="Meeting"/>
+		<parameter name="pauseCode1" value="Lunch"/>
+		<parameter name="pauseCode2" value="Tea Break"/>
+		<parameter name="dispo" value="ANSWER"/>
+		<parameter name="dispo1" value="Reassign"/>
+		<parameter name="dispo2" value="CALLBACK"/>
+		<parameter name="script" value="Testing"/>
+		<parameter name="bfLevel" value="100"/>
+		<parameter name="dialratio" value="1.4f"/>
+		<parameter name="wpType" value="Text"/>
+		<parameter name="wpTemplate" value="hello_world"/>
+		<parameter name="wpLanguage" value="en_US"/>
+
+		<classes>
+			<class name="Admin_CRM_CreateFlow.Create_Camapign">
+				<methods>
+					<include name="PreviewCampaign"/>
+					<include name="InboundCampaign"/>
+					<include name="PredictiveCampaign"/>
+					<include name="PowerCampaign"/>
+					<include name="VoiceBlastCampaign"/>
+					<include name="WhatsappBlastCampaign"/>
+				</methods>
+			</class>
+			
+		</classes>
+	</test>
+	
+</suite>

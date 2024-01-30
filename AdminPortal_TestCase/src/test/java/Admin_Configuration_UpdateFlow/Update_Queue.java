@@ -1,22 +1,18 @@
 package Admin_Configuration_UpdateFlow;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import Login.AdminLogin;
 
 public class Update_Queue extends AdminLogin{
 	
-
-	String Queue_Name = "Testing";
-	
-	int WaitTimeOut = 20;
-	
-	String Queue_Strategy="RingAll";
-	
-	String TimeoutRestart = "No";
 	
 	@BeforeMethod
 	public void Setup() throws InterruptedException {
@@ -31,193 +27,136 @@ public class Update_Queue extends AdminLogin{
 		
 		driver.findElement(By.xpath("(//span[normalize-space()='Queues'])[1]")).click();
 		
+		Thread.sleep(1000);
+		
 	}
 	
-	@Test(priority = 0)
-	public void Update_WaitTime() throws InterruptedException {
+	@Parameters({"queue_Name","queue_Strategy"})
+	@Test
+	public void Update_QueueStrategy(String queue_Name,String queue_Strategy) throws InterruptedException {
 		
-
-		//Filter Tab
+		Actions action = new Actions(driver);
 		
-		driver.findElement(By.xpath("(//i[@class='fas fa-filter'])[1]")).click();
+		//Update Popup
 		
-//		Thread.sleep(1000);
-		
-		WebElement Popup= driver.findElement(By.xpath("(//div[@class='container sidenavContainer'])[1]"));
-		
-		
-		//Filter Title
-		
-		driver.findElement(By.xpath("(//input[@role='combobox'])[1]")).click();
+		driver.findElement(By.xpath("//td[text()='"+queue_Name+"']//following-sibling::td[3]//i[@class='v-icon mr-4 v-icon--link material-icons theme--light blue--text']")).click();
 		
 		Thread.sleep(1000);
 		
-		WebElement TitleList = driver.findElement(By.xpath("(//div[@role='list'])[1]"));
-		
-		TitleList.findElement(By.xpath("(//div[contains(text(),'Testing')])[1]")).click();
-		
-		Popup.click();
-		
-		// Applying Filter
-		
-		driver.findElement(By.xpath("(//div[@class='v-btn__content'][normalize-space()='Filter'])[1]")).click();
-		
-		// update Popup
-		
-		driver.findElement(By.xpath("(//i[@class='v-icon mr-4 v-icon--link material-icons theme--light blue--text'])[1]")).click();
+		driver.findElement(By.xpath("(//i[@class='v-icon material-icons theme--light'][normalize-space()='arrow_drop_down'])[2]")).click();
 		
 		Thread.sleep(1000);
 		
-		WebElement UpdatePopup =driver.findElement(By.xpath("(//div[@class='v-card__text'])[2]"));
+		WebElement Strategy_Popup = driver.findElement(By.xpath("(//div[@role='list'])[4]"));
 		
-		// Wait
+		Strategy_Popup.findElement(By.xpath("(//div[@class='v-list__tile__title'][normalize-space()='"+queue_Strategy+"'])[1]")).click();
 		
-		WebElement WaitTime =driver.findElement(By.xpath("(//input[@aria-label='Wait TimeOut'])[1]"));
+		action.click().build().perform();
 		
-		WaitTime.sendKeys(Integer.toString(WaitTimeOut));
-		
-		//Update 
+		// Update Strategy
 		
 		driver.findElement(By.xpath("(//div[normalize-space()='Update'])[1]")).click();
 		
 		Thread.sleep(1000);
 		
-		// Close Snakbar
+		//Close Snakbar
 		
 		driver.findElement(By.xpath("(//div[@class='v-btn__content'][normalize-space()='Close'])[3]")).click();
+		
+		//Verification
+		
+		String actualvalue = driver.findElement(By.xpath("//td[text()='"+queue_Name+"']//following-sibling::td[1]")).getText();
+	
+		Assert.assertEquals(actualvalue, queue_Strategy,"Queue Strategy is not Updated...!");
 		
 		driver.findElement(By.xpath("(//div[contains(text(),'Configurations')])[1]")).click();
 
 	}
 	
-
-	@Test(priority = 1)
-	public void Update_Strategy() throws InterruptedException {
+	@Parameters({"queue_Name","queue_WaitTimeOut"})
+	@Test
+	public void Update_QueueWaitTime(String queue_Name,String queue_WaitTimeOut) throws InterruptedException {
 		
-
-		//Filter Tab
+		Actions action = new Actions(driver);
 		
-		driver.findElement(By.xpath("(//i[@class='fas fa-filter'])[1]")).click();
+		//Update Popup
 		
-//		Thread.sleep(1000);
-		
-		WebElement Popup= driver.findElement(By.xpath("(//div[@class='container sidenavContainer'])[1]"));
-		
-		
-		//Filter Title
-		
-		driver.findElement(By.xpath("(//input[@role='combobox'])[1]")).click();
+		driver.findElement(By.xpath("//td[text()='"+queue_Name+"']//following-sibling::td[3]//i[@class='v-icon mr-4 v-icon--link material-icons theme--light blue--text']")).click();
 		
 		Thread.sleep(1000);
 		
-		WebElement TitleList = driver.findElement(By.xpath("(//div[@role='list'])[1]"));
+		action.doubleClick(driver.findElement(By.xpath("(//input[@aria-label='Wait TimeOut'])[1]"))).sendKeys(Keys.BACK_SPACE).build().perform();
 		
-		TitleList.findElement(By.xpath("(//div[contains(text(),'Testing')])[1]")).click();
+		driver.findElement(By.xpath("(//input[@aria-label='Wait TimeOut'])[1]")).sendKeys(queue_WaitTimeOut);
 		
-		Popup.click();
-		
-		// Applying Filter
-		
-		driver.findElement(By.xpath("(//div[@class='v-btn__content'][normalize-space()='Filter'])[1]")).click();
-		
-		// update Popup		
-		
-		driver.findElement(By.xpath("(//i[@class='v-icon mr-4 v-icon--link material-icons theme--light blue--text'])[1]")).click();
-		
-		Thread.sleep(1000);
-		
-		WebElement UpdatePopup =driver.findElement(By.xpath("(//div[@class='v-card__text'])[2]"));
-		
-		// Ring Strategy
-		
-		driver.findElement(By.xpath("(//i[@aria-hidden='true'][normalize-space()='arrow_drop_down'])[2]")).click();
-		
-		Thread.sleep(1000);
-		
-		WebElement StrategyList = driver.findElement(By.xpath("(//div[@role='list'])[4]"));
-		
-		StrategyList.findElement(By.xpath("(//div[@class='v-list__tile__title'][normalize-space()='"+Queue_Strategy+"'])[1]")).click();
-		
-		UpdatePopup.click();
-		
-		//Update 
+		// Update Wait Time
 		
 		driver.findElement(By.xpath("(//div[normalize-space()='Update'])[1]")).click();
 		
 		Thread.sleep(1000);
 		
-		// Close Snakbar
+		//Close Snakbar
 		
 		driver.findElement(By.xpath("(//div[@class='v-btn__content'][normalize-space()='Close'])[3]")).click();
+		
+		//Verification
+		
+		String actualvalue = driver.findElement(By.xpath("//td[text()='"+queue_Name+"']//following-sibling::td[2]")).getText();
+	
+		Assert.assertEquals(actualvalue, queue_WaitTimeOut,"Queue Wait Timeout is not Updated...!");
 		
 		driver.findElement(By.xpath("(//div[contains(text(),'Configurations')])[1]")).click();
 
 	}
-
-	@Test(priority =2)
-	public void Update_Restart() throws InterruptedException {
+	
+	@Parameters({"queue_Name","queue_Restart"})
+	@Test
+	public void Update_QueueRestart(String queue_Name,String queue_Restart) throws InterruptedException {
 		
-
-		//Filter Tab
+		Actions action = new Actions(driver);
 		
-		driver.findElement(By.xpath("(//i[@class='fas fa-filter'])[1]")).click();
+		//Update Popup
 		
-//		Thread.sleep(1000);
-		
-		WebElement Popup= driver.findElement(By.xpath("(//div[@class='container sidenavContainer'])[1]"));
-		
-		
-		//Filter Title
-		
-		driver.findElement(By.xpath("(//input[@role='combobox'])[1]")).click();
+		driver.findElement(By.xpath("//td[text()='"+queue_Name+"']//following-sibling::td[3]//i[@class='v-icon mr-4 v-icon--link material-icons theme--light blue--text']")).click();
 		
 		Thread.sleep(1000);
-		
-		WebElement TitleList = driver.findElement(By.xpath("(//div[@role='list'])[1]"));
-		
-		TitleList.findElement(By.xpath("(//div[contains(text(),'Testing')])[1]")).click();
-		
-		Popup.click();
-		
-		// Applying Filter
-		
-		driver.findElement(By.xpath("(//div[@class='v-btn__content'][normalize-space()='Filter'])[1]")).click();
-		
-		// update Popup
-		
-		driver.findElement(By.xpath("(//i[@class='v-icon mr-4 v-icon--link material-icons theme--light blue--text'])[1]")).click();
-		
-		Thread.sleep(1000);
-		
-		WebElement UpdatePopup =driver.findElement(By.xpath("(//div[@class='v-card__text'])[2]"));
-		
-		//Restart
-		
-		driver.findElement(By.xpath("(//i[@aria-hidden='true'][normalize-space()='arrow_drop_down'])[4]")).click();
+
+		driver.findElement(By.xpath("(//i[@class='v-icon material-icons theme--light'][normalize-space()='arrow_drop_down'])[4]")).click();
 		
 		Thread.sleep(1000);
 		
 		WebElement RestartList = driver.findElement(By.xpath("(//div[@role='list'])[2]"));
 		
-		RestartList.findElement(By.xpath("(//div[@class='v-list__tile__title'][normalize-space()='"+TimeoutRestart+"'])[1]")).click();
+		RestartList.findElement(By.xpath("(//div[@class='v-list__tile__title'][normalize-space()='"+queue_Restart+"'])[1]")).click();
 		
-		UpdatePopup.click();
+		action.click().build().perform();
 		
-		//Update 
+		// Update Restart
 		
 		driver.findElement(By.xpath("(//div[normalize-space()='Update'])[1]")).click();
 		
 		Thread.sleep(1000);
 		
-		// Close Snakbar
+		//Close Snakbar
 		
 		driver.findElement(By.xpath("(//div[@class='v-btn__content'][normalize-space()='Close'])[3]")).click();
 		
-		driver.findElement(By.xpath("(//div[contains(text(),'Configurations')])[1]")).click();
+		// Verification
+		
+		driver.findElement(By.xpath("//td[text()='"+queue_Name+"']//following-sibling::td[3]//i[@class='v-icon mr-4 v-icon--link material-icons theme--light blue--text']")).click();
+		
+		Thread.sleep(1000);
 
+		String actualvalue = driver.findElement(By.xpath("(//div[@class='v-select__selections'])[4]")).getText();
+		
+		Assert.assertEquals(actualvalue, queue_Restart,"Queue Restart is not Updated...!");
+		
+		driver.findElement(By.xpath("(//div[contains(text(),'Configurations')])[1]")).click();
+		
+		
 		
 	}
-
-
-
 }
+
+
+

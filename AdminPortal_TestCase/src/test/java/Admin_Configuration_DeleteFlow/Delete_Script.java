@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import Login.AdminLogin;
@@ -14,7 +15,7 @@ public class Delete_Script extends AdminLogin{
 
 	
 	
-	String Script_Name= "Test1";
+	
 
 
 	@BeforeMethod
@@ -30,15 +31,18 @@ public class Delete_Script extends AdminLogin{
 		
 		driver.findElement(By.xpath("(//span[normalize-space()='Scripts'])[1]")).click();
 		
+		Thread.sleep(1000);		
+
 	}
 	
+	@Parameters({"script_Name"})
 	@Test
-	public void Delete_Script() throws InterruptedException{
+	public void Delete_Script(String script_Name) throws InterruptedException{
 		
 		
 		// Delete Script
 		
-		driver.findElement(By.xpath("//td[text()='"+Script_Name+"']//following-sibling::td[3]//i[@class='v-icon mr-4 v-icon--link material-icons theme--light red--text']")).click();
+		driver.findElement(By.xpath("//td[text()='"+script_Name+"']//following-sibling::td[3]//i[@class='v-icon mr-4 v-icon--link material-icons theme--light red--text']")).click();
 		
 		Thread.sleep(1000);
 		
@@ -54,15 +58,15 @@ public class Delete_Script extends AdminLogin{
 		
 		List<WebElement> Alldatas = driver.findElements(By.xpath("//table[contains(@class,'v-datatable')]//td[1]"));
 		
-		boolean flag = true;
+		boolean flag = false;
 		
 		for (WebElement Data : Alldatas) {
 			
 			String value = Data.getText();
 			
-			if(value.contains(Script_Name)) {
+			if(value.contains(script_Name)) {
 				
-				flag = false;
+				flag = true;
 			}
 		}
 		

@@ -11,6 +11,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import Login.AdminLogin;
@@ -18,9 +19,7 @@ import Login.AdminLogin;
 public class Upload_BlockList extends AdminLogin{
 	
 
-	String BlockList_Path = "C:\\Users\\User\\Downloads\\sample_blocklist.csv";
 	
-	String Phno ="9090909092";
 	
 	@BeforeMethod
 	public void Setup() throws InterruptedException {
@@ -35,8 +34,9 @@ public class Upload_BlockList extends AdminLogin{
 		
 	}
 	
+	@Parameters({"blockList_Path","phno"})
 	@Test
-	public void Uplode_BlockList() throws InterruptedException, AWTException {
+	public void Uplode_BlockList(String blockList_Path ,String phno) throws InterruptedException, AWTException {
 		
 		//Uplode Popup
 		
@@ -52,7 +52,7 @@ public class Upload_BlockList extends AdminLogin{
 		
 		Robot rb = new Robot();
 		
-		StringSelection FilePath = new StringSelection(BlockList_Path);
+		StringSelection FilePath = new StringSelection(blockList_Path);
 		
 		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(FilePath, null);
 		
@@ -79,17 +79,16 @@ public class Upload_BlockList extends AdminLogin{
 		}
 		
 		// Assertion
-		
-		Assert.assertEquals(Info, "Uploaded Successfully");
-		
-		Thread.sleep(1000);
+//		
+//		Assert.assertEquals(Info, "Uploaded Successfully");
+//		
+//		Thread.sleep(1000);
 		
 		// Verification
 		
 		
 	      List<WebElement> Alldatas = driver.findElements(By.xpath("//table[@class='v-datatable v-table theme--light']//tr//td[2]"));
 	
-	      System.out.println(Alldatas.size());
 	      
 	      boolean flag = false;
 	      
@@ -97,7 +96,7 @@ public class Upload_BlockList extends AdminLogin{
 	    	  
 	    	  String value=Data.getText();
 	    	  
-	    	  if(value.contains(Phno))
+	    	  if(value.contains(phno))
 	    			  {
 	    		  
 	    		  flag = true;

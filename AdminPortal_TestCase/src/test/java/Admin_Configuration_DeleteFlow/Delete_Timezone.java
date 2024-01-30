@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import Login.AdminLogin;
@@ -13,7 +14,6 @@ import Login.AdminLogin;
 public class Delete_Timezone extends AdminLogin{
 	
 
-	String TimeZone_Name =	"Testing";
 	
 	@BeforeMethod
 	public void Setup() throws InterruptedException {
@@ -27,17 +27,19 @@ public class Delete_Timezone extends AdminLogin{
 		// Time Zone
 		
 		driver.findElement(By.xpath("(//span[normalize-space()='Timezone'])[1]")).click();
-		
+		Thread.sleep(1000);		
+
 	}
 	
+	@Parameters({"timeZone_Name"})
 	@Test
-	public void Delete_Timezone() throws InterruptedException {
+	public void Delete_Timezone(String timeZone_Name) throws InterruptedException {
 		
 
 		
 		//Delete Timezone
 		
-		driver.findElement(By.xpath("//td[text()='"+TimeZone_Name+"']//following-sibling::td[5]//i[@class='v-icon mr-4 v-icon--link material-icons theme--light red--text']")).click();
+		driver.findElement(By.xpath("//td[text()='"+timeZone_Name+"']//following-sibling::td[5]//i[@class='v-icon mr-4 v-icon--link material-icons theme--light red--text']")).click();
 		
 		Thread.sleep(1000);
 		
@@ -56,15 +58,15 @@ public class Delete_Timezone extends AdminLogin{
 		
 		List<WebElement> Alldatas = driver.findElements(By.xpath("//table[contains(@class,'v-datatable')]//td[1]"));
 		
-		boolean flag = true;
+		boolean flag = false;
 		
 		for (WebElement Data : Alldatas) {
 			
 			String value = Data.getText();
 			
-			if(value.contains(TimeZone_Name)) {
+			if(value.contains(timeZone_Name)) {
 				
-				flag = false;
+				flag = true;
 			}
 		}
 		

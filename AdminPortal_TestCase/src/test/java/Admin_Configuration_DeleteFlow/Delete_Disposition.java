@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import Login.AdminLogin;
@@ -13,7 +14,6 @@ import Login.AdminLogin;
 public class Delete_Disposition extends AdminLogin {
 	
 	
-	String DispoName = "Testing Dispo";
 	
 	@BeforeMethod
 	public void Setup() throws InterruptedException {
@@ -30,14 +30,15 @@ public class Delete_Disposition extends AdminLogin {
 		
 	}
 	
+	@Parameters({"dispoName"})
 	@Test
-	public void Dispo_Delete() throws InterruptedException {
+	public void Dispo_Delete(String dispoName) throws InterruptedException {
 		
 
 		
 		//Delete Dispo
 		
-		driver.findElement(By.xpath("//td[text()='"+DispoName+"']//following-sibling::td[3]//i[@class='v-icon mr-4 v-icon--link material-icons theme--light red--text']")).click();
+		driver.findElement(By.xpath("//td[text()='"+dispoName+"']//following-sibling::td[3]//i[@class='v-icon mr-4 v-icon--link material-icons theme--light red--text']")).click();
 		
 		Thread.sleep(1000);
 		
@@ -57,15 +58,15 @@ public class Delete_Disposition extends AdminLogin {
 		
 		List<WebElement> Alldatas = driver.findElements(By.xpath("//table[contains(@class,'v-datatable')]//td[1]"));
 		
-		boolean flag = true;
+		boolean flag = false;
 		
 		for (WebElement Data : Alldatas) {
 			
 			String value = Data.getText();
 			
-			if(value.contains(DispoName)) {
+			if(value.contains(dispoName)) {
 				
-				flag = false;
+				flag = true;
 			}
 		}
 		

@@ -27,57 +27,21 @@ public class Delete_User extends AdminLogin{
 		
 		Thread.sleep(1000);
 		
+		//Going to User Page
+		
+		driver.findElement(By.xpath("//span[normalize-space()='Users']")).click();
+		
+		Thread.sleep(1000);
+		
 	}
 	
-	@Parameters({"Email"})
-	@Test(priority =0)
-	public void Delete_User(String Email) throws InterruptedException {
-		
-//		//Going to User Page
-//		
-//		driver.findElement(By.xpath("//span[normalize-space()='Users']")).click();
-//		
-//		
-//		// Opening the Filter
-//		
-//		driver.findElement(By.xpath("//i[@class='fas fa-filter']")).click();
-//		
-//		if(UserId.equalsIgnoreCase("")) {
-//		
-//		driver.findElement(By.xpath("//input[@aria-label='UserId']")).sendKeys(UserId);
-//		
-//		}
-//		
-//		else if (MobNo.equals("")) {
-//			
-//			driver.findElement(By.xpath("//input[@aria-label='MobileNumber']")).sendKeys(MobNo);
-//			
-//		}
-//		
-//		else {
-//			
-//			driver.findElement(By.xpath("//input[@aria-label='EmailId']")).click();
-//			
-//			Thread.sleep(1000);
-//			
-//			WebElement EmailList =driver.findElement(By.xpath("(//div[@role='list'])[2]"));
-//			
-//			EmailList.findElement(By.xpath("//div[contains(text(),'"+Email+"')]")).click();
-//		}
-//		
-//		//Applying Filter
-//		
-//		driver.findElement(By.xpath("//div[@class='v-btn__content'][normalize-space()='Filter']")).click();
-//		
-//		Thread.sleep(1000);
-//		
-//		// Closing the Filter tab
-//		
-//		driver.findElement(By.xpath("//i[@class='fas fa-close']")).click();
+	@Parameters({"user_emailid"})
+	@Test
+	public void Delete_User(String user_emailid) throws InterruptedException {
 		
 		//Deleting the User
 		
-		driver.findElement(By.xpath("//td[text()='"+Email+"']//following-sibling::td[3]//i[@class='v-icon mr-4 v-icon--link material-icons theme--light red--text']")).click();
+		driver.findElement(By.xpath("//td[text()='"+user_emailid+"']//following-sibling::td[3]//i[@class='v-icon mr-4 v-icon--link material-icons theme--light red--text']")).click();
 				
 		Thread.sleep(1000);
 		
@@ -99,7 +63,7 @@ public class Delete_User extends AdminLogin{
 			
 			String value = Data.getText();
 			
-			if(value.contains(Email)) {
+			if(value.contains(user_emailid)) {
 				
 				flag = true;
 			}

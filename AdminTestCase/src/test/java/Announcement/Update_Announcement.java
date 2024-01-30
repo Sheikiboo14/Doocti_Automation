@@ -9,7 +9,7 @@ import Login.AdminLogin;
 
 public class Update_Announcement extends AdminLogin {
 	
-	String Announcement_Name= "Testing";
+	String Announcement_Name= "QA";
 	
 	String Announcement_Status = "Inactive";
 	

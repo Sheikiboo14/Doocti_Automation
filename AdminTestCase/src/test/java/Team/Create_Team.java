@@ -23,7 +23,7 @@ public class Create_Team extends AdminLogin {
 	
 	String LeadSource = "QA";
 	
-	String Channel = "Outlook";
+	String Channel = "Chat1";
 	
 	String UserAssign ="smibrahim_agent06@doocti.com";
 	

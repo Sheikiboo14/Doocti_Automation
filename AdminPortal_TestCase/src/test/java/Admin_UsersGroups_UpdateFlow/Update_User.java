@@ -1,29 +1,34 @@
 package Admin_UsersGroups_UpdateFlow;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.interactions.WheelInput;
+import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import Login.AdminLogin;
 
 public class Update_User extends AdminLogin {
 	
-	
-	String User_Email = "smibrahim_agent02@doocti.com";
-	
-	String Updated_UserEmail = "smibrahim_agent03@doocti.com";
-	
-	String User_Status = "Inactive";
-	
-	String User_Group = "Test";
-	
-	String User_Role ="Administrator";
-	
-	Long MobileNo = 9876543221L;
+//	
+//	String User_Email ;
+//	
+//	String Updated_UserEmail ;
+//	
+//	String User_Status ;
+//	
+//	String User_Group ;
+//	
+//	String User_Role ;
+//	
+//	Long MobileNo ;
 	
 	
 	@BeforeMethod
@@ -37,99 +42,87 @@ public class Update_User extends AdminLogin {
 		
 		driver.findElement(By.xpath("(//span[normalize-space()='Users'])[1]")).click();
 		
-		
-		// Filter Tab
-		
-		driver.findElement(By.xpath("(//i[@class='fas fa-filter'])[1]")).click();
-		
-		Thread.sleep(1000);
-		
-		WebElement FilterPopup = driver.findElement(By.xpath("(//div[@class='container sidenavContainer'])[1]"));
-		
-		// Email filter
-		
-		driver.findElement(By.xpath("(//input[@aria-label='EmailId'])[1]")).click();
-		
-		Thread.sleep(1000);
-		
-		WebElement EmailList = driver.findElement(By.xpath("(//div[@role='list'])[2]"));
-		
-		EmailList.findElement(By.xpath("(//div[contains(text(),'"+User_Email+"')])[1]")).click();
-		
-		Thread.sleep(1000);
-		
-//		FilterPopup.click();
-		
-		// Apply filter
-		
-		driver.findElement(By.xpath("(//div[@class='v-btn__content'][normalize-space()='Filter'])[1]")).click();
-		
-		// Close the Filter Tab
-		
-		driver.findElement(By.xpath("(//i[@class='fas fa-close'])[1]")).click();
-		
 		Thread.sleep(1000);
 		
 	}
-	
 
-	@Test(enabled=false)
-	public void Update_Status() throws Exception {
+	@Parameters({"user_Email","user_Status"})
+	@Test(priority =0)
+	public void Update_Status(String user_Email,String user_Status ) throws Exception {
+		
+		Actions action = new Actions(driver);
 		
 		// Edit User Popup
 		
-		driver.findElement(By.xpath("(//i[@class='v-icon mr-4 v-icon--link material-icons theme--light green--text'])[1]")).click();
+		driver.findElement(By.xpath("//td[text()='"+user_Email+"']//following-sibling::td[3]//i[@class='v-icon mr-4 v-icon--link material-icons theme--light green--text']")).click();
 		
 		Thread.sleep(1000);
 		
-		WebElement EditPopup = driver.findElement(By.xpath("(//div[@class='container grid-list-md'])[4]"));
+		WebElement Editpopup = driver.findElement(By.xpath("//div[@class='v-dialog v-dialog--active']//div[@class='v-card v-sheet theme--light']"));
 		
-		WebElement Dialogbox = driver.findElement(By.xpath("(//div[@class='v-dialog v-dialog--active'])[1]"));
+		//Scroll Popup
 		
-		JavascriptExecutor js = (JavascriptExecutor)driver;
-				
-		js.executeScript("Dialogbox.scrollBy(0,200)");
-		
-		Thread.sleep(1000);
-		
+		WheelInput.ScrollOrigin scrollOrigin = WheelInput.ScrollOrigin.fromElement(Editpopup);
+        
+		new Actions(driver)
+                .scrollFromOrigin(scrollOrigin, 0, 200)
+                .perform();
 
 		// User Status
 		
-		driver.findElement(By.xpath("(//i[@aria-hidden='true'][normalize-space()='arrow_drop_down'])[3]")).click();
+		driver.findElement(By.xpath(" (//div[@class='v-input__slot'])[9]")).click();
 		
 		Thread.sleep(1000);
 		
+		
 		WebElement UserStatus = driver.findElement(By.xpath("(//div[@role='list'])[1]"));
 		
-		UserStatus.findElement(By.xpath("(//div[@class='v-list__tile__title'][normalize-space()='"+User_Status+"'])[1]")).click();
+		UserStatus.findElement(By.xpath("(//div[@class='v-list__tile__title'][normalize-space()='"+user_Status+"'])[1]")).click();
 
-		EditPopup.click();
+		Editpopup.click();
 		
+
 		// Update Status
 		
 		driver.findElement(By.xpath("(//div[normalize-space()='Update'])[1]")).click();
 		
-		Thread.sleep(1000);
+		Thread.sleep(3000);
 		
 		// Close Snakbar
 		
 		driver.findElement(By.xpath("(//div[@class='v-btn__content'][normalize-space()='Close'])[7]")).click();
 		
-		driver.findElement(By.xpath("(//span[normalize-space()='Users'])[1]")).click();
+		// Verifiaction
+		
+		List<WebElement> Alldatas = driver.findElements(By.xpath("//table[contains(@class,'v-datatable')]//tr//td[4]"));
+		
+		boolean flag = false;
+		
+		for(WebElement Data : Alldatas) {
+			
+			String value = Data.getText();
+			
+			if(value.contains(user_Status)) {
+				
+				flag = true;
+			}
+		}
+		
+		Assert.assertTrue(flag, "UserEmail is Not Updated...!");
+		
+		driver.findElement(By.xpath("//div[contains(text(),'Users & Groups')]")).click();
 		
 	}
 	
 
 	
-
-	@Test(enabled=true)
-	public void Update_UserMobileNo() throws InterruptedException {
-
-		
+	@Parameters({"user_Email","mobileNo"})
+	@Test(priority =1)
+	public void Update_UserMobileNo(String user_Email, String mobileNo ) throws InterruptedException {
 		
 		// Edit User Popup
 		
-		driver.findElement(By.xpath("(//i[@class='v-icon mr-4 v-icon--link material-icons theme--light green--text'])[1]")).click();
+		driver.findElement(By.xpath("//td[text()='"+user_Email+"']//following-sibling::td[3]//i[@class='v-icon mr-4 v-icon--link material-icons theme--light green--text']")).click();
 		
 		Thread.sleep(1000);
 		
@@ -143,66 +136,62 @@ public class Update_User extends AdminLogin {
 		
 		actions.doubleClick(MobileNumber).sendKeys(Keys.BACK_SPACE).build().perform();
 		
-		MobileNumber.sendKeys(Long.toString(MobileNo));
+		MobileNumber.sendKeys(mobileNo);
 
 		
 		// Update Mobile No
 		
 		driver.findElement(By.xpath("(//div[normalize-space()='Update'])[1]")).click();
 		
-		Thread.sleep(1000);
+		Thread.sleep(3000);
 		
 		// Close Snakbar
 		
 		driver.findElement(By.xpath("(//div[@class='v-btn__content'][normalize-space()='Close'])[7]")).click();
 		
-		driver.findElement(By.xpath("(//span[normalize-space()='Users'])[1]")).click();
+		// Verifiaction
+		
+		List<WebElement> Alldatas = driver.findElements(By.xpath("//table[contains(@class,'v-datatable')]//tr//td[2]"));
+		
+		boolean flag = false;
+		
+		for(WebElement Data : Alldatas) {
+			
+			String value = Data.getText();
+			
+			if(value.contains(mobileNo)) {
+				
+				flag = true;
+			}
+		}
+		
+		Assert.assertTrue(flag, "Mobile Number is Not Updated...!");
+		
+		driver.findElement(By.xpath("//div[contains(text(),'Users & Groups')]")).click();
 	}
 	
-	@Test(enabled=false)
-	public void Update_UserEmail() throws InterruptedException {
-		
-		// Edit User Popup
-		
-		driver.findElement(By.xpath("(//i[@class='v-icon mr-4 v-icon--link material-icons theme--light green--text'])[1]")).click();
-		
-		Thread.sleep(1000);
-		
-		WebElement EditPopup = driver.findElement(By.xpath("(//div[@class='container grid-list-md'])[4]"));
-		
-		// User Email
-		
-		driver.findElement(By.xpath("(//input[@aria-label='Email Id'])[1]")).clear();
-		
-		Thread.sleep(1000);
-		
-		driver.findElement(By.xpath("(//input[@aria-label='Email Id'])[1]")).sendKeys(Updated_UserEmail);
-		
-		// Update Status
-		
-		driver.findElement(By.xpath("(//div[normalize-space()='Update'])[1]")).click();
-		
-		Thread.sleep(1000);
-		
-		// Close Snakbar
-		
-		driver.findElement(By.xpath("(//div[@class='v-btn__content'][normalize-space()='Close'])[7]")).click();
-		
-		driver.findElement(By.xpath("(//span[normalize-space()='Users'])[1]")).click();	
-		
-	}
-	
-	@Test(enabled=false)
-	public void Update_UserGroup() throws InterruptedException {
+
+	@Parameters({"user_Email","user_Group"})
+	@Test(priority =2)
+	public void Update_UserGroup(String user_Email, String user_Group) throws InterruptedException {
 		
 
 		// Edit User Popup
 		
-		driver.findElement(By.xpath("(//i[@class='v-icon mr-4 v-icon--link material-icons theme--light green--text'])[1]")).click();
+		driver.findElement(By.xpath("//td[text()='"+user_Email+"']//following-sibling::td[3]//i[@class='v-icon mr-4 v-icon--link material-icons theme--light green--text']")).click();
 		
 		Thread.sleep(1000);
 		
 		WebElement EditPopup = driver.findElement(By.xpath("(//div[@class='container grid-list-md'])[4]"));
+
+		//Scroll Popup
+		
+		WheelInput.ScrollOrigin scrollOrigin = WheelInput.ScrollOrigin.fromElement(EditPopup);
+        
+		new Actions(driver)
+                .scrollFromOrigin(scrollOrigin, 0, 200)
+                .perform();
+		
 		
 		// User User Group
 		
@@ -212,46 +201,7 @@ public class Update_User extends AdminLogin {
 		
 		WebElement UserStatus = driver.findElement(By.xpath("(//div[@role='list'])[4]"));
 		
-		UserStatus.findElement(By.xpath("(//div[@class='v-list__tile__title'][normalize-space()='"+User_Group+"'])[1]")).click();
-
-		EditPopup.click();
-		
-		// Update Status
-		
-		driver.findElement(By.xpath("(//div[normalize-space()='Update'])[1]")).click();
-		
-		Thread.sleep(1000);
-		
-		// Close Snakbar
-		
-		driver.findElement(By.xpath("(//div[@class='v-btn__content'][normalize-space()='Close'])[7]")).click();
-		
-		driver.findElement(By.xpath("(//span[normalize-space()='Users'])[1]")).click();
-		
-
-	}
-	
-	@Test(enabled=true)
-	public void Update_Role() throws InterruptedException {
-		
-
-		// Edit User Popup
-		
-		driver.findElement(By.xpath("(//i[@class='v-icon mr-4 v-icon--link material-icons theme--light green--text'])[1]")).click();
-		
-		Thread.sleep(1000);
-		
-		WebElement EditPopup = driver.findElement(By.xpath("(//div[@class='container grid-list-md'])[4]"));
-		
-		// User User Role
-		
-		driver.findElement(By.xpath("(//i[@aria-hidden='true'][normalize-space()='arrow_drop_down'])[1]")).click();
-		
-		Thread.sleep(1000);
-		
-		WebElement UserRole = driver.findElement(By.xpath("(//div[@role='list'])[5]"));
-		
-		UserRole.findElement(By.xpath("(//div[@class='v-list__tile__title'][normalize-space()='"+User_Role+"'])[1]")).click();
+		UserStatus.findElement(By.xpath("(//div[@class='v-list__tile__title'][normalize-space()='"+user_Group+"'])[1]")).click();
 
 		EditPopup.click();
 		
@@ -265,9 +215,92 @@ public class Update_User extends AdminLogin {
 		
 		driver.findElement(By.xpath("(//div[@class='v-btn__content'][normalize-space()='Close'])[7]")).click();
 		
-		driver.findElement(By.xpath("(//span[normalize-space()='Users'])[1]")).click();
+		// Verification
+		
+		driver.findElement(By.xpath("//td[text()='"+user_Email+"']//following-sibling::td[3]//i[@class='v-icon mr-4 v-icon--link material-icons theme--light green--text']")).click();
+
+		Thread.sleep(1000);
+		
+		//Scroll Popup
+		
+//		WheelInput.ScrollOrigin scrollOrigin = WheelInput.ScrollOrigin.fromElement(EditPopup);
+        
+//		new Actions(driver)
+//                .scrollFromOrigin(scrollOrigin, 0, 200)
+//                .perform();
+//		
+//		String groupName= UserStatus.getAttribute("value");
+//		
+//		boolean flag =false;
+//		
+//		if(groupName.contains(user_Group)) {
+//			
+//			flag = true;
+//		}
+//
+//		Assert.assertTrue(flag,"UserGroup is Not Updated...!");
+//		
+		driver.findElement(By.xpath("//div[contains(text(),'Users & Groups')]")).click();
 		
 
+
+	}
+	
+	@Parameters({"user_Email","user_Role"})
+	@Test(priority =3)
+	public void Update_Role(String user_Email,String user_Role) throws InterruptedException {
+
+		// Edit User Popup
+		
+		driver.findElement(By.xpath("//td[text()='"+user_Email+"']//following-sibling::td[3]//i[@class='v-icon mr-4 v-icon--link material-icons theme--light green--text']")).click();
+		
+		Thread.sleep(1000);
+		
+		WebElement EditPopup = driver.findElement(By.xpath("(//div[@class='container grid-list-md'])[4]"));
+		
+		// User User Role
+		
+		driver.findElement(By.xpath("(//i[@aria-hidden='true'][normalize-space()='arrow_drop_down'])[1]")).click();
+		
+		Thread.sleep(1000);
+		
+		WebElement UserRole = driver.findElement(By.xpath("(//div[@role='list'])[5]"));
+		
+		UserRole.findElement(By.xpath("(//div[@class='v-list__tile__title'][normalize-space()='"+user_Role+"'])[1]")).click();
+
+		EditPopup.click();
+		
+		// Update Status
+		
+		driver.findElement(By.xpath("(//div[normalize-space()='Update'])[1]")).click();
+		
+		Thread.sleep(3000);
+		
+		// Close Snakbar
+		
+		driver.findElement(By.xpath("(//div[@class='v-btn__content'][normalize-space()='Close'])[7]")).click();
+		
+		//Verification
+		
+		List<WebElement> Alldatas = driver.findElements(By.xpath("//table[contains(@class,'v-datatable')]//tr//td[5]"));
+		
+		boolean flag = false;
+		
+		for(WebElement Data : Alldatas) {
+			
+			String value = Data.getText();
+			
+			if(value.contains(user_Role)) {
+				
+				flag = true;
+			}
+		}
+		
+		Assert.assertTrue(flag, "Mobile Number is Not Updated...!");
+		
+		
+		driver.findElement(By.xpath("//div[contains(text(),'Users & Groups')]")).click();
+		
 	}
 
 	

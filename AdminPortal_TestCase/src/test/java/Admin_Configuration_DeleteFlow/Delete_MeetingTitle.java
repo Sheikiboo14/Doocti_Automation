@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import Login.AdminLogin;
@@ -13,7 +14,7 @@ import Login.AdminLogin;
 public class Delete_MeetingTitle extends AdminLogin {
 	
 
-	String Title_Name = "Testing Title";
+	
 	
 	@BeforeMethod
 	public void Setup() throws InterruptedException {
@@ -27,16 +28,18 @@ public class Delete_MeetingTitle extends AdminLogin {
 		// Meeting Title Page
 		
 		driver.findElement(By.xpath("(//span[normalize-space()='Meeting Title'])[1]")).click();
-		
+		Thread.sleep(1000);		
+
 	}
 	
+	@Parameters({"title_Name"})
 	@Test
-	public void Delete_MeetingTitle() throws InterruptedException {
+	public void Delete_MeetingTitle(String title_Name) throws InterruptedException {
 		
 		
 		// Delete Meeting
 		
-		driver.findElement(By.xpath("//td[text()='Test2']//following-sibling::td[4]//i[@class='v-icon mr-4 v-icon--link material-icons theme--light red--text']")).click();
+		driver.findElement(By.xpath("//td[text()='"+title_Name+"']//following-sibling::td[4]//i[@class='v-icon mr-4 v-icon--link material-icons theme--light red--text']")).click();
 		
 		Thread.sleep(1000);
 		
@@ -54,15 +57,15 @@ public class Delete_MeetingTitle extends AdminLogin {
 		
 		List<WebElement> Alldatas = driver.findElements(By.xpath("//table[contains(@class,'v-datatable')]//td[1]"));
 		
-		boolean flag = true;
+		boolean flag = false;
 		
 		for (WebElement Data : Alldatas) {
 			
 			String value = Data.getText();
 			
-			if(value.contains(Title_Name)) {
+			if(value.contains(title_Name)) {
 				
-				flag = false;
+				flag = true;
 			}
 		}
 		

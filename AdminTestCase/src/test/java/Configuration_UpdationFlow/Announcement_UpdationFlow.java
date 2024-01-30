@@ -10,13 +10,13 @@ import Login.AdminLogin;
 public class Announcement_UpdationFlow extends AdminLogin {
 
 
-	String Announcement_Name= "Testing";
+	String announcement_Name= "QA";
 	
-	String Announcement_Status = "Inactive";
+	String announcement_Status = "Inactive";
 	
-	String Updated_Announcement ="Hi Doocti";
+	String updated_Announcement ="Hi Doocti";
 	
-	String Announcement_Campaign = "Dialer";
+	String announcement_Campaign = "Dialer";
 	
 	@BeforeMethod
 	public void Setup() throws InterruptedException {
@@ -55,7 +55,7 @@ public class Announcement_UpdationFlow extends AdminLogin {
 		
 		WebElement NameList = driver.findElement(By.xpath("(//div[@role='list'])[2]"));
 		
-		NameList.findElement(By.xpath("(//div[contains(text(),'"+Announcement_Name+"')])[1]")).click();
+		NameList.findElement(By.xpath("(//div[contains(text(),'"+announcement_Name+"')])[1]")).click();
 		
 		Popup.click();
 		
@@ -74,7 +74,7 @@ public class Announcement_UpdationFlow extends AdminLogin {
 		
 		// Announcement
 		
-		driver.findElement(By.xpath("(//textarea[@aria-label='Announcement'])[1]")).sendKeys(Updated_Announcement);
+		driver.findElement(By.xpath("(//textarea[@aria-label='Announcement'])[1]")).sendKeys(updated_Announcement);
 		
 		
 		// Update Announcement
@@ -94,37 +94,11 @@ public class Announcement_UpdationFlow extends AdminLogin {
 	
 	@Test(priority=1)
 	public void Update_Status() throws InterruptedException {
-		
 
-		//Filter Tab
-		
-		driver.findElement(By.xpath("(//i[@class='fas fa-filter'])[1]")).click();
-		
-//		Thread.sleep(1000);
-		
-		WebElement Popup= driver.findElement(By.xpath("(//div[@class='container sidenavContainer'])[1]"));
-		
-		
-		//Filter Name
-		
-		driver.findElement(By.xpath("(//input[@role='combobox'])[1]")).click();
-		
-		Thread.sleep(1000);
-		
-		WebElement NameList = driver.findElement(By.xpath("(//div[@role='list'])[2]"));
-		
-		NameList.findElement(By.xpath("(//div[contains(text(),'"+Announcement_Name+"')])[1]")).click();
-		
-		Popup.click();
-		
-		// Applying Filter
-		
-		driver.findElement(By.xpath("(//div[@class='v-btn__content'][normalize-space()='Filter'])[1]")).click();
-		
 		
 		//Update popup
 		
-		driver.findElement(By.xpath("(//i[@class='v-icon mr-4 v-icon--link material-icons theme--light blue--text'])[1]")).click();
+		driver.findElement(By.xpath("//td[text()='QA']//following-sibling::td[3]//i[@class='v-icon mr-4 v-icon--link material-icons theme--light blue--text']")).click();
 		
 		Thread.sleep(1000);
 		
@@ -136,7 +110,7 @@ public class Announcement_UpdationFlow extends AdminLogin {
 		
 		WebElement StatusList = driver.findElement(By.xpath("(//div[@role='list'])[4]"));
 		
-		StatusList.findElement(By.xpath("(//div[@class='v-list__tile__title'][normalize-space()='"+Announcement_Status+"'])[2]")).click();
+		StatusList.findElement(By.xpath("(//div[@class='v-list__tile__title'][normalize-space()='"+announcement_Status+"'])[2]")).click();
 		
 		// Update Status
 		
@@ -171,7 +145,7 @@ public class Announcement_UpdationFlow extends AdminLogin {
 		
 		WebElement NameList = driver.findElement(By.xpath("(//div[@role='list'])[2]"));
 		
-		NameList.findElement(By.xpath("(//div[contains(text(),'"+Announcement_Name+"')])[1]")).click();
+		NameList.findElement(By.xpath("(//div[contains(text(),'"+announcement_Name+"')])[1]")).click();
 		
 		Popup.click();
 		
@@ -196,7 +170,7 @@ public class Announcement_UpdationFlow extends AdminLogin {
 		
 		WebElement CampaignList=driver.findElement(By.xpath("(//div[@role='list'])[3]"));
 		
-		CampaignList.findElement(By.xpath("(//div[@class='v-list__tile__title'][normalize-space()='"+Announcement_Campaign+"'])[1]")).click();
+		CampaignList.findElement(By.xpath("(//div[@class='v-list__tile__title'][normalize-space()='"+announcement_Campaign+"'])[1]")).click();
 		
 		// Update Campaign
 		

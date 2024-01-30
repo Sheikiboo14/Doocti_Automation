@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Configuration Flow Testing]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="BlockList Upload(failed)">
+    <parameter name="blockList_Path" value="D:\Testing File\sample_blocklist.csv"/>
+    <parameter name="phno" value="9090909092"/>
+    <classes>
+      <class name="Admin_Configuration_CreateFlow.Upload_BlockList">
+        <methods>
+          <include name="Setup"/>
+          <include name="Quit"/>
+          <include name="Login"/>
+          <include name="Uplode_BlockList" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- Admin_Configuration_CreateFlow.Upload_BlockList -->
+    </classes>
+  </test> <!-- BlockList Upload(failed) -->
+  <test thread-count="5" name="BlockList Deletion(failed)">
+    <parameter name="phno" value="9090909091"/>
+    <classes>
+      <class name="Admin_Configuration_DeleteFlow.Delete_BlockList">
+        <methods>
+          <include name="Setup"/>
+          <include name="Quit"/>
+          <include name="Login"/>
+          <include name="BlockList_Delete" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- Admin_Configuration_DeleteFlow.Delete_BlockList -->
+    </classes>
+  </test> <!-- BlockList Deletion(failed) -->
+</suite> <!-- Failed suite [Configuration Flow Testing] -->

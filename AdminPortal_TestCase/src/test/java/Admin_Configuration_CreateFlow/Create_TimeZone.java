@@ -6,26 +6,12 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import Login.AdminLogin;
 
 public class Create_TimeZone extends AdminLogin{
-	
-	
-	 String TimeZone_Name = "Test" ;
-	
-	 String TimeZone_Description ="Testing Purpose";
-	
-	 int TimeZone_StartHour = 1;
-	
-	 int TimeZone_StartMinute = 00;
-	
-	 int TimeZone_EndHour = 10;
-	
-	 int TimeZone_EndMinute = 00;
-	
-	 String TimeZone_Status = "Active";
 	
 	
 	
@@ -41,8 +27,9 @@ public class Create_TimeZone extends AdminLogin{
 		driver.findElement(By.xpath("(//span[normalize-space()='Timezone'])[1]")).click();
 	}
 	
+	@Parameters({"timeZone_Name","timeZone_Description","timeZone_StartHour","timeZone_StartMinute","timeZone_EndHour","timeZone_EndMinute","timeZone_Status"})
 	@Test
-	public void TimeZone_Creation() throws InterruptedException {
+	public void TimeZone_Creation(String timeZone_Name ,String timeZone_Description ,int timeZone_StartHour ,int timeZone_StartMinute ,int timeZone_EndHour ,int timeZone_EndMinute ,String timeZone_Status) throws InterruptedException {
 
 
 		// Add TimeZone
@@ -55,11 +42,11 @@ public class Create_TimeZone extends AdminLogin{
 		
 		// Zone Name
 		
-		driver.findElement(By.xpath("(//input[@aria-label='Zone Name'])[2]")).sendKeys(TimeZone_Name);
+		driver.findElement(By.xpath("(//input[@aria-label='Zone Name'])[2]")).sendKeys(timeZone_Name);
 		
 		//Description
 		
-		driver.findElement(By.xpath("(//input[@aria-label='Description'])[2]")).sendKeys(TimeZone_Description);
+		driver.findElement(By.xpath("(//input[@aria-label='Description'])[2]")).sendKeys(timeZone_Description);
 		
 		// Start Time
 		
@@ -69,13 +56,13 @@ public class Create_TimeZone extends AdminLogin{
 		
 		WebElement HourClock= driver.findElement(By.xpath("(//div[@class='v-time-picker-clock__container'])[1]"));
 		
-		HourClock.findElement(By.xpath("(//span[contains(text(),'"+TimeZone_StartHour+"')])[1]")).click();
+		HourClock.findElement(By.xpath("(//span[contains(text(),'"+timeZone_StartHour+"')])[1]")).click();
 		
 		Thread.sleep(1000);
 		
 		WebElement MinuteClock= driver.findElement(By.xpath("(//div[@class='v-time-picker-clock__container'])[1]"));
 
-		MinuteClock.findElement(By.xpath("(//span[contains(text(),'"+TimeZone_StartMinute+"')])[1]")).click();
+		MinuteClock.findElement(By.xpath("(//span[contains(text(),'"+timeZone_StartMinute+"')])[1]")).click();
 		
 //		TimeZonePopup.click();
 		
@@ -87,14 +74,14 @@ public class Create_TimeZone extends AdminLogin{
 		
 		WebElement EndHClock = driver.findElement(By.xpath("(//div[@class='v-time-picker-clock v-time-picker-clock--indeterminate theme--light'])[1]"));
 		
-		EndHClock.findElement(By.xpath("(//span[contains(text(),'"+TimeZone_EndHour+"')])[1]")).click();
+		EndHClock.findElement(By.xpath("(//span[contains(text(),'"+timeZone_EndHour+"')])[1]")).click();
 		
 		Thread.sleep(1000);
 		
 		WebElement EndMClock = driver.findElement(By.xpath("(//div[@class='v-time-picker-clock__container'])[1]"));
 
 		
-		EndMClock.findElement(By.xpath("(//span[contains(text(),'"+TimeZone_EndMinute+"')])[1]")).click();
+		EndMClock.findElement(By.xpath("(//span[contains(text(),'"+timeZone_EndMinute+"')])[1]")).click();
 		
 //		TimeZonePopup.click();
 	
@@ -106,7 +93,7 @@ public class Create_TimeZone extends AdminLogin{
 		
 		WebElement StatusList = driver.findElement(By.xpath("(//div[@role='list'])[4]"));
 		
-		StatusList.findElement(By.xpath("(//div[@class='v-list__tile__title'][normalize-space()='"+TimeZone_Status+"'])[3]")).click();
+		StatusList.findElement(By.xpath("(//div[@class='v-list__tile__title'][normalize-space()='"+timeZone_Status+"'])[3]")).click();
 		
 		// Create TimeZone
 		
@@ -125,7 +112,6 @@ public class Create_TimeZone extends AdminLogin{
 		
 	      List<WebElement> Alldatas = driver.findElements(By.xpath("//table[@class='v-datatable v-table theme--light']//tr//td[1]"));
 	
-	      System.out.println(Alldatas.size());
 	      
 	      boolean flag = false;
 	      
@@ -133,7 +119,7 @@ public class Create_TimeZone extends AdminLogin{
 	    	  
 	    	  String value=Data.getText();
 	    	  
-	    	  if(value.contains(TimeZone_Name))
+	    	  if(value.contains(timeZone_Name))
 	    			  {
 	    		  
 	    		  flag = true;

@@ -19,7 +19,7 @@
 	<test name="User Creation">
 		<classes>
 			<class name="Admin_UsersGroups_CreateFlow.Create_User">
-				<parameter name="user_id" value="smibrahim_agent10"/>
+				<parameter name="user_id" value="smibrahim_agent07"/>
 				<parameter name="user_name" value="Testing"/>
 				<parameter name="user_mobileno" value="122344"/>
 				<parameter name="user_email" value="smibrahim_agent07@doocti.com"/>

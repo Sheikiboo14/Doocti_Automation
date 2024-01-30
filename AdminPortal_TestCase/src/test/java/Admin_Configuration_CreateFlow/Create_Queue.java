@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import Login.AdminLogin;
@@ -13,11 +14,6 @@ import Login.AdminLogin;
 public class Create_Queue extends AdminLogin {
 
 
-	String Queue_Name ="Test1";
-	
-	int Queue_WaitTime = 20;	
-	
-	String Queue_Strategy ="Leastrecent";
 	
 	@BeforeMethod
 	public void Setup() throws InterruptedException {
@@ -32,8 +28,9 @@ public class Create_Queue extends AdminLogin {
 		
 	}
 	
+	@Parameters({"queue_Name","queue_WaitTime","queue_Strategy"})
 	@Test
-	public void Create_Queue() throws InterruptedException {
+	public void Create_Queue(String queue_Name,int queue_WaitTime,String queue_Strategy ) throws InterruptedException {
 
 		//Add Queue Popup
 		
@@ -45,13 +42,13 @@ public class Create_Queue extends AdminLogin {
 		
 		//Queue Name
 		
-		driver.findElement(By.xpath("(//input[@aria-label='Queues'])[2]")).sendKeys(Queue_Name);
+		driver.findElement(By.xpath("(//input[@aria-label='Queues'])[2]")).sendKeys(queue_Name);
 		
 		// Queue WaitTime
 		
 		WebElement WaitTime = driver.findElement(By.xpath("(//input[@aria-label='Wait TimeOut'])[2]"));
 		
-		WaitTime.sendKeys(Integer.toString(Queue_WaitTime));
+		WaitTime.sendKeys(Integer.toString(queue_WaitTime));
 		
 		// Ring Startegy
 		
@@ -61,7 +58,7 @@ public class Create_Queue extends AdminLogin {
 		
 		WebElement Ring_Strategy = driver.findElement(By.xpath("(//div[@role='list'])[8]"));
 		
-		Ring_Strategy.findElement(By.xpath("(//div[@class='v-list__tile__title'][normalize-space()='"+Queue_Strategy+"'])[2]")).click();
+		Ring_Strategy.findElement(By.xpath("(//div[@class='v-list__tile__title'][normalize-space()='"+queue_Strategy+"'])[2]")).click();
 
 		QueuePopup.click();
 		
@@ -82,7 +79,6 @@ public class Create_Queue extends AdminLogin {
 		
 	      List<WebElement> Alldatas = driver.findElements(By.xpath("//table[@class='v-datatable v-table theme--light']//tr//td[1]"));
 	
-	      System.out.println(Alldatas.size());
 	      
 	      boolean flag = false;
 	      
@@ -90,7 +86,7 @@ public class Create_Queue extends AdminLogin {
 	    	  
 	    	  String value=Data.getText();
 	    	  
-	    	  if(value.contains(Queue_Name))
+	    	  if(value.contains(queue_Name))
 	    			  {
 	    		  
 	    		  flag = true;

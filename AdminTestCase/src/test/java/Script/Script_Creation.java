@@ -1,5 +1,7 @@
 package Script;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
@@ -10,15 +12,15 @@ import Login.AdminLogin;
 
 public class Script_Creation extends AdminLogin {
 	
-	String Script_Name = "Test2";
+	String script_Name = "Test Test";
 	
-	String Script_Description ="Testing Purpose";
+	String script_Description ="Testing Purpose";
 	
-	String Script_Type ="URL";
+	String script_Type ="URL";
 	
-	String Script_Text="Hello Tevatel";
+	String script_Text="Hello Tevatel";
 	
-	String Script_URL = "https://tevatel.com/";
+	String script_URL = "https://tevatel.com/";
 
 	
 	@BeforeMethod
@@ -44,24 +46,24 @@ public class Script_Creation extends AdminLogin {
 		
 		// Script Name
 		
-		driver.findElement(By.xpath("(//input[@aria-label='Script_name'])[1]")).sendKeys(Script_Name);
+		driver.findElement(By.xpath("(//input[@aria-label='Script_name'])[1]")).sendKeys(script_Name);
 		
 		//Script Description
 		
-		driver.findElement(By.xpath("(//input[@aria-label='Description'])[2]")).sendKeys(Script_Description);
+		driver.findElement(By.xpath("(//input[@aria-label='Description'])[2]")).sendKeys(script_Description);
 		
 		//Script Type
 		
-		driver.findElement(By.xpath("(//label[normalize-space()='"+Script_Type+"'])[1]")).click();
+		driver.findElement(By.xpath("(//label[normalize-space()='"+script_Type+"'])[1]")).click();
 		
-		if(Script_Type.equalsIgnoreCase("Text")) {
+		if(script_Type.equalsIgnoreCase("Text")) {
 			
-			driver.findElement(By.xpath("(//textarea[@placeholder='Text here...'])[1]")).sendKeys(Script_Text);
+			driver.findElement(By.xpath("(//textarea[@placeholder='Text here...'])[1]")).sendKeys(script_Text);
 		}
 		
-		else if (Script_Type.equalsIgnoreCase("URL")) {
+		else if (script_Type.equalsIgnoreCase("URL")) {
 			
-			driver.findElement(By.xpath("(//input[@type='url'])[1]")).sendKeys(Script_URL);
+			driver.findElement(By.xpath("(//input[@type='url'])[1]")).sendKeys(script_URL);
 		}
 		
 		// Create Script
@@ -73,55 +75,31 @@ public class Script_Creation extends AdminLogin {
 		// Close Snakbar
 		
 		driver.findElement(By.xpath("(//div[@class='v-btn__content'][normalize-space()='Close'])[3]")).click();
+		
+		driver.navigate().refresh();
+		
+		// Verification
+		
+		List<WebElement> Alldatas = driver.findElements(By.xpath("//table[contains(@class,'v-datatable')]//tr//td[1]"));
+		
+		boolean flag = false;
+		
+		for(WebElement Data : Alldatas) {
+			
+			String value = Data.getText();
+			
+			
+			if(value.contains(script_Name)) {
+				
+				flag = true;
+			}
+		}
+		
+		Assert.assertTrue(flag, " Script is Not Created...!");
 	
 		driver.findElement(By.xpath("(//div[contains(text(),'Configurations')])[1]")).click();
 
 	
 	}	
 	
-	@Test()
-	public void Script_Verification() throws InterruptedException {
-		
-		
-		// filter
-		
-		driver.findElement(By.xpath("(//i[@class='fas fa-filter'])[1]")).click();
-		
-		
-//		Thread.sleep(1000);
-		
-		WebElement Popup= driver.findElement(By.xpath("(//div[@class='container sidenavContainer'])[1]"));
-		
-		
-		//Filter Name
-		
-		driver.findElement(By.xpath("(//input[@aria-label='Name'])[1]")).sendKeys(Script_Name);
-		
-		Thread.sleep(1000);
-		
-		WebElement NameList = driver.findElement(By.xpath("(//div[@role='list'])[1]"));
-		
-		NameList.findElement(By.xpath("(//div[@class='v-list__tile__title'])[1]")).click();
-		
-		Popup.click();
-		
-		// Applying Filter
-		
-		driver.findElement(By.xpath("(//div[@class='v-btn__content'][normalize-space()='Filter'])[1]")).click();
-		
-		Thread.sleep(1000);
-		
-		driver.findElement(By.xpath("(//i[@class='v-icon mr-4 v-icon--link material-icons theme--light blue--text'])[1]")).click();
-		
-		Thread.sleep(1000);
-		
-		String actualvalue = driver.findElement(By.xpath("(//input[@aria-label='Description'])[1]")).getAttribute("value");
-		
-//		System.out.println(driver.findElement(By.xpath("(//input[@aria-label='Name'])[1]")).getText());
-		
-		Assert.assertEquals(actualvalue ,Script_Description, "Script is Not Created");
-		
-		driver.findElement(By.xpath("(//div[@class='v-btn__content'][normalize-space()='Close'])[1]")).click();
-		
 	}
-}

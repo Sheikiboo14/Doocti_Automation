@@ -10,9 +10,9 @@ import Login.AdminLogin;
 
 public class Update_Channel extends AdminLogin{
 	
-	String Channel_Status = "Inactive";
+	String channel_Status = "Inactive";
 	
-	String Channel_Name = "Mail";
+	String channel_Name = "Mail";
 	
 	
 	@BeforeMethod
@@ -35,7 +35,7 @@ public class Update_Channel extends AdminLogin{
 		Thread.sleep(1000);
 		
 		
-	      driver.findElement(By.xpath("//td[text()='"+Channel_Name+"']//following-sibling::td[3]//i[@class='v-icon mr-4 v-icon--link material-icons theme--light blue--text']")).click();
+	      driver.findElement(By.xpath("//td[text()='"+channel_Name+"']//following-sibling::td[3]//i[@class='v-icon mr-4 v-icon--link material-icons theme--light blue--text']")).click();
 		
 		Thread.sleep(1000);
 		
@@ -49,7 +49,7 @@ public class Update_Channel extends AdminLogin{
 		
 		WebElement StatusList = driver.findElement(By.xpath("(//div[@role='list'])[2]"));
 		
-		StatusList.findElement(By.xpath("(//div[@class='v-list__tile__title'][normalize-space()='"+Channel_Status+"'])[1]")).click();
+		StatusList.findElement(By.xpath("(//div[@class='v-list__tile__title'][normalize-space()='"+channel_Name+"'])[1]")).click();
 		
 		EditPopup.click();
 		
@@ -66,11 +66,11 @@ public class Update_Channel extends AdminLogin{
 		
 		Thread.sleep(1000);
 		
-		String actualvalue = driver.findElement(By.xpath("//td[text()='"+Channel_Name+"']//following-sibling::td[2]")).getText();
+		String actualvalue = driver.findElement(By.xpath("//td[text()='"+channel_Name+"']//following-sibling::td[2]")).getText();
 
 		System.out.println(actualvalue);
 		   
-		Assert.assertEquals(actualvalue, Channel_Status, "Channel Status is not Updated");
+		Assert.assertEquals(actualvalue, channel_Status, "Channel Status is not Updated");
 		
 	
 	}

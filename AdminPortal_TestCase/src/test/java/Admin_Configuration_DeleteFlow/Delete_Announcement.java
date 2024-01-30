@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import Login.AdminLogin;
@@ -13,7 +14,6 @@ import Login.AdminLogin;
 public class Delete_Announcement extends AdminLogin {
 	
 
-	String Announcement_Name= "Testing";
 
 	@BeforeMethod
 	public void Setup() throws InterruptedException {
@@ -32,12 +32,13 @@ public class Delete_Announcement extends AdminLogin {
 			
 	}
 	
+	@Parameters({"announcement_Name"})
 	@Test
-	public void Announcement_Delete() throws InterruptedException {
+	public void Announcement_Delete(String announcement_Name) throws InterruptedException {
 				
 		// Delete Announcement
 		
-		driver.findElement(By.xpath("//td[text()='"+Announcement_Name+"']//following-sibling::td[3]//i[@class='v-icon mr-4 v-icon--link material-icons theme--light red--text']")).click();
+		driver.findElement(By.xpath("//td[text()='"+announcement_Name+"']//following-sibling::td[3]//i[@class='v-icon mr-4 v-icon--link material-icons theme--light red--text']")).click();
 		
 		Thread.sleep(1000);
 		
@@ -48,24 +49,22 @@ public class Delete_Announcement extends AdminLogin {
 		// Close Snakbar
 		
 		driver.findElement(By.xpath("(//div[@class='v-btn__content'][normalize-space()='Close'])[4]")).click();
-		
-//		driver.findElement(By.xpath("(//div[contains(text(),'Configurations')])[1]")).click();
-		
-		Thread.sleep(1000);
+				
+		driver.navigate().refresh();
 		
 		//Verification
 		
 		List<WebElement> Alldatas = driver.findElements(By.xpath("//table[contains(@class,'v-datatable')]//td[1]"));
 		
-		boolean flag = true;
+		boolean flag = false;
 		
 		for(WebElement Data : Alldatas) {
 			
 			String value = Data.getText();
 			
-			if(value.contains(Announcement_Name)) {
+			if(value.contains(announcement_Name)) {
 				
-				flag = false;
+				flag = true;
 			}
 		}
 		
