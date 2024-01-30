@@ -92,6 +92,8 @@ public class Create_InboundRoute extends AdminLogin {
 		driver.findElement(By.xpath("(//div[@class='v-btn__content'][normalize-space()='Close'])[3]")).click();
 		
 		driver.navigate().refresh();
+		
+		Thread.sleep(1000);
 
 		
 		// Verification

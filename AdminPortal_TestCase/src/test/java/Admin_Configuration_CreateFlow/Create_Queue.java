@@ -3,7 +3,9 @@ package Admin_Configuration_CreateFlow;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
@@ -30,8 +32,10 @@ public class Create_Queue extends AdminLogin {
 	
 	@Parameters({"queue_Name","queue_WaitTime","queue_Strategy"})
 	@Test
-	public void Create_Queue(String queue_Name,int queue_WaitTime,String queue_Strategy ) throws InterruptedException {
+	public void Create_Queue(String queue_Name,String queue_WaitTime,String queue_Strategy ) throws InterruptedException {
 
+		Actions action =new Actions(driver);
+		
 		//Add Queue Popup
 		
 		driver.findElement(By.xpath("(//div[normalize-space()='Add Queue'])[1]")).click();
@@ -46,9 +50,9 @@ public class Create_Queue extends AdminLogin {
 		
 		// Queue WaitTime
 		
-		WebElement WaitTime = driver.findElement(By.xpath("(//input[@aria-label='Wait TimeOut'])[2]"));
+		action.doubleClick(driver.findElement(By.xpath("(//input[@aria-label='Wait TimeOut'])[2]"))).sendKeys(Keys.BACK_SPACE).build().perform();
 		
-		WaitTime.sendKeys(Integer.toString(queue_WaitTime));
+		driver.findElement(By.xpath("(//input[@aria-label='Wait TimeOut'])[2]")).sendKeys(queue_WaitTime);
 		
 		// Ring Startegy
 		

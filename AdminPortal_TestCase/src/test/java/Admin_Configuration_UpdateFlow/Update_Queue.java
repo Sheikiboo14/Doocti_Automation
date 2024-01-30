@@ -151,6 +151,10 @@ public class Update_Queue extends AdminLogin{
 		
 		Assert.assertEquals(actualvalue, queue_Restart,"Queue Restart is not Updated...!");
 		
+		// Close Update Popup
+		
+		driver.findElement(By.xpath("(//div[@class='v-btn__content'][normalize-space()='Close'])[1]")).click();
+		
 		driver.findElement(By.xpath("(//div[contains(text(),'Configurations')])[1]")).click();
 		
 		

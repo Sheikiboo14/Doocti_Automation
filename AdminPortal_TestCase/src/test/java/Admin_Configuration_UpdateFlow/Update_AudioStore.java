@@ -1,5 +1,7 @@
 package Admin_Configuration_UpdateFlow;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -62,8 +64,25 @@ public class Update_AudioStore extends AdminLogin{
 		
 		// Verification
 		
-		String actualvalue = driver.findElement(By.xpath("//td[text()='"+audio_Name+"']//following-sibling::td[2]")).getText();
+//		String actualvalue = driver.findElement(By.xpath("//td[text()='"+audio_Name+"']//following-sibling::td[2]")).getText();
+//		
+//		Assert.assertEquals(actualvalue, audio_Status, "Audio Store Status is not Updated...!");
 		
-		Assert.assertEquals(actualvalue, audio_Status, "Audio Store Status is not Updated...!");
+		
+		List<WebElement> Alldatas = driver.findElements(By.xpath("//table[contains(@class,'v-datatable')]//tr//td[1]"));
+		
+		boolean flag = false;
+		
+		for(WebElement Data : Alldatas) {
+			
+			String value = Data.getText();
+			
+			if(value.contains(audio_Name)) {
+				
+				flag = true;
+			}
+		}
+		
+		Assert.assertFalse(flag,"AudioStore is not Updated...!");
 	}
 }

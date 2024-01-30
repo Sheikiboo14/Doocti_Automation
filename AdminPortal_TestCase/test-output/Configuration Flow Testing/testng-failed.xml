@@ -1,31 +1,115 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [Configuration Flow Testing]" guice-stage="DEVELOPMENT">
-  <test thread-count="5" name="BlockList Upload(failed)">
-    <parameter name="blockList_Path" value="D:\Testing File\sample_blocklist.csv"/>
-    <parameter name="phno" value="9090909092"/>
+<suite name="Failed suite [Configuration FLow Testing]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="Queue Creation(failed)">
+    <parameter name="queue_Name" value="QA"/>
+    <parameter name="queue_WaitTime" value="20"/>
+    <parameter name="queue_Strategy" value="Leastrecent"/>
     <classes>
-      <class name="Admin_Configuration_CreateFlow.Upload_BlockList">
+      <class name="Admin_Configuration_CreateFlow.Create_Queue">
         <methods>
-          <include name="Setup"/>
           <include name="Quit"/>
           <include name="Login"/>
-          <include name="Uplode_BlockList" invocation-numbers="0"/>
-        </methods>
-      </class> <!-- Admin_Configuration_CreateFlow.Upload_BlockList -->
-    </classes>
-  </test> <!-- BlockList Upload(failed) -->
-  <test thread-count="5" name="BlockList Deletion(failed)">
-    <parameter name="phno" value="9090909091"/>
-    <classes>
-      <class name="Admin_Configuration_DeleteFlow.Delete_BlockList">
-        <methods>
           <include name="Setup"/>
+          <include name="Create_Queue" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- Admin_Configuration_CreateFlow.Create_Queue -->
+    </classes>
+  </test> <!-- Queue Creation(failed) -->
+  <test thread-count="5" name="InboundRoute Creation(failed)">
+    <parameter name="destination_Value" value="QA"/>
+    <parameter name="blockList" value="true"/>
+    <parameter name="dID_Number" value="9090909090"/>
+    <parameter name="destination_Name" value="queue"/>
+    <parameter name="dID_Name" value="Test"/>
+    <classes>
+      <class name="Admin_Configuration_CreateFlow.Create_InboundRoute">
+        <methods>
           <include name="Quit"/>
           <include name="Login"/>
-          <include name="BlockList_Delete" invocation-numbers="0"/>
+          <include name="InboundRoute_Create" invocation-numbers="0"/>
+          <include name="Setup"/>
         </methods>
-      </class> <!-- Admin_Configuration_DeleteFlow.Delete_BlockList -->
+      </class> <!-- Admin_Configuration_CreateFlow.Create_InboundRoute -->
     </classes>
-  </test> <!-- BlockList Deletion(failed) -->
-</suite> <!-- Failed suite [Configuration Flow Testing] -->
+  </test> <!-- InboundRoute Creation(failed) -->
+  <test thread-count="5" name="TimeZone Creation(failed)">
+    <parameter name="timeZone_EndHour" value="10"/>
+    <parameter name="timeZone_StartMinute" value="00"/>
+    <parameter name="timeZone_EndMinute" value="00"/>
+    <parameter name="timeZone_Description" value="Testing Purpose"/>
+    <parameter name="timeZone_Status" value="Active"/>
+    <parameter name="timeZone_Name" value="QA"/>
+    <parameter name="timeZone_StartHour" value="1"/>
+    <classes>
+      <class name="Admin_Configuration_CreateFlow.Create_TimeZone">
+        <methods>
+          <include name="TimeZone_Creation" invocation-numbers="0"/>
+          <include name="Quit"/>
+          <include name="Login"/>
+          <include name="Setup"/>
+        </methods>
+      </class> <!-- Admin_Configuration_CreateFlow.Create_TimeZone -->
+    </classes>
+  </test> <!-- TimeZone Creation(failed) -->
+  <test thread-count="5" name="Queue Updation(failed)">
+    <parameter name="queue_WaitTimeOut" value="20"/>
+    <parameter name="queue_Name" value="QA"/>
+    <parameter name="queue_Restart" value="yes"/>
+    <parameter name="queue_Strategy" value="RingAll"/>
+    <classes>
+      <class name="Admin_Configuration_UpdateFlow.Update_Queue">
+        <methods>
+          <include name="Quit"/>
+          <include name="Update_QueueRestart"/>
+          <include name="Login"/>
+          <include name="Update_QueueStrategy" invocation-numbers="0"/>
+          <include name="Update_QueueWaitTime"/>
+          <include name="Setup"/>
+        </methods>
+      </class> <!-- Admin_Configuration_UpdateFlow.Update_Queue -->
+    </classes>
+  </test> <!-- Queue Updation(failed) -->
+  <test thread-count="5" name="DID Number Updation(failed)">
+    <parameter name="did_Status" value="Active"/>
+    <parameter name="did_Live" value="Yes"/>
+    <parameter name="did_Number" value="9876543209"/>
+    <classes>
+      <class name="Admin_Configuration_UpdateFlow.Update_DIDNumber">
+        <methods>
+          <include name="Update_DIDNumberLive"/>
+          <include name="Quit"/>
+          <include name="Login"/>
+          <include name="Setup"/>
+          <include name="Update_DIDNumberStatus" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- Admin_Configuration_UpdateFlow.Update_DIDNumber -->
+    </classes>
+  </test> <!-- DID Number Updation(failed) -->
+  <test thread-count="5" name="Queue Deletion(failed)">
+    <parameter name="queueName" value="QA"/>
+    <classes>
+      <class name="Admin_Configuration_DeleteFlow.Delete_Queue">
+        <methods>
+          <include name="Queue_Deletion" invocation-numbers="0"/>
+          <include name="Quit"/>
+          <include name="Login"/>
+          <include name="Setup"/>
+        </methods>
+      </class> <!-- Admin_Configuration_DeleteFlow.Delete_Queue -->
+    </classes>
+  </test> <!-- Queue Deletion(failed) -->
+  <test thread-count="5" name="InboundRoute Deletion(failed)">
+    <parameter name="did_Num" value="9090909090"/>
+    <classes>
+      <class name="Admin_Configuration_DeleteFlow.Delete_InboundRouter">
+        <methods>
+          <include name="Delete_InboundRouter" invocation-numbers="0"/>
+          <include name="Quit"/>
+          <include name="Login"/>
+          <include name="Setup"/>
+        </methods>
+      </class> <!-- Admin_Configuration_DeleteFlow.Delete_InboundRouter -->
+    </classes>
+  </test> <!-- InboundRoute Deletion(failed) -->
+</suite> <!-- Failed suite [Configuration FLow Testing] -->

@@ -89,7 +89,7 @@ public class Create_TimeZone extends AdminLogin{
 		
 		driver.findElement(By.xpath("(//div[@class='v-select__selections'])[2]")).click();
 		
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		
 		WebElement StatusList = driver.findElement(By.xpath("(//div[@role='list'])[4]"));
 		

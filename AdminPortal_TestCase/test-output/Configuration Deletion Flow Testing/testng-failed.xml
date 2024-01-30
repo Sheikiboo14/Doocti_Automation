@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Failed suite [Configuration Deletion Flow Testing]" guice-stage="DEVELOPMENT">
-  <test thread-count="5" name="Audio Store Updation(failed)">
-    <parameter name="audio_Status" value="Inactive"/>
-    <parameter name="audio_Name" value="simple.mp3"/>
+  <test thread-count="5" name="Tag Updation(failed)">
+    <parameter name="tag_Status" value="inactive"/>
+    <parameter name="tag_Name" value="QA"/>
     <classes>
-      <class name="Admin_Configuration_UpdateFlow.Update_AudioStore">
+      <class name="Admin_Configuration_UpdateFlow.Update_Tags">
         <methods>
+          <include name="Update_TagStatus"/>
           <include name="Setup"/>
-          <include name="Update_AudioStoreStatus" invocation-numbers="0"/>
           <include name="Quit"/>
           <include name="Login"/>
         </methods>
-      </class> <!-- Admin_Configuration_UpdateFlow.Update_AudioStore -->
+      </class> <!-- Admin_Configuration_UpdateFlow.Update_Tags -->
     </classes>
-  </test> <!-- Audio Store Updation(failed) -->
+  </test> <!-- Tag Updation(failed) -->
 </suite> <!-- Failed suite [Configuration Deletion Flow Testing] -->

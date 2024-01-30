@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Configuration Deletion Flow Testing">
-	<!-- 
 	<test name="Queue Updation">
 		<parameter name="queue_Name" value="QA"/>
 		<parameter name="queue_Strategy" value="RingAll"/>
@@ -20,7 +19,7 @@
 
 	<test name="Disoposition Updation">
 		<parameter name="dispo_Name" value="QA"/>
-		<parameter name="dispo_Status" value="Active"/>
+		<parameter name="dispo_Status" value="Inactive"/>
 		<classes>
 			<class name="Admin_Configuration_UpdateFlow.Update_Disposition">
 				<methods>
@@ -56,10 +55,10 @@
 
 	<test name="PauseCode Updation">
 		<parameter name="pausecode_Name" value="QA"/>
-		<parameter name="pausecode_Status" value="Active"/>
+		<parameter name="pausecode_Status" value="Inactive"/>
 		<parameter name="pausecode_Hour" value="0"/>
-		<parameter name="pausecode_Minute" value="25"/>
-		<parameter name="expectedtime" value="00:25:00"/>
+		<parameter name="pausecode_Minute" value="55"/>
+		<parameter name="expectedtime" value="00:55:00"/>
 		<classes>
 			<class name="Admin_Configuration_UpdateFlow.Update_PauseCode">
 				<methods>
@@ -69,16 +68,102 @@
 			</class>
 		</classes>
 	</test>
-		-->	
+	
+<!--
+
 	<test name="Audio Store Updation">
-		<parameter name="audio_Name" value="simple.mp3"/>
+		<parameter name="audio_Name" value="sunset.mp3"/>
 		<parameter name="audio_Status" value="Inactive"/>
 		<classes>
 			<class name="Admin_Configuration_UpdateFlow.Update_AudioStore">
 				<methods>
-					<include name="Update_AudioStoreStatus"></include>
+					<include name="Update_AudioStoreStatus"/>
 				</methods>
 			</class>
 		</classes>
 	</test>
+-->
+	<test name="DID Number Updation">
+		<parameter name="did_Number" value="9876543209"/>
+		<parameter name="did_Status" value="Inactive"/>
+		<parameter name="did_Live" value="No"/>
+		<classes>
+			<class name="Admin_Configuration_UpdateFlow.Update_DIDNumber">
+				<methods>
+					<include name="Update_DIDNumberStatus"/>
+					<include name="Update_DIDNumberLive"/>
+				</methods>
+			</class>
+		</classes>
+	</test>
+		
+	<test name="Tag Updation">
+		<parameter name="tag_Name" value="QA"/>
+		<parameter name="tag_Status" value="inactive"/>
+		<classes>
+			<class name="Admin_Configuration_UpdateFlow.Update_Tags">
+				<methods>
+					<include name="Update_TagStatus"/>
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test name="Announcement Updation">
+		<parameter name="announcement_Name" value="QA"/>
+		<parameter name="announcement_Status" value="Inactive"/>
+		<parameter name="announcement_Message" value="Good Vibes"/>
+		<parameter name="announcement_Campaign" value="Test"/>
+		<classes>
+			<class name="Admin_Configuration_UpdateFlow.Update_Announcement">
+				<methods>
+					<include name="Update_AnnouncementStatus"/> 
+					<include name="Update_AnnouncementMessage"/>
+					<include name="Update_AnnouncementCampaign"/>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	<test name="Script Updation">
+		<parameter name="script_Name" value="QA"/>
+		<parameter name="script_Status" value="INACTIVE"/>
+		<parameter name="script_URL" value="https://web-v2.doocti.com/v2.1.105/"/>
+		<parameter name="script_Text" value="Testingggg"/>
+		<classes>
+			<class name="Admin_Configuration_UpdateFlow.Update_Script">
+				<methods>
+					<include name="Update_ScriptStatus"/> 
+					<include name="Update_ScriptContent"/>
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test name="Timezone Updation">
+		
+		<parameter name="timezone_Name" value="QA"/>
+		<parameter name="timezone_Status" value="Inactive"/>
+		<classes>
+			<class name="Admin_Configuration_UpdateFlow.Update_TimeZone">
+				<methods>
+					<include name="Update_TimezoneStatus"/>
+				</methods>
+			</class>
+		</classes>
+	</test>
+		
+
+	<test name="Meeting Title Updation">
+		
+		<parameter name="meetingtitle_Name" value="QA"/>
+		<parameter name="meetingtitle_Status" value="Inactive"/>
+		<classes>
+			<class name="Admin_Configuration_UpdateFlow.Update_MeetingTitle">
+				<methods>
+					<include name="Update_MeetingTitleStatus"/>
+				</methods>
+			</class>
+		</classes>
+	</test> 
 </suite>

@@ -3,6 +3,7 @@
 
 <suite name="Users Group Flow Testing">
 	
+<!-- User and Groups Creation Flow -->
 					
 	<test name="UserGroup Creation">
 		<classes>
@@ -75,6 +76,10 @@
 			</class>
 		</classes>
 	</test>
+
+<!-- User and Groups Creation Flow -->
+
+<!-- User and Groups Updation Flow -->
 	
 	<test name="UserGroups Updation">
 		
@@ -164,6 +169,10 @@
 			</class>
 		</classes>
 	</test>
+
+<!-- User and Groups Updation Flow -->
+
+<!-- User and Groups Deletion Flow -->
 	
 		
 	<test name="UserGroup Deletion">
@@ -227,5 +236,6 @@
 		</classes>
 	</test>
 
+<!-- User and Groups Deletion Flow -->
 
 </suite>

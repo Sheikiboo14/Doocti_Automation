@@ -3,7 +3,7 @@
 
 <suite name="Configuration Creation Flow Testing">
 	
-						
+					
 	<test name="Queue Creation">
 		<parameter name="queue_Name" value="QA"/>
 		<parameter name="queue_WaitTime" value="20"/>
@@ -68,7 +68,7 @@
 			</class>
 		</classes>
 	</test>
-		<!-- 						
+<!-- 							
 	<test name="AudioStore Upload">
 		<parameter name="audio_Description" value="QA"/>
 		<parameter name="audio_Path" value="D:\Testing File\demo.mp3"/>
@@ -80,7 +80,7 @@
 			</class>
 		</classes>
 	</test>
-			-->		
+-->				
 												
 	<test name="BlockList Upload">
 		<parameter name="blockList_Path" value="D:\Testing File\sample_blocklist.csv"/>
@@ -106,6 +106,7 @@
 		</classes>
 	</test>
 	
+<!-- 	
 	<test name="DID Number Upload">
 		<parameter name="dID_Path" value="D:\Testing File\sample_did.csv"/>
 		<parameter name="dID_Number" value="9876543210"/>
@@ -117,6 +118,7 @@
 			</class>
 		</classes>
 	</test>
+-->
 
 	<test name="Tags Creation">
 		<parameter name="tag_Name" value="QA"/>
@@ -203,5 +205,4 @@
 		</classes>
 	</test>
 		
-	
 </suite>

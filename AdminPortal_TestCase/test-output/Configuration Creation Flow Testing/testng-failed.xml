@@ -1,93 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Failed suite [Configuration Creation Flow Testing]" guice-stage="DEVELOPMENT">
-  <test thread-count="5" name="Disposition Creation(failed)">
-    <parameter name="dispo_Name" value="QA"/>
-    <parameter name="dispo_Description" value="Testing Purpose"/>
-    <parameter name="dispo_Action" value="No Action"/>
-    <classes>
-      <class name="Admin_Configuration_CreateFlow.Create_Dispo">
-        <methods>
-          <include name="Create_Disposition" invocation-numbers="0"/>
-          <include name="Quit"/>
-          <include name="Login"/>
-          <include name="Setup"/>
-        </methods>
-      </class> <!-- Admin_Configuration_CreateFlow.Create_Dispo -->
-    </classes>
-  </test> <!-- Disposition Creation(failed) -->
-  <test thread-count="5" name="SubDisposition Creation(failed)">
-    <parameter name="disposition" value="QA"/>
-    <parameter name="sub_Disposition" value="Demo"/>
-    <parameter name="subDispo_Description" value="Testing Purpose"/>
-    <classes>
-      <class name="Admin_Configuration_CreateFlow.Create_SubDisposition">
-        <methods>
-          <include name="Quit"/>
-          <include name="Login"/>
-          <include name="Setup"/>
-          <include name="Create_SubDisposition" invocation-numbers="0"/>
-        </methods>
-      </class> <!-- Admin_Configuration_CreateFlow.Create_SubDisposition -->
-    </classes>
-  </test> <!-- SubDisposition Creation(failed) -->
-  <test thread-count="5" name="AudioStore Upload(failed)">
-    <parameter name="audio_Description" value="QA"/>
-    <parameter name="audio_Path" value="D:\Testing File\demo.mp3"/>
-    <classes>
-      <class name="Admin_Configuration_CreateFlow.Uplode_AudioStore">
-        <methods>
-          <include name="Uplode_Audio"/>
-          <include name="Quit"/>
-          <include name="Login"/>
-          <include name="Setup"/>
-        </methods>
-      </class> <!-- Admin_Configuration_CreateFlow.Uplode_AudioStore -->
-    </classes>
-  </test> <!-- AudioStore Upload(failed) -->
-  <test thread-count="5" name="BlockList Upload(failed)">
-    <parameter name="blockList_Path" value="D:\Testing File\sample_blocklist.csv"/>
-    <parameter name="phno" value="9090909092"/>
-    <classes>
-      <class name="Admin_Configuration_CreateFlow.Upload_BlockList">
-        <methods>
-          <include name="Setup"/>
-          <include name="Quit"/>
-          <include name="Login"/>
-          <include name="Uplode_BlockList" invocation-numbers="0"/>
-        </methods>
-      </class> <!-- Admin_Configuration_CreateFlow.Upload_BlockList -->
-    </classes>
-  </test> <!-- BlockList Upload(failed) -->
-  <test thread-count="5" name="Tags Creation(failed)">
-    <parameter name="tag_Name" value="QA"/>
-    <parameter name="tag_Description" value="Testing"/>
-    <classes>
-      <class name="Admin_Configuration_CreateFlow.Create_Tags">
-        <methods>
-          <include name="Setup"/>
-          <include name="Quit"/>
-          <include name="Login"/>
-          <include name="Tags_Creation"/>
-        </methods>
-      </class> <!-- Admin_Configuration_CreateFlow.Create_Tags -->
-    </classes>
-  </test> <!-- Tags Creation(failed) -->
-  <test thread-count="5" name="Announcemet Creation(failed)">
-    <parameter name="announcement_Name" value="QA"/>
-    <parameter name="announcement_Campaign" value="Dialer"/>
-    <parameter name="announcement" value="Good Morning"/>
-    <classes>
-      <class name="Admin_Configuration_CreateFlow.Create_Announcement">
-        <methods>
-          <include name="Create_Announcement" invocation-numbers="0"/>
-          <include name="Setup"/>
-          <include name="Quit"/>
-          <include name="Login"/>
-        </methods>
-      </class> <!-- Admin_Configuration_CreateFlow.Create_Announcement -->
-    </classes>
-  </test> <!-- Announcemet Creation(failed) -->
   <test thread-count="5" name="InboundRoute Creation(failed)">
     <parameter name="destination_Value" value="QA"/>
     <parameter name="blockList" value="true"/>
@@ -99,7 +12,7 @@
         <methods>
           <include name="Quit"/>
           <include name="Login"/>
-          <include name="InboundRoute_Create"/>
+          <include name="InboundRoute_Create" invocation-numbers="0"/>
           <include name="Setup"/>
         </methods>
       </class> <!-- Admin_Configuration_CreateFlow.Create_InboundRoute -->
