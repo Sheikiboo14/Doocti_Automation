@@ -7,7 +7,7 @@
 	<test name="UserGroup Creation">
 		<classes>
 			<class name="Admin_UsersGroups_CreateFlow.Create_UserGroup">
-				<parameter name="usergroup_name" value="Quality Assurance"/>
+				<parameter name="usergroup_name" value="QA"/>
 				<methods>
 					<include name="Create_UserGroup"></include>
 				</methods>

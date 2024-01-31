@@ -7,7 +7,7 @@
 			
 	<test name="Queue Creation">
 		<parameter name="queue_Name" value="QA"/>
-		<parameter name="queue_WaitTime" value="20"/>
+		<parameter name="queue_WaitTime" value="25"/>
 		<parameter name="queue_Strategy" value="Leastrecent"/>
 		<classes>
 			<class name="Admin_Configuration_CreateFlow.Create_Queue">
@@ -489,7 +489,7 @@
 		<parameter name="user_Email" value="smibrahim_agent12@doocti.com"/>
 		<parameter name="user_Status" value="Inactive"/>
 		<parameter name="mobileNo" value="9889898233"/>
-		<parameter name="user_Group" value="Testing"/>
+		<parameter name="user_Group" value="smibrahim_admin"/>
 		<parameter name="user_Role" value="Administrator"/>
 		
 		<classes>
@@ -618,7 +618,7 @@
 	</test>-->
 			
 	<test name="BlockList Deletion">
-		<parameter name="phno" value="9090909091"/>
+		<parameter name="phno" value="9090909090"/>
 		<classes>
 			<class name="Admin_Configuration_DeleteFlow.Delete_BlockList">
 				<methods>

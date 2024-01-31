@@ -1,15 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Failed suite [Users Group Creation Flow Testing]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="UserGroup Creation(failed)">
+    <classes>
+      <class name="Admin_UsersGroups_CreateFlow.Create_UserGroup">
+        <parameter name="usergroup_name" value="Quality Assurance"/>
+        <methods>
+          <include name="Quit"/>
+          <include name="Login"/>
+          <include name="Create_UserGroup" invocation-numbers="0"/>
+          <include name="Setup"/>
+        </methods>
+      </class> <!-- Admin_UsersGroups_CreateFlow.Create_UserGroup -->
+    </classes>
+  </test> <!-- UserGroup Creation(failed) -->
   <test thread-count="5" name="User Creation(failed)">
     <classes>
       <class name="Admin_UsersGroups_CreateFlow.Create_User">
         <parameter name="user_role" value="Agent"/>
-        <parameter name="user_email" value="smibrahim_agent07@doocti.com"/>
+        <parameter name="user_email" value="smibrahim_agent0@8doocti.com"/>
         <parameter name="user_password" value="Doocti@123"/>
-        <parameter name="user_group" value="smibrahim_admin"/>
-        <parameter name="user_id" value="smibrahim_agent10"/>
-        <parameter name="user_name" value="Testing"/>
+        <parameter name="user_group" value="Quality Assurance"/>
+        <parameter name="user_id" value="smibrahim_agent08"/>
+        <parameter name="user_name" value="Tester"/>
         <parameter name="user_mobileno" value="122344"/>
         <methods>
           <include name="Setup"/>
@@ -20,4 +33,37 @@
       </class> <!-- Admin_UsersGroups_CreateFlow.Create_User -->
     </classes>
   </test> <!-- User Creation(failed) -->
+  <test thread-count="5" name="Source Creation(failed)">
+    <classes>
+      <class name="Admin_UsersGroups_CreateFlow.Create_Source">
+        <parameter name="source_name" value="Demo"/>
+        <parameter name="source_description" value="Testing"/>
+        <methods>
+          <include name="Create_Source"/>
+          <include name="Quit"/>
+          <include name="Login"/>
+          <include name="Setup"/>
+        </methods>
+      </class> <!-- Admin_UsersGroups_CreateFlow.Create_Source -->
+    </classes>
+  </test> <!-- Source Creation(failed) -->
+  <test thread-count="5" name="Team Creation(failed)">
+    <classes>
+      <class name="Admin_UsersGroups_CreateFlow.Create_Team">
+        <parameter name="team_campaign" value="Dialer"/>
+        <parameter name="team_description" value="Testing"/>
+        <parameter name="team_leadsource" value="Demo"/>
+        <parameter name="team_type" value="All"/>
+        <parameter name="team_channel" value="Tester"/>
+        <parameter name="team_user" value="smibrahim_agent08@doocti.com"/>
+        <parameter name="team_name" value="Quality Assurance"/>
+        <methods>
+          <include name="Quit"/>
+          <include name="Create_Team"/>
+          <include name="Login"/>
+          <include name="Setip"/>
+        </methods>
+      </class> <!-- Admin_UsersGroups_CreateFlow.Create_Team -->
+    </classes>
+  </test> <!-- Team Creation(failed) -->
 </suite> <!-- Failed suite [Users Group Creation Flow Testing] -->

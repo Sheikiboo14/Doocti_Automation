@@ -13,22 +13,7 @@ import Login.AdminLogin;
 
 public class Update_UserGroups extends AdminLogin {
 	
-//	String UserGroups_Name ;
-//	
-//	String Updated_UsergroupName;
-//	
-//	boolean RealTime ;
-//	
-//	boolean Report ;
-//	
-//	boolean Management ;
-//	
-//	boolean Configuration ;
-//	
-//	boolean Leads;
-//	
-//	boolean FormBuilder ;
-	
+
 	
 	
 	
