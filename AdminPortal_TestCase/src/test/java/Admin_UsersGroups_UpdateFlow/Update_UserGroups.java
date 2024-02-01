@@ -53,7 +53,7 @@ public class Update_UserGroups extends AdminLogin {
 		
 		// Update Name
 				
-		action.doubleClick(driver.findElement(By.xpath("(//input[@aria-label='Group'])[1]"))).sendKeys(Keys.BACK_SPACE).build().perform();
+		action.doubleClick(driver.findElement(By.xpath("//input[@aria-label='Group']"))).sendKeys(Keys.BACK_SPACE).build().perform();
 		
 		driver.findElement(By.xpath("(//input[@aria-label='Group'])[1]")).sendKeys(updated_UsergroupName);
 		

@@ -22,4 +22,44 @@
       </class> <!-- Admin_UsersGroups_UpdateFlow.Update_UserGroups -->
     </classes>
   </test> <!-- UserGroups Updation(failed) -->
+  <test thread-count="5" name="Source Updation(failed)">
+    <parameter name="source_Status" value="Inactive"/>
+    <parameter name="source_Name" value="Source"/>
+    <classes>
+      <class name="Admin_UsersGroups_UpdateFlow.Update_Source">
+        <methods>
+          <include name="Quit"/>
+          <include name="Login"/>
+          <include name="Setup"/>
+          <include name="Update_Source"/>
+        </methods>
+      </class> <!-- Admin_UsersGroups_UpdateFlow.Update_Source -->
+    </classes>
+  </test> <!-- Source Updation(failed) -->
+  <test thread-count="5" name="SubDisposition Deletion(failed)">
+    <parameter name="sub_DispoName" value="Demo"/>
+    <classes>
+      <class name="Admin_Configuration_DeleteFlow.Delete_SubDisposition">
+        <methods>
+          <include name="Delete_SubDisposition"/>
+          <include name="Quit"/>
+          <include name="Setup"/>
+          <include name="Login"/>
+        </methods>
+      </class> <!-- Admin_Configuration_DeleteFlow.Delete_SubDisposition -->
+    </classes>
+  </test> <!-- SubDisposition Deletion(failed) -->
+  <test thread-count="5" name="InboundRoute Deletion(failed)">
+    <parameter name="did_Num" value="9090909090"/>
+    <classes>
+      <class name="Admin_Configuration_DeleteFlow.Delete_InboundRouter">
+        <methods>
+          <include name="Delete_InboundRouter" invocation-numbers="0"/>
+          <include name="Quit"/>
+          <include name="Login"/>
+          <include name="Setup"/>
+        </methods>
+      </class> <!-- Admin_Configuration_DeleteFlow.Delete_InboundRouter -->
+    </classes>
+  </test> <!-- InboundRoute Deletion(failed) -->
 </suite> <!-- Failed suite [Admin Smoke Test] -->

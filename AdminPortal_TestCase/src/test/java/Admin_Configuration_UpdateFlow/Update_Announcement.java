@@ -184,6 +184,8 @@ public class Update_Announcement extends AdminLogin {
 		
 		Assert.assertTrue(flag, "Announcement Campaign is not Updated...!");
 		
+		driver.findElement(By.xpath("(//div[@class='v-btn__content'][normalize-space()='Close'])[1]")).click();
+		
 		driver.findElement(By.xpath("(//div[contains(text(),'Configurations')])[1]")).click();
 
 		

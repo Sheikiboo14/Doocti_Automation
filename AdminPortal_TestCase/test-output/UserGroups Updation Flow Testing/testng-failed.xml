@@ -1,37 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Failed suite [UserGroups Updation Flow Testing]" guice-stage="DEVELOPMENT">
-  <test thread-count="5" name="User Updation(failed)">
-    <parameter name="user_Role" value="Agent"/>
-    <parameter name="user_Status" value="Inactive"/>
-    <parameter name="mobileNo" value="9889898233"/>
-    <parameter name="user_Group" value="QA"/>
-    <parameter name="user_Email" value="smibrahim_agent06@doocti.com"/>
+  <test thread-count="5" name="UserGroups Updation(failed)">
+    <parameter name="realTime" value="true"/>
+    <parameter name="updated_UsergroupName" value="Quality"/>
+    <parameter name="management" value="false"/>
+    <parameter name="configuration" value="false"/>
+    <parameter name="leads" value="false"/>
+    <parameter name="report" value="true"/>
+    <parameter name="formBuilder" value="false"/>
+    <parameter name="userGroups_Name" value="QA"/>
     <classes>
-      <class name="Admin_UsersGroups_UpdateFlow.Update_User">
-        <methods>
-          <include name="Update_UserGroup"/>
-          <include name="Setup"/>
-          <include name="Update_Role"/>
-          <include name="Quit"/>
-          <include name="Login"/>
-          <include name="Update_UserMobileNo" invocation-numbers="0"/>
-        </methods>
-      </class> <!-- Admin_UsersGroups_UpdateFlow.Update_User -->
-    </classes>
-  </test> <!-- User Updation(failed) -->
-  <test thread-count="5" name="Team Updation(failed)">
-    <parameter name="team_Name" value="Quality"/>
-    <parameter name="team_Status" value="Active"/>
-    <classes>
-      <class name="Admin_UsersGroups_UpdateFlow.Update_Team">
+      <class name="Admin_UsersGroups_UpdateFlow.Update_UserGroups">
         <methods>
           <include name="Quit"/>
+          <include name="Update_Permission"/>
           <include name="Login"/>
+          <include name="Update_UserGroupName"/>
           <include name="Setup"/>
-          <include name="Update_Team"/>
         </methods>
-      </class> <!-- Admin_UsersGroups_UpdateFlow.Update_Team -->
+      </class> <!-- Admin_UsersGroups_UpdateFlow.Update_UserGroups -->
     </classes>
-  </test> <!-- Team Updation(failed) -->
+  </test> <!-- UserGroups Updation(failed) -->
 </suite> <!-- Failed suite [UserGroups Updation Flow Testing] -->
