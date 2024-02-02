@@ -3,14 +3,14 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="Configuration_UpdationFlow.Announcement_UpdationFlow">
+      <class name="Campaign.Delete_Campaign">
         <methods>
           <include name="Quit"/>
-          <include name="Update_Status"/>
+          <include name="Delete_Campaign"/>
           <include name="Login"/>
           <include name="Setup"/>
         </methods>
-      </class> <!-- Configuration_UpdationFlow.Announcement_UpdationFlow -->
+      </class> <!-- Campaign.Delete_Campaign -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

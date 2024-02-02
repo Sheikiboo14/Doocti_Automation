@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Config Creation Flow Testing">
+	<test name="Announcement Creation">
+		<classes>
+			<class name="Admin_Configuration_CreateFlow.Create_Announcement">
+				<methods>
+					<include name="Create_Announcement"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	<test name="DID Number Creation">
+		<classes>
+			<class name="Admin_Configuration_CreateFlow.Create_DIDNumber">
+				<methods>
+					<include name="Manual_DID_Creation"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	<test name="Disposition Creation">
+		<classes>
+			<class name="Admin_Configuration_CreateFlow.Create_Dispo">
+				<methods>
+					<include name="Create_Disposition"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	<test name="Inbount Route Creation">
+		<classes>
+			<class name="Admin_Configuration_CreateFlow.Create_InboundRoute">
+				<methods>
+					<include name="Create_InboundRoute"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	<test name="Meeting Title Creation">
+		<classes>
+			<class name="Admin_Configuration_CreateFlow.Create_MeetingTitle">
+				<methods>
+					<include name="Create_MeetingTitle"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	<test name="Queue Creation">
+		<classes>
+			<class name="Admin_Configuration_CreateFlow.Create_Queue">
+				<methods>
+					<include name="Create_Queue"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	<test name="Script Creation">
+		<classes>
+			<class name="Admin_Configuration_CreateFlow.Create_Script">
+				<methods>
+					<include name="Create_Script"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	<test name="Sub Disposition Creation">
+		<classes>
+			<class name="Admin_Configuration_CreateFlow.Create_SubDisposition">
+				<methods>
+					<include name="Create_SubDisposition"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	<test name="Tags Creation">
+		<classes>
+			<class name="Admin_Configuration_CreateFlow.Create_Tags">
+				<methods>
+					<include name="Create_Tags"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+		
+	<test name="Ticket Status Creation">
+		<classes>
+			<class name="Admin_Configuration_CreateFlow.Create_TicketStatus">
+				<methods>
+					<include name="Create_TicketStatus"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+			
+	<test name="TimeZone Creation">
+		<classes>
+			<class name="Admin_Configuration_CreateFlow.Create_TimeZone">
+				<methods>
+					<include name="Create_TimeZone"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+				
+	<test name="Blocklist Upload">
+		<classes>
+			<class name="Admin_Configuration_CreateFlow.Upload_BlockList">
+				<methods>
+					<include name="Upload_BlockList"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+					
+	<test name="AudioStore Upload">
+		<classes>
+			<class name="Admin_Configuration_CreateFlow.Uplode_AudioStore">
+				<methods>
+					<include name="Uplode_AudioStore"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+						
+	<test name="DID Number Upload">
+		<classes>
+			<class name="Admin_Configuration_CreateFlow.Uplode_DIDNumber">
+				<methods>
+					<include name="Uplode_DIDNumber"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	
+	
+</suite>

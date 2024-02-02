@@ -1,85 +1,76 @@
 package Admin_CRM_DeleteFlow;
 
+import java.util.List;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import Login.AdminLogin;
-import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class Delete_Campaign extends AdminLogin 
-
-{	
-	String DeleteCampaignName = "Preview 1";
+public class Delete_Campaign extends AdminLogin{
 	
-	String Expected = "Campaign Deleted Successfully\r\n"
-			+ "Close";
+	String campaign_Name ="Preview 2";
 	
-	@BeforeMethod
-	public void Setup() throws InterruptedException {
+	
+	@BeforeTest
+	public void Setup() {
 		
 		driver.findElement(By.xpath("//div[contains(text(),'CRM')]")).click();
 		
-		Thread.sleep(1000);
+		driver.findElement(By.xpath("(//span[normalize-space()='Campaigns'])[1]")).click();
 		
+		try {
+			
+			Thread.sleep(1000);
+		
+		} 
+		
+		catch (InterruptedException e) {
+		
+			// TODO Auto-generated catch block
+			
+			e.printStackTrace();
+		}
+
 	}
 	
-	@Test(priority = 0)
-	public void DeleteCampaign() throws InterruptedException {
-
+	@Test
+	public void Delete_Campaign() throws InterruptedException{
 		
-		driver.findElement(By.xpath("//span[normalize-space()='Campaigns']")).click();
+		// Delete Campaign
 		
-		Thread.sleep(1000);
-		
-		driver.findElement(By.xpath("//button[@title='Filter']")).click();
+		driver.findElement(By.xpath("//td[text()='"+campaign_Name+"']//following-sibling::td[8]//i[@class='v-icon mr-2 v-icon--link material-icons theme--light red--text']")).click();
 		
 		Thread.sleep(1000);
 		
-		// Filter with name 
-		
-		driver.findElement(By.xpath("(//input[@aria-label='Name'])[3]")).click();
+		driver.findElement(By.xpath("(//div[normalize-space()='Yes, Delete !'])[1]")).click();
 		
 		Thread.sleep(1000);
 		
-		WebElement NameList = driver.findElement(By.xpath("(//div[@role='list'])[6]"));
+		// Close Snakbar
 		
-		NameList.findElement(By.xpath("//div[contains(text(),'"+DeleteCampaignName+"')]")).click();
+		driver.findElement(By.xpath("(//div[@class='v-btn__content'][normalize-space()='Close'])[4]")).click();
 		
-		driver.findElement(By.xpath("//div[@class='v-btn__content'][normalize-space()='Filter']")).click();
+		//Verification
 		
-		Thread.sleep(1000);
+		List<WebElement> Alldatas = driver.findElements(By.xpath("//table[contains(@class,'v-datatable')]//tr//td[1]"));
 		
-		//Deleting the Campaign
+		boolean flag = false;
 		
-		driver.findElement(By.xpath("//i[@class='v-icon mr-2 v-icon--link material-icons theme--light red--text']")).click();
+		for(WebElement Data : Alldatas) {
+			
+			String value = Data.getText();
+			
+			if(value.contains(campaign_Name)) {
+				
+				flag = true;
+			}
+		}
 		
-		driver.findElement(By.xpath("//div[normalize-space()='Yes, Delete !']")).click();
-		
-		Thread.sleep(1000);
-		
-		// Assertion
-		
-		System.out.println(driver.findElement(By.xpath("//div[@class='v-snack__content']")).getText());
-		
-		String Snackbar = driver.findElement(By.xpath("//div[@class='v-snack__content']")).getText();
-		
-		Snackbar.equals(Expected);
-		
-		driver.findElement(By.xpath("//div[contains(text(),'CRM')]")).click();
-
-		
+		Assert.assertFalse(flag,"Campaign is not Deleted...!");
 	}
-	
-	
-	
-	
+
 }
-

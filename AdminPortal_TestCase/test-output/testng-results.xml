@@ -1,580 +1,442 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="18" passed="18" failed="0" skipped="0">
+<testng-results ignored="1" total="5" passed="4" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-02-01T10:09:13 IST" name="Configuration Deletion Flow Testing" finished-at="2024-02-01T10:13:31 IST" duration-ms="258479">
+  <suite started-at="2024-02-02T10:28:15 IST" name="Configuration Deletion Flow Testing" finished-at="2024-02-02T10:31:17 IST" duration-ms="182185">
     <groups>
     </groups>
-    <test started-at="2024-02-01T10:09:13 IST" name="Queue Updation" finished-at="2024-02-01T10:09:45 IST" duration-ms="32196">
-      <class name="Admin_Configuration_UpdateFlow.Update_Queue">
-        <test-method is-config="true" signature="Login()[pri:0, instance:Admin_Configuration_UpdateFlow.Update_Queue@5ba3f27a]" started-at="2024-02-01T10:09:13 IST" name="Login" finished-at="2024-02-01T10:09:25 IST" duration-ms="12703" status="PASS">
+    <test started-at="2024-02-02T10:28:15 IST" name="Preview Campaign Creation" finished-at="2024-02-02T10:28:53 IST" duration-ms="37457">
+      <class name="Admin_CRM_CreateFlow.CreatingPreviewCampaign">
+        <test-method is-config="true" signature="Login()[pri:0, instance:Admin_CRM_CreateFlow.CreatingPreviewCampaign@593aaf41]" started-at="2024-02-02T10:28:15 IST" name="Login" finished-at="2024-02-02T10:28:33 IST" duration-ms="17847" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Login -->
-        <test-method is-config="true" signature="Setup()[pri:0, instance:Admin_Configuration_UpdateFlow.Update_Queue@5ba3f27a]" started-at="2024-02-01T10:09:26 IST" name="Setup" finished-at="2024-02-01T10:09:28 IST" duration-ms="2382" status="PASS">
+        <test-method is-config="true" signature="Setup()[pri:0, instance:Admin_CRM_CreateFlow.CreatingPreviewCampaign@593aaf41]" started-at="2024-02-02T10:28:33 IST" name="Setup" finished-at="2024-02-02T10:28:36 IST" depends-on-methods="Login.AdminLogin.Login" duration-ms="2588" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Setup -->
-        <test-method signature="Update_QueueStrategy(java.lang.String,java.lang.String)[pri:0, instance:Admin_Configuration_UpdateFlow.Update_Queue@5ba3f27a]" started-at="2024-02-01T10:09:28 IST" name="Update_QueueStrategy" finished-at="2024-02-01T10:09:32 IST" duration-ms="3629" status="PASS">
+        <test-method signature="Create_PreviewCampaign(java.lang.String,int,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:Admin_CRM_CreateFlow.CreatingPreviewCampaign@593aaf41]" started-at="2024-02-02T10:28:36 IST" name="Create_PreviewCampaign" finished-at="2024-02-02T10:28:51 IST" duration-ms="15624" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[QA]]>
+                <![CDATA[Preview Campaign]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA[RingAll]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Update_QueueStrategy -->
-        <test-method is-config="true" signature="Setup()[pri:0, instance:Admin_Configuration_UpdateFlow.Update_Queue@5ba3f27a]" started-at="2024-02-01T10:09:32 IST" name="Setup" finished-at="2024-02-01T10:09:34 IST" duration-ms="2148" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Setup -->
-        <test-method signature="Update_QueueWaitTime(java.lang.String,java.lang.String)[pri:0, instance:Admin_Configuration_UpdateFlow.Update_Queue@5ba3f27a]" started-at="2024-02-01T10:09:34 IST" name="Update_QueueWaitTime" finished-at="2024-02-01T10:09:36 IST" duration-ms="2768" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[QA]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[20]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Update_QueueWaitTime -->
-        <test-method is-config="true" signature="Setup()[pri:0, instance:Admin_Configuration_UpdateFlow.Update_Queue@5ba3f27a]" started-at="2024-02-01T10:09:36 IST" name="Setup" finished-at="2024-02-01T10:09:39 IST" duration-ms="2128" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Setup -->
-        <test-method signature="Update_QueueRestart(java.lang.String,java.lang.String)[pri:0, instance:Admin_Configuration_UpdateFlow.Update_Queue@5ba3f27a]" started-at="2024-02-01T10:09:39 IST" name="Update_QueueRestart" finished-at="2024-02-01T10:09:43 IST" duration-ms="4920" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[QA]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[yes]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Update_QueueRestart -->
-        <test-method is-config="true" signature="Quit()[pri:0, instance:Admin_Configuration_UpdateFlow.Update_Queue@5ba3f27a]" started-at="2024-02-01T10:09:43 IST" name="Quit" finished-at="2024-02-01T10:09:45 IST" duration-ms="1382" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Quit -->
-      </class> <!-- Admin_Configuration_UpdateFlow.Update_Queue -->
-    </test> <!-- Queue Updation -->
-    <test started-at="2024-02-01T10:09:45 IST" name="Disoposition Updation" finished-at="2024-02-01T10:10:06 IST" duration-ms="20659">
-      <class name="Admin_Configuration_UpdateFlow.Update_Disposition">
-        <test-method is-config="true" signature="Login()[pri:0, instance:Admin_Configuration_UpdateFlow.Update_Disposition@4efac082]" started-at="2024-02-01T10:09:45 IST" name="Login" finished-at="2024-02-01T10:09:58 IST" duration-ms="13315" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Login -->
-        <test-method is-config="true" signature="Setup()[pri:0, instance:Admin_Configuration_UpdateFlow.Update_Disposition@4efac082]" started-at="2024-02-01T10:09:58 IST" name="Setup" finished-at="2024-02-01T10:10:01 IST" duration-ms="2389" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Setup -->
-        <test-method signature="Update_DispoStatus(java.lang.String,java.lang.String)[pri:0, instance:Admin_Configuration_UpdateFlow.Update_Disposition@4efac082]" started-at="2024-02-01T10:10:01 IST" name="Update_DispoStatus" finished-at="2024-02-01T10:10:04 IST" duration-ms="3574" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[QA]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[Inactive]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Update_DispoStatus -->
-        <test-method is-config="true" signature="Quit()[pri:0, instance:Admin_Configuration_UpdateFlow.Update_Disposition@4efac082]" started-at="2024-02-01T10:10:04 IST" name="Quit" finished-at="2024-02-01T10:10:06 IST" duration-ms="1379" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Quit -->
-      </class> <!-- Admin_Configuration_UpdateFlow.Update_Disposition -->
-    </test> <!-- Disoposition Updation -->
-    <test started-at="2024-02-01T10:10:06 IST" name="Sub-Disoposition Updation" finished-at="2024-02-01T10:10:24 IST" duration-ms="18411">
-      <class name="Admin_Configuration_UpdateFlow.Update_Sub_Disposition">
-        <test-method is-config="true" signature="Login()[pri:0, instance:Admin_Configuration_UpdateFlow.Update_Sub_Disposition@72e5a8e]" started-at="2024-02-01T10:10:06 IST" name="Login" finished-at="2024-02-01T10:10:17 IST" duration-ms="11189" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Login -->
-        <test-method is-config="true" signature="Setup()[pri:0, instance:Admin_Configuration_UpdateFlow.Update_Sub_Disposition@72e5a8e]" started-at="2024-02-01T10:10:17 IST" name="Setup" finished-at="2024-02-01T10:10:19 IST" duration-ms="2357" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Setup -->
-        <test-method signature="Update_SubDispoStatus(java.lang.String,java.lang.String)[pri:0, instance:Admin_Configuration_UpdateFlow.Update_Sub_Disposition@72e5a8e]" started-at="2024-02-01T10:10:19 IST" name="Update_SubDispoStatus" finished-at="2024-02-01T10:10:23 IST" duration-ms="3475" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[Demo]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[Inactive]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Update_SubDispoStatus -->
-        <test-method is-config="true" signature="Quit()[pri:0, instance:Admin_Configuration_UpdateFlow.Update_Sub_Disposition@72e5a8e]" started-at="2024-02-01T10:10:23 IST" name="Quit" finished-at="2024-02-01T10:10:24 IST" duration-ms="1388" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Quit -->
-      </class> <!-- Admin_Configuration_UpdateFlow.Update_Sub_Disposition -->
-    </test> <!-- Sub-Disoposition Updation -->
-    <test started-at="2024-02-01T10:10:24 IST" name="Ticket Status Updation" finished-at="2024-02-01T10:10:43 IST" duration-ms="19124">
-      <class name="Admin_Configuration_UpdateFlow.Update_TicketStatus">
-        <test-method is-config="true" signature="Login()[pri:0, instance:Admin_Configuration_UpdateFlow.Update_TicketStatus@272113c4]" started-at="2024-02-01T10:10:24 IST" name="Login" finished-at="2024-02-01T10:10:36 IST" duration-ms="11840" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Login -->
-        <test-method is-config="true" signature="Setup()[pri:0, instance:Admin_Configuration_UpdateFlow.Update_TicketStatus@272113c4]" started-at="2024-02-01T10:10:36 IST" name="Setup" finished-at="2024-02-01T10:10:38 IST" duration-ms="2344" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Setup -->
-        <test-method signature="Update_TicketStatusStatus(java.lang.String,java.lang.String)[pri:0, instance:Admin_Configuration_UpdateFlow.Update_TicketStatus@272113c4]" started-at="2024-02-01T10:10:38 IST" name="Update_TicketStatusStatus" finished-at="2024-02-01T10:10:42 IST" duration-ms="3568" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[QA]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[Inactive]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Update_TicketStatusStatus -->
-        <test-method is-config="true" signature="Quit()[pri:0, instance:Admin_Configuration_UpdateFlow.Update_TicketStatus@272113c4]" started-at="2024-02-01T10:10:42 IST" name="Quit" finished-at="2024-02-01T10:10:43 IST" duration-ms="1369" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Quit -->
-      </class> <!-- Admin_Configuration_UpdateFlow.Update_TicketStatus -->
-    </test> <!-- Ticket Status Updation -->
-    <test started-at="2024-02-01T10:10:43 IST" name="PauseCode Updation" finished-at="2024-02-01T10:11:09 IST" duration-ms="26006">
-      <class name="Admin_Configuration_UpdateFlow.Update_PauseCode">
-        <test-method is-config="true" signature="Login()[pri:0, instance:Admin_Configuration_UpdateFlow.Update_PauseCode@130c12b7]" started-at="2024-02-01T10:10:43 IST" name="Login" finished-at="2024-02-01T10:10:56 IST" duration-ms="12820" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Login -->
-        <test-method is-config="true" signature="Setup()[pri:0, instance:Admin_Configuration_UpdateFlow.Update_PauseCode@130c12b7]" started-at="2024-02-01T10:10:56 IST" name="Setup" finished-at="2024-02-01T10:10:58 IST" duration-ms="2349" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Setup -->
-        <test-method signature="Update_PausecodeTime(java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:Admin_Configuration_UpdateFlow.Update_PauseCode@130c12b7]" started-at="2024-02-01T10:10:58 IST" name="Update_PausecodeTime" finished-at="2024-02-01T10:11:02 IST" duration-ms="3731" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[QA]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[0]]>
+                <![CDATA[3]]>
               </value>
             </param>
             <param index="2">
               <value>
-                <![CDATA[55]]>
+                <![CDATA[IT]]>
               </value>
             </param>
             <param index="3">
               <value>
-                <![CDATA[00:55:00]]>
+                <![CDATA[Dialer]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[smibrahim_8071893401]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[Meeting]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[Lunch]]>
+              </value>
+            </param>
+            <param index="7">
+              <value>
+                <![CDATA[Tea Break]]>
+              </value>
+            </param>
+            <param index="8">
+              <value>
+                <![CDATA[Interested]]>
+              </value>
+            </param>
+            <param index="9">
+              <value>
+                <![CDATA[Reassign]]>
+              </value>
+            </param>
+            <param index="10">
+              <value>
+                <![CDATA[CALLBACK]]>
+              </value>
+            </param>
+            <param index="11">
+              <value>
+                <![CDATA[Interested]]>
+              </value>
+            </param>
+            <param index="12">
+              <value>
+                <![CDATA[Reassign]]>
+              </value>
+            </param>
+            <param index="13">
+              <value>
+                <![CDATA[CALLBACK]]>
+              </value>
+            </param>
+            <param index="14">
+              <value>
+                <![CDATA[Testing]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- Update_PausecodeTime -->
-        <test-method is-config="true" signature="Setup()[pri:0, instance:Admin_Configuration_UpdateFlow.Update_PauseCode@130c12b7]" started-at="2024-02-01T10:11:02 IST" name="Setup" finished-at="2024-02-01T10:11:04 IST" duration-ms="2143" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Setup -->
-        <test-method signature="Update_PausecodeStatus(java.lang.String,java.lang.String)[pri:0, instance:Admin_Configuration_UpdateFlow.Update_PauseCode@130c12b7]" started-at="2024-02-01T10:11:04 IST" name="Update_PausecodeStatus" finished-at="2024-02-01T10:11:08 IST" duration-ms="3559" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[QA]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[Inactive]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Update_PausecodeStatus -->
-        <test-method is-config="true" signature="Quit()[pri:0, instance:Admin_Configuration_UpdateFlow.Update_PauseCode@130c12b7]" started-at="2024-02-01T10:11:08 IST" name="Quit" finished-at="2024-02-01T10:11:09 IST" duration-ms="1401" status="PASS">
+        </test-method> <!-- Create_PreviewCampaign -->
+        <test-method is-config="true" signature="Quit()[pri:0, instance:Admin_CRM_CreateFlow.CreatingPreviewCampaign@593aaf41]" started-at="2024-02-02T10:28:51 IST" name="Quit" finished-at="2024-02-02T10:28:53 IST" duration-ms="1355" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Quit -->
-      </class> <!-- Admin_Configuration_UpdateFlow.Update_PauseCode -->
-    </test> <!-- PauseCode Updation -->
-    <test started-at="2024-02-01T10:11:09 IST" name="DID Number Updation" finished-at="2024-02-01T10:11:35 IST" duration-ms="25994">
-      <class name="Admin_Configuration_UpdateFlow.Update_DIDNumber">
-        <test-method is-config="true" signature="Login()[pri:0, instance:Admin_Configuration_UpdateFlow.Update_DIDNumber@6fdbe764]" started-at="2024-02-01T10:11:09 IST" name="Login" finished-at="2024-02-01T10:11:21 IST" duration-ms="11983" status="PASS">
+      </class> <!-- Admin_CRM_CreateFlow.CreatingPreviewCampaign -->
+    </test> <!-- Preview Campaign Creation -->
+    <test started-at="2024-02-02T10:28:53 IST" name="Inbound Campaign Creation" finished-at="2024-02-02T10:29:31 IST" duration-ms="38154">
+      <class name="Admin_CRM_CreateFlow.CreatingInboundCampaign">
+        <test-method is-config="true" signature="Login()[pri:0, instance:Admin_CRM_CreateFlow.CreatingInboundCampaign@7d4f9aae]" started-at="2024-02-02T10:28:53 IST" name="Login" finished-at="2024-02-02T10:29:12 IST" duration-ms="19258" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Login -->
-        <test-method is-config="true" signature="Setup()[pri:0, instance:Admin_Configuration_UpdateFlow.Update_DIDNumber@6fdbe764]" started-at="2024-02-01T10:11:21 IST" name="Setup" finished-at="2024-02-01T10:11:23 IST" duration-ms="2299" status="PASS">
+        <test-method is-config="true" signature="Setup()[pri:0, instance:Admin_CRM_CreateFlow.CreatingInboundCampaign@7d4f9aae]" started-at="2024-02-02T10:29:12 IST" name="Setup" finished-at="2024-02-02T10:29:14 IST" depends-on-methods="Login.AdminLogin.Login" duration-ms="2494" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Setup -->
-        <test-method signature="Update_DIDNumberStatus(java.lang.String,java.lang.String)[pri:0, instance:Admin_Configuration_UpdateFlow.Update_DIDNumber@6fdbe764]" started-at="2024-02-01T10:11:23 IST" name="Update_DIDNumberStatus" finished-at="2024-02-01T10:11:28 IST" duration-ms="4553" status="PASS">
+        <test-method signature="Create_InboundCampaign(java.lang.String,int,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:Admin_CRM_CreateFlow.CreatingInboundCampaign@7d4f9aae]" started-at="2024-02-02T10:29:14 IST" name="Create_InboundCampaign" finished-at="2024-02-02T10:29:29 IST" duration-ms="15034" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[9876543209]]>
+                <![CDATA[Inbound Campaign]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA[Inactive]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Update_DIDNumberStatus -->
-        <test-method is-config="true" signature="Setup()[pri:0, instance:Admin_Configuration_UpdateFlow.Update_DIDNumber@6fdbe764]" started-at="2024-02-01T10:11:28 IST" name="Setup" finished-at="2024-02-01T10:11:30 IST" duration-ms="2156" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Setup -->
-        <test-method signature="Update_DIDNumberLive(java.lang.String,java.lang.String)[pri:0, instance:Admin_Configuration_UpdateFlow.Update_DIDNumber@6fdbe764]" started-at="2024-02-01T10:11:30 IST" name="Update_DIDNumberLive" finished-at="2024-02-01T10:11:34 IST" duration-ms="3594" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[9876543209]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[No]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Update_DIDNumberLive -->
-        <test-method is-config="true" signature="Quit()[pri:0, instance:Admin_Configuration_UpdateFlow.Update_DIDNumber@6fdbe764]" started-at="2024-02-01T10:11:34 IST" name="Quit" finished-at="2024-02-01T10:11:35 IST" duration-ms="1405" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Quit -->
-      </class> <!-- Admin_Configuration_UpdateFlow.Update_DIDNumber -->
-    </test> <!-- DID Number Updation -->
-    <test started-at="2024-02-01T10:11:35 IST" name="Tag Updation" finished-at="2024-02-01T10:11:54 IST" duration-ms="18759">
-      <class name="Admin_Configuration_UpdateFlow.Update_Tags">
-        <test-method is-config="true" signature="Login()[pri:0, instance:Admin_Configuration_UpdateFlow.Update_Tags@25641d39]" started-at="2024-02-01T10:11:35 IST" name="Login" finished-at="2024-02-01T10:11:46 IST" duration-ms="11291" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Login -->
-        <test-method is-config="true" signature="Setup()[pri:0, instance:Admin_Configuration_UpdateFlow.Update_Tags@25641d39]" started-at="2024-02-01T10:11:46 IST" name="Setup" finished-at="2024-02-01T10:11:49 IST" duration-ms="2361" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Setup -->
-        <test-method signature="Update_TagStatus(java.lang.String,java.lang.String)[pri:0, instance:Admin_Configuration_UpdateFlow.Update_Tags@25641d39]" started-at="2024-02-01T10:11:49 IST" name="Update_TagStatus" finished-at="2024-02-01T10:11:53 IST" duration-ms="3765" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[QA]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[inactive]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Update_TagStatus -->
-        <test-method is-config="true" signature="Quit()[pri:0, instance:Admin_Configuration_UpdateFlow.Update_Tags@25641d39]" started-at="2024-02-01T10:11:53 IST" name="Quit" finished-at="2024-02-01T10:11:54 IST" duration-ms="1337" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Quit -->
-      </class> <!-- Admin_Configuration_UpdateFlow.Update_Tags -->
-    </test> <!-- Tag Updation -->
-    <test started-at="2024-02-01T10:11:54 IST" name="Announcement Updation" finished-at="2024-02-01T10:12:27 IST" duration-ms="32592">
-      <class name="Admin_Configuration_UpdateFlow.Update_Announcement">
-        <test-method is-config="true" signature="Login()[pri:0, instance:Admin_Configuration_UpdateFlow.Update_Announcement@791f145a]" started-at="2024-02-01T10:11:54 IST" name="Login" finished-at="2024-02-01T10:12:06 IST" duration-ms="12196" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Login -->
-        <test-method is-config="true" signature="Setup()[pri:0, instance:Admin_Configuration_UpdateFlow.Update_Announcement@791f145a]" started-at="2024-02-01T10:12:06 IST" name="Setup" finished-at="2024-02-01T10:12:09 IST" duration-ms="2440" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Setup -->
-        <test-method signature="Update_AnnouncementStatus(java.lang.String,java.lang.String)[pri:0, instance:Admin_Configuration_UpdateFlow.Update_Announcement@791f145a]" started-at="2024-02-01T10:12:09 IST" name="Update_AnnouncementStatus" finished-at="2024-02-01T10:12:11 IST" duration-ms="2575" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[QA]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[Inactive]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Update_AnnouncementStatus -->
-        <test-method is-config="true" signature="Setup()[pri:0, instance:Admin_Configuration_UpdateFlow.Update_Announcement@791f145a]" started-at="2024-02-01T10:12:11 IST" name="Setup" finished-at="2024-02-01T10:12:13 IST" duration-ms="2156" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Setup -->
-        <test-method signature="Update_AnnouncementMessage(java.lang.String,java.lang.String)[pri:0, instance:Admin_Configuration_UpdateFlow.Update_Announcement@791f145a]" started-at="2024-02-01T10:12:13 IST" name="Update_AnnouncementMessage" finished-at="2024-02-01T10:12:17 IST" duration-ms="4049" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[QA]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[Good Vibes]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Update_AnnouncementMessage -->
-        <test-method is-config="true" signature="Setup()[pri:0, instance:Admin_Configuration_UpdateFlow.Update_Announcement@791f145a]" started-at="2024-02-01T10:12:17 IST" name="Setup" finished-at="2024-02-01T10:12:20 IST" duration-ms="2146" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Setup -->
-        <test-method signature="Update_AnnouncementCampaign(java.lang.String,java.lang.String)[pri:0, instance:Admin_Configuration_UpdateFlow.Update_Announcement@791f145a]" started-at="2024-02-01T10:12:20 IST" name="Update_AnnouncementCampaign" finished-at="2024-02-01T10:12:24 IST" duration-ms="4827" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[QA]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[Test]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Update_AnnouncementCampaign -->
-        <test-method is-config="true" signature="Quit()[pri:0, instance:Admin_Configuration_UpdateFlow.Update_Announcement@791f145a]" started-at="2024-02-01T10:12:24 IST" name="Quit" finished-at="2024-02-01T10:12:27 IST" duration-ms="2182" status="FAIL">
-          <exception class="org.openqa.selenium.ElementClickInterceptedException">
-            <message>
-              <![CDATA[element click intercepted: Element <i data-v-94969a7c="" aria-hidden="true" title="Sign Out" class="v-icon v-icon--link material-icons theme--light" style="color: rgb(33, 150, 241); caret-color: rgb(33, 150, 241);">...</i> is not clickable at point (1330, 37). Other element would receive the click: <div class="v-overlay v-overlay--active" style="z-index: 201;"></div>
-  (Session info: chrome=120.0.6099.227)
-Build info: version: '4.16.1', revision: '9b4c83354e'
-System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.8.1'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [9d4426f2badb0a0ea7e51005cdf7720b, clickElement {id=2CD6903090DED7D206ED6F95F00B9CCD_element_252}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 120.0.6099.227, chrome: {chromedriverVersion: 120.0.6099.109 (3419140ab66..., userDataDir: C:\Users\User\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:53171}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:53171/devtoo..., se:cdpVersion: 120.0.6099.227, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on windows (9d4426f2badb0a0ea7e51005cdf7720b)] -> xpath: //i[@title='Sign Out']]
-Session ID: 9d4426f2badb0a0ea7e51005cdf7720b]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element <i data-v-94969a7c="" aria-hidden="true" title="Sign Out" class="v-icon v-icon--link material-icons theme--light" style="color: rgb(33, 150, 241); caret-color: rgb(33, 150, 241);">...</i> is not clickable at point (1330, 37). Other element would receive the click: <div class="v-overlay v-overlay--active" style="z-index: 201;"></div>
-  (Session info: chrome=120.0.6099.227)
-Build info: version: '4.16.1', revision: '9b4c83354e'
-System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.8.1'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [9d4426f2badb0a0ea7e51005cdf7720b, clickElement {id=2CD6903090DED7D206ED6F95F00B9CCD_element_252}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 120.0.6099.227, chrome: {chromedriverVersion: 120.0.6099.109 (3419140ab66..., userDataDir: C:\Users\User\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:53171}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:53171/devtoo..., se:cdpVersion: 120.0.6099.227, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on windows (9d4426f2badb0a0ea7e51005cdf7720b)] -> xpath: //i[@title='Sign Out']]
-Session ID: 9d4426f2badb0a0ea7e51005cdf7720b
-at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
-at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
-at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:52)
-at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:191)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:200)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:175)
-at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:523)
-at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:224)
-at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:77)
-at Login.AdminLogin.Quit(AdminLogin.java:107)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-at org.testng.internal.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:62)
-at org.testng.internal.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:385)
-at org.testng.internal.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:321)
-at org.testng.TestRunner.invokeTestConfigurations(TestRunner.java:637)
-at org.testng.TestRunner.afterRun(TestRunner.java:877)
-at org.testng.TestRunner.run(TestRunner.java:599)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
-at org.testng.SuiteRunner.run(SuiteRunner.java:276)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
-at org.testng.TestNG.runSuites(TestNG.java:1063)
-at org.testng.TestNG.run(TestNG.java:1031)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.ElementClickInterceptedException -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Quit -->
-      </class> <!-- Admin_Configuration_UpdateFlow.Update_Announcement -->
-    </test> <!-- Announcement Updation -->
-    <test started-at="2024-02-01T10:12:27 IST" name="Script Updation" finished-at="2024-02-01T10:12:53 IST" duration-ms="26883">
-      <class name="Admin_Configuration_UpdateFlow.Update_Script">
-        <test-method is-config="true" signature="Login()[pri:0, instance:Admin_Configuration_UpdateFlow.Update_Script@45099dd3]" started-at="2024-02-01T10:12:27 IST" name="Login" finished-at="2024-02-01T10:12:38 IST" duration-ms="11861" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Login -->
-        <test-method is-config="true" signature="Setup()[pri:0, instance:Admin_Configuration_UpdateFlow.Update_Script@45099dd3]" started-at="2024-02-01T10:12:38 IST" name="Setup" finished-at="2024-02-01T10:12:41 IST" duration-ms="2356" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Setup -->
-        <test-method signature="Update_ScriptStatus(java.lang.String,java.lang.String)[pri:0, instance:Admin_Configuration_UpdateFlow.Update_Script@45099dd3]" started-at="2024-02-01T10:12:41 IST" name="Update_ScriptStatus" finished-at="2024-02-01T10:12:46 IST" duration-ms="4749" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[QA]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[INACTIVE]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Update_ScriptStatus -->
-        <test-method is-config="true" signature="Setup()[pri:0, instance:Admin_Configuration_UpdateFlow.Update_Script@45099dd3]" started-at="2024-02-01T10:12:46 IST" name="Setup" finished-at="2024-02-01T10:12:48 IST" duration-ms="2166" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Setup -->
-        <test-method signature="Update_ScriptContent(java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:Admin_Configuration_UpdateFlow.Update_Script@45099dd3]" started-at="2024-02-01T10:12:48 IST" name="Update_ScriptContent" finished-at="2024-02-01T10:12:52 IST" duration-ms="4334" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[QA]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[https://web-v2.doocti.com/v2.1.105/]]>
+                <![CDATA[3]]>
               </value>
             </param>
             <param index="2">
               <value>
-                <![CDATA[Testingggg]]>
+                <![CDATA[IT]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[Dialer]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[smibrahim_8071893401]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[Meeting]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[Lunch]]>
+              </value>
+            </param>
+            <param index="7">
+              <value>
+                <![CDATA[Tea Break]]>
+              </value>
+            </param>
+            <param index="8">
+              <value>
+                <![CDATA[Interested]]>
+              </value>
+            </param>
+            <param index="9">
+              <value>
+                <![CDATA[Reassign]]>
+              </value>
+            </param>
+            <param index="10">
+              <value>
+                <![CDATA[CALLBACK]]>
+              </value>
+            </param>
+            <param index="11">
+              <value>
+                <![CDATA[Interested]]>
+              </value>
+            </param>
+            <param index="12">
+              <value>
+                <![CDATA[Reassign]]>
+              </value>
+            </param>
+            <param index="13">
+              <value>
+                <![CDATA[CALLBACK]]>
+              </value>
+            </param>
+            <param index="14">
+              <value>
+                <![CDATA[Testing]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- Update_ScriptContent -->
-        <test-method is-config="true" signature="Quit()[pri:0, instance:Admin_Configuration_UpdateFlow.Update_Script@45099dd3]" started-at="2024-02-01T10:12:52 IST" name="Quit" finished-at="2024-02-01T10:12:53 IST" duration-ms="1403" status="PASS">
+        </test-method> <!-- Create_InboundCampaign -->
+        <test-method is-config="true" signature="Quit()[pri:0, instance:Admin_CRM_CreateFlow.CreatingInboundCampaign@7d4f9aae]" started-at="2024-02-02T10:29:29 IST" name="Quit" finished-at="2024-02-02T10:29:31 IST" duration-ms="1365" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Quit -->
-      </class> <!-- Admin_Configuration_UpdateFlow.Update_Script -->
-    </test> <!-- Script Updation -->
-    <test started-at="2024-02-01T10:12:54 IST" name="Timezone Updation" finished-at="2024-02-01T10:13:12 IST" duration-ms="18761">
-      <class name="Admin_Configuration_UpdateFlow.Update_TimeZone">
-        <test-method is-config="true" signature="Login()[pri:0, instance:Admin_Configuration_UpdateFlow.Update_TimeZone@20140db9]" started-at="2024-02-01T10:12:54 IST" name="Login" finished-at="2024-02-01T10:13:05 IST" duration-ms="11353" status="PASS">
+      </class> <!-- Admin_CRM_CreateFlow.CreatingInboundCampaign -->
+    </test> <!-- Inbound Campaign Creation -->
+    <test started-at="2024-02-02T10:29:31 IST" name="Predictive Campaign Creation" finished-at="2024-02-02T10:30:12 IST" duration-ms="40849">
+      <class name="Admin_CRM_CreateFlow.CreatingPredictiveCampaign">
+        <test-method is-config="true" signature="Login()[pri:0, instance:Admin_CRM_CreateFlow.CreatingPredictiveCampaign@272113c4]" started-at="2024-02-02T10:29:31 IST" name="Login" finished-at="2024-02-02T10:29:50 IST" duration-ms="19215" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Login -->
-        <test-method is-config="true" signature="Setup()[pri:0, instance:Admin_Configuration_UpdateFlow.Update_TimeZone@20140db9]" started-at="2024-02-01T10:13:05 IST" name="Setup" finished-at="2024-02-01T10:13:07 IST" duration-ms="2405" status="PASS">
+        <test-method is-config="true" signature="Setup()[pri:0, instance:Admin_CRM_CreateFlow.CreatingPredictiveCampaign@272113c4]" started-at="2024-02-02T10:29:50 IST" name="Setup" finished-at="2024-02-02T10:29:53 IST" depends-on-methods="Login.AdminLogin.Login" duration-ms="2679" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Setup -->
-        <test-method signature="Update_TimezoneStatus(java.lang.String,java.lang.String)[pri:0, instance:Admin_Configuration_UpdateFlow.Update_TimeZone@20140db9]" started-at="2024-02-01T10:13:07 IST" name="Update_TimezoneStatus" finished-at="2024-02-01T10:13:11 IST" duration-ms="3621" status="PASS">
+        <test-method signature="Create_PredictiveCampaign(java.lang.String,int,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,int,float)[pri:0, instance:Admin_CRM_CreateFlow.CreatingPredictiveCampaign@272113c4]" started-at="2024-02-02T10:29:53 IST" name="Create_PredictiveCampaign" finished-at="2024-02-02T10:30:10 IST" duration-ms="17647" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[QA]]>
+                <![CDATA[Predictive Campaign]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA[Inactive]]>
+                <![CDATA[3]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[IT]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[Dialer]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[smibrahim_8071893401]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[Meeting]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[Lunch]]>
+              </value>
+            </param>
+            <param index="7">
+              <value>
+                <![CDATA[Tea Break]]>
+              </value>
+            </param>
+            <param index="8">
+              <value>
+                <![CDATA[Interested]]>
+              </value>
+            </param>
+            <param index="9">
+              <value>
+                <![CDATA[Reassign]]>
+              </value>
+            </param>
+            <param index="10">
+              <value>
+                <![CDATA[CALLBACK]]>
+              </value>
+            </param>
+            <param index="11">
+              <value>
+                <![CDATA[Interested]]>
+              </value>
+            </param>
+            <param index="12">
+              <value>
+                <![CDATA[Reassign]]>
+              </value>
+            </param>
+            <param index="13">
+              <value>
+                <![CDATA[CALLBACK]]>
+              </value>
+            </param>
+            <param index="14">
+              <value>
+                <![CDATA[Testing]]>
+              </value>
+            </param>
+            <param index="15">
+              <value>
+                <![CDATA[100]]>
+              </value>
+            </param>
+            <param index="16">
+              <value>
+                <![CDATA[1.4]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- Update_TimezoneStatus -->
-        <test-method is-config="true" signature="Quit()[pri:0, instance:Admin_Configuration_UpdateFlow.Update_TimeZone@20140db9]" started-at="2024-02-01T10:13:11 IST" name="Quit" finished-at="2024-02-01T10:13:12 IST" duration-ms="1376" status="PASS">
+        </test-method> <!-- Create_PredictiveCampaign -->
+        <test-method is-config="true" signature="Quit()[pri:0, instance:Admin_CRM_CreateFlow.CreatingPredictiveCampaign@272113c4]" started-at="2024-02-02T10:30:10 IST" name="Quit" finished-at="2024-02-02T10:30:12 IST" duration-ms="1299" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Quit -->
-      </class> <!-- Admin_Configuration_UpdateFlow.Update_TimeZone -->
-    </test> <!-- Timezone Updation -->
-    <test started-at="2024-02-01T10:13:12 IST" name="Meeting Title Updation" finished-at="2024-02-01T10:13:31 IST" duration-ms="18889">
-      <class name="Admin_Configuration_UpdateFlow.Update_MeetingTitle">
-        <test-method is-config="true" signature="Login()[pri:0, instance:Admin_Configuration_UpdateFlow.Update_MeetingTitle@738dc9b]" started-at="2024-02-01T10:13:12 IST" name="Login" finished-at="2024-02-01T10:13:25 IST" duration-ms="12554" status="PASS">
+      </class> <!-- Admin_CRM_CreateFlow.CreatingPredictiveCampaign -->
+    </test> <!-- Predictive Campaign Creation -->
+    <test started-at="2024-02-02T10:30:12 IST" name="Power Campaign Creation" finished-at="2024-02-02T10:30:34 IST" duration-ms="22005">
+      <class name="Admin_CRM_CreateFlow.CreatingPowerCampaign">
+        <test-method is-config="true" signature="Login()[pri:0, instance:Admin_CRM_CreateFlow.CreatingPowerCampaign@5a45133e]" started-at="2024-02-02T10:30:12 IST" name="Login" finished-at="2024-02-02T10:30:30 IST" duration-ms="18005" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Login -->
-        <test-method is-config="true" signature="Setup()[pri:0, instance:Admin_Configuration_UpdateFlow.Update_MeetingTitle@738dc9b]" started-at="2024-02-01T10:13:25 IST" name="Setup" finished-at="2024-02-01T10:13:27 IST" duration-ms="2382" status="PASS">
+        <test-method is-config="true" signature="Setup()[pri:0, instance:Admin_CRM_CreateFlow.CreatingPowerCampaign@5a45133e]" started-at="2024-02-02T10:30:30 IST" name="Setup" finished-at="2024-02-02T10:30:32 IST" depends-on-methods="Login.AdminLogin.Login" duration-ms="2675" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Setup -->
-        <test-method signature="Update_MeetingTitleStatus(java.lang.String,java.lang.String)[pri:0, instance:Admin_Configuration_UpdateFlow.Update_MeetingTitle@738dc9b]" started-at="2024-02-01T10:13:27 IST" name="Update_MeetingTitleStatus" finished-at="2024-02-01T10:13:30 IST" duration-ms="2566" status="PASS">
+        <test-method is-config="true" signature="Quit()[pri:0, instance:Admin_CRM_CreateFlow.CreatingPowerCampaign@5a45133e]" started-at="2024-02-02T10:30:32 IST" name="Quit" finished-at="2024-02-02T10:30:34 IST" duration-ms="1323" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Quit -->
+      </class> <!-- Admin_CRM_CreateFlow.CreatingPowerCampaign -->
+    </test> <!-- Power Campaign Creation -->
+    <test started-at="2024-02-02T10:30:34 IST" name="VoiceBlast Campaign Creation" finished-at="2024-02-02T10:31:17 IST" duration-ms="43686">
+      <class name="Admin_CRM_CreateFlow.CreatingVoiceBlastCampaign">
+        <test-method is-config="true" signature="Login()[pri:0, instance:Admin_CRM_CreateFlow.CreatingVoiceBlastCampaign@51c668e3]" started-at="2024-02-02T10:30:34 IST" name="Login" finished-at="2024-02-02T10:30:51 IST" duration-ms="17193" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Login -->
+        <test-method is-config="true" signature="Setup()[pri:0, instance:Admin_CRM_CreateFlow.CreatingVoiceBlastCampaign@51c668e3]" started-at="2024-02-02T10:30:51 IST" name="Setup" finished-at="2024-02-02T10:30:54 IST" depends-on-methods="Login.AdminLogin.Login" duration-ms="2831" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Setup -->
+        <test-method signature="Create_VoiceBlastCampaign(java.lang.String,int,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,int,float,java.lang.String)[pri:0, instance:Admin_CRM_CreateFlow.CreatingVoiceBlastCampaign@51c668e3]" started-at="2024-02-02T10:30:54 IST" name="Create_VoiceBlastCampaign" finished-at="2024-02-02T10:31:16 IST" duration-ms="22286" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[QA]]>
+                <![CDATA[VoiceBlast Campaign]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA[Inactive]]>
+                <![CDATA[3]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[IT]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[Dialer]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[smibrahim_8071893401]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[Meeting]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[Lunch]]>
+              </value>
+            </param>
+            <param index="7">
+              <value>
+                <![CDATA[Tea Break]]>
+              </value>
+            </param>
+            <param index="8">
+              <value>
+                <![CDATA[Interested]]>
+              </value>
+            </param>
+            <param index="9">
+              <value>
+                <![CDATA[Reassign]]>
+              </value>
+            </param>
+            <param index="10">
+              <value>
+                <![CDATA[CALLBACK]]>
+              </value>
+            </param>
+            <param index="11">
+              <value>
+                <![CDATA[Interested]]>
+              </value>
+            </param>
+            <param index="12">
+              <value>
+                <![CDATA[Reassign]]>
+              </value>
+            </param>
+            <param index="13">
+              <value>
+                <![CDATA[CALLBACK]]>
+              </value>
+            </param>
+            <param index="14">
+              <value>
+                <![CDATA[Testing]]>
+              </value>
+            </param>
+            <param index="15">
+              <value>
+                <![CDATA[100]]>
+              </value>
+            </param>
+            <param index="16">
+              <value>
+                <![CDATA[1.4]]>
+              </value>
+            </param>
+            <param index="17">
+              <value>
+                <![CDATA[5]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- Update_MeetingTitleStatus -->
-        <test-method is-config="true" signature="Quit()[pri:0, instance:Admin_Configuration_UpdateFlow.Update_MeetingTitle@738dc9b]" started-at="2024-02-01T10:13:30 IST" name="Quit" finished-at="2024-02-01T10:13:31 IST" duration-ms="1381" status="PASS">
+        </test-method> <!-- Create_VoiceBlastCampaign -->
+        <test-method is-config="true" signature="Quit()[pri:0, instance:Admin_CRM_CreateFlow.CreatingVoiceBlastCampaign@51c668e3]" started-at="2024-02-02T10:31:16 IST" name="Quit" finished-at="2024-02-02T10:31:17 IST" duration-ms="1370" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Quit -->
-      </class> <!-- Admin_Configuration_UpdateFlow.Update_MeetingTitle -->
-    </test> <!-- Meeting Title Updation -->
+      </class> <!-- Admin_CRM_CreateFlow.CreatingVoiceBlastCampaign -->
+    </test> <!-- VoiceBlast Campaign Creation -->
   </suite> <!-- Configuration Deletion Flow Testing -->
+  <suite started-at="2024-02-02T10:31:18 IST" name="Smoke Test" finished-at="2024-02-02T10:31:18 IST" duration-ms="0">
+    <groups>
+    </groups>
+  </suite> <!-- Smoke Test -->
 </testng-results>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Failed suite [Failed suite [Failed suite [Users Group Creation Flow Testing]]]]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="Team Creation(failed)(failed)(failed)(failed)">
+    <classes>
+      <class name="Admin_UsersGroups_CreateFlow.Create_Team">
+        <parameter name="team_campaign" value="Dialer"/>
+        <parameter name="team_description" value="Testing"/>
+        <parameter name="team_leadsource" value="Source"/>
+        <parameter name="team_type" value="All"/>
+        <parameter name="team_channel" value="Channel"/>
+        <parameter name="team_user" value="smibrahim_agent07@doocti.com"/>
+        <parameter name="team_name" value="Quality"/>
+        <methods>
+          <include name="Quit"/>
+          <include name="Create_Team" invocation-numbers="0"/>
+          <include name="Login"/>
+          <include name="Setip"/>
+        </methods>
+      </class> <!-- Admin_UsersGroups_CreateFlow.Create_Team -->
+    </classes>
+  </test> <!-- Team Creation(failed)(failed)(failed)(failed) -->
+</suite> <!-- Failed suite [Failed suite [Failed suite [Failed suite [Users Group Creation Flow Testing]]]] -->

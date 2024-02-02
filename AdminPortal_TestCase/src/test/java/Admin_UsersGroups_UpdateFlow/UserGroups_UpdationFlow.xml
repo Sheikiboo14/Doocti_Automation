@@ -31,7 +31,7 @@
 		
 	<test name="User Updation">
 		
-		<parameter name="user_Email" value="smibrahim_agent08@doocti.com"/>
+		<parameter name="user_Email" value="smibrahim_agent03@doocti.com"/>
 		<parameter name="user_Status" value="Inactive"/>
 		<parameter name="mobileNo" value="9889898233"/>
 		<parameter name="user_Group" value="Quality"/>

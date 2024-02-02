@@ -1,11 +1,15 @@
 package Campaign;
 
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.interactions.Actions;
+import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -17,82 +21,89 @@ public class CreatingInboundCampaign extends AdminLogin {
 	
 
 	
-	String CampaignName="Test Inbound";
 	
-	int dialprefix = 3;
-	
-	String Industry = "IT";
- 	
-	String Template ="TestingQA";
-	
-	String Queue = "demo_01";
+String campaign_Name="Inbount Campaign";
 
-	String PauseCode ="Meeting";
+int dialprefix = 3;
+
+String industry_Name = "IT";
+
+String template_Name ="Dialer";
+
+String queue_Name = "smibrahim_8071893401";
+
+String pauseCode1 ="Meeting";
+
+String pauseCode2 ="Lunch";
+
+String pauseCode3 ="Tea Break";
+
+String dispo1 ="Reassign";
+
+String dispo2 ="CALLBACK";
+
+String dispo3 ="Interested";
+
+String dial1 = "CALLBACK";
+
+String dial2 = "Reassign";
+
+String dial3 = "Interested";
+
+String script ="Testing";
+
+
+
+	@BeforeTest
+	public void Setup() {
 	
-	String PauseCode1 ="Lunch";
-	
-	String PauseCode2 ="Tea Break";
-	
-	String Dispo ="ANSWER";
-	
-	String Dispo1 ="CALLBACK";
-	
-	String Dispo2 ="Reassign";
-	
-	String script ="Testing";
-	
-	
-	@Test(priority = 0)
-	public void CreateCampaign() throws InterruptedException {
-		
-		driver.navigate().refresh();
-		
 		driver.findElement(By.xpath("//div[contains(text(),'CRM')]")).click();
-		
-		driver.findElement(By.xpath("//div[@class='v-list__group v-list__group--active']//span[contains(text(),'CA')]")).click();
-		
+	
+		driver.findElement(By.xpath("(//span[normalize-space()='Campaigns'])[1]")).click();
+	
 		driver.findElement(By.xpath("//div[normalize-space()='Add Campaign']")).click();
+	
+		try {
+			
+			Thread.sleep(1000);
+		} 
+		catch (InterruptedException e) {
+			
+			// TODO Auto-generated catch block
+			
+			e.printStackTrace();
+	}
+
+}
+
+
+	
+	@Test
+	public void Create_InboundCampaign() throws InterruptedException {
 		
-		Thread.sleep(1000);
+		Actions action = new Actions(driver);	
 		
 //Adding Campaign Name
 		
-		driver.findElement(By.xpath("//div[@class='v-dialog v-dialog--active v-dialog--persistent v-dialog--scrollable']//input[@aria-label='Name']")).sendKeys(CampaignName);
+		driver.findElement(By.xpath("(//input[@aria-label='Name'])[2]")).sendKeys(campaign_Name);
 		
-		System.out.println(driver.findElement(By.xpath("//div[@class='v-dialog v-dialog--active v-dialog--persistent v-dialog--scrollable']//input[@aria-label='Name']")).getAttribute("value"));
-		
-		Thread.sleep(1000);
 		
 //Selecting Process
+				
 		
-		WebElement CampaignPopup = driver.findElement(By.xpath("//div[@class='v-dialog v-dialog--active v-dialog--persistent v-dialog--scrollable']//div[@class='container grid-list-md']"));
-		
-		
-		driver.findElement(By.xpath("//body/div[@id='app']/div[@class='v-dialog__content v-dialog__content--active']/div[@class='v-dialog v-dialog--active v-dialog--persistent v-dialog--scrollable']/div[@class='v-card v-sheet theme--light']/div[@class='v-card__text']/form[@class='v-form']/div[@class='container grid-list-md']/div[@class='layout wrap']/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]")).click();
+		driver.findElement(By.xpath("(//i[@aria-hidden='true'][normalize-space()='arrow_drop_down'])[15]")).click();
 		
 		Thread.sleep(1000);
 		
-		driver.findElement(By.xpath("//div[@class='v-menu__content theme--light v-menu__content--fixed menuable__content__active']//div[@class='v-list__tile__title'][normalize-space()='Leads']")).click();
+		WebElement processList = driver.findElement(By.xpath("(//div[@role='list'])[32]"));
 		
-		Thread.sleep(1000);
+		processList.findElement(By.xpath("(//div[@class='v-list__tile__title'][normalize-space()='Leads'])[2]")).click();
 		
-		CampaignPopup.click();
+		processList.findElement(By.xpath("(//div[@class='v-list__tile__title'][normalize-space()='Tickets'])[2]")).click();
 		
-		driver.findElement(By.xpath("//body/div[@id='app']/div[@class='v-dialog__content v-dialog__content--active']/div[@class='v-dialog v-dialog--active v-dialog--persistent v-dialog--scrollable']/div[@class='v-card v-sheet theme--light']/div[@class='v-card__text']/form[@class='v-form']/div[@class='container grid-list-md']/div[@class='layout wrap']/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]")).click();
+		processList.findElement(By.xpath("(//div[@class='v-list__tile__title'][normalize-space()='Meetings'])[2]")).click();
 		
-		Thread.sleep(1000);
-		
-		driver.findElement(By.xpath("//div[@class='v-menu__content theme--light v-menu__content--fixed menuable__content__active']//div[@class='v-list__tile__title'][normalize-space()='Tickets']")).click();
-
-		CampaignPopup.click();
-		
-		driver.findElement(By.xpath("//body/div[@id='app']/div[@class='v-dialog__content v-dialog__content--active']/div[@class='v-dialog v-dialog--active v-dialog--persistent v-dialog--scrollable']/div[@class='v-card v-sheet theme--light']/div[@class='v-card__text']/form[@class='v-form']/div[@class='container grid-list-md']/div[@class='layout wrap']/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]")).click();
-		
-		Thread.sleep(1000);
-		
-		driver.findElement(By.xpath("//div[@class='v-menu__content theme--light v-menu__content--fixed menuable__content__active']//div[@class='v-list__tile__title'][normalize-space()='Meetings']")).click();
-
-		CampaignPopup.click();
+		action.click().build().perform();
 
 //Selecting Type
 		
@@ -100,39 +111,35 @@ public class CreatingInboundCampaign extends AdminLogin {
 		
 		Thread.sleep(1000);
 		
-		WebElement TypeList = driver.findElement(By.xpath("//div[@class='v-menu__content theme--light v-menu__content--fixed menuable__content__active']//div[@role='list']")); 
+		WebElement TypeList = driver.findElement(By.xpath("(//div[@role='list'])[30]")); 
 		
-		TypeList.findElement(By.xpath("//div[@class='v-menu__content theme--light v-menu__content--fixed menuable__content__active']//div[@class='v-list__tile__title'][normalize-space()='INBOUND']")).click();
+		TypeList.findElement(By.xpath("(//div[@class='v-list__tile__title'][normalize-space()='INBOUND'])[3]")).click();
+		
+		action.click().build().perform();
 		
 	/*
 //Selecting Outbound Caller ID
+ 	
+ 		driver.findElement(By.xpath("(//input[@aria-label='Outbound Caller ID'])[2]").click();
 		
-		WebElement OBCallerID = driver.findElement(By.xpath("//div[@class='v-dialog v-dialog--active v-dialog--persistent v-dialog--scrollable']//input[@aria-label='Outbound Caller ID']"));
+		WebElement OBCallerID = driver.findElement(By.xpath("(//div[@role='list'])[29]"));
 		
-		OBCallerID.click();
+		OBCallerID.findElement(By.xpath("(//div[@class='v-list__tile__title'][normalize-space()='9876543217'])[2]")).click();
 		
-		Thread.sleep(1000);
-		
-		WebElement OBCallerIDValue = driver.findElement(By.xpath("(//div[@class='v-list__tile__content'])[141]"));
-		
-		OBCallerIDValue.click();
-		
-		CampaignPopup.click();
-		
-		Thread.sleep(1000);
+		action.click().build().perform();
+				
 		*/
-		
 //Industry Selection
 		
 		driver.findElement(By.xpath("(//div[@class='v-select__selections'])[16]")).click();
 		
 		Thread.sleep(1000);
 		
-		WebElement IndustryOption = driver.findElement(By.xpath("//div[@class='v-menu__content theme--light v-menu__content--fixed menuable__content__active']//div[@role='list']"));
+		WebElement IndustryOption = driver.findElement(By.xpath("(//div[@role='list'])[28]"));
 		
-		IndustryOption.findElement(By.xpath("//div[@class='v-menu__content theme--light v-menu__content--fixed menuable__content__active']//div[@class='v-list__tile__title'][normalize-space()='"+Industry+"']")).click();
+		IndustryOption.findElement(By.xpath("(//div[@class='v-list__tile__title'][normalize-space()='"+industry_Name+"'])[2]")).click();
 		
-		CampaignPopup.click();
+		action.click().build().perform();
 
 //Template Name
 		
@@ -140,131 +147,111 @@ public class CreatingInboundCampaign extends AdminLogin {
 		
 		Thread.sleep(1000);
 		
-		WebElement TemplateName = driver.findElement(By.xpath("//div[@class='v-menu__content theme--light v-menu__content--fixed menuable__content__active']//div[@role='list']"));
+		WebElement TemplateName =driver.findElement(By.xpath("(//div[@role='list'])[27]"));
 		
-		TemplateName.findElement(By.xpath("//div[contains(text(),'"+Template+"')]")).click();
+		TemplateName.findElement(By.xpath("(//div[@class='v-list__tile__title'][normalize-space()='"+template_Name+"'])[2]")).click();
 		
-		CampaignPopup.click();
+		action.click().build().perform();
 		
+
 //Add Queue
 		
-		driver.findElement(By.xpath("//div[contains(@class,'v-dialog v-dialog--active v-dialog--persistent v-dialog--scrollable')]//input[contains(@aria-label,'Add Queue')]")).click();
+		driver.findElement(By.xpath("(//input[@aria-label='Add Queue'])[2]")).click();
 		
 		Thread.sleep(1000);
 		
-		driver.findElement(By.xpath("//div[contains(@class,'v-menu__content theme--light v-menu__content--fixed menuable__content__active v-autocomplete__content')]//div[contains(@class,'v-list__tile__title')][normalize-space()='"+Queue+"']")).click();
+		WebElement queueList = driver.findElement(By.xpath("(//div[@role='list'])[25]"));
 		
-		CampaignPopup.click();
+		queueList.findElement(By.xpath("(//div[@class='v-list__tile__title'][normalize-space()='"+queue_Name+"'])[2]")).click();
+		
+		action.click().build().perform();
+		
+		
 		
 //Pause Code Selection
 		
-		driver.findElement(By.xpath("//div[contains(@class,'v-dialog v-dialog--active v-dialog--persistent v-dialog--scrollable')]//input[contains(@aria-label,'Pause Code')]")).click();
+		driver.findElement(By.xpath("(//input[@aria-label='Pause Code'])[2]")).click();
 		
 		Thread.sleep(1000);
 		
-		driver.findElement(By.xpath("//div[contains(@class,'v-menu__content theme--light v-menu__content--fixed menuable__content__active v-autocomplete__content')]//div[contains(@class,'v-list__tile__title')][normalize-space()='"+PauseCode+"']")).click();
+		WebElement pausecodeList = driver.findElement(By.xpath("(//div[@role='list'])[24]"));
+			
+		pausecodeList.findElement(By.xpath("(//div[@class='v-list__tile__title'][normalize-space()='"+pauseCode1+"'])[2]")).click();
+		
+		pausecodeList.findElement(By.xpath("(//div[@class='v-list__tile__title'][normalize-space()='"+pauseCode2+"'])[2]")).click();
+		
+		pausecodeList.findElement(By.xpath("(//div[@class='v-list__tile__title'][normalize-space()='"+pauseCode3+"'])[2]")).click();
 	
-		CampaignPopup.click();
+		action.click().build().perform();
+
 		
-		driver.findElement(By.xpath("//div[contains(@class,'v-dialog v-dialog--active v-dialog--persistent v-dialog--scrollable')]//input[contains(@aria-label,'Pause Code')]")).click();
-		
-		Thread.sleep(1000);
-		
-		driver.findElement(By.xpath("//div[contains(@class,'v-menu__content theme--light v-menu__content--fixed menuable__content__active v-autocomplete__content')]//div[contains(@class,'v-list__tile__title')][normalize-space()='"+PauseCode1+"']")).click();
-	
-		CampaignPopup.click();
-		
-		driver.findElement(By.xpath("//div[contains(@class,'v-dialog v-dialog--active v-dialog--persistent v-dialog--scrollable')]//input[contains(@aria-label,'Pause Code')]")).click();
-		
-		Thread.sleep(1000);
-		
-		driver.findElement(By.xpath("//div[contains(@class,'v-menu__content theme--light v-menu__content--fixed menuable__content__active v-autocomplete__content')]//div[contains(@class,'v-list__tile__title')][normalize-space()='"+PauseCode2+"']")).click();
-	
-		CampaignPopup.click();
-	
 //Dial Status Selection
 		
-		driver.findElement(By.xpath("//div[contains(@class,'v-dialog v-dialog--active v-dialog--persistent v-dialog--scrollable')]//input[contains(@aria-label,'Dial Status')]")).click();
+		driver.findElement(By.xpath("(//input[@aria-label='Dial Status'])[2]")).click();
 		
 		Thread.sleep(1000);
 		
-		driver.findElement(By.xpath("//div[contains(@class,'v-menu__content theme--light v-menu__content--fixed menuable__content__active v-autocomplete__content')]//div[contains(@class,'v-list__tile__title')][normalize-space()='"+Dispo+"']")).click();
+		WebElement dialList  = driver.findElement(By.xpath("(//div[@role='list'])[23]"));
 		
-		CampaignPopup.click();
+		dialList.findElement(By.xpath("(//div[@class='v-list__tile__title'][normalize-space()='"+dial1+"'])[4]")).click();
 		
-		driver.findElement(By.xpath("//div[contains(@class,'v-dialog v-dialog--active v-dialog--persistent v-dialog--scrollable')]//input[contains(@aria-label,'Dial Status')]")).click();
+		dialList.findElement(By.xpath("(//div[@class='v-list__tile__title'][normalize-space()='"+dial2+"'])[4]")).click();
 		
-		Thread.sleep(1000);
+		dialList.findElement(By.xpath("(//div[@class='v-list__tile__title'][normalize-space()='"+dial3+"'])[4]")).click();
+
+		action.click().build().perform();
 		
-		driver.findElement(By.xpath("//div[contains(@class,'v-menu__content theme--light v-menu__content--fixed menuable__content__active v-autocomplete__content')]//div[contains(@class,'v-list__tile__title')][normalize-space()='"+Dispo1+"']")).click();
-		
-		CampaignPopup.click();
-		
-		driver.findElement(By.xpath("//div[contains(@class,'v-dialog v-dialog--active v-dialog--persistent v-dialog--scrollable')]//input[contains(@aria-label,'Dial Status')]")).click();
-		
-		Thread.sleep(1000);
-		
-		driver.findElement(By.xpath("//div[contains(@class,'v-menu__content theme--light v-menu__content--fixed menuable__content__active v-autocomplete__content')]//div[contains(@class,'v-list__tile__title')][normalize-space()='"+Dispo2+"']")).click();
-		
-		CampaignPopup.click();
 		
 //Dispo Status Selection
 		
-		driver.findElement(By.xpath("//div[contains(@class,'v-dialog v-dialog--active v-dialog--persistent v-dialog--scrollable')]//input[contains(@aria-label,'Dispo Status')]")).click();
+		driver.findElement(By.xpath("(//input[@aria-label='Dispo Status'])[2]")).click();
 		
 		Thread.sleep(1000);
 		
-		driver.findElement(By.xpath("//div[contains(@class,'v-menu__content theme--light v-menu__content--fixed menuable__content__active v-autocomplete__content')]//div[contains(@class,'v-list__tile__title')][normalize-space()='"+Dispo+"']")).click();
+		WebElement dispolist = driver.findElement(By.xpath("(//div[@role='list'])[22]"));
 		
-		CampaignPopup.click();
+		driver.findElement(By.xpath("(//div[@class='v-list__tile__title'][normalize-space()='"+dispo1+"'])[3]")).click();
 		
-		driver.findElement(By.xpath("//div[contains(@class,'v-dialog v-dialog--active v-dialog--persistent v-dialog--scrollable')]//input[contains(@aria-label,'Dispo Status')]")).click();
+		driver.findElement(By.xpath("(//div[@class='v-list__tile__title'][normalize-space()='"+dispo2+"'])[3]")).click();
 		
-		Thread.sleep(1000);
+		driver.findElement(By.xpath("(//div[@class='v-list__tile__title'][normalize-space()='"+dispo3+"'])[3]")).click();
 		
-		driver.findElement(By.xpath("//div[contains(@class,'v-menu__content theme--light v-menu__content--fixed menuable__content__active v-autocomplete__content')]//div[contains(@class,'v-list__tile__title')][normalize-space()='"+Dispo1+"']")).click();
-		
-		CampaignPopup.click();
-		
-		driver.findElement(By.xpath("//div[contains(@class,'v-dialog v-dialog--active v-dialog--persistent v-dialog--scrollable')]//input[contains(@aria-label,'Dispo Status')]")).click();
-		
-		Thread.sleep(1000);
-		
-		driver.findElement(By.xpath("//div[contains(@class,'v-menu__content theme--light v-menu__content--fixed menuable__content__active v-autocomplete__content')]//div[contains(@class,'v-list__tile__title')][normalize-space()='"+Dispo2+"']")).click();
-		
-		CampaignPopup.click();
-		
+		action.click().build().perform();
+
+			
 //On Demand Enabling
 		
-		driver.findElement(By.xpath("//div[contains(@class,'v-dialog v-dialog--active v-dialog--persistent v-dialog--scrollable')]//label[contains(@class,'v-label theme--light')][normalize-space()='On Demand Recording']")).click();
-
+		driver.findElement(By.xpath("(//label[@class='v-label theme--light'][normalize-space()='On Demand Recording'])[2]")).click();
+		
+		
+		
 //Dial Prefix
 		
-//		WebElement DialPrefix = driver.findElement(By.xpath("//div[contains(@class,'v-dialog v-dialog--active v-dialog--persistent v-dialog--scrollable')]//input[contains(@aria-label,'Dial Prefix')]"));
+//		WebElement dialPrefix = driver.findElement(By.xpath("(//input[@aria-label='Dial Prefix'])[2]"));
 //		
-//		DialPrefix.sendKeys(Integer.toString(dialprefix));
+//		dialPrefix.sendKeys(Integer.toString(dialprefix));
 		
 //Script Selection
 		
-		driver.findElement(By.xpath("//body/div[@id='app']/div[contains(@class,'v-dialog__content v-dialog__content--active')]/div[contains(@class,'v-dialog v-dialog--active v-dialog--persistent v-dialog--scrollable')]/div[contains(@class,'v-card v-sheet theme--light')]/div[contains(@class,'v-card__text')]/form[contains(@class,'v-form')]/div[contains(@class,'container grid-list-md')]/div[contains(@class,'layout wrap')]/div[16]/div[1]/div[1]/div[1]/div[1]/div[1]")).click();
+		driver.findElement(By.xpath("(//i[@aria-hidden='true'][normalize-space()='arrow_drop_down'])[27]")).click();
 		
 		Thread.sleep(1000);
 		
-		WebElement Script = driver.findElement(By.xpath("//body/div[@id='app']/div[contains(@class,'v-menu__content theme--light v-menu__content--fixed menuable__content__active')]/div[contains(@class,'v-select-list v-card theme--light')]/div[1]"));
+		WebElement Script = driver.findElement(By.xpath("(//div[@role='list'])[20]"));
 		
-		Script.findElement(By.xpath("//div[contains(@class,'v-menu__content theme--light v-menu__content--fixed menuable__content__active')]//div[contains(@class,'v-list__tile__title')][normalize-space()='"+script+"']")).click();
-		
+		Script.findElement(By.xpath("(//div[@class='v-list__tile__title'][normalize-space()='"+script+"'])[2]")).click();
+	
 //DNC Check
 		
-		driver.findElement(By.xpath("//div[contains(@class,'v-dialog v-dialog--active v-dialog--persistent v-dialog--scrollable')]//label[contains(@class,'v-label theme--light')][normalize-space()='DNC check']")).click();
+		driver.findElement(By.xpath("(//label[@class='v-label theme--light'][normalize-space()='DNC check'])[2]")).click();
 		
 //Call Masking
 		
-		driver.findElement(By.xpath("//div[contains(@class,'v-dialog v-dialog--active v-dialog--persistent v-dialog--scrollable')]//label[contains(@class,'v-label theme--light')][normalize-space()='Call Masking']")).click();
+		driver.findElement(By.xpath("(//label[@class='v-label theme--light'][normalize-space()='Call Masking'])[2]")).click();
 		
 //Time Zone
 		
-		driver.findElement(By.xpath("//div[contains(@class,'v-dialog v-dialog--active v-dialog--persistent v-dialog--scrollable')]//label[contains(@class,'v-label theme--light')][normalize-space()='Timezone']")).click();
+		driver.findElement(By.xpath("(//label[@class='v-label theme--light'][normalize-space()='Timezone'])[2]")).click();
 		
 // Creating Campaign
 		
@@ -273,8 +260,32 @@ public class CreatingInboundCampaign extends AdminLogin {
 		
 		Thread.sleep(1000);
 		
+	//Close the snakbar
+		
+		driver.findElement(By.xpath("(//div[@class='v-btn__content'][normalize-space()='Close'])[4]")).click();
+		
+	// Verification
+		
+		List<WebElement> Alldatas = driver.findElements(By.xpath("//table[contains(@class,'v-datatable')]//tr//td[1]"));
+		
+		boolean flag = false;
+		
+		for(WebElement Data : Alldatas) {
+			
+			String value = Data.getText();
+			
+			if(value.contains(campaign_Name)) {
+				
+				flag = true;
+			}
+		}
+		
+		Assert.assertTrue(flag, "Inbound Campaign is not Created...!");
 
 	}
+	
+	
+
 	
 	
 

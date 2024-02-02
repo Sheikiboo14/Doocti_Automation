@@ -19,10 +19,10 @@
 	<test name="User Creation">
 		<classes>
 			<class name="Admin_UsersGroups_CreateFlow.Create_User">
-				<parameter name="user_id" value="smibrahim_agent07"/>
+				<parameter name="user_id" value="smibrahim_agent03"/>
 				<parameter name="user_name" value="Testing"/>
 				<parameter name="user_mobileno" value="122344"/>
-				<parameter name="user_email" value="smibrahim_agent07@doocti.com"/>
+				<parameter name="user_email" value="smibrahim_agent03@doocti.com"/>
 				<parameter name="user_password" value="Doocti@123"/>
 				<parameter name="user_role" value="Agent"/>
 				<parameter name="user_group" value="QA"/>
@@ -71,7 +71,7 @@
 				<parameter name="team_campaign" value="Dialer"/>
 				<parameter name="team_leadsource" value="Source"/>
 				<parameter name="team_channel" value="Channel"/>
-				<parameter name="team_user" value="smibrahim_agent07@doocti.com"/>
+				<parameter name="team_user" value="smibrahim_agent20@doocti.com"/>
 					<include name="Create_Team"></include>
 				</methods>
 			</class>

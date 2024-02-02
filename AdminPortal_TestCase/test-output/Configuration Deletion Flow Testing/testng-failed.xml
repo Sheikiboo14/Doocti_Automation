@@ -1,18 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Failed suite [Configuration Deletion Flow Testing]" guice-stage="DEVELOPMENT">
-  <test thread-count="5" name="Tag Updation(failed)">
-    <parameter name="tag_Status" value="inactive"/>
-    <parameter name="tag_Name" value="QA"/>
+  <test thread-count="5" name="Predictive Campaign Creation(failed)">
+    <parameter name="template_Name" value="Dialer"/>
+    <parameter name="queue_Name" value="smibrahim_8071893401"/>
+    <parameter name="dispo3" value="CALLBACK"/>
+    <parameter name="campaign_Name" value="Predictive Campaign"/>
+    <parameter name="dispo1" value="Interested"/>
+    <parameter name="dispo2" value="Reassign"/>
+    <parameter name="dialratio" value="1.4f"/>
+    <parameter name="dialprefix" value="3"/>
+    <parameter name="pauseCode2" value="Lunch"/>
+    <parameter name="pauseCode1" value="Meeting"/>
+    <parameter name="script" value="Testing"/>
+    <parameter name="bfLevel" value="100"/>
+    <parameter name="dial2" value="Reassign"/>
+    <parameter name="dial3" value="CALLBACK"/>
+    <parameter name="industry_Name" value="IT"/>
+    <parameter name="pauseCode3" value="Tea Break"/>
+    <parameter name="dial1" value="Interested"/>
     <classes>
-      <class name="Admin_Configuration_UpdateFlow.Update_Tags">
+      <class name="Admin_CRM_CreateFlow.CreatingPredictiveCampaign">
         <methods>
-          <include name="Update_TagStatus"/>
-          <include name="Setup"/>
+          <include name="Create_PredictiveCampaign"/>
           <include name="Quit"/>
           <include name="Login"/>
+          <include name="Setup"/>
         </methods>
-      </class> <!-- Admin_Configuration_UpdateFlow.Update_Tags -->
+      </class> <!-- Admin_CRM_CreateFlow.CreatingPredictiveCampaign -->
     </classes>
-  </test> <!-- Tag Updation(failed) -->
+  </test> <!-- Predictive Campaign Creation(failed) -->
 </suite> <!-- Failed suite [Configuration Deletion Flow Testing] -->

@@ -17,7 +17,7 @@
 	<test name="User Deletion">
 		<classes>
 			<class name="Admin_UsersGroups_DeleteFlow.Delete_User">
-			<parameter name="user_emailid" value="smibrahim_agent08@doocti.com"/>
+			<parameter name="user_emailid" value="smibrahim_agent03@doocti.com"/>
 			<parameter name="UserId" value=""/>
 			<parameter name="MobNo" value=""/>
 				<methods>

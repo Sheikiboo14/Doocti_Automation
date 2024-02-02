@@ -69,7 +69,7 @@
 	</test>-->
 			
 	<test name="BlockList Deletion">
-		<parameter name="phno" value="9090909091"/>
+		<parameter name="phno" value="9090909090"/>
 		<classes>
 			<class name="Admin_Configuration_DeleteFlow.Delete_BlockList">
 				<methods>

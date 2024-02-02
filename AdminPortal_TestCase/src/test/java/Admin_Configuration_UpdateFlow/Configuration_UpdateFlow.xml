@@ -6,7 +6,7 @@
 	<test name="Queue Updation">
 		<parameter name="queue_Name" value="QA"/>
 		<parameter name="queue_Strategy" value="RingAll"/>
-		<parameter name="queue_WaitTimeOut" value="20"/>
+		<parameter name="queue_WaitTimeOut" value="25"/>
 		<parameter name="queue_Restart" value="yes"/>
 		<classes>
 			<class name="Admin_Configuration_UpdateFlow.Update_Queue">

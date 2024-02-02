@@ -1,5 +1,8 @@
 package Login;
 
+import java.time.Duration;
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -87,13 +90,15 @@ public class AdminLogin {
 		
 		driver.get(URL);
 		
+		
 		driver.findElement(By.xpath("//input[@placeholder='User Name']")).sendKeys(AdminEmail);
 		
 		driver.findElement(By.xpath("//input[@aria-label='Password']")).sendKeys(AdminPassword);
 		
 		driver.findElement(By.xpath("//div[contains(text(),'Login')]")).click();
 		
-		Thread.sleep(5000);
+		Thread.sleep(10000);
+
 
 		driver.navigate().refresh();
 		

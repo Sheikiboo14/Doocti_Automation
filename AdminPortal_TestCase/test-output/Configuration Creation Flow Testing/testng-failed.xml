@@ -1,21 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Failed suite [Configuration Creation Flow Testing]" guice-stage="DEVELOPMENT">
-  <test thread-count="5" name="InboundRoute Creation(failed)">
-    <parameter name="destination_Value" value="QA"/>
-    <parameter name="blockList" value="true"/>
-    <parameter name="dID_Number" value="9090909090"/>
-    <parameter name="destination_Name" value="queue"/>
-    <parameter name="dID_Name" value="Test"/>
+  <test thread-count="5" name="BlockList Upload(failed)">
+    <parameter name="blockList_Path" value="D:\Testing File\sample_blocklist.csv"/>
+    <parameter name="phno" value="9090909092"/>
     <classes>
-      <class name="Admin_Configuration_CreateFlow.Create_InboundRoute">
+      <class name="Admin_Configuration_CreateFlow.Upload_BlockList">
         <methods>
+          <include name="Setup"/>
           <include name="Quit"/>
           <include name="Login"/>
-          <include name="InboundRoute_Create" invocation-numbers="0"/>
-          <include name="Setup"/>
+          <include name="Uplode_BlockList" invocation-numbers="0"/>
         </methods>
-      </class> <!-- Admin_Configuration_CreateFlow.Create_InboundRoute -->
+      </class> <!-- Admin_Configuration_CreateFlow.Upload_BlockList -->
     </classes>
-  </test> <!-- InboundRoute Creation(failed) -->
+  </test> <!-- BlockList Upload(failed) -->
+  <test thread-count="5" name="DID Number Creation(failed)">
+    <parameter name="dID_Number" value="9876543209"/>
+    <parameter name="trunk" value="QA"/>
+    <classes>
+      <class name="Admin_Configuration_CreateFlow.Create_DIDNumber">
+        <methods>
+          <include name="Manual_DID_Creation" invocation-numbers="0"/>
+          <include name="Setup"/>
+          <include name="Quit"/>
+          <include name="Login"/>
+        </methods>
+      </class> <!-- Admin_Configuration_CreateFlow.Create_DIDNumber -->
+    </classes>
+  </test> <!-- DID Number Creation(failed) -->
 </suite> <!-- Failed suite [Configuration Creation Flow Testing] -->

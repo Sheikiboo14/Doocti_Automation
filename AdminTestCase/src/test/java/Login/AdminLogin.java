@@ -209,7 +209,7 @@ public class AdminLogin {
 		
 		driver.findElement(By.xpath("//div[contains(text(),'Login')]")).click();
 		
-		Thread.sleep(5000);
+		Thread.sleep(10000);
 
 		driver.navigate().refresh();
 		
@@ -222,7 +222,7 @@ public class AdminLogin {
 		
 //		driver.findElement(By.xpath("//i[@title='Sign Out']")).click();
 		
-//		driver.quit();
+		driver.quit();
 		
 	}
 	
