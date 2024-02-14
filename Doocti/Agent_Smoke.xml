@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="Smoke Test">
+	
+	<test name="Navbar Testing">
+		<classes>
+			<class name="AgentLogin.Navbar_Testing">
+				<methods>
+					<include name="lead_Page"/>
+					<include name="contact_Page"/>
+					<include name="meeting_Page"/>
+					<include name="ticket_Page"/>
+					<include name="script_Page"/>
+					<include name="menu_List"/>
+					<include name="menu_ListLead"/>
+					<include name="menu_ListMeeting"/>
+					<include name="menu_ListTicket"/>
+					<include name="menu_ListContact"/>
+					<include name="menu_ListVoiceMail"/>
+					<include name="menu_ListScript"/>
+					<include name="Noti_tab"/>
+					<include name="Profile_tab"/>
+					<include name="Agent_Logout"/>
+					
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	<test name="Lead Creation">
+		<parameter name="first_Name" value="Test"/>
+		<parameter name="last_Name" value="Purpose"/>
+		<parameter name="phone_Number" value="12246"/>
+		<parameter name="email" value="Test@gmail.com"/>
+		<parameter name="address" value="India"/>
+		<parameter name="list_Id" value="1947"/>
+		<parameter name="tag_Name" value="Test"/>
+		<parameter name="alt_Number" value="9090909090"/>
+		<parameter name="lead_Status" value=""/>
+		<parameter name="source_Name" value="FaceBook"/>
+		<parameter name="first_Name" value="Test"/>
+		<classes>
+			<class name="AgentLogin.Lead_Creation">
+				<methods>
+					<include name="Create_Lead"/>
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test name="Contact Creation">
+		
+		<parameter name="conatct_Name" value="QA"/>
+		<parameter name="contact_Number" value="9876568757"/>
+		
+		<classes>
+			<class name="AgentLogin.Contact_Creation">
+				<methods>
+					<include name="Create_Contact"/>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	<test name="Ticket Creation">
+		
+		<parameter name="status" value="Open"/>
+		<parameter name="account_Name" value="Testing"/>
+		<parameter name="subject_Name" value="Testing"/>
+		<parameter name="description" value="Testing"/>
+		<parameter name="phone_Number" value="9876543210"/>
+		<parameter name="ticket_Priority" value="Medium"/>
+		<parameter name="ticket_Channel" value="Tester"/>
+		<classes>
+			<class name="AgentLogin.Ticket_Creation">
+				<methods>
+					<include name="Create_Ticket"/>
+				</methods>
+			</class>
+		</classes>
+	</test>
+</suite>

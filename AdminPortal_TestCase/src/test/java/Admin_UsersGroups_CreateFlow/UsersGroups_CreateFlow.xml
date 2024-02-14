@@ -3,7 +3,7 @@
 
 <suite name="Users Group Creation Flow Testing">
 	
-					
+	 		 		
 	<test name="UserGroup Creation">
 		<classes>
 			<class name="Admin_UsersGroups_CreateFlow.Create_UserGroup">
@@ -15,24 +15,25 @@
 		</classes>
 	</test>		
 	
-		
+
 	<test name="User Creation">
 		<classes>
 			<class name="Admin_UsersGroups_CreateFlow.Create_User">
-				<parameter name="user_id" value="smibrahim_agent03"/>
+				<parameter name="user_id" value="developv2_agent03"/>
 				<parameter name="user_name" value="Testing"/>
-				<parameter name="user_mobileno" value="122344"/>
-				<parameter name="user_email" value="smibrahim_agent03@doocti.com"/>
+				<parameter name="user_mobileno" value="275"/>
+				<parameter name="user_email" value="developv2_agent03@doocti.com"/>
 				<parameter name="user_password" value="Doocti@123"/>
 				<parameter name="user_role" value="Agent"/>
 				<parameter name="user_group" value="QA"/>
+				<parameter name="user_DID" value="8633537660"/>
 				<methods>
 					<include name="Create_User"></include>
 				</methods>
 			</class>
 		</classes>
 	</test>
-	
+		
 	
 	<test name="Channel Creation">
 		<classes>
@@ -45,7 +46,6 @@
 			</class>
 		</classes>
 	</test>
-	
 	<test name="Source Creation">
 		<classes>
 			<class name="Admin_UsersGroups_CreateFlow.Create_Source">
@@ -57,7 +57,8 @@
 			</class>
 		</classes>
 	</test>
-	
+		
+
 
 	
 		
@@ -71,10 +72,12 @@
 				<parameter name="team_campaign" value="Dialer"/>
 				<parameter name="team_leadsource" value="Source"/>
 				<parameter name="team_channel" value="Channel"/>
-				<parameter name="team_user" value="smibrahim_agent20@doocti.com"/>
+				<parameter name="team_user" value="developv2_agent02@doocti.com"/>
 					<include name="Create_Team"></include>
 				</methods>
 			</class>
 		</classes>
 	</test>
+	
+	
 </suite>

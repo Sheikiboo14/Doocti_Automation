@@ -127,7 +127,7 @@ public class CreatingWhatsappBlastCampaign extends AdminLogin {
 						
 		WebElement TemplateName =driver.findElement(By.xpath("(//div[@role='list'])[27]"));
 						
-		TemplateName.findElement(By.xpath("(//div[@class='v-list__tile__title'][normalize-space()='"+template_Name+"'])[2]")).click();
+		TemplateName.findElement(By.xpath("(//div[text()='"+template_Name+"'])[3]")).click();
 						
 		action.click().build().perform();
 		

@@ -1,9 +1,12 @@
 package Admin_UsersGroups_CreateFlow;
 
+import java.time.Duration;
 import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
@@ -22,10 +25,11 @@ public class Create_Source extends AdminLogin {
 	@BeforeTest
 	public void Setup() throws InterruptedException {
 		
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 		
 		driver.findElement(By.xpath("//div[contains(text(),'Users & Groups')]")).click();
 		
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//span[normalize-space()='Source'])[1]")));
 		
 		//Going to Source Page
 		
@@ -37,11 +41,13 @@ public class Create_Source extends AdminLogin {
 	@Test
 	public void Create_Source(String source_name ,String source_description) throws InterruptedException {
 		
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+		
 	// Add Source Popup
 		
 		driver.findElement(By.xpath("(//div[normalize-space()='Add Source'])[1]")).click();
 		
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//input[@aria-label='Name'])[2]")));
 		
 	// Source Name
 		
@@ -55,7 +61,7 @@ public class Create_Source extends AdminLogin {
 		
 		driver.findElement(By.xpath("(//div[normalize-space()='Create'])[1]")).click();
 		
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//div[@class='v-btn__content'][normalize-space()='Close'])[3]")));
 		
 	// Close Snakbar
 		

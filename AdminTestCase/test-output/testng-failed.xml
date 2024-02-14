@@ -3,14 +3,14 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="Campaign.Delete_Campaign">
+      <class name="Campaign.CreatingInboundCampaign">
         <methods>
+          <include name="Create_InboundCampaign"/>
           <include name="Quit"/>
-          <include name="Delete_Campaign"/>
           <include name="Login"/>
           <include name="Setup"/>
         </methods>
-      </class> <!-- Campaign.Delete_Campaign -->
+      </class> <!-- Campaign.CreatingInboundCampaign -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

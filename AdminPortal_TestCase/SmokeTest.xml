@@ -4,10 +4,9 @@
 <suite name="Smoke Test">
 	<suite-files>
 	
-	<!--
 	
 		<suite-file path="ConfigurationTesting.xml"/>
-		<suite-file path="UsersGroupTesting.xml"/> -->
+		<suite-file path="UsersGroupTesting.xml"/> 
 		<suite-file path="Admin_CRM_CreateFlow.xml"/>
 	
 	

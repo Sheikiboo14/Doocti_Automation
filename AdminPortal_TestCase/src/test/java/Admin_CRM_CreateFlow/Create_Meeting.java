@@ -14,29 +14,28 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Create_Meeting extends AdminLogin {
 	
-	WebDriver driver;
 	
-	String MeetingTitle1 = "Decision-making meeting";
+	String meeting_Title1 = "Decision-making meeting";
 	
-	String MeetingTitle2 = "others";
+	String meeting_Title2 = "others";
 	
-	String OthersTitle = "Testing";
+	String others_Title = "Testing";
 
-	String MeetingTitle3 = "Team-building meetings";
+	String meeting_Title3 = "Team-building meetings";
 	
-	String MeetingTitle4 ="Quarterly planning meetings";
+	String meeting_Title4 ="Quarterly planning meetings";
 	
-	String Description = "Testing";
+	String description = "Testing";
 	
 	Long Phno = 9514380497L;
 	
-	String agent = "devsandbox_agent02@doocti.com";
+	String agent = "smibrahimagent07@doocti.com";
 	
-	int MeetingDate = 3;
+	int meeting_Date = 3;
 	
 	String module ="lead";
 	
-	String Template = "TestingQA";
+	String meeting_Template = "Dialer";
 	
 	@BeforeTest
 	public void SetUp() throws InterruptedException {
@@ -65,13 +64,13 @@ public class Create_Meeting extends AdminLogin {
 		
 		WebElement Title = driver.findElement(By.xpath("(//div[@role='list'])[8]"));
 		
-		Title.findElement(By.xpath("(//div[contains(text(),'"+MeetingTitle1+"')])[1]")).click();
+		Title.findElement(By.xpath("(//div[contains(text(),'"+meeting_Title1+"')])[1]")).click();
 		
 		MeetingPopup.click();
 		
 	//Description
 		
-		driver.findElement(By.xpath("(//input[@aria-label='Description'])[2]")).sendKeys(Description);
+		driver.findElement(By.xpath("(//input[@aria-label='Description'])[2]")).sendKeys(description);
 		
 		MeetingPopup.click();
 
@@ -101,7 +100,7 @@ public class Create_Meeting extends AdminLogin {
 		
 		WebElement Date = driver.findElement(By.xpath("(//div[@class='vdatetime-popup'])[1]"));
 		
-		Date.findElement(By.xpath("(//span[contains(text(),'"+MeetingDate+"')])[1]")).click();
+		Date.findElement(By.xpath("(//span[contains(text(),'"+meeting_Date+"')])[1]")).click();
 		
 		driver.findElement(By.xpath("//div[@class='vdatetime-popup__actions__button vdatetime-popup__actions__button--confirm']")).click();
 
@@ -129,7 +128,7 @@ public class Create_Meeting extends AdminLogin {
 		
 		WebElement template = driver.findElement(By.xpath("(//div[@role='list'])[1]"));
 		
-		template.findElement(By.xpath("//div[@class='v-list__tile__title'][normalize-space()='"+Template+"']")).click();
+		template.findElement(By.xpath("//div[@class='v-list__tile__title'][normalize-space()='"+meeting_Template+"']")).click();
 		
 		
 	// Create Meeting
@@ -137,6 +136,9 @@ public class Create_Meeting extends AdminLogin {
 		driver.findElement(By.xpath("//div[normalize-space()='Create']")).click();
 		
 		Thread.sleep(1000);
+		
+		driver.findElement(By.xpath("//div[contains(text(),'CRM')]")).click();
+
 		
 	}
 	
@@ -156,17 +158,17 @@ public class Create_Meeting extends AdminLogin {
 		
 		WebElement Title = driver.findElement(By.xpath("(//div[@role='list'])[8]"));
 		
-		Title.findElement(By.xpath("(//div[contains(text(),'"+MeetingTitle2+"')])[1]")).click();
+		Title.findElement(By.xpath("(//div[contains(text(),'"+meeting_Title2+"')])[1]")).click();
 		
 		MeetingPopup.click();
 		
-		driver.findElement(By.xpath("//input[@aria-label='Title']")).sendKeys(OthersTitle);
+		driver.findElement(By.xpath("//input[@aria-label='Title']")).sendKeys(others_Title);
 		
 		MeetingPopup.click();
 		
 	//Description
 		
-		driver.findElement(By.xpath("(//input[@aria-label='Description'])[2]")).sendKeys(Description);
+		driver.findElement(By.xpath("(//input[@aria-label='Description'])[2]")).sendKeys(description);
 		
 		MeetingPopup.click();
 
@@ -196,7 +198,7 @@ public class Create_Meeting extends AdminLogin {
 		
 		WebElement Date = driver.findElement(By.xpath("(//div[@class='vdatetime-popup'])[1]"));
 		
-		Date.findElement(By.xpath("(//span[contains(text(),'"+MeetingDate+"')])[1]")).click();
+		Date.findElement(By.xpath("(//span[contains(text(),'"+meeting_Date+"')])[1]")).click();
 		
 		driver.findElement(By.xpath("//div[@class='vdatetime-popup__actions__button vdatetime-popup__actions__button--confirm']")).click();
 
@@ -226,7 +228,7 @@ public class Create_Meeting extends AdminLogin {
 		
 		WebElement template = driver.findElement(By.xpath("(//div[@role='list'])[1]"));
 		
-		template.findElement(By.xpath("(//div[contains(text(),'"+Template+"')])[1]")).click();
+		template.findElement(By.xpath("(//div[contains(text(),'"+meeting_Template+"')])[1]")).click();
 		
 		
 	// Create Meeting
@@ -235,7 +237,8 @@ public class Create_Meeting extends AdminLogin {
 		
 		Thread.sleep(1000);
 
-		
+		driver.findElement(By.xpath("//div[contains(text(),'CRM')]")).click();
+
 	}
 	
 	@Test(priority = 2 ,enabled=true)
@@ -253,13 +256,13 @@ public class Create_Meeting extends AdminLogin {
 		
 		WebElement Title = driver.findElement(By.xpath("(//div[@role='list'])[8]"));
 		
-		Title.findElement(By.xpath("(//div[contains(text(),'"+MeetingTitle3+"')])[1]")).click();
+		Title.findElement(By.xpath("(//div[contains(text(),'"+meeting_Title3+"')])[1]")).click();
 		
 		MeetingPopup.click();
 		
 	//Description
 		
-		driver.findElement(By.xpath("(//input[@aria-label='Description'])[2]")).sendKeys(Description);
+		driver.findElement(By.xpath("(//input[@aria-label='Description'])[2]")).sendKeys(description);
 		
 		MeetingPopup.click();
 
@@ -289,7 +292,7 @@ public class Create_Meeting extends AdminLogin {
 		
 		WebElement Date = driver.findElement(By.xpath("(//div[@class='vdatetime-popup'])[1]"));
 		
-		Date.findElement(By.xpath("(//span[contains(text(),'"+MeetingDate+"')])[1]")).click();
+		Date.findElement(By.xpath("(//span[contains(text(),'"+meeting_Date+"')])[1]")).click();
 		
 		driver.findElement(By.xpath("//div[@class='vdatetime-popup__actions__button vdatetime-popup__actions__button--confirm']")).click();
 
@@ -317,7 +320,7 @@ public class Create_Meeting extends AdminLogin {
 		
 		WebElement template = driver.findElement(By.xpath("(//div[@role='list'])[1]"));
 		
-		template.findElement(By.xpath("//div[@class='v-list__tile__title'][normalize-space()='"+Template+"']")).click();
+		template.findElement(By.xpath("//div[@class='v-list__tile__title'][normalize-space()='"+meeting_Template+"']")).click();
 		
 		
 	// Create Meeting
@@ -326,6 +329,8 @@ public class Create_Meeting extends AdminLogin {
 		
 		Thread.sleep(1000);
 		
+		driver.findElement(By.xpath("//div[contains(text(),'CRM')]")).click();
+
 	}
 	
 	@Test(priority = 3 , enabled = true)
@@ -344,13 +349,13 @@ public class Create_Meeting extends AdminLogin {
 		
 		WebElement Title = driver.findElement(By.xpath("(//div[@role='list'])[8]"));
 		
-		Title.findElement(By.xpath("(//div[contains(text(),'"+MeetingTitle3+"')])[1]")).click();
+		Title.findElement(By.xpath("(//div[contains(text(),'"+meeting_Title3+"')])[1]")).click();
 		
 		MeetingPopup.click();
 		
 	//Description
 		
-		driver.findElement(By.xpath("(//input[@aria-label='Description'])[2]")).sendKeys(Description);
+		driver.findElement(By.xpath("(//input[@aria-label='Description'])[2]")).sendKeys(description);
 		
 		MeetingPopup.click();
 
@@ -380,7 +385,7 @@ public class Create_Meeting extends AdminLogin {
 		
 		WebElement Date = driver.findElement(By.xpath("(//div[@class='vdatetime-popup'])[1]"));
 		
-		Date.findElement(By.xpath("(//span[contains(text(),'"+MeetingDate+"')])[1]")).click();
+		Date.findElement(By.xpath("(//span[contains(text(),'"+meeting_Date+"')])[1]")).click();
 		
 		driver.findElement(By.xpath("//div[@class='vdatetime-popup__actions__button vdatetime-popup__actions__button--confirm']")).click();
 
@@ -408,7 +413,7 @@ public class Create_Meeting extends AdminLogin {
 		
 		WebElement template = driver.findElement(By.xpath("(//div[@role='list'])[1]"));
 		
-		template.findElement(By.xpath("//div[@class='v-list__tile__title'][normalize-space()='"+Template+"']")).click();
+		template.findElement(By.xpath("//div[@class='v-list__tile__title'][normalize-space()='"+meeting_Template+"']")).click();
 		
 		
 	// Create Meeting
@@ -416,6 +421,9 @@ public class Create_Meeting extends AdminLogin {
 		driver.findElement(By.xpath("//div[normalize-space()='Create']")).click();
 		
 		Thread.sleep(1000);
+		
+		driver.findElement(By.xpath("//div[contains(text(),'CRM')]")).click();
+
 	}
 	
 }

@@ -3,14 +3,14 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="CodeCheck.UserGroup">
+      <class name="Admin_UsersGroups_CreateFlow.Create_User">
         <methods>
-          <include name="Quit"/>
-          <include name="Update_UserGroupName"/>
-          <include name="Login"/>
           <include name="Setup"/>
+          <include name="Quit"/>
+          <include name="Create_User"/>
+          <include name="Login"/>
         </methods>
-      </class> <!-- CodeCheck.UserGroup -->
+      </class> <!-- Admin_UsersGroups_CreateFlow.Create_User -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

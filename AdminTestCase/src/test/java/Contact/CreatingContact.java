@@ -6,6 +6,7 @@ import java.awt.Robot;
 import java.awt.Toolkit;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
+import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -22,13 +23,17 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 public class CreatingContact extends AdminLogin{
 
 
+
 	
-	String ContactName = "Ibrahim";
+	String contact_Name = "Ibrahim";
 	
-	Long PhoneNumber = 9514380497L;
+	String phone_Number = "9090909091";
 	
-	String Expected = "Uploaded Successfully";
+	String expected = "Uploaded Successfully";
 	
+	String contact_Path ="D:\\Testing File\\Contact_list.csv";	 
+	
+	String expected_Value ="9090909090";
 	
 	@BeforeTest
 	public void SetUp() throws InterruptedException {
@@ -38,11 +43,14 @@ public class CreatingContact extends AdminLogin{
 		
 		Thread.sleep(1000);
 		
-		driver.findElement(By.xpath("//span[normalize-space()='Contacts']")).click();
+		driver.findElement(By.xpath("(//span[normalize-space()='Contacts'])[1]")).click();
 		
 	}
 	
-	@Test(priority = 0 , enabled = true)
+	
+
+	@Test(priority = 0,enabled = false)
+	
 	public void CreateContact() throws InterruptedException, AWTException {
 		
 		Robot rb = new Robot();
@@ -60,17 +68,16 @@ public class CreatingContact extends AdminLogin{
 		
 // Contact Name
 		
-		driver.findElement(By.xpath("//input[@placeholder='Name']")).sendKeys(ContactName);
+		driver.findElement(By.xpath("//input[@placeholder='Name']")).sendKeys(contact_Name);
 		
 // Contact Number		
 		
-		WebElement phno =driver.findElement(By.xpath("//input[@placeholder='PhoneNumber']"));
-		
-		phno.sendKeys(Long.toString(PhoneNumber));
+		driver.findElement(By.xpath("//input[@placeholder='PhoneNumber']")).sendKeys(phone_Number);
+
 		
 	}
 	
-	@Test(priority = 1,enabled = false)
+	@Test
 	public void UplodeContact() throws AWTException, InterruptedException {
 		
 		
@@ -86,7 +93,7 @@ public class CreatingContact extends AdminLogin{
 	
 		Robot rb = new Robot();
 		
-		StringSelection FilePath = new StringSelection("C:\\Users\\User\\Desktop\\ContactList.csv");
+		StringSelection FilePath = new StringSelection(contact_Path);
 		
 		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(FilePath, null);
 		
@@ -103,16 +110,42 @@ public class CreatingContact extends AdminLogin{
 		
 // Assertion
 		
-		Assert.assertEquals(driver.findElement(By.xpath("//div[@class='file-dummy']")).getText(), Expected);
+		Assert.assertEquals(driver.findElement(By.xpath("//div[@class='file-dummy']")).getText(), expected);
 		
+
 		
 // Close the Popup
 		
 		driver.findElement(By.xpath("//div[contains(text(),'Close')]")).click();
 		
+		driver.navigate().refresh();
+		
+		
+// Verification
+		
+		
+		List<WebElement> Alldatas = driver.findElements(By.xpath("//table[contains(@class,'v-datatable')]//tr//td[3]"));
+		
+		boolean flag = false;
+		
+		for(WebElement Data : Alldatas) {
+			
+			String value = Data.getText();
+			
+			if(value.contains(expected_Value)) {
+				
+				flag = true;
+				
+				break;
+				
+			}
+			
+			Assert.assertTrue(flag,"Contact is not Uploaded...!");
+		}
+		
+		
 		
 		
 	}
-	
 }
 

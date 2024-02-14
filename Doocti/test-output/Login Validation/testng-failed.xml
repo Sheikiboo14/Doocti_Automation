@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Login Validation]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="Queue Validation(failed)">
+    <parameter name="user_Campaign" value="106-testing"/>
+    <parameter name="user_Name" value="smibrahimagent07@doocti.com"/>
+    <parameter name="user_Queue1" value="smibrahim_8071893401"/>
+    <parameter name="user_Queue2" value="Test Queue"/>
+    <parameter name="user_Password" value="Doocti@123"/>
+    <parameter name="expected_Value" value="Please fill required fields"/>
+    <parameter name="URL" value="https://web-dev.doocti.com/v2.1.106/"/>
+    <classes>
+      <class name="AgentLogin.Queue_Validation">
+        <methods>
+          <include name="Setup"/>
+          <include name="withQueue" invocation-numbers="0"/>
+          <include name="Quit"/>
+        </methods>
+      </class> <!-- AgentLogin.Queue_Validation -->
+    </classes>
+  </test> <!-- Queue Validation(failed) -->
+</suite> <!-- Failed suite [Login Validation] -->

@@ -31,10 +31,10 @@
 		
 	<test name="User Updation">
 		
-		<parameter name="user_Email" value="smibrahim_agent03@doocti.com"/>
+		<parameter name="user_Email" value="developv2_agent03@doocti.com"/>
 		<parameter name="user_Status" value="Inactive"/>
-		<parameter name="mobileNo" value="9889898233"/>
-		<parameter name="user_Group" value="Quality"/>
+		<parameter name="mobileNo" value="277"/>
+		<parameter name="user_Group" value="developv2_admin"/>
 		<parameter name="user_Role" value="Administrator"/>
 		
 		<classes>
@@ -71,7 +71,7 @@
 	
 				<methods>
 					
-					<include name="Update_Status"></include>
+					<include name="Update_Status"/>
 				
 				</methods>
 			
@@ -92,7 +92,7 @@
 	
 				<methods>
 
-					<include name="Update_Source"></include>
+					<include name="Update_Source"/>
 	
 				</methods>
 	
@@ -113,7 +113,7 @@
 		
 				<methods>
 
-					<include name="Update_Team"></include>
+					<include name="Update_Team"/>
 				
 				</methods>
 			

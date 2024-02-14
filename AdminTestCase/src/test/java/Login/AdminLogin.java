@@ -1,9 +1,13 @@
 package Login;
 
+import java.time.Duration;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 
@@ -13,7 +17,7 @@ public class AdminLogin {
 
 //Login Credentials
 	
-	String URL ="https://console-v2.doocti.com/v2.1.105/";
+	String URL ="https://portal-dev.doocti.com/v2.1.106/";
 
 	String AdminEmail = "smibrahim_admin@doocti.com";
 	
@@ -199,6 +203,8 @@ public class AdminLogin {
 		
 							*/
 
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+
 		driver.manage().window().maximize();
 		
 		driver.get(URL);
@@ -208,8 +214,8 @@ public class AdminLogin {
 		driver.findElement(By.xpath("//input[@aria-label='Password']")).sendKeys(AdminPassword);
 		
 		driver.findElement(By.xpath("//div[contains(text(),'Login')]")).click();
-		
-		Thread.sleep(10000);
+				
+		wait.until(ExpectedConditions.urlToBe("https://portal-dev.doocti.com/v2.1.106/realtime/live-agents"));
 
 		driver.navigate().refresh();
 		

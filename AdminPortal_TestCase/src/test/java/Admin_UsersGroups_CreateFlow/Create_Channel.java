@@ -1,9 +1,12 @@
 package Admin_UsersGroups_CreateFlow;
 
+import java.time.Duration;
 import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
@@ -21,9 +24,11 @@ public class Create_Channel extends AdminLogin {
 	@BeforeMethod
 	public void Setip() throws InterruptedException {
 		
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+		
 		driver.findElement(By.xpath("//div[contains(text(),'Users & Groups')]")).click();
 		
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//span[normalize-space()='Channel'])[1]")));
 		
 		//Going to Channel Page
 		
@@ -36,12 +41,13 @@ public class Create_Channel extends AdminLogin {
 	@Test
 	public void Create_Channel(String channel_name,String channel_description) throws InterruptedException {
 		
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 	
 	// Add Channel Popup
 		
 		driver.findElement(By.xpath("//div[normalize-space()='Add Channel']")).click();
 	
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//input[@aria-label='Name'])[2]")));
 	
 	// Channel Name
 		
@@ -55,7 +61,7 @@ public class Create_Channel extends AdminLogin {
 		
 		driver.findElement(By.xpath("(//div[normalize-space()='Create'])[1]")).click();
 		
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//div[@class='v-btn__content'][normalize-space()='Close'])[3]")));
 		
 	//Close Snakbar
 		
@@ -66,9 +72,7 @@ public class Create_Channel extends AdminLogin {
 		Thread.sleep(1000);
 		
 	      List<WebElement> Alldatas = driver.findElements(By.xpath("//table[@class='v-datatable v-table theme--light']//tr//td[1]"));
-	
-//	      System.out.println(Alldatas.size());
-	      
+		      
 	      boolean flag = false;
 	      
 	      for(WebElement Data : Alldatas) {

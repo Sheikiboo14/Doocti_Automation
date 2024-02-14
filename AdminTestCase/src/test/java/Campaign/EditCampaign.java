@@ -36,33 +36,18 @@ public class EditCampaign extends AdminLogin{
 	String script = "Demo";
 	
 	@BeforeMethod
-	public void Setup() throws InterruptedException {
+	public void Setup()  {
 		
 		driver.findElement(By.xpath("//div[contains(text(),'CRM')]")).click();
-		
-		Thread.sleep(1000);
-		
+				
 		driver.findElement(By.xpath("//span[normalize-space()='Campaigns']")).click();
 		
-		Thread.sleep(1000);
-		
-		driver.findElement(By.xpath("//button[@title='Filter']")).click();
-		
-		Thread.sleep(1000);
-		
-		// Filter with name 
-		
-		driver.findElement(By.xpath("(//input[@aria-label='Name'])[3]")).click();
-		
-		Thread.sleep(1000);
-		
-		WebElement NameList = driver.findElement(By.xpath("(//div[@role='list'])[6]"));
-		
-		NameList.findElement(By.xpath("//div[contains(text(),'"+EditCampaignName+"')]")).click();
-		
-		driver.findElement(By.xpath("//div[@class='v-btn__content'][normalize-space()='Filter']")).click();
-		
-		Thread.sleep(1000);
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 	
 	}

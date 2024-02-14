@@ -1,10 +1,13 @@
 package Admin_UsersGroups_CreateFlow;
 
+import java.time.Duration;
 import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
@@ -19,9 +22,11 @@ public class Create_UserGroup extends AdminLogin {
 	@BeforeMethod
 	public void Setup() throws InterruptedException {
 		
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+
 		driver.findElement(By.xpath("(//div[contains(text(),'Users & Groups')])[1]")).click();
 		
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//span[normalize-space()='User Group'])[1]")));
 		
 		driver.findElement(By.xpath("(//span[normalize-space()='User Group'])[1]")).click();
 	
@@ -32,13 +37,15 @@ public class Create_UserGroup extends AdminLogin {
 	@Test
 	public void Create_UserGroup(String usergroup_name) throws InterruptedException {
 	
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+
 		Actions action = new Actions(driver);
 		
 		// Add Group Name
 		
 		driver.findElement(By.xpath("(//i[@class='v-icon add_circle v-icon--link material-icons theme--light green--text'])[1]")).click();
 		
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//input[@aria-label='New Group'])[1]")));
 		
 		// Group Name
 		
@@ -48,17 +55,17 @@ public class Create_UserGroup extends AdminLogin {
 		
 		driver.findElement(By.xpath("(//div[normalize-space()='Save'])[1]")).click();
 		
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//div[normalize-space()='Close'])[1]")));
 		
 		//Close Snakbar
 		
 		driver.findElement(By.xpath("(//div[normalize-space()='Close'])[1]")).click();
 		
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//div[@class='v-select__selections'])[1]")));
 		
 		driver.findElement(By.xpath("(//div[@class='v-select__selections'])[1]")).click();
 		
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//div[@class='v-list theme--light'])[1]")));
 		
 		WebElement GroupList = driver.findElement(By.xpath("(//div[@class='v-list theme--light'])[1]"));
 		
@@ -74,7 +81,7 @@ public class Create_UserGroup extends AdminLogin {
 		
 		driver.findElement(By.xpath("(//div[contains(text(),'Live Agents')])[1]")).click();
 		
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//input[@type='checkbox'])[2]")));
 		
 		driver.findElement(By.xpath("(//input[@type='checkbox'])[2]")).click();
 		
@@ -82,7 +89,7 @@ public class Create_UserGroup extends AdminLogin {
 		
 		driver.findElement(By.xpath("(//div[contains(text(),'Live Calls')])[1]")).click();
 		
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//input[@type='checkbox'])[7]")));
 		
 		driver.findElement(By.xpath("(//input[@type='checkbox'])[7]")).click();
 		
@@ -90,7 +97,7 @@ public class Create_UserGroup extends AdminLogin {
 		
 		driver.findElement(By.xpath("(//div[contains(text(),'Live Status')])[1]")).click();
 		
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//input[@id='event.name'])[3]")));
 		
 		driver.findElement(By.xpath("(//input[@id='event.name'])[3]")).click();
 		
@@ -102,7 +109,7 @@ public class Create_UserGroup extends AdminLogin {
 		
 		driver.findElement(By.xpath("(//div[contains(text(),'Recording')])[1]")).click();
 		
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//input[@type='checkbox'])[2]")));
 		
 		driver.findElement(By.xpath("(//input[@type='checkbox'])[2]")).click();
 		
@@ -110,7 +117,7 @@ public class Create_UserGroup extends AdminLogin {
 		
 		driver.findElement(By.xpath("(//div[contains(text(),'Call Detail')])[1]")).click();
 		
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//input[@type='checkbox'])[5]")));
 		
 		driver.findElement(By.xpath("(//input[@type='checkbox'])[5]")).click();
 	
@@ -118,7 +125,7 @@ public class Create_UserGroup extends AdminLogin {
 		
 		driver.findElement(By.xpath("(//div[contains(text(),'Agent Performance')])[1]")).click();
 		
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//input[@type='checkbox'])[8]")));
 		
 		driver.findElement(By.xpath("(//input[@type='checkbox'])[8]")).click();
 		
@@ -126,7 +133,7 @@ public class Create_UserGroup extends AdminLogin {
 		
 		driver.findElement(By.xpath("(//div[contains(text(),'Agent Activity')])[1]")).click();
 		
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//input[@type='checkbox'])[11]")));
 		
 		driver.findElement(By.xpath("(//input[@type='checkbox'])[11]")).click();
 		
@@ -134,7 +141,7 @@ public class Create_UserGroup extends AdminLogin {
 		
 		driver.findElement(By.xpath("(//div[contains(text(),'Queue Performance')])[1]")).click();
 		
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//input[@type='checkbox'])[14]")));
 		
 		driver.findElement(By.xpath("(//input[@type='checkbox'])[14]")).click();
 
@@ -142,7 +149,7 @@ public class Create_UserGroup extends AdminLogin {
 		
 		driver.findElement(By.xpath("(//div[contains(text(),'Missed Call')])[1]")).click();
 		
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//input[@type='checkbox'])[17]")));
 		
 		driver.findElement(By.xpath("(//input[@type='checkbox'])[17]")).click();
 		
@@ -150,7 +157,7 @@ public class Create_UserGroup extends AdminLogin {
 		
 		driver.findElement(By.xpath("(//div[contains(text(),'Droped Call')])[1]")).click();
 		
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//input[@type='checkbox'])[20]")));
 		
 		driver.findElement(By.xpath("(//input[@type='checkbox'])[20]")).click();
 
@@ -158,7 +165,7 @@ public class Create_UserGroup extends AdminLogin {
 		
 		driver.findElement(By.xpath("(//div[contains(text(),'Agent Pause')])[1]")).click();
 		
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//input[@type='checkbox'])[22]")));
 		
 		driver.findElement(By.xpath("(//input[@type='checkbox'])[22]")).click();
 		
@@ -166,7 +173,7 @@ public class Create_UserGroup extends AdminLogin {
 		
 		driver.findElement(By.xpath("(//div[contains(text(),'Agent Dispo')])[1]")).click();
 		
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//input[@type='checkbox'])[25]")));
 		
 		driver.findElement(By.xpath("(//input[@type='checkbox'])[25]")).click();
 		
@@ -174,7 +181,7 @@ public class Create_UserGroup extends AdminLogin {
 		
 		driver.findElement(By.xpath("(//div[contains(text(),'Abandoned Summary')])[1]")).click();
 		
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//input[@type='checkbox'])[28]")));
 		
 		driver.findElement(By.xpath("(//input[@type='checkbox'])[28]")).click();
 		
@@ -182,7 +189,7 @@ public class Create_UserGroup extends AdminLogin {
 		
 		driver.findElement(By.xpath("(//div[contains(text(),'Effective Abandon')])[1]")).click();
 		
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//input[@type='checkbox'])[31]")));
 		
 		driver.findElement(By.xpath("(//input[@type='checkbox'])[31]")).click();
 		
@@ -190,7 +197,7 @@ public class Create_UserGroup extends AdminLogin {
 		
 		driver.findElement(By.xpath("(//div[contains(text(),'Call Summary')])[1]")).click();
 		
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//input[@type='checkbox'])[34]")));
 		
 		driver.findElement(By.xpath("(//input[@type='checkbox'])[34]")).click();
 		
@@ -198,7 +205,7 @@ public class Create_UserGroup extends AdminLogin {
 		
 		driver.findElement(By.xpath("(//div[contains(text(),'Ticket By Agent')])[1]")).click();
 		
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//input[@type='checkbox'])[37]")));
 		
 		driver.findElement(By.xpath("(//input[@type='checkbox'])[37]")).click();
 		
@@ -206,7 +213,7 @@ public class Create_UserGroup extends AdminLogin {
 		
 		driver.findElement(By.xpath("(//div[contains(text(),'Whatsapp By Agent')])[1]")).click();
 		
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//input[@type='checkbox'])[40]")));
 		
 		driver.findElement(By.xpath("(//input[@type='checkbox'])[40]")).click();
 		
@@ -214,7 +221,7 @@ public class Create_UserGroup extends AdminLogin {
 		
 		driver.findElement(By.xpath("(//div[contains(text(),'Whatsappchatlog')])[1]")).click();
 		
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//input[@type='checkbox'])[43]")));
 		
 		driver.findElement(By.xpath("(//input[@type='checkbox'])[43]")).click();
 		
@@ -222,7 +229,7 @@ public class Create_UserGroup extends AdminLogin {
 		
 		driver.findElement(By.xpath("(//div[contains(text(),'Whatsappdetail')])[1]")).click();
 		
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//input[@type='checkbox'])[46]")));
 		
 		driver.findElement(By.xpath("(//input[@type='checkbox'])[46]")).click();
 		
@@ -234,7 +241,7 @@ public class Create_UserGroup extends AdminLogin {
 		
 		driver.findElement(By.xpath("(//div[@class='sub-menu'][normalize-space()='User'])[1]")).click();
 		
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//input[@type='checkbox'])[2]")));
 		
 		driver.findElement(By.xpath("(//input[@type='checkbox'])[2]")).click();
 		
@@ -242,7 +249,7 @@ public class Create_UserGroup extends AdminLogin {
 		
 		driver.findElement(By.xpath("(//div[contains(text(),'Queue')])[1]")).click();
 		
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//input[@type='checkbox'])[8]")));
 		
 		driver.findElement(By.xpath("(//input[@type='checkbox'])[8]")).click();
 		
@@ -250,7 +257,7 @@ public class Create_UserGroup extends AdminLogin {
 		
 		driver.findElement(By.xpath("(//div[contains(text(),'Tags')])[1]")).click();
 		
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//input[@type='checkbox'])[10]")));
 		
 		driver.findElement(By.xpath("(//input[@type='checkbox'])[10]")).click();
 		
@@ -258,7 +265,7 @@ public class Create_UserGroup extends AdminLogin {
 		
 		driver.findElement(By.xpath("(//div[contains(text(),'Team')])[1]")).click();
 		
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//input[@type='checkbox'])[12]")));
 		
 		driver.findElement(By.xpath("(//input[@type='checkbox'])[12]")).click();
 		
@@ -266,7 +273,7 @@ public class Create_UserGroup extends AdminLogin {
 		
 		driver.findElement(By.xpath("(//div[contains(text(),'Channel')])[1]")).click();
 		
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//input[@type='checkbox'])[17]")));
 		
 		driver.findElement(By.xpath("(//input[@type='checkbox'])[17]")).click();
 		
@@ -274,7 +281,7 @@ public class Create_UserGroup extends AdminLogin {
 		
 		driver.findElement(By.xpath("(//div[contains(text(),'Source')])[1]")).click();
 		
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//input[@type='checkbox'])[22]")));
 		
 		driver.findElement(By.xpath("(//input[@type='checkbox'])[22]")).click();
 		
@@ -286,7 +293,7 @@ public class Create_UserGroup extends AdminLogin {
 		
 		driver.findElement(By.xpath("(//div[@class='sub-menu'][normalize-space()='User Group'])[1]")).click();
 		
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//input[@type='checkbox'])[6]")));
 		
 		driver.findElement(By.xpath("(//input[@type='checkbox'])[6]")).click();
 		
@@ -294,7 +301,7 @@ public class Create_UserGroup extends AdminLogin {
 		
 		driver.findElement(By.xpath("(//div[contains(text(),'Pause Code')])[1]")).click();
 		
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//input[@type='checkbox'])[11]")));
 		
 		driver.findElement(By.xpath("(//input[@type='checkbox'])[11]")).click();
 		
@@ -302,7 +309,7 @@ public class Create_UserGroup extends AdminLogin {
 		
 		driver.findElement(By.xpath("(//div[@class='sub-menu'][normalize-space()='Disposition'])[1]")).click();
 		
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//input[@type='checkbox'])[16]")));
 		
 		driver.findElement(By.xpath("(//input[@type='checkbox'])[16]")).click();
 		
@@ -310,7 +317,7 @@ public class Create_UserGroup extends AdminLogin {
 		
 		driver.findElement(By.xpath("(//div[contains(text(),'Audio Store')])[1]")).click();
 		
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//input[@type='checkbox'])[21]")));
 		
 		driver.findElement(By.xpath("(//input[@type='checkbox'])[21]")).click();
 		
@@ -318,7 +325,7 @@ public class Create_UserGroup extends AdminLogin {
 		
 		driver.findElement(By.xpath("(//div[contains(text(),'Block List')])[1]")).click();
 		
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//input[@type='checkbox'])[26]")));
 		
 		driver.findElement(By.xpath("(//input[@type='checkbox'])[26]")).click();
 		
@@ -326,7 +333,7 @@ public class Create_UserGroup extends AdminLogin {
 		
 		driver.findElement(By.xpath("(//div[contains(text(),'Inbound Route')])[1]")).click();
 		
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//input[@type='checkbox'])[32]")));
 		
 		driver.findElement(By.xpath("(//input[@type='checkbox'])[32]")).click();
 		
@@ -334,7 +341,7 @@ public class Create_UserGroup extends AdminLogin {
 		
 		driver.findElement(By.xpath("(//div[contains(text(),'Sub-Disposition')])[1]")).click();
 		
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//input[@type='checkbox'])[42]")));
 		
 		driver.findElement(By.xpath("(//input[@type='checkbox'])[42]")).click();
 		
@@ -342,7 +349,7 @@ public class Create_UserGroup extends AdminLogin {
 		
 		driver.findElement(By.xpath("(//div[contains(text(),'Announcement')])[1]")).click();
 		
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//input[@type='checkbox'])[47]")));
 		
 		driver.findElement(By.xpath("(//input[@type='checkbox'])[47]")).click();
 		
@@ -350,7 +357,7 @@ public class Create_UserGroup extends AdminLogin {
 		
 		driver.findElement(By.xpath("(//div[contains(text(),'Script')])[1]")).click();
 		
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//input[@type='checkbox'])[52]")));
 		
 		driver.findElement(By.xpath("(//input[@type='checkbox'])[52]")).click();
 		
@@ -358,7 +365,7 @@ public class Create_UserGroup extends AdminLogin {
 		
 		driver.findElement(By.xpath("(//div[contains(text(),'DID Number')])[1]")).click();
 		
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//input[@type='checkbox'])[67]")));
 		
 		driver.findElement(By.xpath("(//input[@type='checkbox'])[67]")).click();
 		
@@ -366,7 +373,7 @@ public class Create_UserGroup extends AdminLogin {
 		
 		driver.findElement(By.xpath("(//div[contains(text(),'Lead Status')])[1]")).click();
 		
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//input[@type='checkbox'])[73]")));
 		
 		driver.findElement(By.xpath("(//input[@type='checkbox'])[73]")).click();
 	
@@ -374,7 +381,7 @@ public class Create_UserGroup extends AdminLogin {
 		
 		driver.findElement(By.xpath("(//div[contains(text(),'Ticketstatus')])[1]")).click();
 		
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//input[@type='checkbox'])[88]")));
 		
 		driver.findElement(By.xpath("(//input[@type='checkbox'])[88]")).click();
 		
@@ -386,7 +393,7 @@ public class Create_UserGroup extends AdminLogin {
 		
 		driver.findElement(By.xpath("(//div[contains(text(),'Tickets')])[1]")).click();
 		
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//input[@type='checkbox'])[2]")));
 		
 		driver.findElement(By.xpath("(//input[@type='checkbox'])[2]")).click();
 		
@@ -394,7 +401,7 @@ public class Create_UserGroup extends AdminLogin {
 		
 		driver.findElement(By.xpath("(//div[contains(text(),'Contacts')])[1]")).click();
 		
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//input[@type='checkbox'])[9]")));
 		
 		driver.findElement(By.xpath("(//input[@type='checkbox'])[9]")).click();
 		
@@ -402,7 +409,7 @@ public class Create_UserGroup extends AdminLogin {
 		
 		driver.findElement(By.xpath("(//div[contains(text(),'Campaigns')])[1]")).click();
 		
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//input[@type='checkbox'])[16]")));
 		
 		driver.findElement(By.xpath("(//input[@type='checkbox'])[16]")).click();
 		
@@ -410,7 +417,7 @@ public class Create_UserGroup extends AdminLogin {
 		
 		driver.findElement(By.xpath("(//div[contains(text(),'List')])[1]")).click();
 		
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//input[@type='checkbox'])[21]")));
 		
 		driver.findElement(By.xpath("(//input[@type='checkbox'])[21]")).click();
 		
@@ -418,7 +425,7 @@ public class Create_UserGroup extends AdminLogin {
 		
 		driver.findElement(By.xpath("(//div[@class='sub-menu'][normalize-space()='Lead'])[1]")).click();
 		
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//input[@type='checkbox'])[27]")));
 		
 		driver.findElement(By.xpath("(//input[@type='checkbox'])[27]")).click();
 		
@@ -426,7 +433,7 @@ public class Create_UserGroup extends AdminLogin {
 		
 		driver.findElement(By.xpath("(//div[contains(text(),'Custom Form')])[1]")).click();
 		
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//input[@type='checkbox'])[36]")));
 		
 		driver.findElement(By.xpath("(//input[@type='checkbox'])[36]")).click();
 		
@@ -434,7 +441,7 @@ public class Create_UserGroup extends AdminLogin {
 		
 		driver.findElement(By.xpath("(//div[contains(text(),'Token Generation')])[1]")).click();
 		
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//input[@type='checkbox'])[41]")));
 		
 		driver.findElement(By.xpath("(//input[@type='checkbox'])[41]")).click();
 		
@@ -442,7 +449,7 @@ public class Create_UserGroup extends AdminLogin {
 		
 		driver.findElement(By.xpath("(//div[contains(text(),'Meetings')])[1]")).click();
 		
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//input[@type='checkbox'])[43]")));
 		
 		driver.findElement(By.xpath("(//input[@type='checkbox'])[43]")).click();
 		
@@ -454,7 +461,7 @@ public class Create_UserGroup extends AdminLogin {
 		
 		driver.findElement(By.xpath("(//div[@class='sub-menu'])[1]")).click();
 		
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//input[@id='event.name'])[1]")));
 		
 		driver.findElement(By.xpath("(//input[@id='event.name'])[1]")).click();
 		
@@ -462,17 +469,17 @@ public class Create_UserGroup extends AdminLogin {
 		
 		driver.findElement(By.xpath("(//i[@class='v-icon saveIcon v-icon--link material-icons theme--light'])[1]")).click();
 		
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//div[normalize-space()='Yes, Save !'])[1]")));
 		
 		driver.findElement(By.xpath("(//div[normalize-space()='Yes, Save !'])[1]")).click();
 		
-		Thread.sleep(3000);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//div[normalize-space()='Close'])[1]")));
 		
 	//Close Snakbar
 		
 		driver.findElement(By.xpath("(//div[normalize-space()='Close'])[1]")).click();
 		
-		Thread.sleep(1000);	
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//input[@aria-label='Group']")));
 		
 	//Verifiaction
 		

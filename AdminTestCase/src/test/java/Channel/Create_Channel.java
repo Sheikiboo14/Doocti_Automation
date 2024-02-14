@@ -1,9 +1,12 @@
 package Channel;
 
+import java.time.Duration;
 import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -20,9 +23,13 @@ public class Create_Channel extends AdminLogin {
 	@BeforeMethod
 	public void Setip() throws InterruptedException {
 		
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+		
 		driver.findElement(By.xpath("//div[contains(text(),'Users & Groups')]")).click();
 		
-		Thread.sleep(1000);
+//		Thread.sleep(1000);
+		
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//span[normalize-space()='Channel'])[1]")));
 		
 		//Going to Channel Page
 		
@@ -34,12 +41,15 @@ public class Create_Channel extends AdminLogin {
 	@Test(priority = 0)
 	public void Create_Channel() throws InterruptedException {
 		
-	
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+		
 	// Add Channel Popup
 		
 		driver.findElement(By.xpath("//div[normalize-space()='Add Channel']")).click();
+		
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//input[@aria-label='Name'])[2]")));
 	
-		Thread.sleep(1000);
+//		Thread.sleep(1000);
 	
 	// Channel Name
 		
@@ -53,7 +63,9 @@ public class Create_Channel extends AdminLogin {
 		
 		driver.findElement(By.xpath("(//div[normalize-space()='Create'])[1]")).click();
 		
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//div[@class='v-btn__content'][normalize-space()='Close'])[3]")));
+		
+//		Thread.sleep(1000);
 		
 	//Close Snakbar
 		
@@ -85,9 +97,7 @@ public class Create_Channel extends AdminLogin {
 	
 }
 	
-		      
-//	      driver.findElement(By.xpath("//td[text()='Mail']//following-sibling::td[3]//i[@class='v-icon mr-4 v-icon--link material-icons theme--light blue--text']")).click();
-	
+		      	
 
 
 

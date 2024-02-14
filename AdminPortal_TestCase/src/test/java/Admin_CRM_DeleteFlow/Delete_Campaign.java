@@ -6,13 +6,14 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import Login.AdminLogin;
 
 public class Delete_Campaign extends AdminLogin{
 	
-	String campaign_Name ="Preview 2";
+//	String campaign_Name ="Preview 2";
 	
 	
 	@BeforeTest
@@ -37,8 +38,9 @@ public class Delete_Campaign extends AdminLogin{
 
 	}
 	
+	@Parameters({"campaign_Name"})
 	@Test
-	public void Delete_Campaign() throws InterruptedException{
+	public void Delete_Campaign(String campaign_Name) throws InterruptedException{
 		
 		// Delete Campaign
 		

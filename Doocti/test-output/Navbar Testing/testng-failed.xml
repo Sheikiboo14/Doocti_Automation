@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Navbar Testing]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="Lead Page Testing(failed)">
+    <parameter name="leadpage_Url" value="https://web-dev.doocti.com/v2.1.106/leads"/>
+    <parameter name="dashboard_Url" value="https://web-dev.doocti.com/v2.1.106/dashboard"/>
+    <classes>
+      <class name="AgentLogin.Navbar_Testing">
+        <methods>
+          <include name="Lead_Page" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- AgentLogin.Navbar_Testing -->
+    </classes>
+  </test> <!-- Lead Page Testing(failed) -->
+</suite> <!-- Failed suite [Navbar Testing] -->

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Contact Flow Testing">
+	
+	<test name="Contact Uplode">
+		
+		<parameter name="contact_Path" value="D:\\Testing File\\Contact_list.csv"/>
+		<parameter name="contact_Name" value="Ibrahim"/>
+		<parameter name="phone_Number" value="9090909091"/>
+		<parameter name="expected" value="Uploaded Successfully"/>
+		<parameter name="expected_Value" value="9090909090"/>
+		<classes>
+			<class name="Contact.CreatingContact">
+				<methods>
+					<include name="UplodeContact"/>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	<test name="Contact Delete">
+		<classes>
+			<class name="Contact.Delete_Contact">
+				<methods>
+					<include name="Delete_Contact"/>
+					<include name="BulkDelete_Contact"/>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+</suite>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="CRM Deletion Flow Testing">
+	
+	<test name="Preview Campaign Deletion">
+		
+		<parameter name="campaign_Name" value="Preview Campaign"/>	
+		<classes>
+			<class name="Admin_CRM_DeleteFlow.Delete_Campaign">
+				<methods>
+					<include name="Delete_Campaign"/>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+		<test name="Inbound Campaign Deletion">
+		
+		<parameter name="campaign_Name" value="Inbound Campaign"/>	
+		<classes>
+			<class name="Admin_CRM_DeleteFlow.Delete_Campaign">
+				<methods>
+					<include name="Delete_Campaign"/>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+		<test name="Predictive Campaign Deletion">
+		
+		<parameter name="campaign_Name" value="Predictive Campaign"/>	
+		<classes>
+			<class name="Admin_CRM_DeleteFlow.Delete_Campaign">
+				<methods>
+					<include name="Delete_Campaign"/>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+		<test name="Power Campaign Deletion">
+		
+		<parameter name="campaign_Name" value="Power Campaign"/>	
+		<classes>
+			<class name="Admin_CRM_DeleteFlow.Delete_Campaign">
+				<methods>
+					<include name="Delete_Campaign"/>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+		<test name="VoiceBlast Campaign Deletion">
+		
+		<parameter name="campaign_Name" value="VoiceBlast Campaign"/>	
+		<classes>
+			<class name="Admin_CRM_DeleteFlow.Delete_Campaign">
+				<methods>
+					<include name="Delete_Campaign"/>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<!-- 
+	
+	<test name="List Deletion">
+		<parameter name="list_Id" value="125"/>
+		<classes>
+			<class name="Admin_CRM_DeleteFlow.Delete_List">
+				<methods>
+					<include name="Delete_List"/>
+				</methods>
+			</class>
+		</classes>
+	</test>	
+	-->
+	
+</suite>

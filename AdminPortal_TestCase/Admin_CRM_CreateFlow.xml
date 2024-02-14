@@ -115,7 +115,7 @@
 		<classes>
 			<class name="Admin_CRM_CreateFlow.CreatingPowerCampaign">
 				<methods>
-					<include name="CreatingPowerCampaign"/>
+					<include name="Create_PowerCampaign"/>
 				</methods>
 			</class>
 		</classes>

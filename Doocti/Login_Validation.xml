@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="Login Validation">
+	
+	<test name="Login Page Validation">
+				
+	<parameter name="URL" value="https://web-dev.doocti.com/v2.1.106/"/>
+	<parameter name="user_Name1" value="smibrahimagent@doocti.com"/>
+	<parameter name="user_Name2" value="smibrahimagent07@doocti"/>
+	<parameter name="user_Name3" value="smibrahimagent07@"/>
+	<parameter name="user_Name4" value="smibrahimagent07@doocti.com"/>
+	<parameter name="user_Password" value="Doocti@123"/>
+	<parameter name="invalid_Password" value="Doocti@12"/>
+	<parameter name="expected_URL" value="https://web-dev.doocti.com/v2.1.106/select"/>
+		
+		<classes>
+			<class name="AgentLogin.Login_Validation">
+				<methods>
+					<include name="Email_Validation1"/>
+					<include name="Email_Validation2"/>
+					<include name="Email_Validation3"/>
+					<include name="Email_Validation4"/>
+					<include name="Password_Validation"/>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	<test name="Campaign Validation">
+		
+	<parameter name="URL" value="https://web-dev.doocti.com/v2.1.106/"/>
+	<parameter name="user_Name" value="smibrahimagent07@doocti.com"/>
+	<parameter name="user_Password" value="Doocti@123"/>
+	<parameter name="user_Campaign" value="106-testing"/>
+	<parameter name="user_Queue" value="smibrahim_8071893401"/>
+		
+		<classes>
+			<class name="AgentLogin.Campaign_Validation">
+				<methods>
+					<include name="NoCampaign"/>
+					<include name="WithCampaign"/>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	<test name="Queue Validation">
+	
+	<parameter name="URL" value="https://web-dev.doocti.com/v2.1.106/"/>
+	<parameter name="user_Name" value="smibrahimagent07@doocti.com"/>
+	<parameter name="user_Password" value="Doocti@123"/>
+	<parameter name="user_Campaign" value="106-testing"/>
+	<parameter name="user_Queue1" value="smibrahim_8071893401"/>
+	<parameter name="user_Queue2" value="Test Queue"/>
+	<parameter name="expected_Value" value="Please fill required fields"/>	
+		<classes>
+			<class name="AgentLogin.Queue_Validation">
+				<methods>
+					<include name="withoutQueue"/>
+					<include name="MultipleQueue"/>
+					<include name="withQueue"/>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+</suite>

@@ -128,7 +128,7 @@
 		<classes>
 			<class name="Admin_Configuration_CreateFlow.Create_Tags">
 				<methods>
-					<include name="Tags_Creation"></include>
+					<include name="Tags_Creation"/>
 				</methods>
 			</class>
 		</classes>
@@ -137,7 +137,7 @@
 	<test name="Announcemet Creation">
 		<parameter name="announcement_Name" value="QA"/>
 		<parameter name="announcement" value="Good Morning"/>
-		<parameter name="announcement_Campaign" value="Dialer"/>
+		<parameter name="announcement_Campaign" value="106-testing"/>
 		<classes>
 			<class name="Admin_Configuration_CreateFlow.Create_Announcement">
 				<methods>
@@ -447,11 +447,11 @@
 	</test>-->
 			
 	<test name="BlockList Deletion">
-		<parameter name="phno" value="9090909090"/>
+		<parameter name="phno" value="9090909091"/>
 		<classes>
 			<class name="Admin_Configuration_DeleteFlow.Delete_BlockList">
 				<methods>
-					<include name="BlockList_Delete"></include>
+					<include name="BlockList_Delete"/>
 				</methods>
 			</class>
 		</classes>

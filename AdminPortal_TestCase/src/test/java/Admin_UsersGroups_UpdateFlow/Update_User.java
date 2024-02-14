@@ -70,7 +70,7 @@ public class Update_User extends AdminLogin {
 
 		// User Status
 		
-		driver.findElement(By.xpath(" (//div[@class='v-input__slot'])[9]")).click();
+		driver.findElement(By.xpath("(//i[@aria-hidden='true'][normalize-space()='arrow_drop_down'])[4]")).click();
 		
 		Thread.sleep(1000);
 		
@@ -195,11 +195,11 @@ public class Update_User extends AdminLogin {
 		
 		// User User Group
 		
-		driver.findElement(By.xpath("(//div[@class='v-select__selections'])[2]")).click();
+		driver.findElement(By.xpath("(//i[@aria-hidden='true'][normalize-space()='arrow_drop_down'])[3]")).click();
 		
 		Thread.sleep(1000);
 		
-		WebElement UserStatus = driver.findElement(By.xpath("(//div[@role='list'])[4]"));
+		WebElement UserStatus = driver.findElement(By.xpath("(//div[@role='list'])[2]"));
 		
 		UserStatus.findElement(By.xpath("(//div[@class='v-list__tile__title'][normalize-space()='"+user_Group+"'])[1]")).click();
 
@@ -260,11 +260,11 @@ public class Update_User extends AdminLogin {
 		
 		// User User Role
 		
-		driver.findElement(By.xpath("(//i[@aria-hidden='true'][normalize-space()='arrow_drop_down'])[1]")).click();
+		driver.findElement(By.xpath("(//i[@aria-hidden='true'][normalize-space()='arrow_drop_down'])[2]")).click();
 		
 		Thread.sleep(1000);
 		
-		WebElement UserRole = driver.findElement(By.xpath("(//div[@role='list'])[5]"));
+		WebElement UserRole = driver.findElement(By.xpath("(//div[@role='list'])[3]"));
 		
 		UserRole.findElement(By.xpath("(//div[@class='v-list__tile__title'][normalize-space()='"+user_Role+"'])[1]")).click();
 

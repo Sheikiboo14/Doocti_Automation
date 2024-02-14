@@ -1,10 +1,13 @@
 package Admin_UsersGroups_CreateFlow;
 
+import java.time.Duration;
 import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
@@ -33,9 +36,11 @@ public class Create_Team extends AdminLogin {
 	@BeforeTest
 	public void Setip() throws InterruptedException {
 		
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+		
 		driver.findElement(By.xpath("//div[contains(text(),'Users & Groups')]")).click();
 		
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//span[normalize-space()='Team'])[1]")));
 		
 		//Going to Team Page
 		
@@ -49,6 +54,9 @@ public class Create_Team extends AdminLogin {
 	@Test
 	public void Create_Team(String team_name , String team_description , String team_type , String team_campaign ,String team_leadsource ,String team_channel , String team_user ) throws InterruptedException {
 		
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+
+		
 		// Opening Create Team Popup
 		
 		Actions action = new Actions(driver);
@@ -57,7 +65,7 @@ public class Create_Team extends AdminLogin {
 		
 		driver.findElement(By.xpath("(//div[normalize-space()='Add Team'])[1]")).click();
 		
-		Thread.sleep(1000);		
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//input[@aria-label='Name'])[2]")));
 
 		//Team Name
 		
@@ -90,7 +98,7 @@ public class Create_Team extends AdminLogin {
 			
 			driver.findElement(By.xpath("(//div[@class='v-select__selections'])[6]")).click();
 			
-			Thread.sleep(1000);
+			wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//div[@role='list'])[1]")));
 			
 			WebElement Lead_Source =driver.findElement(By.xpath("(//div[@role='list'])[1]"));
 			
@@ -101,7 +109,7 @@ public class Create_Team extends AdminLogin {
 			
 			driver.findElement(By.xpath("(//i[@aria-hidden='true'][normalize-space()='arrow_drop_down'])[7]")).click();
 			
-			Thread.sleep(1000);
+			wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//div[@role='list'])[8]")));
 			
 			WebElement CampaignList = driver.findElement(By.xpath("(//div[@role='list'])[8]"));
 			
@@ -114,7 +122,7 @@ public class Create_Team extends AdminLogin {
 			
 			driver.findElement(By.xpath("(//i[@class='v-icon material-icons theme--light'][normalize-space()='arrow_drop_down'])[8]")).click();
 			
-			Thread.sleep(1000);
+			wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//div[@role='list'])[7]")));
 			
 			WebElement UserList = driver.findElement(By.xpath("(//div[@role='list'])[7]"));
 			
@@ -127,7 +135,7 @@ public class Create_Team extends AdminLogin {
 			
 			driver.findElement(By.xpath("//div[normalize-space()='Create']")).click();
 			
-			Thread.sleep(5000);
+			wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//button[@class='v-btn v-btn--flat theme--light pink--text']//div[@class='v-btn__content'][normalize-space()='Close']")));
 			
 		// Close the Snakbar
 			
@@ -142,7 +150,7 @@ public class Create_Team extends AdminLogin {
 			
 			driver.findElement(By.xpath("(//div[@class='v-select__selections'])[6]")).click();
 			
-			Thread.sleep(1000);
+			wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//div[@role='list'])[1]")));
 			
 			WebElement ChannelList = driver.findElement(By.xpath("(//div[@role='list'])[1]"));
 			
@@ -153,7 +161,7 @@ public class Create_Team extends AdminLogin {
 			
 			driver.findElement(By.xpath("(//i[@aria-hidden='true'][normalize-space()='arrow_drop_down'])[7]")).click();
 			
-			Thread.sleep(1000);
+			wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//div[@role='list'])[8]")));
 			
 			WebElement CampaignList = driver.findElement(By.xpath("(//div[@role='list'])[8]"));
 			
@@ -166,7 +174,7 @@ public class Create_Team extends AdminLogin {
 			
 			driver.findElement(By.xpath("(//i[@class='v-icon material-icons theme--light'][normalize-space()='arrow_drop_down'])[8]")).click();
 			
-			Thread.sleep(1000);
+			wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//div[@role='list'])[7]")));
 			
 			WebElement UserList = driver.findElement(By.xpath("(//div[@role='list'])[7]"));
 			
@@ -179,7 +187,7 @@ public class Create_Team extends AdminLogin {
 			
 			driver.findElement(By.xpath("//div[normalize-space()='Create']")).click();
 			
-			Thread.sleep(5000);
+			wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//button[@class='v-btn v-btn--flat theme--light pink--text']//div[@class='v-btn__content'][normalize-space()='Close']")));
 			
 		// Close the Snakbar
 			
@@ -196,7 +204,7 @@ public class Create_Team extends AdminLogin {
 			
 			driver.findElement(By.xpath("(//i[@aria-hidden='true'][normalize-space()='arrow_drop_down'])[6]")).click();
 		
-			Thread.sleep(1000);
+			wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//div[@role='list'])[2]")));
 			
 			WebElement Lead = driver.findElement(By.xpath("(//div[@role='list'])[2]"));
 			
@@ -210,7 +218,7 @@ public class Create_Team extends AdminLogin {
 			
 			driver.findElement(By.xpath("(//i[@aria-hidden='true'][normalize-space()='arrow_drop_down'])[7]")).click();
 			
-			Thread.sleep(1000);
+			wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//div[@role='list'])[1]")));
 			
 			WebElement ChannelList = driver.findElement(By.xpath("(//div[@role='list'])[1]"));
 			
@@ -224,7 +232,7 @@ public class Create_Team extends AdminLogin {
 		
 		driver.findElement(By.xpath("(//i[@class='v-icon material-icons theme--light'][normalize-space()='arrow_drop_down'])[8]")).click();
 		
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//div[@role='list'])[8]")));
 		
 		WebElement CampaignList = driver.findElement(By.xpath("(//div[@role='list'])[8]"));
 		
@@ -237,7 +245,7 @@ public class Create_Team extends AdminLogin {
 		
 		driver.findElement(By.xpath("(//i[@class='v-icon material-icons theme--light'][normalize-space()='arrow_drop_down'])[9]")).click();
 		
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//div[@role='list'])[7]")));
 		
 		WebElement UserList = driver.findElement(By.xpath("(//div[@role='list'])[7]"));
 		
@@ -250,7 +258,7 @@ public class Create_Team extends AdminLogin {
 		
 		driver.findElement(By.xpath("//div[normalize-space()='Create']")).click();
 		
-		Thread.sleep(5000);
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//button[@class='v-btn v-btn--flat theme--light pink--text']//div[@class='v-btn__content'][normalize-space()='Close']")));
 		
 	// Close the Snakbar
 		
